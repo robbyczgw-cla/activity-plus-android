@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Checks every translation against values/strings.xml: same keys, same placeholders,
+"""Checks every translation against values/strings*.xml: same keys, same placeholders,
 plural forms present, apostrophes escaped. Exit code 1 on any problem.
 
     python3 -I scripts/l10n-check.py
@@ -15,15 +15,17 @@ PLACEHOLDER = re.compile(r"%(\d+\$)?[sd]")
 ONLY_OTHER = {"ja", "zh"}
 
 
-def load(path):
-    root = ET.parse(path).getroot()
+def load(folder):
+    """All strings*.xml of one values folder: features keep their texts in their own file."""
     strings, plurals = {}, {}
-    for el in root:
-        name = el.get("name")
-        if el.tag == "string" and el.get("translatable") != "false":
-            strings[name] = (el.text or "", el.get("formatted"))
-        elif el.tag == "plurals":
-            plurals[name] = {i.get("quantity"): i.text or "" for i in el}
+    for path in sorted(folder.glob("strings*.xml")):
+        root = ET.parse(path).getroot()
+        for el in root:
+            name = el.get("name")
+            if el.tag == "string" and el.get("translatable") != "false":
+                strings[name] = (el.text or "", el.get("formatted"))
+            elif el.tag == "plurals":
+                plurals[name] = {i.get("quantity"): i.text or "" for i in el}
     return strings, plurals
 
 
@@ -42,11 +44,11 @@ def raw_apostrophes(path):
 
 
 def main():
-    base_strings, base_plurals = load(RES / "values/strings.xml")
+    base_strings, base_plurals = load(RES / "values")
     problems = 0
-    for path in sorted(RES.glob("values-*/strings.xml")):
-        lang = path.parent.name.removeprefix("values-")
-        strings, plurals = load(path)
+    for folder in sorted(p for p in RES.glob("values-*") if any(p.glob("strings*.xml"))):
+        lang = folder.name.removeprefix("values-")
+        strings, plurals = load(folder)
         issues = []
         missing = set(base_strings) - set(strings)
         extra = set(strings) - set(base_strings)
@@ -75,9 +77,10 @@ def main():
             for q, text in got.items():
                 if placeholders(text) != placeholders(forms["other"]):
                     issues.append(f"plurals {key}/{q}: placeholders differ")
-        lines = raw_apostrophes(path)
-        if lines:
-            issues.append(f"unescaped apostrophe on lines {lines}")
+        for path in sorted(folder.glob("strings*.xml")):
+            lines = raw_apostrophes(path)
+            if lines:
+                issues.append(f"{path.name}: unescaped apostrophe on lines {lines}")
         print(f"{lang:8} {'ok' if not issues else f'{len(issues)} problem(s)'}")
         for i in issues:
             print(f"         {i}")
