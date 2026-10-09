@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weekly_title">Weekly report</string>
+    <string name="weekly_open">Open the weekly report</string>
+    <string name="weekly_notification_title">Your week with Activity+</string>
+    <string name="weekly_headline">Your week: %1$s used the most battery, %2$s</string>
+    <string name="weekly_headline_up">Your week: %1$s used the most battery, %2$s, up %3$s</string>
+    <string name="weekly_headline_down">Your week: %1$s used the most battery, %2$s, down %3$s</string>
+    <string name="weekly_headline_new">Your week: %1$s used the most battery, %2$s, new this week</string>
+    <string name="weekly_headline_screen">Your week: %1$s had the most screen time, %2$s</string>
+
+    <string name="weekly_top_battery">Most battery</string>
+    <string name="weekly_top_screen">Most screen time</string>
+    <string name="weekly_top_data">Most data</string>
+    <string name="weekly_vs_before">Against the week before</string>
+    <string name="weekly_nothing">Nothing measured.</string>
+    <string name="weekly_change_up">+%1$s</string>
+    <string name="weekly_change_down">−%1$s</string>
+    <string name="weekly_change_new">New this week</string>
+    <string name="weekly_change_flat">Unchanged</string>
+
+    <string name="weekly_totals">Totals</string>
+    <string name="weekly_total_screen_on">Battery with the screen on</string>
+    <string name="weekly_total_screen_off">Drain with the screen off</string>
+    <string name="weekly_per_hour">%1$s per hour</string>
+    <string name="weekly_total_charges">Charge sessions</string>
+    <string name="weekly_note" formatted="false">Battery per app is measured while the app is on screen. A change under 5 % counts as unchanged. Screen time and data of the week before may be missing: Android keeps usage stats only for a few days.</string>
+
+    <string name="weekly_not_enough_title">Not enough data yet</string>
+    <string name="weekly_not_enough_body">The report needs at least %1$d days of measuring in the last full week (Monday to Sunday). Keep Activity+ running; the next report comes on Monday.</string>
+
+    <string name="set_weekly">Weekly report on Mondays</string>
+    <string name="set_weekly_hint">A short notification every Monday morning with your week. Needs alerts to be on.</string>
+    <string name="set_weekly_open">Open the weekly report</string>
+</resources>

@@ -49,7 +49,7 @@ import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberSettings
 
 @Composable
-fun SettingsScreen(onBack: () -> Unit) {
+fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
     val context = LocalContext.current
     val settings = rememberSettings()
     val (s, _) = rememberLive()
@@ -141,6 +141,10 @@ fun SettingsScreen(onBack: () -> Unit) {
                 Toggle(stringResource(R.string.set_alerts), stringResource(R.string.set_alerts_hint), settings.alerts) { on ->
                     app.prefs.update { it.copy(alerts = on) }
                 }
+                Toggle(stringResource(R.string.set_weekly), stringResource(R.string.set_weekly_hint), settings.weekly) { on ->
+                    app.prefs.update { it.copy(weekly = on) }
+                }
+                TextButton(onClick = onWeekly) { Text(stringResource(R.string.set_weekly_open)) }
             }
         }
 

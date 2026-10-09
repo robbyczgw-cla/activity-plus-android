@@ -27,6 +27,8 @@ data class Settings(
     val bits: Boolean = false,
     val intervalSeconds: Int = 2,
     val alerts: Boolean = true,
+    /** The Monday morning report; needs [alerts] too. */
+    val weekly: Boolean = true,
     /** "On screen: Chrome · drawing 2.1 W" under the values. */
     val appLine: Boolean = true,
     val onboarded: Boolean = false,
@@ -50,6 +52,7 @@ class Prefs(context: Context) {
             bits = sp.getBoolean("bits", d.bits),
             intervalSeconds = sp.getInt("interval", d.intervalSeconds),
             alerts = sp.getBoolean("alerts", d.alerts),
+            weekly = sp.getBoolean("weekly", d.weekly),
             appLine = sp.getBoolean("appLine", d.appLine),
             onboarded = sp.getBoolean("onboarded", d.onboarded),
         )
@@ -66,6 +69,7 @@ class Prefs(context: Context) {
             .putBoolean("bits", s.bits)
             .putInt("interval", s.intervalSeconds)
             .putBoolean("alerts", s.alerts)
+            .putBoolean("weekly", s.weekly)
             .putBoolean("appLine", s.appLine)
             .putBoolean("onboarded", s.onboarded)
             .apply()
