@@ -5,7 +5,7 @@ import java.time.LocalDate
 import java.time.ZoneId
 
 /**
- * Turns two readings of `dumpsys batterystats --checkin` into what each app used between them.
+ * Turns two readings of `dumpsys batterystats -c` into what each app used between them.
  * Android counts per uid since the last charge and starts again from zero when the phone charges,
  * so a reading either continues the last one (subtract) or starts fresh (take it as it is).
  */

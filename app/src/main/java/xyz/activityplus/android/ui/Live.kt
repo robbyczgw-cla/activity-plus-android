@@ -129,3 +129,16 @@ fun <T> rememberLoaded(vararg keys: Any?, block: suspend () -> T): T? {
     }
     return state.value
 }
+
+/** Counts returns to the screen, as a key for data the user may have just changed in system settings. */
+@Composable
+fun rememberResumes(): Int {
+    val owner = LocalLifecycleOwner.current
+    val count = remember { mutableStateOf(0) }
+    DisposableEffect(owner) {
+        val observer = LifecycleEventObserver { _, event -> if (event == Lifecycle.Event.ON_RESUME) count.value++ }
+        owner.lifecycle.addObserver(observer)
+        onDispose { owner.lifecycle.removeObserver(observer) }
+    }
+    return count.value
+}

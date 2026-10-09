@@ -73,6 +73,7 @@ import xyz.activityplus.android.ui.components.Sparkline
 import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLive
 import xyz.activityplus.android.ui.rememberLoaded
+import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.rememberUsageAccess
 import xyz.activityplus.android.ui.theme.BrandEnd
@@ -96,7 +97,9 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     }
     val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
     val findings = if (s != null && data != null) diagnose(context, s, data) else emptyList()
-    val interruption = rememberLoaded(Unit) { loadInterruption(context) }
+    // Reloaded on every return: the user may have just allowed unrestricted battery.
+    val resumes = rememberResumes()
+    val interruption = rememberLoaded(resumes) { loadInterruption(context) }
     var dismissed by remember { mutableStateOf(false) }
     // Monday to Wednesday, once the last week has enough data.
     val weekly = rememberLoaded(access) {

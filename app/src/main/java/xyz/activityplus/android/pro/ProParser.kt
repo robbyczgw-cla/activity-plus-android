@@ -5,7 +5,7 @@ package xyz.activityplus.android.pro
  * output in src/test/resources/dumpsys (Android 15 emulator).
  */
 object ProParser {
-    /** Per uid since the last full charge, from `dumpsys batterystats --checkin`. */
+    /** Per uid since the last full charge, from `dumpsys batterystats -c`. */
     data class UidBattery(val mah: Double, val cpuMs: Long, val wakelockMs: Long)
 
     data class BatteryReport(

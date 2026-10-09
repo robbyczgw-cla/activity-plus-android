@@ -16,6 +16,15 @@ class ProParserTest {
         assertTrue(r.packages.values.flatten().contains("com.google.android.apps.messaging"))
     }
 
+    @Test fun batteryWithDashC() {
+        // `dumpsys batterystats -c`: same lines, but no per-uid cpu lines.
+        val r = ProParser.batteryCheckin(fixture("batterystats-c.txt"))
+        assertEquals(834L, r.onBatteryMs)
+        assertTrue(r.byUid.isNotEmpty())
+        assertTrue(r.packages.values.flatten().contains("android"))
+        assertTrue(r.byUid.values.all { it.cpuMs == 0L })
+    }
+
     @Test fun batteryCheckinWithRealisticValues() {
         val text = """
             9,0,i,uid,10201,com.example.maps

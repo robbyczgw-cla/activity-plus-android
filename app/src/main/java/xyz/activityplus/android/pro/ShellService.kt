@@ -28,7 +28,9 @@ class ShellService : IShellService.Stub() {
     }
 
     companion object {
-        const val BATTERY = "dumpsys batterystats --checkin"
+        // -c, not --checkin: --checkin may hand out (and then delete) Android's saved report of the previous
+        // charge cycle instead of the current one. -c only reads; it leaves out per-app CPU time.
+        const val BATTERY = "dumpsys batterystats -c"
         const val MEMORY = "dumpsys meminfo"
         const val CPU = "dumpsys cpuinfo"
         val ALLOWED = setOf(BATTERY, MEMORY, CPU)
