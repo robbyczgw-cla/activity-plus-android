@@ -31,6 +31,7 @@ class MonitorService : Service() {
     private val drain = DrainTracker()
     private val sessions = SessionTracker()
     private lateinit var alerts: AlertEngine
+    private lateinit var weekly: WeeklyNotifier
     private val labels = HashMap<String, String>()
 
     private var minuteStart = 0L
@@ -75,6 +76,7 @@ class MonitorService : Service() {
     override fun onCreate() {
         super.onCreate()
         alerts = AlertEngine(this, app.prefs)
+        weekly = WeeklyNotifier(this, app.prefs, scope)
         // Continue the session that was running when the service stopped, if the plug state still matches.
         runCatching { app.history.sessions(1).firstOrNull() }.getOrNull()?.let { last ->
             val plugged = app.monitor.batteryNow().plugged
@@ -114,6 +116,7 @@ class MonitorService : Service() {
         sessions.onSample(s.timeMillis, s.battery.plugged, s.battery.levelFraction, s.battery.powerMw, s.screenOn, s.battery.temperatureC)
             ?.let { finished -> runCatching { app.history.saveSession(finished) } }
         if (settings.alerts) alerts.check(s, fgLabel)
+        weekly.check(s.timeMillis)
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis

@@ -1,6 +1,7 @@
 package xyz.activityplus.android
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -25,6 +26,7 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -42,18 +44,19 @@ import xyz.activityplus.android.ui.screens.OnboardingScreen
 import xyz.activityplus.android.ui.screens.OverviewScreen
 import xyz.activityplus.android.ui.screens.ProScreen
 import xyz.activityplus.android.ui.screens.SettingsScreen
+import xyz.activityplus.android.ui.screens.WeeklyReportScreen
 import xyz.activityplus.android.ui.theme.ActivityPlusTheme
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 
-/** DIAGNOSIS and PRO have no tab of their own; the overview, apps and battery screens open them. */
-enum class Tab { OVERVIEW, APPS, BATTERY, HISTORY, HARDWARE, DIAGNOSIS, PRO }
+/** DIAGNOSIS, PRO and WEEKLY have no tab of their own; the overview, apps, battery and settings screens open them. */
+enum class Tab { OVERVIEW, APPS, BATTERY, HISTORY, HARDWARE, DIAGNOSIS, PRO, WEEKLY }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         // Extras for screenshot runs: adb shell am start -n .../.MainActivity -e tab APPS [--ez settings true]
-        val startTab = intent.getStringExtra("tab")?.let { n -> Tab.entries.find { it.name == n } } ?: Tab.OVERVIEW
+        val startTab = tabOf(intent) ?: Tab.OVERVIEW
         val startSettings = intent.getBooleanExtra("settings", false)
         setContent {
             ActivityPlusTheme {
@@ -70,7 +73,7 @@ class MainActivity : ComponentActivity() {
                             },
                         )
                     } else {
-                        Main(startTab, startSettings)
+                        Main(startTab, startSettings, requestedTab) { requestedTab = null }
                     }
                 }
             }
@@ -79,6 +82,17 @@ class MainActivity : ComponentActivity() {
     }
 
     private val app get() = ActivityPlusApp.instance
+
+    // A notification tapped while the app is open (singleTask) arrives here, not in onCreate.
+    private var requestedTab by mutableStateOf<Tab?>(null)
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        requestedTab = tabOf(intent)
+    }
+
+    private fun tabOf(intent: Intent): Tab? = intent.getStringExtra("tab")?.let { n -> Tab.entries.find { it.name == n } }
 
     private fun requestNotifications() {
         if (Build.VERSION.SDK_INT >= 33 &&
@@ -90,14 +104,21 @@ class MainActivity : ComponentActivity() {
 }
 
 @androidx.compose.runtime.Composable
-private fun Main(startTab: Tab, startSettings: Boolean) {
+private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRequestHandled: () -> Unit) {
     var tab by rememberSaveable { mutableStateOf(startTab) }
     var showSettings by rememberSaveable { mutableStateOf(startSettings) }
+    LaunchedEffect(requestedTab) {
+        if (requestedTab != null) {
+            tab = requestedTab
+            showSettings = false
+            onRequestHandled()
+        }
+    }
     BackHandler(enabled = showSettings) { showSettings = false }
     BackHandler(enabled = !showSettings && tab != Tab.OVERVIEW) { tab = Tab.OVERVIEW }
 
     if (showSettings) {
-        SettingsScreen(onBack = { showSettings = false })
+        SettingsScreen(onBack = { showSettings = false }, onWeekly = { tab = Tab.WEEKLY; showSettings = false })
         return
     }
     val surfaces = LocalSurfaces.current
@@ -133,6 +154,7 @@ private fun Main(startTab: Tab, startSettings: Boolean) {
                 Tab.HARDWARE -> HardwareScreen()
                 Tab.DIAGNOSIS -> DiagnosisScreen()
                 Tab.PRO -> ProScreen()
+                Tab.WEEKLY -> WeeklyReportScreen()
             }
         }
     }

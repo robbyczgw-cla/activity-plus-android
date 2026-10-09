@@ -55,8 +55,10 @@ import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.core.Snapshot
 import xyz.activityplus.android.core.ThermalStatus
 import xyz.activityplus.android.core.Transport
+import xyz.activityplus.android.core.WeeklyReport
 import xyz.activityplus.android.data.Monitor
 import xyz.activityplus.android.data.VpnApps
+import xyz.activityplus.android.data.WeeklyLoader
 import xyz.activityplus.android.ui.AppIcon
 import xyz.activityplus.android.ui.FindingText
 import xyz.activityplus.android.ui.app
@@ -96,6 +98,10 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     val findings = if (s != null && data != null) diagnose(context, s, data) else emptyList()
     val interruption = rememberLoaded(Unit) { loadInterruption(context) }
     var dismissed by remember { mutableStateOf(false) }
+    // Monday to Wednesday, once the last week has enough data.
+    val weekly = rememberLoaded(access) {
+        if (WeeklyReport.cardDay(System.currentTimeMillis())) WeeklyLoader.load(context).takeIf { it.report.enough } else null
+    }
 
     Screen(
         title = stringResource(R.string.app_name),
@@ -114,6 +120,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
                 dismissed = true
             }
         }
+        if (weekly != null) item { WeeklyCard(weekly) { onOpen(Tab.WEEKLY) } }
         if (s == null) return@Screen
         item {
             CardRow(

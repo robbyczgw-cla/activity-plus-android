@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weekly_title">Wochenbericht</string>
+    <string name="weekly_open">Wochenbericht öffnen</string>
+    <string name="weekly_notification_title">Deine Woche mit Activity+</string>
+    <string name="weekly_headline">Deine Woche: %1$s hat am meisten Akku verbraucht, %2$s</string>
+    <string name="weekly_headline_up">Deine Woche: %1$s hat am meisten Akku verbraucht, %2$s, %3$s mehr</string>
+    <string name="weekly_headline_down">Deine Woche: %1$s hat am meisten Akku verbraucht, %2$s, %3$s weniger</string>
+    <string name="weekly_headline_new">Deine Woche: %1$s hat am meisten Akku verbraucht, %2$s, neu in dieser Woche</string>
+    <string name="weekly_headline_screen">Deine Woche: %1$s hatte die meiste Bildschirmzeit, %2$s</string>
+
+    <string name="weekly_top_battery">Meiste Akkunutzung</string>
+    <string name="weekly_top_screen">Meiste Bildschirmzeit</string>
+    <string name="weekly_top_data">Meiste Daten</string>
+    <string name="weekly_vs_before">Gegenüber der Vorwoche</string>
+    <string name="weekly_nothing">Nichts gemessen.</string>
+    <string name="weekly_change_up">+%1$s</string>
+    <string name="weekly_change_down">−%1$s</string>
+    <string name="weekly_change_new">Neu in dieser Woche</string>
+    <string name="weekly_change_flat">Unverändert</string>
+
+    <string name="weekly_totals">Gesamt</string>
+    <string name="weekly_total_screen_on">Akku bei eingeschaltetem Bildschirm</string>
+    <string name="weekly_total_screen_off">Verbrauch bei ausgeschaltetem Bildschirm</string>
+    <string name="weekly_per_hour">%1$s pro Stunde</string>
+    <string name="weekly_total_charges">Ladevorgänge</string>
+    <string name="weekly_note" formatted="false">Der Akkuverbrauch pro App wird gemessen, während die App im Vordergrund ist. Eine Änderung unter 5 % gilt als unverändert. Bildschirmzeit und Daten der Vorwoche können fehlen: Android speichert Nutzungsstatistiken nur wenige Tage.</string>
+
+    <string name="weekly_not_enough_title">Noch nicht genug Daten</string>
+    <string name="weekly_not_enough_body">Der Bericht braucht mindestens %1$d Tage Messung in der letzten vollen Woche (Montag bis Sonntag). Lass Activity+ weiterlaufen; der nächste Bericht kommt am Montag.</string>
+
+    <string name="set_weekly">Wochenbericht am Montag</string>
+    <string name="set_weekly_hint">Jeden Montagmorgen eine kurze Benachrichtigung zu deiner Woche. Dafür müssen die Warnungen eingeschaltet sein.</string>
+    <string name="set_weekly_open">Wochenbericht öffnen</string>
+</resources>
