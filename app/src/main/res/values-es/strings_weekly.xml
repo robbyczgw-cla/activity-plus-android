@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weekly_title">Informe semanal</string>
+    <string name="weekly_open">Abrir el informe semanal</string>
+    <string name="weekly_notification_title">Tu semana con Activity+</string>
+    <string name="weekly_headline">Tu semana: %1$s gastó más batería, %2$s</string>
+    <string name="weekly_headline_up">Tu semana: %1$s gastó más batería, %2$s, subió %3$s</string>
+    <string name="weekly_headline_down">Tu semana: %1$s gastó más batería, %2$s, bajó %3$s</string>
+    <string name="weekly_headline_new">Tu semana: %1$s gastó más batería, %2$s, nueva esta semana</string>
+    <string name="weekly_headline_screen">Tu semana: %1$s tuvo más tiempo de pantalla, %2$s</string>
+
+    <string name="weekly_top_battery">Más batería</string>
+    <string name="weekly_top_screen">Más tiempo de pantalla</string>
+    <string name="weekly_top_data">Más datos</string>
+    <string name="weekly_vs_before">Frente a la semana anterior</string>
+    <string name="weekly_nothing">Nada medido.</string>
+    <string name="weekly_change_up">+%1$s</string>
+    <string name="weekly_change_down">−%1$s</string>
+    <string name="weekly_change_new">Nueva esta semana</string>
+    <string name="weekly_change_flat">Sin cambios</string>
+
+    <string name="weekly_totals">Totales</string>
+    <string name="weekly_total_screen_on">Batería con la pantalla encendida</string>
+    <string name="weekly_total_screen_off">Consumo con la pantalla apagada</string>
+    <string name="weekly_per_hour">%1$s por hora</string>
+    <string name="weekly_total_charges">Sesiones de carga</string>
+    <string name="weekly_note" formatted="false">La batería por app se mide mientras la app está en pantalla. Un cambio menor del 5 % cuenta como sin cambios. El tiempo de pantalla y los datos de la semana anterior pueden faltar: Android solo guarda las estadísticas de uso unos pocos días.</string>
+
+    <string name="weekly_not_enough_title">Todavía no hay datos suficientes</string>
+    <string name="weekly_not_enough_body">El informe necesita al menos %1$d días de medición en la última semana completa (de lunes a domingo). Deja Activity+ en marcha; el próximo informe llega el lunes.</string>
+
+    <string name="set_weekly">Informe semanal los lunes</string>
+    <string name="set_weekly_hint">Una notificación breve cada lunes por la mañana con tu semana. Requiere que los avisos estén activados.</string>
+    <string name="set_weekly_open">Abrir el informe semanal</string>
+</resources>

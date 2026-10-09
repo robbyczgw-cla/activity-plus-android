@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Medición automática en segundo plano (solo con el permiso dado desde el ordenador) -->
+    <string name="bg_setting_title">Medición automática en segundo plano</string>
+    <string name="bg_setting_hint">Lee el informe de batería de Android cada 3 horas y al conectar el cargador, para 30 días de batería por app.</string>
+    <string name="bg_night_title">Anoche</string>
+    <string name="bg_night_lost">de la batería usada durante la noche</string>
+    <string name="bg_night_quiet">Ninguna app destacó.</string>
+    <string name="bg_note_report">Del informe de batería de Android.</string>
+    <string name="bg_today_title">Segundo plano hoy</string>
+    <string name="bg_today_caption">Informe de Android</string>
+    <string name="bg_today_empty">Todavía no hay nada medido hoy. El informe de Android se lee cada 3 horas y al conectar el cargador.</string>
+    <string name="bg_today_note">Estimación de Android por app, en pantalla y en segundo plano.</string>
+    <string name="bg_open_pro">Todas las apps y detalles</string>
+    <string name="bg_detail_title">Segundo plano (Android), últimos 7 días</string>
+    <string name="bg_detail_today">Hoy</string>
+    <string name="bg_detail_usual">Día habitual</string>
+    <string name="bg_unusual">Poco habitual</string>
+    <string name="bg_detail_note">Estimación de Android, en pantalla y en segundo plano.</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weekly_title">Report settimanale</string>
+    <string name="weekly_open">Apri il report settimanale</string>
+    <string name="weekly_notification_title">La tua settimana con Activity+</string>
+    <string name="weekly_headline">La tua settimana: %1$s ha consumato più batteria, %2$s</string>
+    <string name="weekly_headline_up">La tua settimana: %1$s ha consumato più batteria, %2$s, in aumento di %3$s</string>
+    <string name="weekly_headline_down">La tua settimana: %1$s ha consumato più batteria, %2$s, in calo di %3$s</string>
+    <string name="weekly_headline_new">La tua settimana: %1$s ha consumato più batteria, %2$s, nuova questa settimana</string>
+    <string name="weekly_headline_screen">La tua settimana: %1$s ha avuto il tempo di utilizzo più alto, %2$s</string>
+
+    <string name="weekly_top_battery">Più batteria</string>
+    <string name="weekly_top_screen">Più tempo di utilizzo</string>
+    <string name="weekly_top_data">Più dati</string>
+    <string name="weekly_vs_before">Rispetto alla settimana prima</string>
+    <string name="weekly_nothing">Nulla di misurato.</string>
+    <string name="weekly_change_up">+%1$s</string>
+    <string name="weekly_change_down">−%1$s</string>
+    <string name="weekly_change_new">Nuova questa settimana</string>
+    <string name="weekly_change_flat">Invariato</string>
+
+    <string name="weekly_totals">Totali</string>
+    <string name="weekly_total_screen_on">Batteria con lo schermo acceso</string>
+    <string name="weekly_total_screen_off">Consumo con lo schermo spento</string>
+    <string name="weekly_per_hour">%1$s all\'ora</string>
+    <string name="weekly_total_charges">Sessioni di ricarica</string>
+    <string name="weekly_note" formatted="false">La batteria per app viene misurata mentre l\'app è sullo schermo. Una variazione sotto il 5 % conta come invariata. Il tempo di utilizzo e i dati della settimana precedente possono mancare: Android conserva le statistiche di utilizzo solo per pochi giorni.</string>
+
+    <string name="weekly_not_enough_title">Ancora dati insufficienti</string>
+    <string name="weekly_not_enough_body">Il report richiede almeno %1$d giorni di misurazione nell\'ultima settimana completa (da lunedì a domenica). Lascia Activity+ in esecuzione; il prossimo report arriva lunedì.</string>
+
+    <string name="set_weekly">Report settimanale il lunedì</string>
+    <string name="set_weekly_hint">Una breve notifica ogni lunedì mattina con la tua settimana. Richiede che gli avvisi siano attivi.</string>
+    <string name="set_weekly_open">Apri il report settimanale</string>
+</resources>

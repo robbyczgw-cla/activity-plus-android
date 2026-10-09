@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Alarmas de carga -->
+    <string name="chg_limit_title">Cargada al %1$s</string>
+    <string name="chg_limit_body">Ya puedes desconectar el cargador para cuidar la batería.</string>
+    <string name="chg_full_title">Carga completa</string>
+    <string name="chg_full_body">La batería está llena. Ya puedes desconectar el cargador para cuidarla.</string>
+    <string name="chg_warm_title">Caliente al cargar: %1$s</string>
+    <string name="chg_warm_body">La batería lleva unos minutos caliente. El calor la desgasta y ralentiza la carga. Quita la funda o carga en un lugar más fresco.</string>
+
+    <!-- Ajustes -->
+    <string name="chg_section">Carga</string>
+    <string name="chg_off">Desactivado</string>
+    <string name="chg_set_limit">Alarma de límite de carga</string>
+    <string name="chg_set_limit_hint">Te avisa una vez por carga cuando la batería llega a este nivel, para desconectar antes. Las baterías envejecen más despacio si no se mantienen llenas.</string>
+    <string name="chg_set_full">Alarma de carga completa</string>
+    <string name="chg_set_full_hint">Te avisa una vez por carga cuando la batería está llena.</string>
+    <string name="chg_set_warm">Caliente al cargar</string>
+    <string name="chg_set_warm_hint">Te avisa cuando la batería se mantiene a 40 °C o más durante dos minutos conectada, como máximo una vez por hora.</string>
+    <string name="chg_set_note">Estas alarmas siguen el interruptor de Avisos.</string>
+
+    <!-- Test del cargador -->
+    <string name="chg_test_title">Test del cargador</string>
+    <string name="chg_test_intro">Mide durante 30 segundos lo que este cargador y este cable entregan a la batería. Mantén esta pantalla abierta.</string>
+    <string name="chg_test_button">Probar cargador</string>
+    <string name="chg_test_running">Midiendo… %1$d de %2$d s</string>
+    <string name="chg_test_stopped">La prueba se detuvo porque el teléfono dejó de cargarse.</string>
+    <string name="chg_test_no_current">Este teléfono no informa de la corriente de carga, así que no hay nada que medir.</string>
+    <string name="chg_test_save_title">Guardar esta prueba</string>
+    <string name="chg_test_save_summary">Media %1$s, pico %2$s</string>
+    <string name="chg_test_name_label">Nombre (opcional)</string>
+    <string name="chg_test_name_hint">p. ej. Anker 30 W + cable corto</string>
+    <string name="chg_test_save">Guardar</string>
+    <string name="chg_test_discard">Descartar</string>
+    <string name="chg_test_past">Pruebas anteriores, las mejores primero</string>
+    <string name="chg_test_unnamed">Prueba sin nombre</string>
+    <string name="chg_test_peak">Pico %1$s</string>
+    <string name="chg_test_compare_note">Los resultados dependen del nivel de batería y de la temperatura: una batería llena o caliente absorbe menos potencia. Compara pruebas con un nivel parecido.</string>
+
+    <!-- Evolución de la capacidad en la tarjeta de salud -->
+    <string name="chg_trend_title">Capacidad completa a lo largo del tiempo</string>
+    <string name="chg_trend_change">%1$s desde %2$s</string>
+    <plurals name="chg_trend_count">
+        <item quantity="one">%d medición</item>
+        <item quantity="other">%d mediciones</item>
+    </plurals>
+    <string name="chg_trend_note" formatted="false">Estimada a partir de cada carga que añadió al menos un 30 %. Imprecisa para una sola carga, pero la tendencia cuenta.</string>
+</resources>

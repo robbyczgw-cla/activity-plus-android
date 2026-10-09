@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 自動のバックグラウンド計測（パソコンからの許可がある場合のみ） -->
+    <string name="bg_setting_title">バックグラウンドの自動計測</string>
+    <string name="bg_setting_hint">3 時間ごとと充電を始めたときに Android の電池レポートを読み取り、アプリごとの電池使用量を 30 日分保存します。</string>
+    <string name="bg_night_title">昨夜</string>
+    <string name="bg_night_lost">夜間に使った電池</string>
+    <string name="bg_night_quiet">目立ったアプリはありませんでした。</string>
+    <string name="bg_note_report">Android の電池レポートによる値です。</string>
+    <string name="bg_today_title">今日のバックグラウンド</string>
+    <string name="bg_today_caption">Android のレポート</string>
+    <string name="bg_today_empty">今日はまだ計測されていません。Android のレポートは 3 時間ごとと充電開始時に読み取られます。</string>
+    <string name="bg_today_note">Android が推定したアプリごとの値です。画面表示中とバックグラウンドの両方を含みます。</string>
+    <string name="bg_open_pro">すべてのアプリと詳細</string>
+    <string name="bg_detail_title">バックグラウンド（Android）、直近 7 日間</string>
+    <string name="bg_detail_today">今日</string>
+    <string name="bg_detail_usual">通常の日</string>
+    <string name="bg_unusual">通常と異なる</string>
+    <string name="bg_detail_note">Android の推定値です。画面表示中とバックグラウンドの両方を含みます。</string>
+</resources>

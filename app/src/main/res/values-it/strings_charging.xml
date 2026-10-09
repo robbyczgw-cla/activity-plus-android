@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Avvisi di ricarica -->
+    <string name="chg_limit_title">Caricata al %1$s</string>
+    <string name="chg_limit_body">Ora puoi scollegarlo per proteggere la batteria.</string>
+    <string name="chg_full_title">Carica completa</string>
+    <string name="chg_full_body">La batteria è piena. Ora puoi scollegarlo per proteggerla.</string>
+    <string name="chg_warm_title">Calda durante la ricarica: %1$s</string>
+    <string name="chg_warm_body">La batteria è calda da un paio di minuti. Il calore la logora e rallenta la ricarica. Togli la cover o ricarica in un posto più fresco.</string>
+
+    <!-- Impostazioni -->
+    <string name="chg_section">Ricarica</string>
+    <string name="chg_off">Disattivato</string>
+    <string name="chg_set_limit">Avviso limite di ricarica</string>
+    <string name="chg_set_limit_hint">Ti avvisa una volta per ricarica quando la batteria raggiunge questo livello, così puoi scollegare prima. Le batterie invecchiano più lentamente se non vengono tenute piene.</string>
+    <string name="chg_set_full">Avviso batteria piena</string>
+    <string name="chg_set_full_hint">Ti avvisa una volta per ricarica quando la batteria è piena.</string>
+    <string name="chg_set_warm">Calda durante la ricarica</string>
+    <string name="chg_set_warm_hint">Ti avvisa quando la batteria resta a 40 °C o più per due minuti collegata, al massimo una volta all\'ora.</string>
+    <string name="chg_set_note">Questi avvisi seguono l\'interruttore Avvisi.</string>
+
+    <!-- Test del caricabatterie -->
+    <string name="chg_test_title">Test del caricabatterie</string>
+    <string name="chg_test_intro">Misura per 30 secondi cosa forniscono alla batteria questo caricabatterie e questo cavo. Tieni aperta questa schermata.</string>
+    <string name="chg_test_button">Testa caricabatterie</string>
+    <string name="chg_test_running">Misurazione… %1$d di %2$d s</string>
+    <string name="chg_test_stopped">Il test si è fermato perché il telefono ha smesso di caricarsi.</string>
+    <string name="chg_test_no_current">Questo telefono non segnala la corrente di ricarica, quindi non c\'è nulla da misurare.</string>
+    <string name="chg_test_save_title">Salva questo test</string>
+    <string name="chg_test_save_summary">Media %1$s, picco %2$s</string>
+    <string name="chg_test_name_label">Nome (facoltativo)</string>
+    <string name="chg_test_name_hint">es. Anker 30 W + cavo corto</string>
+    <string name="chg_test_save">Salva</string>
+    <string name="chg_test_discard">Scarta</string>
+    <string name="chg_test_past">Test precedenti, i migliori per primi</string>
+    <string name="chg_test_unnamed">Test senza nome</string>
+    <string name="chg_test_peak">Picco %1$s</string>
+    <string name="chg_test_compare_note">I risultati dipendono dal livello della batteria e dalla temperatura: una batteria piena o calda assorbe meno potenza. Confronta i test a un livello simile.</string>
+
+    <!-- Andamento della capacità nella scheda di stato -->
+    <string name="chg_trend_title">Capacità piena nel tempo</string>
+    <string name="chg_trend_change">%1$s dal %2$s</string>
+    <plurals name="chg_trend_count">
+        <item quantity="one">%d misurazione</item>
+        <item quantity="other">%d misurazioni</item>
+    </plurals>
+    <string name="chg_trend_note" formatted="false">Stimata da ogni ricarica che ha aggiunto almeno il 30 %. Approssimativa per una singola ricarica, ma la tendenza conta.</string>
+</resources>

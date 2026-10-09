@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 概览卡片：测量被系统中断（措辞与 docs/SETUP.md 第 3 节一致） -->
+    <string name="interruption_title">本周测量被系统中断了 %1$d 次</string>
+    <string name="interruption_body">Android 在后台停止了 Activity+。在你允许一次之前，状态栏数值和历史记录会出现空缺：</string>
+    <string name="interruption_vivo">电池 → 后台耗电管理 → Activity+ → 允许；开启自启动；在最近任务中锁定</string>
+    <string name="interruption_xiaomi">应用信息 → 省电策略 → 无限制；开启自启动</string>
+    <string name="interruption_samsung">应用信息 → 电池 → 不受限制；从“休眠应用”中移除</string>
+    <string name="interruption_oppo">应用信息 → 电池使用情况 → 允许后台活动和自动启动</string>
+    <string name="interruption_generic">应用信息 → 电池 → 不受限制</string>
+    <string name="interruption_app_info">打开应用信息</string>
+    <string name="interruption_battery">允许电池不受限制</string>
+    <string name="interruption_dismiss">关闭</string>
+</resources>

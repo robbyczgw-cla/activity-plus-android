@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 概要カード: システムによって計測が中断された（docs/SETUP.md の第 3 節と同じ表現） -->
+    <string name="interruption_title">今週、計測がシステムにより %1$d 回中断されました</string>
+    <string name="interruption_body">Android がバックグラウンドで Activity+ を停止しました。一度許可するまで、ステータスバーの値と履歴に欠けた部分が出ます:</string>
+    <string name="interruption_vivo">電池 → バックグラウンドでの電力消費 → Activity+ → 許可、自動起動をオン、最近使ったアプリでロック</string>
+    <string name="interruption_xiaomi">アプリ情報 → バッテリーセーバー → 制限なし、自動起動をオン</string>
+    <string name="interruption_samsung">アプリ情報 → 電池 → 制限なし、「スリープ中のアプリ」から削除</string>
+    <string name="interruption_oppo">アプリ情報 → 電池の使用状況 → バックグラウンドでの動作と自動起動を許可</string>
+    <string name="interruption_generic">アプリ情報 → 電池 → 制限なし</string>
+    <string name="interruption_app_info">アプリ情報を開く</string>
+    <string name="interruption_battery">電池を制限なしで許可</string>
+    <string name="interruption_dismiss">閉じる</string>
+</resources>

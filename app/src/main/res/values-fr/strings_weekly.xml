@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weekly_title">Rapport hebdomadaire</string>
+    <string name="weekly_open">Ouvrir le rapport hebdomadaire</string>
+    <string name="weekly_notification_title">Votre semaine avec Activity+</string>
+    <string name="weekly_headline">Votre semaine : %1$s a consommé le plus de batterie, %2$s</string>
+    <string name="weekly_headline_up">Votre semaine : %1$s a consommé le plus de batterie, %2$s, en hausse de %3$s</string>
+    <string name="weekly_headline_down">Votre semaine : %1$s a consommé le plus de batterie, %2$s, en baisse de %3$s</string>
+    <string name="weekly_headline_new">Votre semaine : %1$s a consommé le plus de batterie, %2$s, nouveau cette semaine</string>
+    <string name="weekly_headline_screen">Votre semaine : %1$s a eu le plus de temps d\'écran, %2$s</string>
+
+    <string name="weekly_top_battery">Le plus de batterie</string>
+    <string name="weekly_top_screen">Le plus de temps d\'écran</string>
+    <string name="weekly_top_data">Le plus de données</string>
+    <string name="weekly_vs_before">Par rapport à la semaine précédente</string>
+    <string name="weekly_nothing">Rien n\'a été mesuré.</string>
+    <string name="weekly_change_up">+%1$s</string>
+    <string name="weekly_change_down">−%1$s</string>
+    <string name="weekly_change_new">Nouveau cette semaine</string>
+    <string name="weekly_change_flat">Inchangé</string>
+
+    <string name="weekly_totals">Totaux</string>
+    <string name="weekly_total_screen_on">Batterie écran allumé</string>
+    <string name="weekly_total_screen_off">Consommation écran éteint</string>
+    <string name="weekly_per_hour">%1$s par heure</string>
+    <string name="weekly_total_charges">Sessions de charge</string>
+    <string name="weekly_note" formatted="false">La batterie par app est mesurée pendant que l\'app est à l\'écran. Une variation inférieure à 5 % compte comme inchangée. Le temps d\'écran et les données de la semaine précédente peuvent manquer : Android ne garde les statistiques d\'utilisation que quelques jours.</string>
+
+    <string name="weekly_not_enough_title">Pas encore assez de données</string>
+    <string name="weekly_not_enough_body">Le rapport a besoin d\'au moins %1$d jours de mesure sur la dernière semaine complète (du lundi au dimanche). Laissez Activity+ tourner ; le prochain rapport arrive lundi.</string>
+
+    <string name="set_weekly">Rapport hebdomadaire le lundi</string>
+    <string name="set_weekly_hint">Une courte notification chaque lundi matin avec votre semaine. Nécessite que les alertes soient activées.</string>
+    <string name="set_weekly_open">Ouvrir le rapport hebdomadaire</string>
+</resources>

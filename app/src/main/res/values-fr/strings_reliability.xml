@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Carte de synthèse : mesure interrompue par le système (formulation comme dans docs/SETUP.md, section 3) -->
+    <string name="interruption_title">La mesure a été interrompue %1$d fois cette semaine</string>
+    <string name="interruption_body">Android a arrêté Activity+ en arrière-plan. La valeur de la barre d\'état et l\'historique auront des trous tant que vous ne l\'avez pas autorisé une fois :</string>
+    <string name="interruption_vivo">Batterie → consommation en arrière-plan → Activity+ → autoriser ; activer le démarrage automatique ; verrouiller dans les apps récentes</string>
+    <string name="interruption_xiaomi">Infos de l\'app → Économiseur de batterie → Aucune restriction ; démarrage automatique activé</string>
+    <string name="interruption_samsung">Infos de l\'app → Batterie → Non restreint ; la retirer de « Apps en veille »</string>
+    <string name="interruption_oppo">Infos de l\'app → Utilisation de la batterie → autoriser l\'activité en arrière-plan et le lancement automatique</string>
+    <string name="interruption_generic">Infos de l\'app → Batterie → Non restreint</string>
+    <string name="interruption_app_info">Ouvrir les infos de l\'app</string>
+    <string name="interruption_battery">Autoriser la batterie sans restriction</string>
+    <string name="interruption_dismiss">Masquer</string>
+</resources>

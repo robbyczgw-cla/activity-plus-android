@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Mesure automatique en arrière-plan (autorisation par ordinateur uniquement) -->
+    <string name="bg_setting_title">Mesure automatique en arrière-plan</string>
+    <string name="bg_setting_hint">Lit le rapport sur la batterie d\'Android toutes les 3 heures et au branchement, pour 30 jours de batterie par app.</string>
+    <string name="bg_night_title">La nuit dernière</string>
+    <string name="bg_night_lost">de la batterie utilisée pendant la nuit</string>
+    <string name="bg_night_quiet">Aucune app ne se démarque.</string>
+    <string name="bg_note_report">Issu du rapport sur la batterie d\'Android.</string>
+    <string name="bg_today_title">Arrière-plan aujourd\'hui</string>
+    <string name="bg_today_caption">Rapport d\'Android</string>
+    <string name="bg_today_empty">Rien n\'a encore été mesuré aujourd\'hui. Le rapport d\'Android est lu toutes les 3 heures et au branchement.</string>
+    <string name="bg_today_note">Estimation d\'Android par app, à l\'écran et en arrière-plan.</string>
+    <string name="bg_open_pro">Toutes les apps et les détails</string>
+    <string name="bg_detail_title">Arrière-plan (Android), 7 derniers jours</string>
+    <string name="bg_detail_today">Aujourd\'hui</string>
+    <string name="bg_detail_usual">Journée habituelle</string>
+    <string name="bg_unusual">Inhabituel</string>
+    <string name="bg_detail_note">Estimation d\'Android, à l\'écran et en arrière-plan.</string>
+</resources>

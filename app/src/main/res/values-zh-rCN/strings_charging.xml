@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 充电提醒 -->
+    <string name="chg_limit_title">已充至 %1$s</string>
+    <string name="chg_limit_body">现在可以拔掉充电器，以保护电池。</string>
+    <string name="chg_full_title">已充满</string>
+    <string name="chg_full_body">电池已充满。现在可以拔掉充电器，以保护电池。</string>
+    <string name="chg_warm_title">充电时发热：%1$s</string>
+    <string name="chg_warm_body">电池已经发热几分钟了。热量会损耗电池，还会减慢充电。请取下保护壳，或到更凉爽的地方充电。</string>
+
+    <!-- 设置 -->
+    <string name="chg_section">充电</string>
+    <string name="chg_off">关闭</string>
+    <string name="chg_set_limit">充电上限提醒</string>
+    <string name="chg_set_limit_hint">每次充电时，电池达到这个电量后提醒你一次，方便提前拔掉充电器。电池长期不充满，老化会更慢。</string>
+    <string name="chg_set_full">充满提醒</string>
+    <string name="chg_set_full_hint">每次充电时，电池充满后提醒你一次。</string>
+    <string name="chg_set_warm">充电时发热</string>
+    <string name="chg_set_warm_hint">插着充电器时，电池温度持续 2 分钟达到 40 °C 或以上时提醒你，每小时最多一次。</string>
+    <string name="chg_set_note">这些提醒跟随“提醒”开关。</string>
+
+    <!-- 充电器测试 -->
+    <string name="chg_test_title">充电器测试</string>
+    <string name="chg_test_intro">测量 30 秒内这个充电器和数据线向电池输送的功率。测试期间请保持此页面打开。</string>
+    <string name="chg_test_button">测试充电器</string>
+    <string name="chg_test_running">测量中… %1$d / %2$d 秒</string>
+    <string name="chg_test_stopped">手机停止充电，测试已中止。</string>
+    <string name="chg_test_no_current">此手机不报告充电电流，因此无法测量。</string>
+    <string name="chg_test_save_title">保存此次测试</string>
+    <string name="chg_test_save_summary">平均 %1$s，峰值 %2$s</string>
+    <string name="chg_test_name_label">名称（可选）</string>
+    <string name="chg_test_name_hint">例如 Anker 30 W + 短数据线</string>
+    <string name="chg_test_save">保存</string>
+    <string name="chg_test_discard">放弃</string>
+    <string name="chg_test_past">过往测试，效果好的在前</string>
+    <string name="chg_test_unnamed">未命名测试</string>
+    <string name="chg_test_peak">峰值 %1$s</string>
+    <string name="chg_test_compare_note">结果取决于电量和温度：电池充满或发热时，接收的功率较小。请在相近的电量下比较测试。</string>
+
+    <!-- 健康卡片中的容量趋势 -->
+    <string name="chg_trend_title">满电容量变化</string>
+    <string name="chg_trend_change">自 %2$s 以来 %1$s</string>
+    <plurals name="chg_trend_count">
+        <item quantity="other">%d 次测量</item>
+    </plurals>
+    <string name="chg_trend_note" formatted="false">根据每次充入至少 30 % 的充电估算。单次数据不够精确，但趋势有参考价值。</string>
+</resources>

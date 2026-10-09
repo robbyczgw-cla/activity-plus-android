@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Scheda di riepilogo: misurazione interrotta dal sistema (testo come in docs/SETUP.md, sezione 3) -->
+    <string name="interruption_title">La misurazione è stata interrotta %1$d volte questa settimana</string>
+    <string name="interruption_body">Android ha fermato Activity+ in background. Il valore nella barra di stato e la cronologia avranno dei vuoti finché non lo consenti una volta:</string>
+    <string name="interruption_vivo">Batteria → consumo energetico in background → Activity+ → consenti; attiva l\'avvio automatico; blocca nelle app recenti</string>
+    <string name="interruption_xiaomi">Info app → Risparmio batteria → Nessuna restrizione; avvio automatico attivo</string>
+    <string name="interruption_samsung">Info app → Batteria → Senza restrizioni; rimuovila da «App in sospensione»</string>
+    <string name="interruption_oppo">Info app → Utilizzo batteria → consenti attività in background e avvio automatico</string>
+    <string name="interruption_generic">Info app → Batteria → Senza restrizioni</string>
+    <string name="interruption_app_info">Apri info app</string>
+    <string name="interruption_battery">Consenti batteria senza restrizioni</string>
+    <string name="interruption_dismiss">Nascondi</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weekly_title">周报</string>
+    <string name="weekly_open">打开周报</string>
+    <string name="weekly_notification_title">你的 Activity+ 一周</string>
+    <string name="weekly_headline">你的一周：%1$s 耗电最多，%2$s</string>
+    <string name="weekly_headline_up">你的一周：%1$s 耗电最多，%2$s，增加 %3$s</string>
+    <string name="weekly_headline_down">你的一周：%1$s 耗电最多，%2$s，减少 %3$s</string>
+    <string name="weekly_headline_new">你的一周：%1$s 耗电最多，%2$s，本周新出现</string>
+    <string name="weekly_headline_screen">你的一周：%1$s 屏幕使用时间最长，%2$s</string>
+
+    <string name="weekly_top_battery">耗电最多</string>
+    <string name="weekly_top_screen">屏幕使用时间最长</string>
+    <string name="weekly_top_data">流量最多</string>
+    <string name="weekly_vs_before">与上周相比</string>
+    <string name="weekly_nothing">没有测量数据。</string>
+    <string name="weekly_change_up">+%1$s</string>
+    <string name="weekly_change_down">−%1$s</string>
+    <string name="weekly_change_new">本周新出现</string>
+    <string name="weekly_change_flat">无变化</string>
+
+    <string name="weekly_totals">总计</string>
+    <string name="weekly_total_screen_on">亮屏耗电</string>
+    <string name="weekly_total_screen_off">熄屏耗电</string>
+    <string name="weekly_per_hour">每小时 %1$s</string>
+    <string name="weekly_total_charges">充电次数</string>
+    <string name="weekly_note" formatted="false">各应用的耗电在其位于屏幕上时测量。变化不到 5 % 视为无变化。上周的屏幕时间和流量可能缺失：Android 只保留几天的使用统计。</string>
+
+    <string name="weekly_not_enough_title">数据还不够</string>
+    <string name="weekly_not_enough_body">周报需要上一个完整周（周一至周日）内至少 %1$d 天的测量数据。请让 Activity+ 保持运行；下一份周报将在周一送达。</string>
+
+    <string name="set_weekly">每周一发送周报</string>
+    <string name="set_weekly_hint">每周一早上发送一条简短通知，汇总你的一周。需要开启提醒。</string>
+    <string name="set_weekly_open">打开周报</string>
+</resources>

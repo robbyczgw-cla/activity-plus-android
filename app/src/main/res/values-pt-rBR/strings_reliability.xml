@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cartão de resumo: a medição foi interrompida pelo sistema (texto igual ao de docs/SETUP.md, seção 3) -->
+    <string name="interruption_title">A medição foi interrompida %1$d vezes esta semana</string>
+    <string name="interruption_body">O Android parou o Activity+ em segundo plano. O valor na barra de status e o histórico ficarão com falhas até você permitir uma vez:</string>
+    <string name="interruption_vivo">Bateria → consumo de energia em segundo plano → Activity+ → permitir; ativar início automático; bloquear em apps recentes</string>
+    <string name="interruption_xiaomi">Informações do app → Economia de bateria → Sem restrições; início automático ativado</string>
+    <string name="interruption_samsung">Informações do app → Bateria → Sem restrições; remover de «Apps em suspensão»</string>
+    <string name="interruption_oppo">Informações do app → Uso da bateria → permitir atividade em segundo plano e início automático</string>
+    <string name="interruption_generic">Informações do app → Bateria → Sem restrições</string>
+    <string name="interruption_app_info">Abrir informações do app</string>
+    <string name="interruption_battery">Permitir bateria sem restrições</string>
+    <string name="interruption_dismiss">Dispensar</string>
+</resources>

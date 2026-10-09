@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="weekly_title">週間レポート</string>
+    <string name="weekly_open">週間レポートを開く</string>
+    <string name="weekly_notification_title">Activity+ の今週のまとめ</string>
+    <string name="weekly_headline">今週: 最も電池を使ったのは %1$s、%2$s</string>
+    <string name="weekly_headline_up">今週: 最も電池を使ったのは %1$s、%2$s、%3$s 増加</string>
+    <string name="weekly_headline_down">今週: 最も電池を使ったのは %1$s、%2$s、%3$s 減少</string>
+    <string name="weekly_headline_new">今週: 最も電池を使ったのは %1$s、%2$s、今週新たに登場</string>
+    <string name="weekly_headline_screen">今週: 画面表示時間が最も長かったのは %1$s、%2$s</string>
+
+    <string name="weekly_top_battery">電池の使用が最多</string>
+    <string name="weekly_top_screen">画面表示時間が最長</string>
+    <string name="weekly_top_data">データ通信が最多</string>
+    <string name="weekly_vs_before">前週との比較</string>
+    <string name="weekly_nothing">計測なし</string>
+    <string name="weekly_change_up">+%1$s</string>
+    <string name="weekly_change_down">−%1$s</string>
+    <string name="weekly_change_new">今週新たに登場</string>
+    <string name="weekly_change_flat">変化なし</string>
+
+    <string name="weekly_totals">合計</string>
+    <string name="weekly_total_screen_on">画面オン中の電池使用</string>
+    <string name="weekly_total_screen_off">画面オフ中の消費</string>
+    <string name="weekly_per_hour">1 時間あたり %1$s</string>
+    <string name="weekly_total_charges">充電セッション</string>
+    <string name="weekly_note" formatted="false">アプリごとの電池使用は、そのアプリが画面に表示されている間に計測します。5 % 未満の変化は変化なしとみなします。前週の画面表示時間とデータ通信は欠けることがあります。Android の使用状況の統計は数日分しか保存されないためです。</string>
+
+    <string name="weekly_not_enough_title">データがまだ足りません</string>
+    <string name="weekly_not_enough_body">レポートには、直近の完全な週（月曜から日曜）のうち少なくとも %1$d 日分の計測が必要です。Activity+ を動かしたままにしてください。次のレポートは月曜日に届きます。</string>
+
+    <string name="set_weekly">毎週月曜日に週間レポート</string>
+    <string name="set_weekly_hint">毎週月曜日の朝に、その週の概要を短い通知でお知らせします。アラートをオンにしておく必要があります。</string>
+    <string name="set_weekly_open">週間レポートを開く</string>
+</resources>

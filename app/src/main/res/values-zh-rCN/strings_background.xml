@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 自动后台测量（仅在电脑授权后可用） -->
+    <string name="bg_setting_title">自动后台测量</string>
+    <string name="bg_setting_hint">每 3 小时以及插入充电器时读取 Android 的电池报告，保存各应用 30 天的电池用量。</string>
+    <string name="bg_night_title">昨晚</string>
+    <string name="bg_night_lost">为夜间耗用的电池</string>
+    <string name="bg_night_quiet">没有应用特别突出。</string>
+    <string name="bg_note_report">来自 Android 自身的电池报告。</string>
+    <string name="bg_today_title">今天的后台耗电</string>
+    <string name="bg_today_caption">Android 报告</string>
+    <string name="bg_today_empty">今天还没有测量数据。Android 报告每 3 小时以及插入充电器时读取一次。</string>
+    <string name="bg_today_note">Android 对各应用的估算，包括屏幕上和后台的用量。</string>
+    <string name="bg_open_pro">所有应用和详情</string>
+    <string name="bg_detail_title">后台（Android），最近 7 天</string>
+    <string name="bg_detail_today">今天</string>
+    <string name="bg_detail_usual">正常的一天</string>
+    <string name="bg_unusual">异常</string>
+    <string name="bg_detail_note">Android 的估算，包括屏幕上和后台的用量。</string>
+</resources>
