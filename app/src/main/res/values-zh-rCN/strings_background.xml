@@ -4,7 +4,7 @@
     <string name="bg_setting_title">自动后台测量</string>
     <string name="bg_setting_hint">每 3 小时以及插入充电器时读取 Android 的电池报告，保存各应用 30 天的电池用量。</string>
     <string name="bg_night_title">昨晚</string>
-    <string name="bg_night_lost">为夜间耗用的电池</string>
+    <string name="bg_night_lost">夜间耗用的电池</string>
     <string name="bg_night_quiet">没有应用特别突出。</string>
     <string name="bg_note_report">来自 Android 自身的电池报告。</string>
     <string name="bg_today_title">今天的后台耗电</string>
