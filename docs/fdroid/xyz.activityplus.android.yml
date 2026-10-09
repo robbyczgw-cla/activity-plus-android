@@ -1,0 +1,32 @@
+# Draft for a merge request to https://gitlab.com/fdroid/fdroiddata (metadata/xyz.activityplus.android.yml).
+# Fill in the repository URL once the code is public.
+Categories:
+  - System
+License: MIT
+AuthorName: Robert Czesany
+WebSite: https://activityplus.xyz
+SourceCode: https://github.com/robbyczgw-cla/activity-plus-android
+IssueTracker: https://github.com/robbyczgw-cla/activity-plus-android/issues
+Changelog: https://github.com/robbyczgw-cla/activity-plus-android/blob/HEAD/CHANGELOG.md
+
+AutoName: Activity+
+
+RepoType: git
+Repo: https://github.com/robbyczgw-cla/activity-plus-android.git
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: v0.1.0
+    subdir: app
+    gradle:
+      - yes
+
+# Release key of the APKs on GitHub (SHA-256 of the signing certificate). Needed by IzzyOnDroid,
+# and by F-Droid only if it ships the developer-signed APK after a reproducible build.
+AllowedAPKSigningKeys: 0738faa125506add65728d087ddbae79cba8c2ad87b396c0cc8d15033251c3c1
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1

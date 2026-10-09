@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Debug builds only: shows all widgets for screenshots (scripts/emu.sh widgets). -->
+        <activity android:name=".WidgetPreviewActivity" android:exported="true" />
+    </application>
+</manifest>

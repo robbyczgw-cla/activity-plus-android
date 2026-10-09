@@ -1,0 +1,1 @@
+First release: which app is responsible, precise battery with charge sessions, live status bar value, widgets, 30-day history, hardware details, plain-language diagnosis and an optional on-demand pro mode (Shizuku or computer grant). No internet permission. Eight languages.

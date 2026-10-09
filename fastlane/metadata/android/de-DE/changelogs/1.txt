@@ -1,0 +1,1 @@
+Erste Version: welche App verantwortlich ist, genaue Akku-Infos mit Ladesitzungen, Live-Wert in der Statusleiste, Widgets, 30 Tage Verlauf, Hardware-Details, Diagnose in klaren Worten und ein optionaler Profi-Modus auf Abruf (Shizuku oder PC-Freigabe). Keine Internet-Berechtigung. Acht Sprachen.

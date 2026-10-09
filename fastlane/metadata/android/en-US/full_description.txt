@@ -1,0 +1,37 @@
+<p>Activity+ is the Android sibling of the Mac system monitor <a href="https://activityplus.xyz">Activity+</a>. It tells you which app is responsible, and what to do about it.</p>
+
+<p><b>Which app is responsible</b></p>
+<ul>
+<li>Battery, screen time, data (with the background share) and storage per app, on one row</li>
+<li>Battery measured while an app is on screen, and "unusual for this app" when it uses far more than on a normal day</li>
+<li>Why is my phone slow? Plain-language findings, each with a button into the Android screen that fixes it. Activity+ never closes apps or deletes files.</li>
+</ul>
+
+<p><b>Precise battery</b></p>
+<ul>
+<li>Charging and discharging power in watts, averaged and live, current next to voltage</li>
+<li>Percent per hour from the current, time to full or empty, charge speed and what the charger offers</li>
+<li>Sessions from plug to unplug with energy charged or used, peak power and screen on/off time</li>
+<li>Android's health and the measured capacity as two separate numbers</li>
+</ul>
+
+<p><b>Always in view</b></p>
+<ul>
+<li>A live value as the status bar icon, up to eight values in the notification, a Quick Settings tile</li>
+<li>Widgets: one value, a panel with six values and the app that used the most battery today, a battery ring</li>
+<li>Alerts that name the cause: heat, full storage, a charger too weak for the load, an app drawing a lot of power</li>
+</ul>
+
+<p><b>History and hardware</b></p>
+<ul>
+<li>30 days of history on the phone; tap a point to see the app that was on screen</li>
+<li>Hardware: chip with live clock per core, GPU, RAM split and pressure, display modes, cameras, Widevine level, hardware decoders, sensors</li>
+</ul>
+
+<p><b>Pro mode, on demand (optional)</b><br>
+With Shizuku or a one-time grant from a computer, Activity+ reads Android's own reports once: battery per app since the last charge including background use, memory per app and CPU per app. It runs only three read-only reports; anything else is refused. You can turn developer options off again afterwards.</p>
+
+<p><b>Private by design</b><br>
+No internet permission, no account, no analytics, no ads. History stays in the app's own data.</p>
+
+<p>English, German, French, Spanish, Italian, Portuguese (Brazil), Japanese and Simplified Chinese.</p>

@@ -1,0 +1,95 @@
+Load: 0.29 / 0.14 / 0.06
+CPU usage from 118357ms to 951ms ago (2026-10-09 06:49:41.200 to 2026-10-09 06:51:38.606):
+  11% 1605/com.google.android.apps.messaging: 6.5% user + 4.7% kernel / faults: 29114 minor 122 major
+  8.1% 403/android.hardware.graphics.composer3-service.ranchu: 0.1% user + 7.9% kernel / faults: 5 minor 6 major
+  4.3% 442/surfaceflinger: 2% user + 2.3% kernel / faults: 408 minor 19 major
+  3.7% 572/system_server: 2.2% user + 1.5% kernel / faults: 38025 minor 66 major
+  3.3% 2724/com.android.chrome: 1.4% user + 1.8% kernel / faults: 27853 minor 2375 major
+  1.7% 811/com.android.systemui: 0.6% user + 1.1% kernel / faults: 5846 minor 8 major
+  1.4% 978/com.android.settings: 0.5% user + 0.8% kernel / faults: 8251 minor 6163 major
+  0.8% 395/android.hardware.sensors-service.multihal: 0.2% user + 0.5% kernel
+  0.5% 3557/kworker/1:1-virtio_vsock: 0% user + 0.5% kernel
+  0.5% 1261/com.google.android.apps.nexuslauncher: 0.3% user + 0.1% kernel / faults: 7263 minor 6 major
+  0.5% 1037/com.google.android.gms.persistent: 0.4% user + 0% kernel / faults: 4358 minor 4 major
+  0.4% 3065/kworker/3:6H-kblockd: 0% user + 0.4% kernel
+  0.2% 482/logcat: 0% user + 0.2% kernel
+  0.2% 1450/com.google.android.googlequicksearchbox:search: 0.1% user + 0.1% kernel / faults: 2861 minor 10026 major
+  0.1% 1347/com.google.android.as: 0.1% user + 0% kernel / faults: 2669 minor 2 major
+  0.2% 1521/com.google.android.gms: 0.1% user + 0% kernel / faults: 905 minor 5149 major
+  0.1% 164/logd: 0% user + 0.1% kernel / faults: 128 minor 10 major
+  0.1% 1107/com.google.android.permissioncontroller: 0% user + 0% kernel / faults: 1157 minor 2312 major
+  0.1% 166/servicemanager: 0% user + 0% kernel / faults: 3 minor 1 major
+  0.1% 338/kworker/u8:6-loop26: 0% user + 0.1% kernel
+  0.1% 16/rcu_preempt: 0% user + 0.1% kernel
+  0% 1278/com.google.android.inputmethod.latin: 0% user + 0% kernel / faults: 723 minor 11 major
+  0.1% 70/kworker/3:1-mm_percpu_wq: 0% user + 0.1% kernel
+  0% 215/jbd2/dm-46-8: 0% user + 0% kernel
+  0% 33/kworker/2:0-virtio_vsock: 0% user + 0% kernel
+  0% 55/kswapd0: 0% user + 0% kernel
+  0% 1349/kworker/0:3-events: 0% user + 0% kernel
+  0% 967/com.android.phone: 0% user + 0% kernel / faults: 704 minor
+  0% 905/com.android.networkstack.process: 0% user + 0% kernel / faults: 449 minor
+  0% 38/ksoftirqd/3: 0% user + 0% kernel
+  0% 375/statsd: 0% user + 0% kernel / faults: 1 minor 2 major
+  0% 1200/android.process.acore: 0% user + 0% kernel / faults: 302 minor 1014 major
+  0% 1381/com.google.android.googlequicksearchbox:interactor: 0% user + 0% kernel / faults: 970 minor 1 major
+  0% 28/kworker/1:0H-kblockd: 0% user + 0% kernel
+  0% 165/lmkd: 0% user + 0% kernel
+  0% 392/android.hardware.graphics.allocator@3.0-service.ranchu: 0% user + 0% kernel / faults: 1 major
+  0% 458/adbd: 0% user + 0% kernel / faults: 5625 minor
+  0% 493/installd: 0% user + 0% kernel / faults: 11 minor 44 major
+  0% 3355/kworker/u8:0-writeback: 0% user + 0% kernel
+  0% 376/netd: 0% user + 0% kernel / faults: 112 minor 1 major
+  0% 377/zygote64: 0% user + 0% kernel / faults: 320 minor
+  0% 432/android.hardware.drm-service.widevine: 0% user + 0% kernel / faults: 407 minor 24 major
+  0% 1301/com.google.android.apps.wellbeing: 0% user + 0% kernel / faults: 72 minor 1037 major
+  0% 1/init: 0% user + 0% kernel / faults: 60 minor
+  0% 1397/com.google.android.apps.messaging:rcs: 0% user + 0% kernel / faults: 178 minor
+  0% 2656/com.google.android.settings.intelligence: 0% user + 0% kernel / faults: 65 minor 780 major
+  0% 34/kworker/2:0H-kverityd: 0% user + 0% kernel
+  0% 54/kworker/0:1H-kverityd: 0% user + 0% kernel
+  0% 190/android.system.suspend-service: 0% user + 0% kernel
+  0% 368/dhcpclient: 0% user + 0% kernel
+  0% 26/ksoftirqd/1: 0% user + 0% kernel
+  0% 167/hwservicemanager: 0% user + 0% kernel / faults: 1 minor 1 major
+  0% 763/android.hardware.biometrics.fingerprint-service.ranchu: 0% user + 0% kernel
+  0% 797/wpa_supplicant: 0% user + 0% kernel
+  0% 844/kworker/u9:4-blk_crypto_wq: 0% user + 0% kernel
+  0% 941/com.google.android.bluetooth: 0% user + 0% kernel / faults: 50 minor 1 major
+  0% 2839/com.android.traceur: 0% user + 0% kernel / faults: 29 minor 27 major
+  0% 3509/kworker/1:0-virtio_vsock: 0% user + 0% kernel
+  0% 15/ksoftirqd/0: 0% user + 0% kernel
+  0% 31/migration/2: 0% user + 0% kernel
+  0% 37/migration/3: 0% user + 0% kernel
+  0% 46/kcompactd0: 0% user + 0% kernel
+  0% 75/kworker/u8:2-loop17: 0% user + 0% kernel
+  0% 157/prng_seeder: 0% user + 0% kernel
+  0% 168/psimon: 0% user + 0% kernel
+  0% 393/android.hardware.health-service.example: 0% user + 0% kernel
+  0% 406/android.hardware.power-service.example: 0% user + 0% kernel / faults: 5 minor 27 major
+  0% 416/iptables-restore: 0% user + 0% kernel
+  0% 417/ip6tables-restore: 0% user + 0% kernel
+  0% 433/audioserver: 0% user + 0% kernel / faults: 3 minor 7 major
+  0% 478/traced: 0% user + 0% kernel / faults: 36 minor 53 major
+  0% 483/bt_vhci_forwarder: 0% user + 0% kernel
+  0% 508/storaged: 0% user + 0% kernel
+  0% 512/libgoldfish-rild: 0% user + 0% kernel / faults: 1 major
+  0% 1121/com.google.android.cellbroadcastreceiver: 0% user + 0% kernel / faults: 2 minor
+  0% 1978/com.google.android.gms.unstable: 0% user + 0% kernel / faults: 7 minor 87 major
+  0% 2473/com.google.android.apps.safetyhub: 0% user + 0% kernel / faults: 20 minor 71 major
+  0% 2898/com.google.android.marvin.talkback: 0% user + 0% kernel / faults: 34 minor 29 major
+  0% 3464/kworker/u9:0-blk_crypto_wq: 0% user + 0% kernel
+ +0% 3602/kworker/3:0H-kverityd: 0% user + 0% kernel
+ +0% 3603/kworker/1:2H: 0% user + 0% kernel
+ +0% 3656/kworker/u9:2-fscrypt_read_queue: 0% user + 0% kernel
+ +0% 3657/com.android.chrome_zygote: 0% user + 0% kernel
+ +0% 3667/com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 0% user + 0% kernel
+ +0% 3693/com.android.chrome:privileged_process0: 0% user + 0% kernel
+ +0% 3889/kworker/1:2-virtio_vsock: 0% user + 0% kernel
+ +0% 3903/kworker/0:0-events: 0% user + 0% kernel
+ +0% 3925/kworker/u9:3-fscrypt_read_queue: 0% user + 0% kernel
+ +0% 3927/kworker/3:1H: 0% user + 0% kernel
+ +0% 3941/com.google.android.calendar: 0% user + 0% kernel
+ +0% 3971/com.android.providers.calendar: 0% user + 0% kernel
+ +0% 4066/dumpsys: 0% user + 0% kernel
+13% TOTAL: 5.9% user + 7.2% kernel + 0.3% iowait + 0.1% softirq

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <LinearLayout android:id="@+id/cell0" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/label0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+                android:textStyle="bold" android:maxLines="1" />
+            <TextView android:id="@+id/value0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Title"
+                android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/cell1" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/label1" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+                android:textStyle="bold" android:maxLines="1" />
+            <TextView android:id="@+id/value1" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Title"
+                android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/cell2" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/label2" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+                android:textStyle="bold" android:maxLines="1" />
+            <TextView android:id="@+id/value2" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Title"
+                android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/cell3" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/label3" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+                android:textStyle="bold" android:maxLines="1" />
+            <TextView android:id="@+id/value3" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Title"
+                android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/row2" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="6dp" android:orientation="horizontal">
+        <LinearLayout android:id="@+id/cell4" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/label4" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+                android:textStyle="bold" android:maxLines="1" />
+            <TextView android:id="@+id/value4" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Title"
+                android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/cell5" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/label5" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+                android:textStyle="bold" android:maxLines="1" />
+            <TextView android:id="@+id/value5" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Title"
+                android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/cell6" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/label6" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+                android:textStyle="bold" android:maxLines="1" />
+            <TextView android:id="@+id/value6" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Title"
+                android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/cell7" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical">
+            <TextView android:id="@+id/label7" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Info"
+                android:textStyle="bold" android:maxLines="1" />
+            <TextView android:id="@+id/value7" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textAppearance="@android:style/TextAppearance.Material.Notification.Title"
+                android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:id="@+id/footer" android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="6dp" android:maxLines="2"
+        android:textAppearance="@android:style/TextAppearance.Material.Notification" />
+</LinearLayout>

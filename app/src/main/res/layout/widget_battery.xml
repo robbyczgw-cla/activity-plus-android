@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/widget_bg" android:gravity="center" android:orientation="vertical" android:padding="10dp">
+    <ImageView android:id="@+id/ring" android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:scaleType="fitCenter" android:contentDescription="@string/card_battery" />
+    <TextView android:id="@+id/line1" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginTop="4dp" android:textColor="#FFFFFFFF" android:textSize="13sp" android:textStyle="bold" android:maxLines="1" />
+    <TextView android:id="@+id/line2" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textColor="#FF9AA0BC" android:textSize="11sp" android:maxLines="1" />
+</LinearLayout>

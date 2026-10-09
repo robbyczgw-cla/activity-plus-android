@@ -1,0 +1,37 @@
+<p>Activity+ ist die Android-Schwester des Mac-Systemmonitors <a href="https://activityplus.xyz">Activity+</a>. Es sagt dir, welche App verantwortlich ist und was du tun kannst.</p>
+
+<p><b>Welche App verantwortlich ist</b></p>
+<ul>
+<li>Akku, Bildschirmzeit, Daten (mit Hintergrundanteil) und Speicher pro App in einer Zeile</li>
+<li>Akku gemessen, während eine App auf dem Bildschirm ist, und „ungewöhnlich für diese App“, wenn sie deutlich mehr braucht als an einem normalen Tag</li>
+<li>Warum ist mein Handy langsam? Klare Befunde, jeweils mit einem Knopf zur passenden Android-Einstellung. Activity+ schließt nie Apps und löscht nie Dateien.</li>
+</ul>
+
+<p><b>Akku genau</b></p>
+<ul>
+<li>Lade- und Entladeleistung in Watt, gemittelt und live, Strom neben Spannung</li>
+<li>Prozent pro Stunde aus dem Strom, Zeit bis voll oder leer, Ladetyp und was das Ladegerät anbietet</li>
+<li>Sitzungen vom Ein- bis zum Ausstecken mit geladener oder verbrauchter Energie, Spitzenleistung und Bildschirm an/aus</li>
+<li>Was Android über den Akkuzustand sagt und die gemessene Kapazität als zwei getrennte Zahlen</li>
+</ul>
+
+<p><b>Immer im Blick</b></p>
+<ul>
+<li>Ein Live-Wert als Statusleisten-Symbol, bis zu acht Werte in der Benachrichtigung, eine Schnelleinstellungs-Kachel</li>
+<li>Widgets: ein Wert, ein Panel mit sechs Werten und der App mit dem meisten Akkuverbrauch heute, ein Akku-Ring</li>
+<li>Warnungen, die die Ursache nennen: Hitze, voller Speicher, zu schwaches Ladegerät, eine App mit hohem Verbrauch</li>
+</ul>
+
+<p><b>Verlauf und Hardware</b></p>
+<ul>
+<li>30 Tage Verlauf auf dem Handy; tippe auf einen Punkt, um die App auf dem Bildschirm zu sehen</li>
+<li>Hardware: Chip mit Takt pro Kern live, GPU, RAM-Aufteilung und Speicherdruck, Display-Modi, Kameras, Widevine-Stufe, Hardware-Decoder, Sensoren</li>
+</ul>
+
+<p><b>Profi-Modus auf Abruf (optional)</b><br>
+Mit Shizuku oder einer einmaligen Freigabe per PC liest Activity+ einmal die Berichte von Android: Akku pro App seit der letzten Ladung inklusive Hintergrund, Arbeitsspeicher pro App und CPU pro App. Es führt nur drei lesende Berichte aus und lehnt alles andere ab. Danach kannst du die Entwickleroptionen wieder ausschalten.</p>
+
+<p><b>Privat von Grund auf</b><br>
+Keine Internet-Berechtigung, kein Konto, keine Analyse, keine Werbung. Der Verlauf bleibt in den eigenen App-Daten.</p>
+
+<p>Englisch, Deutsch, Französisch, Spanisch, Italienisch, Portugiesisch (Brasilien), Japanisch und vereinfachtes Chinesisch.</p>
