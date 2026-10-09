@@ -460,4 +460,5 @@
     <string name="detail_pro_ram">Memory (PSS)</string>
     <string name="pro_ready_body_dump">Reads Android\'s battery report once: battery per app since the last charge, background included. Memory and CPU per app need Shizuku; Android keeps those reports closed to apps.</string>
     <string name="lang_system">System language (%1$s)</string>
+    <string name="pro_shizuku_upgrade">Allow in Shizuku for memory and CPU</string>
 </resources>

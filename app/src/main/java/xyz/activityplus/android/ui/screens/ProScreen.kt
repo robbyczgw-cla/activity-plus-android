@@ -138,6 +138,12 @@ private fun AccessCard(access: ProShell.Access, running: Boolean, onMeasure: () 
                 }
                 Spacer(Modifier.height(6.dp))
                 Note(stringResource(R.string.pro_dev_off_tip))
+                // With the computer grant, Shizuku can still add memory and CPU per app.
+                if (access == ProShell.Access.DUMP && ProShell.shizukuState(context) == ProShell.Access.SHIZUKU_PERMISSION) {
+                    OutlinedButton(onClick = { ProShell.requestPermission { onChanged() } }, modifier = Modifier.padding(top = 10.dp)) {
+                        Text(stringResource(R.string.pro_shizuku_upgrade))
+                    }
+                }
             }
             ProShell.Access.SHIZUKU_PERMISSION -> {
                 Note(stringResource(R.string.pro_permission_body))

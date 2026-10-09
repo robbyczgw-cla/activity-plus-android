@@ -39,16 +39,21 @@ object ProShell {
 
     fun computerCommand(pkg: String) = COMPUTER_GRANTS.joinToString(" && ") { "pm grant $pkg $it" }.let { "adb shell \"$it\"" }
 
-    /** Shizuku first: it reads all three reports; the computer grant only the battery one. */
-    fun access(context: Context): Access {
+    /** State of the Shizuku route alone, whatever the computer grant says. */
+    fun shizukuState(context: Context): Access {
         val installed = runCatching { context.packageManager.getPackageInfo(SHIZUKU_PACKAGE, 0) }.isSuccess
         val running = runCatching { Shizuku.pingBinder() }.getOrDefault(false)
-        val shizuku = when {
+        return when {
             !running -> if (installed) Access.SHIZUKU_NOT_RUNNING else Access.SHIZUKU_NOT_INSTALLED
             Shizuku.isPreV11() -> Access.SHIZUKU_TOO_OLD
             Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED -> Access.SHIZUKU
             else -> Access.SHIZUKU_PERMISSION
         }
+    }
+
+    /** Shizuku first: it reads all three reports; the computer grant only the battery one. */
+    fun access(context: Context): Access {
+        val shizuku = shizukuState(context)
         if (shizuku == Access.SHIZUKU) return shizuku
         val granted = COMPUTER_GRANTS.all { context.checkSelfPermission(it) == PackageManager.PERMISSION_GRANTED }
         return if (granted) Access.DUMP else shizuku

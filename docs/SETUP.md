@@ -10,6 +10,7 @@ Everything except the pro mode works right after the first start. The pro mode i
    [releases](https://github.com/robbyczgw-cla/activity-plus-android/releases) and open it.
 2. Android asks to allow installs from your browser or file manager. Allow it, install, then turn that
    permission off again.
+3. Or let [Obtainium](https://github.com/ImranR98/Obtainium) install and update it: [add Activity+ to Obtainium](https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/robbyczgw-cla/activity-plus-android), or add `https://github.com/robbyczgw-cla/activity-plus-android` by hand.
 
 Updates install over the old version as long as they come from the same place: all releases are signed
 with the same key (certificate SHA-256 `07:38:FA:A1:25:50:6A:DD:65:72:8D:08:7D:DB:AE:79:CB:A8:C2:AD:87:B3:96:C0:CC:8D:15:03:32:51:C3:C1`).

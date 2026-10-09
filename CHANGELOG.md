@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Measure precisely: with the computer grant in place, a running Shizuku can now be allowed too, for memory and CPU per app
+
 ## 0.1.1
 
 - Choose the app's language on the first screen and in settings (Android 13+); the phone's language stays the default

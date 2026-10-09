@@ -442,4 +442,5 @@
     <string name="detail_pro_cpu">CPU 時間</string>
     <string name="detail_pro_ram">メモリ（PSS）</string>
     <string name="lang_system">システムの言語（%1$s）</string>
+    <string name="pro_shizuku_upgrade">Shizuku で許可（メモリと CPU）</string>
 </resources>

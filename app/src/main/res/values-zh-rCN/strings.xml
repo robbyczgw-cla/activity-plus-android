@@ -442,4 +442,5 @@
     <string name="detail_pro_cpu">CPU 时间</string>
     <string name="detail_pro_ram">内存（PSS）</string>
     <string name="lang_system">跟随系统（%1$s）</string>
+    <string name="pro_shizuku_upgrade">在 Shizuku 中允许（内存和 CPU）</string>
 </resources>

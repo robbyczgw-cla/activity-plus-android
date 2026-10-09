@@ -1,0 +1,1 @@
+Genau messen: Mit vorhandener PC-Freigabe lässt sich jetzt zusätzlich Shizuku erlauben, für Arbeitsspeicher und CPU pro App.

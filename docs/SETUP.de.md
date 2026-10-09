@@ -10,6 +10,7 @@ Alles außer dem Profi-Modus funktioniert direkt nach dem ersten Start. Der Prof
    [Releases](https://github.com/robbyczgw-cla/activity-plus-android/releases) laden und öffnen.
 2. Android fragt, ob der Browser oder Dateimanager Apps installieren darf. Erlauben, installieren, danach
    die Erlaubnis wieder ausschalten.
+3. Oder [Obtainium](https://github.com/ImranR98/Obtainium) installieren und aktualisieren lassen: [Activity+ zu Obtainium hinzufügen](https://apps.obtainium.imranr.dev/redirect.html?r=obtainium://add/https://github.com/robbyczgw-cla/activity-plus-android) oder `https://github.com/robbyczgw-cla/activity-plus-android` von Hand eintragen.
 
 Updates installieren sich über die alte Version, solange sie von hier kommen: Alle Releases sind mit
 demselben Schlüssel signiert (Zertifikat SHA-256 `07:38:FA:A1:25:50:6A:DD:65:72:8D:08:7D:DB:AE:79:CB:A8:C2:AD:87:B3:96:C0:CC:8D:15:03:32:51:C3:C1`).

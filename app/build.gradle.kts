@@ -12,8 +12,8 @@ android {
         applicationId = "xyz.activityplus.android"
         minSdk = 29
         targetSdk = 36
-        versionCode = 2
-        versionName = "0.1.1"
+        versionCode = 3
+        versionName = "0.1.2"
     }
 
     // Release key from ~/.gradle/gradle.properties; without it the release build stays unsigned

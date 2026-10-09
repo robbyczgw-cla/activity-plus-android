@@ -444,4 +444,5 @@
     <string name="detail_pro_cpu">Tempo de CPU</string>
     <string name="detail_pro_ram">Memória (PSS)</string>
     <string name="lang_system">Idioma do sistema (%1$s)</string>
+    <string name="pro_shizuku_upgrade">Permitir no Shizuku para memória e CPU</string>
 </resources>
