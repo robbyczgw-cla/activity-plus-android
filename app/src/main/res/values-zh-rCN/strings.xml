@@ -441,4 +441,5 @@
     <string name="detail_pro_awake">保持手机唤醒</string>
     <string name="detail_pro_cpu">CPU 时间</string>
     <string name="detail_pro_ram">内存（PSS）</string>
+    <string name="lang_system">跟随系统（%1$s）</string>
 </resources>

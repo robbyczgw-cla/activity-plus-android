@@ -1,0 +1,1 @@
+Choose the app's language right on the first screen and in settings (Android 13 and later). The phone's language stays the default.

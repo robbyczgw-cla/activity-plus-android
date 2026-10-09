@@ -135,14 +135,7 @@ fun SettingsScreen(onBack: () -> Unit) {
                 Chips(listOf(1, 2, 5, 10), settings.intervalSeconds, { "$it s" }) { sec -> app.prefs.update { it.copy(intervalSeconds = sec) } }
                 Note(stringResource(R.string.set_interval_hint))
                 Spacer(Modifier.height(8.dp))
-                if (android.os.Build.VERSION.SDK_INT >= 33) {
-                    Column(
-                        Modifier.fillMaxWidth().clickable { Actions.appLanguage(context) }.padding(vertical = 6.dp),
-                    ) {
-                        Text(stringResource(R.string.set_language), style = MaterialTheme.typography.bodyLarge)
-                        Note(stringResource(R.string.set_language_hint))
-                    }
-                }
+                LanguageRow()
                 Toggle(stringResource(R.string.set_fahrenheit), null, settings.fahrenheit) { on -> app.prefs.update { it.copy(fahrenheit = on) } }
                 Toggle(stringResource(R.string.set_bits), null, settings.bits) { on -> app.prefs.update { it.copy(bits = on) } }
                 Toggle(stringResource(R.string.set_alerts), stringResource(R.string.set_alerts_hint), settings.alerts) { on ->

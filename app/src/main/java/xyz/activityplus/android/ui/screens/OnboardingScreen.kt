@@ -52,7 +52,9 @@ fun OnboardingScreen(onRequestNotifications: () -> Unit, onDone: () -> Unit) {
         Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState()).padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(14.dp),
     ) {
-        Spacer(Modifier.height(12.dp))
+        // Language first, so everything below can be read in the right one.
+        if (AppLanguage.supported) Card { LanguageRow() }
+        Spacer(Modifier.height(4.dp))
         // painterResource cannot load adaptive icons, so the icon is rebuilt from its layers.
         Box(
             Modifier.size(72.dp).clip(RoundedCornerShape(18.dp))

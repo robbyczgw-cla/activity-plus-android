@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Choose the app's language on the first screen and in settings (Android 13+); the phone's language stays the default
+
 ## 0.1.0
 
 First release.

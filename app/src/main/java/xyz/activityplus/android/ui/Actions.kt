@@ -29,10 +29,6 @@ object Actions {
         if (!launch(context, direct)) launch(context, Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
     }
 
-    /** Android 13+: the system's per-app language page. */
-    fun appLanguage(context: Context) =
-        launch(context, Intent(Settings.ACTION_APP_LOCALE_SETTINGS, Uri.parse("package:${context.packageName}")))
-
     fun website(context: Context) = launch(context, Intent(Intent.ACTION_VIEW, Uri.parse("https://activityplus.xyz")))
 
     private fun launch(context: Context, intent: Intent): Boolean = try {

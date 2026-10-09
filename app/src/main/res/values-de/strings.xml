@@ -445,4 +445,5 @@
     <string name="detail_pro_cpu">CPU-Zeit</string>
     <string name="detail_pro_ram">Arbeitsspeicher (PSS)</string>
     <string name="pro_ready_body_dump">Liest einmal den Akkubericht von Android: Akku pro App seit der letzten Ladung, mit Hintergrund. Arbeitsspeicher und CPU pro App gehen nur mit Shizuku; diese Berichte hält Android für Apps verschlossen.</string>
+    <string name="lang_system">Systemsprache (%1$s)</string>
 </resources>

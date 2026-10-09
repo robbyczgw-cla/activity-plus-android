@@ -443,4 +443,5 @@
     <string name="detail_pro_awake">A maintenu le téléphone éveillé</string>
     <string name="detail_pro_cpu">Temps CPU</string>
     <string name="detail_pro_ram">Mémoire (PSS)</string>
+    <string name="lang_system">Langue du système (%1$s)</string>
 </resources>

@@ -441,4 +441,5 @@
     <string name="detail_pro_awake">端末を起動状態に維持</string>
     <string name="detail_pro_cpu">CPU 時間</string>
     <string name="detail_pro_ram">メモリ（PSS）</string>
+    <string name="lang_system">システムの言語（%1$s）</string>
 </resources>

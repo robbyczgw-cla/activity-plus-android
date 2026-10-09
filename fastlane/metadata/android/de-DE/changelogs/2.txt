@@ -1,0 +1,1 @@
+Die Sprache der App lässt sich jetzt gleich auf dem ersten Bildschirm und in den Einstellungen wählen (ab Android 13). Standard bleibt die Sprache des Handys.

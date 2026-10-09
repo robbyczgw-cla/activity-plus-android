@@ -443,4 +443,5 @@
     <string name="detail_pro_awake">Manteve o celular acordado</string>
     <string name="detail_pro_cpu">Tempo de CPU</string>
     <string name="detail_pro_ram">Memória (PSS)</string>
+    <string name="lang_system">Idioma do sistema (%1$s)</string>
 </resources>
