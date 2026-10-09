@@ -102,6 +102,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     val weekly = rememberLoaded(access) {
         if (WeeklyReport.cardDay(System.currentTimeMillis())) WeeklyLoader.load(context).takeIf { it.report.enough } else null
     }
+    val night = rememberLoaded(minute.intValue) { loadLastNight(context, System.currentTimeMillis()) }
 
     Screen(
         title = stringResource(R.string.app_name),
@@ -121,6 +122,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
             }
         }
         if (weekly != null) item { WeeklyCard(weekly) { onOpen(Tab.WEEKLY) } }
+        if (night != null) item { LastNightCard(night, s?.battery?.capacityMah) { onOpen(Tab.BATTERY) } }
         if (s == null) return@Screen
         item {
             CardRow(

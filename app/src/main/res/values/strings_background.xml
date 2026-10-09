@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Automatic background measurement (computer grant only) -->
+    <string name="bg_setting_title">Automatic background measurement</string>
+    <string name="bg_setting_hint">Reads Android\'s battery report every 3 hours and when you plug in, for 30 days of battery per app.</string>
+    <string name="bg_night_title">Last night</string>
+    <string name="bg_night_lost">of the battery used overnight</string>
+    <string name="bg_night_quiet">No app stood out.</string>
+    <string name="bg_note_report">From Android\'s own battery report.</string>
+    <string name="bg_today_title">Background today</string>
+    <string name="bg_today_caption">Android\'s report</string>
+    <string name="bg_today_empty">Nothing measured yet today. Android\'s report is read every 3 hours and when you plug in.</string>
+    <string name="bg_today_note">Android\'s own estimate per app, on screen and in the background.</string>
+    <string name="bg_open_pro">All apps and details</string>
+    <string name="bg_detail_title">Background (Android), last 7 days</string>
+    <string name="bg_detail_today">Today</string>
+    <string name="bg_detail_usual">Usual day</string>
+    <string name="bg_unusual">Unusual</string>
+    <string name="bg_detail_note">Android\'s estimate, on screen and in the background.</string>
+</resources>

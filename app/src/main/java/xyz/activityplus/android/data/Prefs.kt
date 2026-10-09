@@ -37,6 +37,8 @@ data class Settings(
     val chargeFullAlarm: Boolean = false,
     val chargeWarmAlarm: Boolean = true,
     val onboarded: Boolean = false,
+    /** Reads Android's battery report every few hours; only with the computer grant. */
+    val backgroundMeasure: Boolean = true,
 )
 
 class Prefs(context: Context) {
@@ -67,6 +69,7 @@ class Prefs(context: Context) {
             chargeFullAlarm = sp.getBoolean("chargeFullAlarm", d.chargeFullAlarm),
             chargeWarmAlarm = sp.getBoolean("chargeWarmAlarm", d.chargeWarmAlarm),
             onboarded = sp.getBoolean("onboarded", d.onboarded),
+            backgroundMeasure = sp.getBoolean("backgroundMeasure", d.backgroundMeasure),
         )
     }
 
@@ -88,6 +91,7 @@ class Prefs(context: Context) {
             .putBoolean("chargeFullAlarm", s.chargeFullAlarm)
             .putBoolean("chargeWarmAlarm", s.chargeWarmAlarm)
             .putBoolean("onboarded", s.onboarded)
+            .putBoolean("backgroundMeasure", s.backgroundMeasure)
             .apply()
         _settings.value = s
     }

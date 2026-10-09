@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Automatische Hintergrundmessung (nur mit der Freigabe vom Computer) -->
+    <string name="bg_setting_title">Automatische Hintergrundmessung</string>
+    <string name="bg_setting_hint">Liest alle 3 Stunden und beim Anstecken den Akkubericht von Android, für 30 Tage Akku pro App.</string>
+    <string name="bg_night_title">Letzte Nacht</string>
+    <string name="bg_night_lost">des Akkus über Nacht verbraucht</string>
+    <string name="bg_night_quiet">Keine App ist aufgefallen.</string>
+    <string name="bg_note_report">Aus dem Akkubericht von Android.</string>
+    <string name="bg_today_title">Hintergrund heute</string>
+    <string name="bg_today_caption">Bericht von Android</string>
+    <string name="bg_today_empty">Heute noch nichts gemessen. Der Bericht von Android wird alle 3 Stunden und beim Anstecken gelesen.</string>
+    <string name="bg_today_note">Die Schätzung von Android pro App, auf dem Bildschirm und im Hintergrund.</string>
+    <string name="bg_open_pro">Alle Apps und Details</string>
+    <string name="bg_detail_title">Hintergrund (Android), letzte 7 Tage</string>
+    <string name="bg_detail_today">Heute</string>
+    <string name="bg_detail_usual">Normaler Tag</string>
+    <string name="bg_unusual">Ungewöhnlich</string>
+    <string name="bg_detail_note">Die Schätzung von Android, auf dem Bildschirm und im Hintergrund.</string>
+</resources>

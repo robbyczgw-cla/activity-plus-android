@@ -36,6 +36,7 @@ class MonitorService : Service() {
     private lateinit var chargeAlarm: ChargeAlarm
     private lateinit var chargeHealth: ChargeHealthRecorder
     private val labels = HashMap<String, String>()
+    private val background by lazy { BackgroundSampler(this, scope) }
 
     private var minuteStart = 0L
     private var powerSum = 0.0
@@ -71,6 +72,7 @@ class MonitorService : Service() {
                 }
                 Intent.ACTION_POWER_CONNECTED, Intent.ACTION_POWER_DISCONNECTED -> drain.onPowerChanged()
             }
+            background.onBroadcast(intent.action, now)
         }
     }
 
@@ -127,6 +129,7 @@ class MonitorService : Service() {
         if (settings.alerts) alerts.check(s, fgLabel)
         weekly.check(s.timeMillis)
         chargeAlarm.check(s, settings) // follows settings.alerts itself, but keeps its session state either way
+        background.onTick(s.timeMillis, s.battery.plugged)
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis

@@ -208,6 +208,7 @@ private fun AppDetail(row: AppRow, days: Int) {
             if (p.cpuMs > 0) StatLine(stringResource(R.string.detail_pro_cpu), Format.duration(p.cpuMs / 1000))
             p.pssBytes?.let { StatLine(stringResource(R.string.detail_pro_ram), Format.bytes(it).toString(), Metric.Memory) }
         }
+        AppBackgroundSection(u.pkg)
         Spacer(Modifier.height(10.dp))
         Note(stringResource(R.string.method_foreground))
         if (!u.pkg.startsWith("#")) {
