@@ -32,6 +32,10 @@ data class Settings(
     val weekly: Boolean = true,
     /** "On screen: Chrome · drawing 2.1 W" under the values. */
     val appLine: Boolean = true,
+    /** "Charged to N %" alarm: 0 is off, else 80, 85, 90 or 95. */
+    val chargeLimit: Int = 0,
+    val chargeFullAlarm: Boolean = false,
+    val chargeWarmAlarm: Boolean = true,
     val onboarded: Boolean = false,
 )
 
@@ -59,6 +63,9 @@ class Prefs(context: Context) {
             alerts = sp.getBoolean("alerts", d.alerts),
             weekly = sp.getBoolean("weekly", d.weekly),
             appLine = sp.getBoolean("appLine", d.appLine),
+            chargeLimit = sp.getInt("chargeLimit", d.chargeLimit),
+            chargeFullAlarm = sp.getBoolean("chargeFullAlarm", d.chargeFullAlarm),
+            chargeWarmAlarm = sp.getBoolean("chargeWarmAlarm", d.chargeWarmAlarm),
             onboarded = sp.getBoolean("onboarded", d.onboarded),
         )
     }
@@ -77,6 +84,9 @@ class Prefs(context: Context) {
             .putBoolean("alerts", s.alerts)
             .putBoolean("weekly", s.weekly)
             .putBoolean("appLine", s.appLine)
+            .putInt("chargeLimit", s.chargeLimit)
+            .putBoolean("chargeFullAlarm", s.chargeFullAlarm)
+            .putBoolean("chargeWarmAlarm", s.chargeWarmAlarm)
             .putBoolean("onboarded", s.onboarded)
             .apply()
         _settings.value = s

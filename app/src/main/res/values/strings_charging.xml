@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Charging alarms -->
+    <string name="chg_limit_title">Charged to %1$s</string>
+    <string name="chg_limit_body">You can unplug now to spare the battery.</string>
+    <string name="chg_full_title">Fully charged</string>
+    <string name="chg_full_body">The battery is full. You can unplug now to spare it.</string>
+    <string name="chg_warm_title">Warm while charging: %1$s</string>
+    <string name="chg_warm_body">The battery has been warm for a couple of minutes. Heat wears it out and slows charging. Take off the case or charge somewhere cooler.</string>
+
+    <!-- Settings -->
+    <string name="chg_section">Charging</string>
+    <string name="chg_off">Off</string>
+    <string name="chg_set_limit">Charge limit alarm</string>
+    <string name="chg_set_limit_hint">Tells you once per charge when the battery reaches this level, so you can unplug early. Batteries age slower when they are not kept full.</string>
+    <string name="chg_set_full">Fully charged alarm</string>
+    <string name="chg_set_full_hint">Tells you once per charge when the battery is full.</string>
+    <string name="chg_set_warm">Warm while charging</string>
+    <string name="chg_set_warm_hint">Tells you when the battery stays at 40 °C or more for two minutes while plugged in, at most once an hour.</string>
+    <string name="chg_set_note">These alarms follow the Alerts switch.</string>
+
+    <!-- Charger test -->
+    <string name="chg_test_title">Charger test</string>
+    <string name="chg_test_intro">Measures for 30 seconds what this charger and cable deliver into the battery. Keep this screen open.</string>
+    <string name="chg_test_button">Test charger</string>
+    <string name="chg_test_running">Measuring… %1$d of %2$d s</string>
+    <string name="chg_test_stopped">The test stopped because the phone stopped charging.</string>
+    <string name="chg_test_no_current">This phone does not report the charging current, so there is nothing to measure.</string>
+    <string name="chg_test_save_title">Save this test</string>
+    <string name="chg_test_save_summary">Average %1$s, peak %2$s</string>
+    <string name="chg_test_name_label">Name (optional)</string>
+    <string name="chg_test_name_hint">e.g. Anker 30 W + short cable</string>
+    <string name="chg_test_save">Save</string>
+    <string name="chg_test_discard">Discard</string>
+    <string name="chg_test_past">Past tests, best first</string>
+    <string name="chg_test_unnamed">Unnamed test</string>
+    <string name="chg_test_peak">Peak %1$s</string>
+    <string name="chg_test_compare_note">Results depend on the battery level and temperature: a full or warm battery takes less power. Compare tests at a similar level.</string>
+
+    <!-- Capacity trend in the health card -->
+    <string name="chg_trend_title">Full capacity over time</string>
+    <string name="chg_trend_change">%1$s since %2$s</string>
+    <plurals name="chg_trend_count">
+        <item quantity="one">%d measurement</item>
+        <item quantity="other">%d measurements</item>
+    </plurals>
+    <string name="chg_trend_note" formatted="false">Estimated from every charge that added at least 30 %. Rough for a single charge, but the trend counts.</string>
+</resources>

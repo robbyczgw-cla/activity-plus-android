@@ -148,6 +148,25 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
             }
         }
 
+        item { SectionTitle(stringResource(R.string.chg_section)) }
+        item {
+            Card {
+                Text(stringResource(R.string.chg_set_limit), style = MaterialTheme.typography.titleSmall)
+                Note(stringResource(R.string.chg_set_limit_hint))
+                Chips(listOf(0, 80, 85, 90, 95), settings.chargeLimit, { if (it == 0) stringResource(R.string.chg_off) else "$it %" }) { limit ->
+                    app.prefs.update { it.copy(chargeLimit = limit) }
+                }
+                Spacer(Modifier.height(6.dp))
+                Toggle(stringResource(R.string.chg_set_full), stringResource(R.string.chg_set_full_hint), settings.chargeFullAlarm) { on ->
+                    app.prefs.update { it.copy(chargeFullAlarm = on) }
+                }
+                Toggle(stringResource(R.string.chg_set_warm), stringResource(R.string.chg_set_warm_hint), settings.chargeWarmAlarm) { on ->
+                    app.prefs.update { it.copy(chargeWarmAlarm = on) }
+                }
+                Note(stringResource(R.string.chg_set_note))
+            }
+        }
+
         item { SectionTitle(stringResource(R.string.set_data)) }
         item {
             Card {

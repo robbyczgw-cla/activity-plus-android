@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 import xyz.activityplus.android.ActivityPlusApp
 import xyz.activityplus.android.core.DrainTracker
+import xyz.activityplus.android.data.ChargingStore
 import xyz.activityplus.android.core.SessionTracker
 import xyz.activityplus.android.widget.WidgetUpdater
 import xyz.activityplus.android.core.Snapshot
@@ -32,6 +33,8 @@ class MonitorService : Service() {
     private val sessions = SessionTracker()
     private lateinit var alerts: AlertEngine
     private lateinit var weekly: WeeklyNotifier
+    private lateinit var chargeAlarm: ChargeAlarm
+    private lateinit var chargeHealth: ChargeHealthRecorder
     private val labels = HashMap<String, String>()
 
     private var minuteStart = 0L
@@ -77,6 +80,8 @@ class MonitorService : Service() {
         super.onCreate()
         alerts = AlertEngine(this, app.prefs)
         weekly = WeeklyNotifier(this, app.prefs, scope)
+        chargeAlarm = ChargeAlarm(this, alerts)
+        chargeHealth = ChargeHealthRecorder(ChargingStore.get(this))
         // Continue the session that was running when the service stopped, if the plug state still matches.
         runCatching { app.history.sessions(1).firstOrNull() }.getOrNull()?.let { last ->
             val plugged = app.monitor.batteryNow().plugged
@@ -113,10 +118,15 @@ class MonitorService : Service() {
                 .notify(StatusNotification.ID, StatusNotification.build(this, s, settings, fgLabel))
         }
         drain.onTick(s.timeMillis, s.screenOn, !s.battery.plugged, s.battery.powerMw, s.foregroundPackage)
+        chargeHealth.onSample(s)
         sessions.onSample(s.timeMillis, s.battery.plugged, s.battery.levelFraction, s.battery.powerMw, s.screenOn, s.battery.temperatureC)
-            ?.let { finished -> runCatching { app.history.saveSession(finished) } }
+            ?.let { finished ->
+                runCatching { app.history.saveSession(finished) }
+                chargeHealth.onSessionEnd(finished)
+            }
         if (settings.alerts) alerts.check(s, fgLabel)
         weekly.check(s.timeMillis)
+        chargeAlarm.check(s, settings) // follows settings.alerts itself, but keeps its session state either way
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis
