@@ -23,6 +23,8 @@ PKG=xyz.activityplus.android
 
 case "${1:-}" in
 start)
+  # A container removed with docker rm -f leaves its locks behind; clear them when no instance runs.
+  if ! pgrep -f -- "-avd $AVD " >/dev/null; then rm -f "$HOME/.android/avd/$AVD.avd/"*.lock; fi
   if [ -n "${EMU_DOCKER_IMAGE:-}" ]; then
     docker rm -f droidplus-emu >/dev/null 2>&1 || true
     docker run -d --name droidplus-emu --network host --device /dev/kvm --group-add "$(getent group kvm | cut -d: -f3)" \
