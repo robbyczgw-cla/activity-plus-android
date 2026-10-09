@@ -32,6 +32,7 @@ class MonitorService : Service() {
     private val sessions = SessionTracker()
     private lateinit var alerts: AlertEngine
     private val labels = HashMap<String, String>()
+    private val background by lazy { BackgroundSampler(this, scope) }
 
     private var minuteStart = 0L
     private var powerSum = 0.0
@@ -67,6 +68,7 @@ class MonitorService : Service() {
                 }
                 Intent.ACTION_POWER_CONNECTED, Intent.ACTION_POWER_DISCONNECTED -> drain.onPowerChanged()
             }
+            background.onBroadcast(intent.action, now)
         }
     }
 
@@ -114,6 +116,7 @@ class MonitorService : Service() {
         sessions.onSample(s.timeMillis, s.battery.plugged, s.battery.levelFraction, s.battery.powerMw, s.screenOn, s.battery.temperatureC)
             ?.let { finished -> runCatching { app.history.saveSession(finished) } }
         if (settings.alerts) alerts.check(s, fgLabel)
+        background.onTick(s.timeMillis, s.battery.plugged)
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis

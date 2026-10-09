@@ -90,6 +90,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     }
     val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
     val findings = if (s != null && data != null) diagnose(context, s, data) else emptyList()
+    val night = rememberLoaded(minute.intValue) { loadLastNight(context, System.currentTimeMillis()) }
 
     Screen(
         title = stringResource(R.string.app_name),
@@ -102,6 +103,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     ) {
         if (!access) item { UsageAccessCard() }
         item { Verdict(findings, data, settings.fahrenheit, onOpen) }
+        if (night != null) item { LastNightCard(night, s?.battery?.capacityMah) { onOpen(Tab.BATTERY) } }
         if (s == null) return@Screen
         item {
             CardRow(

@@ -34,9 +34,11 @@ import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.BuildConfig
 import xyz.activityplus.android.R
 import xyz.activityplus.android.core.Format
+import xyz.activityplus.android.data.BackgroundStore
 import xyz.activityplus.android.data.ColorMode
 import xyz.activityplus.android.data.MAX_STATUS_ITEMS
 import xyz.activityplus.android.data.StatusItem
+import xyz.activityplus.android.pro.ProShell
 import xyz.activityplus.android.service.MonitorService
 import xyz.activityplus.android.ui.Actions
 import xyz.activityplus.android.ui.StatusText
@@ -141,6 +143,12 @@ fun SettingsScreen(onBack: () -> Unit) {
                 Toggle(stringResource(R.string.set_alerts), stringResource(R.string.set_alerts_hint), settings.alerts) { on ->
                     app.prefs.update { it.copy(alerts = on) }
                 }
+                // Only with the computer grant; without it there is nothing to switch.
+                if (remember { ProShell.hasComputerGrant(context) }) {
+                    Toggle(stringResource(R.string.bg_setting_title), stringResource(R.string.bg_setting_hint), settings.backgroundMeasure) { on ->
+                        app.prefs.update { it.copy(backgroundMeasure = on) }
+                    }
+                }
             }
         }
 
@@ -174,7 +182,11 @@ fun SettingsScreen(onBack: () -> Unit) {
             title = { Text(stringResource(R.string.set_clear_history)) },
             text = { Text(stringResource(R.string.set_clear_confirm)) },
             confirmButton = {
-                TextButton(onClick = { app.history.clear(); cleared++; confirmClear = false }) { Text(stringResource(R.string.delete)) }
+                TextButton(onClick = {
+                    app.history.clear()
+                    if (BackgroundStore.exists(context)) BackgroundStore.get(context).clear()
+                    cleared++; confirmClear = false
+                }) { Text(stringResource(R.string.delete)) }
             },
             dismissButton = { TextButton(onClick = { confirmClear = false }) { Text(stringResource(R.string.cancel)) } },
         )

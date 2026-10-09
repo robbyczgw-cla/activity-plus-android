@@ -30,6 +30,8 @@ data class Settings(
     /** "On screen: Chrome · drawing 2.1 W" under the values. */
     val appLine: Boolean = true,
     val onboarded: Boolean = false,
+    /** Reads Android's battery report every few hours; only with the computer grant. */
+    val backgroundMeasure: Boolean = true,
 )
 
 class Prefs(context: Context) {
@@ -52,6 +54,7 @@ class Prefs(context: Context) {
             alerts = sp.getBoolean("alerts", d.alerts),
             appLine = sp.getBoolean("appLine", d.appLine),
             onboarded = sp.getBoolean("onboarded", d.onboarded),
+            backgroundMeasure = sp.getBoolean("backgroundMeasure", d.backgroundMeasure),
         )
     }
 
@@ -68,6 +71,7 @@ class Prefs(context: Context) {
             .putBoolean("alerts", s.alerts)
             .putBoolean("appLine", s.appLine)
             .putBoolean("onboarded", s.onboarded)
+            .putBoolean("backgroundMeasure", s.backgroundMeasure)
             .apply()
         _settings.value = s
     }

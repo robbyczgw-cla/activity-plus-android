@@ -73,6 +73,8 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
     }
     val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
     val sessions = rememberLoaded(minute.intValue) { app.history.sessions(12) }
+    val context = LocalContext.current
+    val background = rememberLoaded(minute.intValue) { loadBackgroundToday(context) }
 
     Screen(title = stringResource(R.string.tab_battery)) {
         if (s == null) return@Screen
@@ -90,6 +92,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         } else if (data != null) {
             item { Card { Note(stringResource(R.string.drain_empty)) } }
         }
+        if (background != null) item { BackgroundTodayCard(background, onPro) }
         val past = sessions?.filter { it !== running && it.seconds >= 120 }
         if (!past.isNullOrEmpty()) item { SessionsCard(past) }
     }

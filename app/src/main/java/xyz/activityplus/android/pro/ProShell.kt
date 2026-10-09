@@ -16,7 +16,8 @@ import kotlin.coroutines.resume
 
 /**
  * How the pro mode reaches the system reports: a DUMP grant from a computer, or Shizuku.
- * Nothing here runs unless the user taps "Measure now".
+ * Nothing here runs unless the user taps "Measure now", or, with the computer grant, the
+ * automatic background measurement reads the battery report (BackgroundSampler).
  */
 object ProShell {
     const val SHIZUKU_PACKAGE = "moe.shizuku.privileged.api"
@@ -55,8 +56,24 @@ object ProShell {
     fun access(context: Context): Access {
         val shizuku = shizukuState(context)
         if (shizuku == Access.SHIZUKU) return shizuku
-        val granted = COMPUTER_GRANTS.all { context.checkSelfPermission(it) == PackageManager.PERMISSION_GRANTED }
-        return if (granted) Access.DUMP else shizuku
+        return if (hasComputerGrant(context)) Access.DUMP else shizuku
+    }
+
+    /** The computer grant alone, whatever Shizuku says. */
+    fun hasComputerGrant(context: Context): Boolean =
+        COMPUTER_GRANTS.all { context.checkSelfPermission(it) == PackageManager.PERMISSION_GRANTED }
+
+    /** The battery report through the computer grant only; never starts or binds Shizuku. */
+    suspend fun batteryWithGrant(context: Context): String {
+        check(hasComputerGrant(context)) { "no computer grant" }
+        return withContext(Dispatchers.IO) {
+            val p = ProcessBuilder(ShellService.BATTERY.split(' ')).redirectErrorStream(true).start()
+            // Unattended, so a hanging dumpsys must not block the next readings.
+            kotlin.concurrent.thread(isDaemon = true, name = "battery-report-timeout") {
+                if (!p.waitFor(60, java.util.concurrent.TimeUnit.SECONDS)) p.destroy()
+            }
+            p.inputStream.bufferedReader().use { it.readText() }.also { p.waitFor() }
+        }
     }
 
     /** Shows Shizuku's own dialog; [onResult] gets true when the user allows Activity+. */
