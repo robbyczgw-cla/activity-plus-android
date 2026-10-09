@@ -1,5 +1,7 @@
 # Activity+ for Android
 
+**[Download the APK](https://activityplus.xyz/#android)** · [Releases](https://github.com/robbyczgw-cla/activity-plus-android/releases) · [activityplus.xyz](https://activityplus.xyz)
+
 The Android sibling of [Activity+ for Mac](https://github.com/robbyczgw-cla/activity-plus): which app is
 responsible, and what to do about it. Native Kotlin and Jetpack Compose, Android 10 or later, no root.
 
