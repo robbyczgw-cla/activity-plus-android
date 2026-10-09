@@ -69,6 +69,8 @@ There are two ways in. You can use both.
 5. Turn USB debugging and developer options off again.
 6. In Activity+, *Measure precisely* now says **Ready (computer grant, battery only)**.
 
+With this grant Activity+ also reads the battery report on its own: when you plug in, each morning and every three hours on battery. That gives the "Last night" card, "Background today" and a 30-day background history per app. Turn it off in Settings → *Automatic background measurement*.
+
 No cable? *Wireless debugging* (Android 11+) works the same way: pair once with `adb pair <ip>:<port> <code>`,
 then `adb connect <ip>:<port>` and run the line above.
 

@@ -94,7 +94,8 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
             item { Card { Note(stringResource(R.string.drain_empty)) } }
         }
         if (background != null) item { BackgroundTodayCard(background, onPro) }
-        val past = sessions?.filter { it !== running && it.seconds >= 120 }
+        // Plug-in blips (a loose cable) say nothing; keep sessions that lasted and moved something.
+        val past = sessions?.filter { it !== running && it.seconds >= 300 && (it.energyMwh > 0 || it.levelChange != 0.0) }
         if (!past.isNullOrEmpty()) item { SessionsCard(past) }
     }
 }

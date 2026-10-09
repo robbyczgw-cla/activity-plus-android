@@ -69,6 +69,8 @@ Es gibt zwei Wege. Beide lassen sich kombinieren.
 5. USB-Debugging und Entwickleroptionen wieder ausschalten.
 6. In Activity+ steht unter *Genau messen* jetzt **Bereit (PC-Freigabe, nur Akku)**.
 
+Mit dieser Freigabe liest Activity+ den Akkubericht auch selbst: beim Einstecken, jeden Morgen und alle drei Stunden im Akkubetrieb. Daraus entstehen die Karte „Letzte Nacht“, „Hintergrund heute“ und 30 Tage Hintergrund-Verlauf pro App. Ausschalten unter Einstellungen → *Automatische Hintergrundmessung*.
+
 Ohne Kabel? *Debugging über WLAN* (ab Android 11) geht genauso: einmal mit `adb pair <ip>:<port> <code>` koppeln,
 dann `adb connect <ip>:<port>` und die Zeile oben ausführen.
 

@@ -6,9 +6,11 @@
 - Precise battery with sessions, widgets, hardware page, RAM split, pro mode on demand (Shizuku or computer grant)
 - No internet permission; eight languages; tested in the Android 15 emulator
 
+## 0.2.0 (09.10.2026)
+- Background battery per app every day with the computer grant; charge alarms, charger test, capacity trend; weekly report; interrupted-measuring card; VPN apps not flagged
+
 ## Next
 - [ ] Test on real phones (fuel gauge sign and units differ per vendor; per-core clocks; thermal headroom)
-- [ ] Charge alarm at a chosen level (Android only lets the phone maker stop charging)
-- [ ] Weekly report, data cap alert, "unusual for this app" for data and screen time
+- [ ] Data cap alert, "unusual for this app" for data and screen time
 - [ ] Publish: GitHub releases, IzzyOnDroid, F-Droid (draft metadata in docs/fdroid)
-- [ ] Card when measuring was interrupted, with per-maker steps (vivo, Xiaomi, Samsung, OnePlus)
+- [ ] Real-device check of the maker settings texts (vivo, Xiaomi, Samsung, OnePlus) in all languages

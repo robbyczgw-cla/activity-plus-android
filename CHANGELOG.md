@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0
+
+- Background battery per app, automatically: with the computer grant Activity+ reads Android's battery report when you plug in, each morning and every 3 hours on battery, and keeps 30 days per app; a "Last night" card in the morning, "Background today" on the Battery screen, a 7-day line and an "unusual" badge in each app's details
+- Charging: alarms at 80–95 %, when full and when the battery gets warm while charging; a 30-second charger and cable test with a saved list; the battery's measured capacity as a trend over months
+- Weekly report every Monday: top apps by battery, screen time and data against the week before, screen-off drain, charge sessions
+- "Measuring was interrupted": when the phone maker stops Activity+ in the background, a card shows the setting for your phone and can exempt Activity+ from battery optimization
+- VPN apps such as Tailscale are no longer reported as "working in the background"
+- The battery report is read with `dumpsys batterystats -c`, which only reads (no per-app CPU time in it)
+
 ## 0.1.2
 
 - Measure precisely: with the computer grant in place, a running Shizuku can now be allowed too, for memory and CPU per app
