@@ -50,6 +50,8 @@ object Diagnosis {
         val nowMillis: Long,
         /** Activity+ itself: it is on screen whenever someone checks, so it is never the culprit. */
         val ownPackage: String? = null,
+        /** VPN apps keep a service on purpose; that is not a background problem. */
+        val vpnPackages: Set<String> = emptySet(),
     )
 
     private const val GB = 1_000_000_000L
@@ -103,7 +105,10 @@ object Diagnosis {
         }
 
         // Foreground services: working in the background with a notification for hours.
-        i.apps.filter { it.serviceSeconds >= 3 * 3600 && it.screenSeconds < 15 * 60 && !it.system && it.pkg != i.ownPackage }
+        i.apps.filter {
+            it.serviceSeconds >= 3 * 3600 && it.screenSeconds < 15 * 60 && !it.system &&
+                it.pkg != i.ownPackage && it.pkg !in i.vpnPackages
+        }
             .sortedByDescending { it.serviceSeconds }
             .take(2)
             .forEach {

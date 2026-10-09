@@ -4,6 +4,7 @@ import android.content.Context
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import xyz.activityplus.android.core.Interruptions.LiveWindows
 
 /** What the status bar notification can show; the Android counterpart of the Mac menu bar items. */
 enum class StatusItem {
@@ -38,6 +39,10 @@ class Prefs(context: Context) {
     val settings: StateFlow<Settings> = _settings.asStateFlow()
     val current get() = _settings.value
 
+    init {
+        syncLiveWindows(current.live)
+    }
+
     private fun load(): Settings {
         val d = Settings()
         return Settings(
@@ -57,6 +62,7 @@ class Prefs(context: Context) {
 
     fun update(change: (Settings) -> Settings) {
         val s = change(_settings.value)
+        if (s.live != _settings.value.live) syncLiveWindows(s.live)
         sp.edit()
             .putBoolean("live", s.live)
             .putString("iconItem", s.iconItem.name)
@@ -75,6 +81,18 @@ class Prefs(context: Context) {
     /** Last time an alert of [key] fired, for cooldowns. */
     fun lastAlert(key: String): Long = sp.getLong("alert.$key", 0)
     fun setLastAlert(key: String, time: Long) = sp.edit().putLong("alert.$key", time).apply()
+
+    /** When the live setting was on, so a process kill counts as an interruption only then. */
+    private fun syncLiveWindows(live: Boolean) {
+        val windows = LiveWindows.sync(LiveWindows.decode(sp.getString("liveWindows", null)), live, System.currentTimeMillis())
+        sp.edit().putString("liveWindows", LiveWindows.encode(windows)).apply()
+    }
+
+    fun wasLive(time: Long): Boolean = LiveWindows.wasOn(LiveWindows.decode(sp.getString("liveWindows", null)), time)
+
+    /** When the user hid the "measuring was interrupted" card, for a week. */
+    fun interruptionDismissed(): Long = sp.getLong("interruptionDismissed", 0)
+    fun setInterruptionDismissed(time: Long) = sp.edit().putLong("interruptionDismissed", time).apply()
 
     private inline fun <reified T : Enum<T>> enumOr(name: String?, fallback: T): T =
         enumValues<T>().find { it.name == name } ?: fallback

@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- Lets the Overview card ask once to be left alone by battery optimization. -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <!-- Optional pro mode, granted once from a computer (adb shell pm grant ...):
          per-app memory, CPU and background battery from the system's own reports. -->
     <uses-permission android:name="android.permission.DUMP"
@@ -28,6 +30,10 @@
         <intent>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <!-- VPN apps: Diagnosis leaves their always-on service alone. -->
+        <intent>
+            <action android:name="android.net.VpnService" />
         </intent>
     </queries>
 

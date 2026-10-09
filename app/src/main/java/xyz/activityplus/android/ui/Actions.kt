@@ -29,6 +29,12 @@ object Actions {
         if (!launch(context, direct)) launch(context, Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
     }
 
+    /** The system asks once and shows its own yes/no dialog; Activity+ never changes the setting itself. */
+    fun ignoreBatteryOptimizations(context: Context) {
+        val direct = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:${context.packageName}"))
+        if (!launch(context, direct)) launch(context, Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
+    }
+
     fun website(context: Context) = launch(context, Intent(Intent.ACTION_VIEW, Uri.parse("https://activityplus.xyz")))
 
     private fun launch(context: Context, intent: Intent): Boolean = try {

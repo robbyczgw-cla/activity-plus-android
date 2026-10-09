@@ -32,7 +32,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -54,8 +56,10 @@ import xyz.activityplus.android.core.Snapshot
 import xyz.activityplus.android.core.ThermalStatus
 import xyz.activityplus.android.core.Transport
 import xyz.activityplus.android.data.Monitor
+import xyz.activityplus.android.data.VpnApps
 import xyz.activityplus.android.ui.AppIcon
 import xyz.activityplus.android.ui.FindingText
+import xyz.activityplus.android.ui.app
 import xyz.activityplus.android.ui.components.Badge
 import xyz.activityplus.android.ui.components.BigValue
 import xyz.activityplus.android.ui.components.Card
@@ -90,6 +94,8 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     }
     val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
     val findings = if (s != null && data != null) diagnose(context, s, data) else emptyList()
+    val interruption = rememberLoaded(Unit) { loadInterruption(context) }
+    var dismissed by remember { mutableStateOf(false) }
 
     Screen(
         title = stringResource(R.string.app_name),
@@ -102,6 +108,12 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     ) {
         if (!access) item { UsageAccessCard() }
         item { Verdict(findings, data, settings.fahrenheit, onOpen) }
+        if (interruption != null && !dismissed) item {
+            InterruptionCard(interruption) {
+                app.prefs.setInterruptionDismissed(System.currentTimeMillis())
+                dismissed = true
+            }
+        }
         if (s == null) return@Screen
         item {
             CardRow(
@@ -151,6 +163,7 @@ fun diagnose(context: Context, s: Snapshot, data: AppsData): List<Diagnosis.Find
             voltage = s.battery.voltageV,
             nowMillis = s.timeMillis,
             ownPackage = context.packageName,
+            vpnPackages = VpnApps.packages(context),
         )
     )
 }

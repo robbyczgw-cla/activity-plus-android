@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Übersichtskarte: die Messung wurde vom System unterbrochen (Wortlaut wie in docs/SETUP.de.md Abschnitt 3) -->
+    <string name="interruption_title">Die Messung wurde diese Woche %1$d-mal unterbrochen</string>
+    <string name="interruption_body">Android hat Activity+ im Hintergrund beendet. Der Wert in der Statusleiste und der Verlauf bekommen Lücken, bis du Activity+ einmal erlaubst:</string>
+    <string name="interruption_vivo">Akku → Hintergrund-Stromverbrauch → Activity+ → erlauben; Autostart an; in den letzten Apps sperren</string>
+    <string name="interruption_xiaomi">App-Info → Akkusparmodus → Keine Einschränkungen; Autostart an</string>
+    <string name="interruption_samsung">App-Info → Akku → Nicht eingeschränkt; aus „Apps im Standby“ entfernen</string>
+    <string name="interruption_oppo">App-Info → Akkunutzung → Hintergrundaktivität und automatisches Starten erlauben</string>
+    <string name="interruption_generic">App-Info → Akku → Uneingeschränkt</string>
+    <string name="interruption_app_info">App-Info öffnen</string>
+    <string name="interruption_battery">Akku uneingeschränkt erlauben</string>
+    <string name="interruption_dismiss">Ausblenden</string>
+</resources>

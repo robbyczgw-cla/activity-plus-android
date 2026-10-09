@@ -68,6 +68,15 @@ class DiagnosisTest {
         assertEquals("Sync", f.single { it.kind == Kind.BACKGROUND_SERVICE }.app)
     }
 
+    @Test fun vpnServiceIsNotABackgroundProblem() {
+        val apps = listOf(
+            app("com.tailscale", "Tailscale", screen = 0, service = 16 * 3600),
+            app("com.sync", "Sync", screen = 60, service = 16 * 3600),
+        )
+        val f = Diagnosis.run(input(apps = apps).copy(vpnPackages = setOf("com.tailscale")))
+        assertEquals(listOf("Sync"), f.filter { it.kind == Kind.BACKGROUND_SERVICE }.map { it.app })
+    }
+
     @Test fun screenOffDrainInPercentPerHour() {
         // 4000 mAh * 3.9 V = 15.6 Wh; 1.56 Wh over 2 h = 5 %/h.
         val f = Diagnosis.run(input(energy = mapOf(DrainTracker.SCREEN_OFF to (1560.0 to 7200.0))))

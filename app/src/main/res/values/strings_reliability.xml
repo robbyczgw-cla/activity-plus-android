@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Overview card: measuring was interrupted by the system (wording as in docs/SETUP.md section 3) -->
+    <string name="interruption_title">Measuring was interrupted %1$d times this week</string>
+    <string name="interruption_body">Android stopped Activity+ in the background. The status bar value and the history get gaps until you allow it once:</string>
+    <string name="interruption_vivo">Battery → background power consumption → Activity+ → allow; turn on autostart; lock it in recent apps</string>
+    <string name="interruption_xiaomi">App info → Battery saver → No restrictions; Autostart on</string>
+    <string name="interruption_samsung">App info → Battery → Unrestricted; remove it from \"Sleeping apps\"</string>
+    <string name="interruption_oppo">App info → Battery usage → allow background activity and auto launch</string>
+    <string name="interruption_generic">App info → Battery → Unrestricted</string>
+    <string name="interruption_app_info">Open app info</string>
+    <string name="interruption_battery">Allow unrestricted battery</string>
+    <string name="interruption_dismiss">Dismiss</string>
+</resources>
