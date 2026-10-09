@@ -80,6 +80,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         item { LiveCard(s, series, settings.fahrenheit) }
         val running = sessions?.firstOrNull()?.takeIf { it.charging == b.plugged }
         if (b.plugged) item { ChargingCard(b, running) } else item { SinceUnplugCard(b, running) }
+        item { ChargerTestCard(s, settings.fahrenheit) }
         // Which app is drawing the power right now.
         if (!b.plugged && s.foregroundPackage != null && data != null) item { NowDrawingCard(s, data) }
         item { ProEntryCard(onPro) }
@@ -285,6 +286,7 @@ private fun HealthCard(b: BatteryState) {
         b.healthFraction?.let { StatLine(stringResource(R.string.health_estimate), Format.percent(it)) }
         StatLine(stringResource(R.string.health_cycles), b.cycleCount?.toString() ?: stringResource(R.string.not_reported))
         b.technology?.let { StatLine(stringResource(R.string.health_technology), it) }
+        ChargingHealthTrend()
         Spacer(Modifier.height(6.dp))
         Note(stringResource(R.string.health_note))
     }

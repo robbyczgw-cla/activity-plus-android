@@ -77,7 +77,7 @@ class AlertEngine(private val context: Context, private val prefs: Prefs) {
         }
     }
 
-    private fun notify(key: String, now: Long, cooldown: Long, title: String, body: String) {
+    fun notify(key: String, now: Long, cooldown: Long, title: String, body: String) {
         if (now - prefs.lastAlert(key) < cooldown) return
         prefs.setLastAlert(key, now)
         val open = PendingIntent.getActivity(

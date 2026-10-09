@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Lade-Alarme -->
+    <string name="chg_limit_title">Auf %1$s geladen</string>
+    <string name="chg_limit_body">Du kannst jetzt abstecken, das schont den Akku.</string>
+    <string name="chg_full_title">Vollständig geladen</string>
+    <string name="chg_full_body">Der Akku ist voll. Du kannst jetzt abstecken, das schont ihn.</string>
+    <string name="chg_warm_title">Warm beim Laden: %1$s</string>
+    <string name="chg_warm_body">Der Akku ist seit ein paar Minuten warm. Hitze nutzt ihn ab und bremst das Laden. Nimm die Hülle ab oder lade an einem kühleren Ort.</string>
+
+    <!-- Einstellungen -->
+    <string name="chg_section">Laden</string>
+    <string name="chg_off">Aus</string>
+    <string name="chg_set_limit">Alarm bei Ladegrenze</string>
+    <string name="chg_set_limit_hint">Sagt dir einmal pro Ladevorgang Bescheid, wenn der Akku diesen Stand erreicht, damit du früher abstecken kannst. Akkus altern langsamer, wenn sie nicht voll gehalten werden.</string>
+    <string name="chg_set_full">Alarm bei vollem Akku</string>
+    <string name="chg_set_full_hint">Sagt dir einmal pro Ladevorgang Bescheid, wenn der Akku voll ist.</string>
+    <string name="chg_set_warm">Warm beim Laden</string>
+    <string name="chg_set_warm_hint">Meldet sich, wenn der Akku am Ladegerät zwei Minuten lang 40 °C oder mehr hat, höchstens einmal pro Stunde.</string>
+    <string name="chg_set_note">Diese Alarme folgen dem Schalter Warnungen.</string>
+
+    <!-- Ladegerät-Test -->
+    <string name="chg_test_title">Ladegerät-Test</string>
+    <string name="chg_test_intro">Misst 30 Sekunden lang, was dieses Ladegerät mit diesem Kabel in den Akku liefert. Lass diesen Bildschirm geöffnet.</string>
+    <string name="chg_test_button">Ladegerät testen</string>
+    <string name="chg_test_running">Messe… %1$d von %2$d s</string>
+    <string name="chg_test_stopped">Der Test wurde beendet, weil das Handy nicht mehr geladen hat.</string>
+    <string name="chg_test_no_current">Dieses Handy meldet den Ladestrom nicht, deshalb gibt es nichts zu messen.</string>
+    <string name="chg_test_save_title">Test speichern</string>
+    <string name="chg_test_save_summary">Durchschnitt %1$s, Spitze %2$s</string>
+    <string name="chg_test_name_label">Name (optional)</string>
+    <string name="chg_test_name_hint">z. B. Anker 30 W + kurzes Kabel</string>
+    <string name="chg_test_save">Speichern</string>
+    <string name="chg_test_discard">Verwerfen</string>
+    <string name="chg_test_past">Frühere Tests, die besten zuerst</string>
+    <string name="chg_test_unnamed">Test ohne Namen</string>
+    <string name="chg_test_peak">Spitze %1$s</string>
+    <string name="chg_test_compare_note">Die Ergebnisse hängen von Akkustand und Temperatur ab: Ein voller oder warmer Akku nimmt weniger Leistung auf. Vergleiche Tests bei ähnlichem Akkustand.</string>
+
+    <!-- Kapazitätsverlauf in der Zustandskarte -->
+    <string name="chg_trend_title">Volle Kapazität im Verlauf</string>
+    <string name="chg_trend_change">%1$s seit %2$s</string>
+    <plurals name="chg_trend_count">
+        <item quantity="one">%d Messung</item>
+        <item quantity="other">%d Messungen</item>
+    </plurals>
+    <string name="chg_trend_note" formatted="false">Geschätzt aus jedem Ladevorgang, der mindestens 30 % geladen hat. Einzeln ungenau, aber der Verlauf zählt.</string>
+</resources>
