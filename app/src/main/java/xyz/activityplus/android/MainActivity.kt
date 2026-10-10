@@ -40,6 +40,7 @@ import xyz.activityplus.android.ui.screens.BatteryScreen
 import xyz.activityplus.android.ui.screens.DiagnosisScreen
 import xyz.activityplus.android.ui.screens.HardwareScreen
 import xyz.activityplus.android.ui.screens.HistoryScreen
+import xyz.activityplus.android.ui.screens.MediaScreen
 import xyz.activityplus.android.ui.screens.OnboardingScreen
 import xyz.activityplus.android.ui.screens.OverviewScreen
 import xyz.activityplus.android.ui.screens.ProScreen
@@ -49,8 +50,8 @@ import xyz.activityplus.android.ui.screens.WeeklyReportScreen
 import xyz.activityplus.android.ui.theme.ActivityPlusTheme
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 
-/** DIAGNOSIS, PRO and WEEKLY have no tab of their own; the overview, apps, battery and settings screens open them. */
-enum class Tab { OVERVIEW, APPS, BATTERY, HISTORY, HARDWARE, DIAGNOSIS, PRO, WEEKLY, STORAGE }
+/** DIAGNOSIS, PRO, WEEKLY and MEDIA have no tab of their own; the overview, apps, battery and settings screens open them. */
+enum class Tab { OVERVIEW, APPS, BATTERY, HISTORY, HARDWARE, DIAGNOSIS, PRO, WEEKLY, STORAGE, MEDIA }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -116,7 +117,7 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
         }
     }
     BackHandler(enabled = showSettings) { showSettings = false }
-    BackHandler(enabled = !showSettings && tab != Tab.OVERVIEW) { tab = Tab.OVERVIEW }
+    BackHandler(enabled = !showSettings && tab != Tab.OVERVIEW) { tab = if (tab == Tab.MEDIA) Tab.STORAGE else Tab.OVERVIEW }
 
     if (showSettings) {
         SettingsScreen(onBack = { showSettings = false }, onWeekly = { tab = Tab.WEEKLY; showSettings = false })
@@ -157,6 +158,7 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
                 Tab.PRO -> ProScreen()
                 Tab.STORAGE -> StorageScreen()
                 Tab.WEEKLY -> WeeklyReportScreen()
+                Tab.MEDIA -> MediaScreen()
             }
         }
     }
