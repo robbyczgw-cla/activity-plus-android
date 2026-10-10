@@ -20,6 +20,7 @@ fun StorageScreen() {
         if (!access) item { UsageAccessCard() }
         // 1. Breakdown by category (apps, images, videos, audio, system, free)
         // 2. Growth per app over time and the "full in N days" forecast
+        item { StorageGrowthSection() }
         // 3. Caches
         // 4. Unused apps
         // 5–6. Media check: large and old media, duplicates (asks for media access)

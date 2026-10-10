@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Storage growth per app and the "full in N days" forecast (storage page) -->
+    <string name="sgrowth_title">Growth</string>
+    <plurals name="sgrowth_full_in">
+        <item quantity="one">At this pace storage is full in about %d day</item>
+        <item quantity="other">At this pace storage is full in about %d days</item>
+    </plurals>
+    <string name="sgrowth_stable">Storage use is stable</string>
+    <string name="sgrowth_freeing">Storage use is going down</string>
+    <string name="sgrowth_too_few">A forecast needs about a week of daily snapshots</string>
+    <string name="sgrowth_per_day">%s more used per day</string>
+    <string name="sgrowth_starts_today">The history starts today. Activity+ notes the storage once a day, so the trend shows from tomorrow on.</string>
+    <string name="sgrowth_used_30">Used storage, last 30 days</string>
+    <string name="sgrowth_top_title">Grew the most this month</string>
+    <string name="sgrowth_since">Since %s</string>
+    <string name="sgrowth_none">No app grew noticeably.</string>
+    <string name="sgrowth_new">New</string>
+    <string name="sgrowth_week">this week %s</string>
+    <string name="sgrowth_cache">cache %s</string>
+    <string name="sgrowth_unusual">Unusual</string>
+    <string name="sgrowth_no_access">Growth per app needs usage access. App sizes are noted from the next daily snapshot on.</string>
+    <string name="sgrowth_note">App and data only; the cache comes and goes and is listed on its own. Tap an app to open its app info.</string>
+</resources>
