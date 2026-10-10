@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Breakdown -->
+    <string name="storageapps_break_title">Breakdown</string>
+    <string name="storageapps_break_caption">%1$s free</string>
+    <string name="storageapps_break_used">%1$s used of %2$s</string>
+    <string name="storageapps_part_used">Used</string>
+    <string name="storageapps_part_apps">Apps and their data</string>
+    <string name="storageapps_part_images">Images</string>
+    <string name="storageapps_part_videos">Videos</string>
+    <string name="storageapps_part_audio">Audio</string>
+    <string name="storageapps_part_other">System and other</string>
+    <string name="storageapps_part_free">Free</string>
+    <string name="storageapps_break_note">Apps include their caches. \"System and other\" is Android itself, downloads, documents and everything that cannot be sorted.</string>
+    <string name="storageapps_break_needs_access">Allow usage access to see what the space is used for: apps, images, videos and audio.</string>
+
+    <!-- Shared -->
+    <string name="storageapps_loading">Reading app sizes. This takes a moment.</string>
+    <string name="storageapps_needs_access">This needs usage access. Allow it above and come back.</string>
+
+    <!-- Caches -->
+    <string name="storageapps_cache_title">Caches</string>
+    <string name="storageapps_cache_total">%1$s of cache Android can rebuild</string>
+    <string name="storageapps_cache_empty">No app has a noticeable cache.</string>
+    <string name="storageapps_cache_note">Caches come back by themselves. Clearing them is safe, but the app has to load things again, so it may open slower once and use some data. Tap an app to open its Android page, where you can clear the cache. Activity+ clears nothing itself.</string>
+
+    <!-- Unused apps -->
+    <string name="storageapps_unused_title">Unused apps</string>
+    <string name="storageapps_unused_for">Not opened for at least</string>
+    <string name="storageapps_days">%1$d days</string>
+    <plurals name="storageapps_unused_summary">
+        <item quantity="one">%1$d app, %2$s</item>
+        <item quantity="other">%1$d apps, %2$s</item>
+    </plurals>
+    <string name="storageapps_unused_none">Every app you installed was opened within the last %1$d days.</string>
+    <plurals name="storageapps_last_days">
+        <item quantity="one">last used %1$d day ago</item>
+        <item quantity="other">last used %1$d days ago</item>
+    </plurals>
+    <plurals name="storageapps_last_months">
+        <item quantity="one">last used %1$d month ago</item>
+        <item quantity="other">last used %1$d months ago</item>
+    </plurals>
+    <string name="storageapps_last_none">no use recorded</string>
+    <string name="storageapps_detail">%1$s · %2$s</string>
+    <string name="storageapps_uninstall">Uninstall</string>
+    <string name="storageapps_show_all">Show all %1$d</string>
+    <string name="storageapps_show_less">Show fewer</string>
+    <string name="storageapps_unused_note">Sizes are the app plus its data. Android keeps only part of the usage history; an app without a record counts as unused if it was installed before the cut-off. Uninstalling always asks you first.</string>
+</resources>

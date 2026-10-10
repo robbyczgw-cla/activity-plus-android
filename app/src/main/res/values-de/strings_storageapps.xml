@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Breakdown -->
+    <string name="storageapps_break_title">Aufteilung</string>
+    <string name="storageapps_break_caption">%1$s frei</string>
+    <string name="storageapps_break_used">%1$s von %2$s belegt</string>
+    <string name="storageapps_part_used">Belegt</string>
+    <string name="storageapps_part_apps">Apps und ihre Daten</string>
+    <string name="storageapps_part_images">Bilder</string>
+    <string name="storageapps_part_videos">Videos</string>
+    <string name="storageapps_part_audio">Audio</string>
+    <string name="storageapps_part_other">System und Sonstiges</string>
+    <string name="storageapps_part_free">Frei</string>
+    <string name="storageapps_break_note">Bei den Apps ist der Cache mitgezählt. \"System und Sonstiges\" sind Android selbst, Downloads, Dokumente und alles, was sich nicht zuordnen lässt.</string>
+    <string name="storageapps_break_needs_access">Erlaube den Nutzungszugriff, dann siehst du, wofür der Platz draufgeht: Apps, Bilder, Videos und Audio.</string>
+
+    <!-- Shared -->
+    <string name="storageapps_loading">App-Größen werden gelesen. Das dauert einen Moment.</string>
+    <string name="storageapps_needs_access">Dafür brauchst du den Nutzungszugriff. Erlaube ihn oben und komm zurück.</string>
+
+    <!-- Caches -->
+    <string name="storageapps_cache_title">Caches</string>
+    <string name="storageapps_cache_total">%1$s Cache, den Android neu aufbauen kann</string>
+    <string name="storageapps_cache_empty">Keine App hat einen nennenswerten Cache.</string>
+    <string name="storageapps_cache_note">Caches kommen von selbst wieder. Sie zu leeren ist unbedenklich, aber die App muss danach alles neu laden, öffnet also einmal langsamer und braucht etwas Datenvolumen. Tippe auf eine App, um ihre Android-Seite zu öffnen. Dort kannst du den Cache leeren. Activity+ leert selbst nichts.</string>
+
+    <!-- Unused apps -->
+    <string name="storageapps_unused_title">Ungenutzte Apps</string>
+    <string name="storageapps_unused_for">Nicht geöffnet seit mindestens</string>
+    <string name="storageapps_days">%1$d Tagen</string>
+    <plurals name="storageapps_unused_summary">
+        <item quantity="one">%1$d App, %2$s</item>
+        <item quantity="other">%1$d Apps, %2$s</item>
+    </plurals>
+    <string name="storageapps_unused_none">Jede installierte App wurde in den letzten %1$d Tagen geöffnet.</string>
+    <plurals name="storageapps_last_days">
+        <item quantity="one">zuletzt vor %1$d Tag genutzt</item>
+        <item quantity="other">zuletzt vor %1$d Tagen genutzt</item>
+    </plurals>
+    <plurals name="storageapps_last_months">
+        <item quantity="one">zuletzt vor %1$d Monat genutzt</item>
+        <item quantity="other">zuletzt vor %1$d Monaten genutzt</item>
+    </plurals>
+    <string name="storageapps_last_none">keine Nutzung aufgezeichnet</string>
+    <string name="storageapps_detail">%1$s · %2$s</string>
+    <string name="storageapps_uninstall">Deinstallieren</string>
+    <string name="storageapps_show_all">Alle %1$d anzeigen</string>
+    <string name="storageapps_show_less">Weniger anzeigen</string>
+    <string name="storageapps_unused_note">Die Größe ist App plus Daten. Android bewahrt nur einen Teil des Nutzungsverlaufs auf; eine App ohne Eintrag gilt als ungenutzt, wenn sie vor dem Stichtag installiert wurde. Vor dem Deinstallieren wirst du immer gefragt.</string>
+</resources>

@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- Lets the Overview card ask once to be left alone by battery optimization. -->
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- Storage page: the Uninstall button opens Android's own confirmation. -->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
     <!-- Optional pro mode, granted once from a computer (adb shell pm grant ...):
          per-app memory, CPU and background battery from the system's own reports. -->
     <uses-permission android:name="android.permission.DUMP"

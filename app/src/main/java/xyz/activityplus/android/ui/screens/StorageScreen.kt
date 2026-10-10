@@ -19,9 +19,12 @@ fun StorageScreen() {
     Screen(title = stringResource(R.string.storage_title), subtitle = stringResource(R.string.storage_subtitle)) {
         if (!access) item { UsageAccessCard() }
         // 1. Breakdown by category (apps, images, videos, audio, system, free)
+        item { StorageBreakdownSection() }
         // 2. Growth per app over time and the "full in N days" forecast
         // 3. Caches
+        item { StorageCachesSection() }
         // 4. Unused apps
+        item { StorageUnusedSection() }
         // 5–6. Media check: large and old media, duplicates (asks for media access)
         // 7. Speed test
         item { Note(stringResource(R.string.storage_note), Modifier.padding(horizontal = 4.dp)) }
