@@ -86,7 +86,14 @@ Xiaomi: *USB-Debugging (Sicherheitseinstellungen)*; OnePlus/Oppo: *Berechtigungs
 
 Shizuku stoppt beim Neustart des Handys. Nur neu starten, wenn du messen willst.
 
-## 5. Banking-Apps und Sicherheit
+## 5. Speicher und Medien
+
+Die Speicher-Seite braucht nur den Nutzungszugriff. *Medien prüfen* fragt beim ersten Mal nach Zugriff auf
+Fotos, Videos und Audio (ab Android 14 auch „eingeschränkter Zugriff“ auf ausgewählte Fotos). Activity+ liest
+nur die Dateiliste und die Größen und löscht selbst nichts: Löschen läuft über die Bestätigung von Android.
+Den Zugriff kannst du jederzeit unter App-Info → Berechtigungen zurücknehmen.
+
+## 6. Banking-Apps und Sicherheit
 
 - Banking- und Ausweis-Apps verweigern oft den Dienst, solange die Entwickleroptionen an sind. Mit der
   PC-Freigabe schaltest du sie direkt nach Schritt 5 aus und behältst die Profi-Akkuwerte. Mit Shizuku nur zum
@@ -98,7 +105,7 @@ Shizuku stoppt beim Neustart des Handys. Nur neu starten, wenn du messen willst.
   Activity+ liest nur den Akkubericht, hat keine Internet-Berechtigung, und der Quellcode liegt in diesem Repo.
   Mit der Deinstallation von Activity+ ist die Freigabe weg.
 
-## 6. Wenn die Freigabe fehlt
+## 7. Wenn die Freigabe fehlt
 
 Sie übersteht Neustarts und das Ausschalten der Entwickleroptionen. Weg ist sie nach Deinstallation oder
 Neuinstallation von Activity+, nach einem Zurücksetzen und unter Android 11–14 manchmal nach einem Update von

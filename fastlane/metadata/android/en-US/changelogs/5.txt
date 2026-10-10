@@ -1,0 +1,1 @@
+New storage page: breakdown, growth per app and a "full in N days" forecast, caches, unused apps, a media check with duplicates (deleting only through Android's dialog) and a storage speed test.

@@ -9,6 +9,9 @@
 ## 0.2.0 (09.10.2026)
 - Background battery per app every day with the computer grant; charge alarms, charger test, capacity trend; weekly report; interrupted-measuring card; VPN apps not flagged
 
+## 0.3.0 (10.10.2026)
+- Storage page: breakdown, growth and forecast, caches, unused apps, media check with duplicates, speed test
+
 ## Next
 - [ ] Test on real phones (fuel gauge sign and units differ per vendor; per-core clocks; thermal headroom)
 - [ ] Data cap alert, "unusual for this app" for data and screen time

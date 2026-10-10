@@ -1,0 +1,1 @@
+Neue Speicher-Seite: Aufteilung, Wachstum pro App und Prognose „voll in N Tagen“, Caches, ungenutzte Apps, Medien-Prüfung mit Duplikaten (Löschen nur über den Android-Dialog) und ein Speicher-Tempotest.

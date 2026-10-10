@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0
+
+- Storage page (tap the storage card on the overview):
+  - Breakdown: apps and their data, images, videos, audio, system and other, free
+  - Growth per app over 7 and 30 days, unusual growth, and "storage full in about N days" from a daily snapshot (90 days)
+  - Caches: total and the biggest apps, with a link to clear them in app info
+  - Unused apps: not opened for 30, 60 or 90 days, with their size and an uninstall button (Android asks first)
+  - Check media (asks for photo, video and audio access only when you use it): largest videos, screenshots and messenger media, old large files, duplicates; deleting goes through Android's own dialog
+  - Storage speed test: sequential write and read, random reads
+- "Storage used" as a status bar and widget value
+
 ## 0.2.0
 
 - Background battery per app, automatically: with the computer grant Activity+ reads Android's battery report when you plug in, each morning and every 3 hours on battery, and keeps 30 days per app; a "Last night" card in the morning, "Background today" on the Battery screen, a 7-day line and an "unusual" badge in each app's details

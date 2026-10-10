@@ -85,7 +85,14 @@ Xiaomi: *USB debugging (Security settings)*; OnePlus/Oppo: *Disable permission m
 
 Shizuku stops when the phone restarts. Start it again only when you want to measure.
 
-## 5. Banking apps and security
+## 5. Storage and media
+
+The Storage page works with usage access alone. *Check media* asks for access to photos, videos and audio
+the first time you use it (Android 14 also offers "limited access" to selected photos). Activity+ only reads
+the file list and sizes, and deletes nothing itself: deleting goes through Android's own confirmation.
+You can take the access back any time in app info → Permissions.
+
+## 6. Banking apps and security
 
 - Banking and ID apps often refuse to run while developer options are on. With the computer grant you turn
   them off right after step 5 and keep the pro battery figures. With Shizuku, turn them on only to measure.
@@ -96,7 +103,7 @@ Shizuku stops when the phone restarts. Start it again only when you want to meas
   Activity+ reads only the battery report, has no internet permission, and the source is in this repository.
   Uninstalling Activity+ removes the grant.
 
-## 6. When the grant is gone
+## 7. When the grant is gone
 
 It survives restarts and turning developer options off. It is removed when Activity+ is uninstalled or
 reinstalled, on a factory reset, and on Android 11–14 sometimes when Activity+ updates. *Measure precisely*
