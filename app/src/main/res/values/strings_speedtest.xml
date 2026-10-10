@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="item_storage_used">Storage used</string>
+    <string name="speed_title">Storage speed</string>
+    <string name="speed_note">Writes a 256 MB file to the app\'s cache, reads it back and deletes it. Android may still serve part of the read from memory, so the read speed can be too high.</string>
+    <string name="speed_test">Test speed</string>
+    <string name="speed_cancel">Cancel</string>
+    <string name="speed_phase_write">Writing…</string>
+    <string name="speed_phase_read">Reading…</string>
+    <string name="speed_phase_random">Random reads…</string>
+    <string name="speed_no_room">Less than 1 GB is free. Free some space first: the test writes a 256 MB file.</string>
+    <string name="speed_failed">The test could not finish. Check the free space and try again.</string>
+    <string name="speed_canceled">Test cancelled. The file was deleted.</string>
+    <string name="speed_verdict_slow">Slow storage: the phone may hang while installing or saving.</string>
+    <string name="speed_verdict_typical">Normal speed for a phone.</string>
+    <string name="speed_verdict_fast">Fast storage.</string>
+    <string name="speed_write">Write</string>
+    <string name="speed_read">Read</string>
+    <string name="speed_random">Random 4 KB reads</string>
+    <string name="speed_rate">%1$s MB/s</string>
+    <string name="speed_random_value">%1$s MB/s · %2$s IOPS</string>
+</resources>

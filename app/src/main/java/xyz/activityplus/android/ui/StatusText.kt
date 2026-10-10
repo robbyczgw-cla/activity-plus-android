@@ -20,6 +20,7 @@ object StatusText {
             StatusItem.NETWORK -> R.string.item_network
             StatusItem.CLOCK -> R.string.item_clock
             StatusItem.STORAGE -> R.string.item_storage
+            StatusItem.STORAGE_USED_PCT -> R.string.item_storage_used
             StatusItem.CHARGE_RATE -> R.string.item_charge_rate
             StatusItem.CURRENT -> R.string.item_current
             StatusItem.VOLTAGE -> R.string.item_voltage
@@ -41,6 +42,7 @@ object StatusText {
         StatusItem.NETWORK -> Format.rate(s.network.rxBytesPerSecond, settings.bits)
         StatusItem.CLOCK -> s.cpu.averageMhz?.let { Format.ghz(it) }
         StatusItem.STORAGE -> Format.bytes(s.storage.freeBytes)
+        StatusItem.STORAGE_USED_PCT -> Format.Scaled(Format.number(usedPercent(s), 0), "%")
         StatusItem.CHARGE_RATE -> s.battery.percentPerHour?.let {
             Format.Scaled((if (it > 0) "+" else "") + Format.number(it, 1), "%/h")
         }
@@ -66,6 +68,7 @@ object StatusText {
         }
         StatusItem.CLOCK -> s.cpu.averageMhz?.let { Format.number(it / 1000, 1) to "GHz" }
         StatusItem.STORAGE -> Format.bytes(s.storage.freeBytes).let { it.value.substringBefore('.').substringBefore(',') to it.unit }
+        StatusItem.STORAGE_USED_PCT -> Format.number(usedPercent(s), 0) to "DISK"
         StatusItem.CHARGE_RATE -> s.battery.percentPerHour?.let { Format.number(kotlin.math.abs(it), 0) to (if (it > 0) "+%/h" else "%/h") }
         StatusItem.CURRENT -> (s.battery.avgCurrentMa ?: s.battery.currentMa)?.let { Format.number(kotlin.math.abs(it), 0) to "mA" }
         StatusItem.VOLTAGE -> Format.number(s.battery.voltageV, 2) to "V"
@@ -78,6 +81,8 @@ object StatusText {
         }
     }
 
+    private fun usedPercent(s: Snapshot): Double = (1 - s.storage.freeFraction) * 100
+
     /** 0..1 load for the green-to-red color mode; null where it does not apply. */
     fun load(item: StatusItem, s: Snapshot): Double? = when (item) {
         StatusItem.POWER -> s.battery.powerMw?.let { if (it < 0) (-it / 6000.0) else 0.0 }
@@ -86,7 +91,7 @@ object StatusText {
         StatusItem.MEMORY -> ((s.memory.usedFraction - 0.5) / 0.45).coerceIn(0.0, 1.0)
         StatusItem.NETWORK -> null
         StatusItem.CLOCK -> s.cpu.clockFraction
-        StatusItem.STORAGE -> 1 - s.storage.freeFraction
+        StatusItem.STORAGE, StatusItem.STORAGE_USED_PCT -> 1 - s.storage.freeFraction
         StatusItem.CHARGE_RATE, StatusItem.TIME_LEFT -> s.battery.percentPerHour?.let { if (it < 0) -it / 25 else 0.0 }
         StatusItem.CURRENT -> s.battery.avgCurrentMa?.let { if (it < 0) -it / 1500 else 0.0 }
         StatusItem.VOLTAGE, StatusItem.UPLOAD -> null
@@ -99,7 +104,7 @@ object StatusText {
         StatusItem.MEMORY -> 0xFF8B5CF6.toInt()
         StatusItem.NETWORK -> 0xFF10A7AD.toInt()
         StatusItem.CLOCK -> 0xFF3E6BFF.toInt()
-        StatusItem.STORAGE -> 0xFFE09412.toInt()
+        StatusItem.STORAGE, StatusItem.STORAGE_USED_PCT -> 0xFFE09412.toInt()
         StatusItem.CHARGE_RATE, StatusItem.CURRENT, StatusItem.VOLTAGE, StatusItem.TIME_LEFT -> 0xFF26A862.toInt()
         StatusItem.RAM_FREE -> 0xFF8B5CF6.toInt()
         StatusItem.UPLOAD -> 0xFF10A7AD.toInt()
