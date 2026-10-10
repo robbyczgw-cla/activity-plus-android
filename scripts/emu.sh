@@ -61,7 +61,7 @@ shot)
   echo "shots/$name.png" ;;
 smoke)
   $ADB logcat -c -b crash
-  for tab in OVERVIEW APPS BATTERY HISTORY HARDWARE DIAGNOSIS PRO SETTINGS; do
+  for tab in OVERVIEW APPS BATTERY HISTORY HARDWARE DIAGNOSIS PRO STORAGE MEDIA WEEKLY SETTINGS; do
     WAIT=5 "$0" shot "smoke-$tab" "$tab" >/dev/null
     # Lazy lists build cards only when they scroll into view, so scroll to the end.
     for _ in 1 2 3 4 5 6; do $ADB shell input swipe 540 1900 540 500 250; sleep 1; done
