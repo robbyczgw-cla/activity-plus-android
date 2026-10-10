@@ -130,6 +130,7 @@ class MonitorService : Service() {
         weekly.check(s.timeMillis)
         chargeAlarm.check(s, settings) // follows settings.alerts itself, but keeps its session state either way
         background.onTick(s.timeMillis, s.battery.plugged)
+        StorageGrowthRecorder.onTick(this, scope, s.timeMillis)
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis

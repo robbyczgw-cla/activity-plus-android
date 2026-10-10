@@ -21,6 +21,7 @@ fun StorageScreen() {
         // 1. Breakdown by category (apps, images, videos, audio, system, free)
         item { StorageBreakdownSection() }
         // 2. Growth per app over time and the "full in N days" forecast
+        item { StorageGrowthSection() }
         // 3. Caches
         item { StorageCachesSection() }
         // 4. Unused apps
