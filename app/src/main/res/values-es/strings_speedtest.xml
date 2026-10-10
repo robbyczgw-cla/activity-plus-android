@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="item_storage_used">Almacenamiento usado</string>
+    <string name="speed_title">Velocidad del almacenamiento</string>
+    <string name="speed_note">Escribe un archivo de 256 MB en la caché de la app, lo vuelve a leer y lo borra. Android puede servir parte de la lectura desde la memoria, así que la velocidad de lectura puede salir demasiado alta.</string>
+    <string name="speed_test">Probar velocidad</string>
+    <string name="speed_cancel">Cancelar</string>
+    <string name="speed_phase_write">Escribiendo…</string>
+    <string name="speed_phase_read">Leyendo…</string>
+    <string name="speed_phase_random">Lecturas aleatorias…</string>
+    <string name="speed_no_room">Queda menos de 1 GB libre. Libera espacio primero: la prueba escribe un archivo de 256 MB.</string>
+    <string name="speed_failed">La prueba no pudo terminar. Revisa el espacio libre e inténtalo de nuevo.</string>
+    <string name="speed_canceled">Prueba cancelada. El archivo se ha borrado.</string>
+    <string name="speed_verdict_slow">Almacenamiento lento: el teléfono puede bloquearse al instalar o guardar.</string>
+    <string name="speed_verdict_typical">Velocidad normal para un teléfono.</string>
+    <string name="speed_verdict_fast">Almacenamiento rápido.</string>
+    <string name="speed_write">Escritura</string>
+    <string name="speed_read">Lectura</string>
+    <string name="speed_random">Lecturas aleatorias de 4 KB</string>
+    <string name="speed_rate">%1$s MB/s</string>
+    <string name="speed_random_value">%1$s MB/s · %2$s IOPS</string>
+</resources>

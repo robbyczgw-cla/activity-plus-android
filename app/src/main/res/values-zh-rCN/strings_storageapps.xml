@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Breakdown -->
+    <string name="storageapps_break_title">占用明细</string>
+    <string name="storageapps_break_caption">剩余 %1$s</string>
+    <string name="storageapps_break_used">已用 %1$s，共 %2$s</string>
+    <string name="storageapps_part_used">已用</string>
+    <string name="storageapps_part_apps">应用及其数据</string>
+    <string name="storageapps_part_images">图片</string>
+    <string name="storageapps_part_videos">视频</string>
+    <string name="storageapps_part_audio">音频</string>
+    <string name="storageapps_part_other">系统和其他</string>
+    <string name="storageapps_part_free">可用</string>
+    <string name="storageapps_break_note">应用中已包含其缓存。\"系统和其他\"指 Android 本身、下载内容、文档以及无法归类的所有内容。</string>
+    <string name="storageapps_break_needs_access">开启使用情况访问，即可查看空间的用途：应用、图片、视频和音频。</string>
+
+    <!-- Shared -->
+    <string name="storageapps_loading">正在读取应用大小，请稍候。</string>
+    <string name="storageapps_needs_access">此功能需要使用情况访问。请在上方开启后返回。</string>
+
+    <!-- Caches -->
+    <string name="storageapps_cache_title">缓存</string>
+    <string name="storageapps_cache_total">Android 可重建的缓存共 %1$s</string>
+    <string name="storageapps_cache_empty">没有应用的缓存明显较大。</string>
+    <string name="storageapps_cache_note">缓存会自行重新生成。清除是安全的，但应用需要重新加载内容，因此首次打开可能会慢一些，并会消耗一些流量。点按应用即可打开其 Android 页面，在那里可以清除缓存。Activity+ 本身不会清除任何内容。</string>
+
+    <!-- Unused apps -->
+    <string name="storageapps_unused_title">未使用的应用</string>
+    <string name="storageapps_unused_for">未打开时间至少为</string>
+    <string name="storageapps_days">%1$d 天</string>
+    <plurals name="storageapps_unused_summary">
+        <item quantity="other">%1$d 个应用，%2$s</item>
+    </plurals>
+    <string name="storageapps_unused_none">你安装的所有应用都在最近 %1$d 天内打开过。</string>
+    <plurals name="storageapps_last_days">
+        <item quantity="other">上次使用：%1$d 天前</item>
+    </plurals>
+    <plurals name="storageapps_last_months">
+        <item quantity="other">上次使用：%1$d 个月前</item>
+    </plurals>
+    <string name="storageapps_last_none">没有使用记录</string>
+    <string name="storageapps_detail">%1$s · %2$s</string>
+    <string name="storageapps_uninstall">卸载</string>
+    <string name="storageapps_show_all">显示全部 %1$d 项</string>
+    <string name="storageapps_show_less">收起</string>
+    <string name="storageapps_unused_note">大小为应用本身加上其数据。Android 只保留部分使用历史；如果应用在截止日期之前安装且没有记录，则视为未使用。卸载前始终会先询问你。</string>
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="media_title">Verificar mídia</string>
+    <string name="media_subtitle">Fotos, vídeos e áudios grandes ou antigos, e duplicados</string>
+    <string name="media_why">Para ler a lista de suas fotos, vídeos e áudios, o Android pede acesso uma vez. O Activity+ lê apenas a lista de arquivos e os tamanhos. Nada sai do seu celular, e nada é apagado sem que o Android peça sua confirmação antes.</string>
+    <string name="media_check_button">Verificar mídia</string>
+    <string name="media_denied">Sem acesso, nada pode ser verificado. Você pode permitir nas configurações do app.</string>
+    <string name="media_open_settings">Abrir configurações do app</string>
+    <string name="media_change_access">Alterar acesso</string>
+
+    <string name="media_overview">Fotos %1$s · Vídeos %2$s · Áudio %3$s</string>
+    <string name="media_partial">Você compartilhou só algumas fotos e vídeos com o Activity+. Este resultado cobre apenas os que você permitiu.</string>
+    <string name="media_missing">Sem acesso a: %1$s. Eles não estão incluídos.</string>
+    <string name="media_kind_photos">Fotos</string>
+    <string name="media_kind_videos">Vídeos</string>
+    <string name="media_kind_audio">Áudio</string>
+
+    <plurals name="media_files">
+        <item quantity="one">%1$d arquivo</item>
+        <item quantity="other">%1$d arquivos</item>
+    </plurals>
+    <string name="media_none">Nada encontrado.</string>
+    <string name="media_more">…e mais %1$d</string>
+
+    <string name="media_largest_videos">Maiores vídeos</string>
+    <string name="media_folders">Pastas</string>
+    <string name="media_folders_note">Conforme o Android as lista.</string>
+    <string name="media_folder_screenshots">Capturas de tela</string>
+    <string name="media_folder_screen_recordings">Gravações de tela</string>
+    <string name="media_folder_whatsapp">WhatsApp</string>
+    <string name="media_folder_telegram">Telegram</string>
+    <string name="media_folder_signal">Signal</string>
+    <string name="media_folder_camera">Câmera</string>
+    <string name="media_folder_downloads">Downloads</string>
+    <string name="media_folder_line">%1$s · %2$s</string>
+
+    <string name="media_old">Antigos e grandes</string>
+    <string name="media_old_note">Arquivos de 50 MB ou mais que não foram alterados em um ano.</string>
+
+    <string name="media_dup_title">Duplicados</string>
+    <string name="media_dup_intro">Arquivos do mesmo tipo e tamanho são comparados lendo o início e o fim de cada um. Uma correspondência é muito provavelmente o mesmo arquivo, mas não é certeza. Isso pode levar algum tempo.</string>
+    <string name="media_dup_start">Procurar duplicados</string>
+    <string name="media_dup_again">Verificar de novo</string>
+    <string name="media_dup_cancel">Cancelar</string>
+    <string name="media_dup_progress">Comparando %1$d de %2$d arquivos</string>
+    <string name="media_dup_no_candidates">Nenhum par de arquivos tem o mesmo tamanho, então não há duplicados.</string>
+    <string name="media_dup_none">Nenhum duplicado encontrado.</string>
+    <string name="media_dup_capped">Foram comparados apenas os %1$d arquivos que mais poderiam liberar espaço.</string>
+    <plurals name="media_dup_summary">
+        <item quantity="one">%1$d grupo de duplicados · até %2$s para liberar</item>
+        <item quantity="other">%1$d grupos de duplicados · até %2$s para liberar</item>
+    </plurals>
+    <string name="media_dup_group">%1$d cópias · %2$s cada</string>
+    <string name="media_keep">Manter</string>
+    <string name="media_select_others">Selecionar os outros</string>
+
+    <string name="media_selected">Selecionados: %1$d · %2$s</string>
+    <string name="media_delete">Excluir…</string>
+    <string name="media_clear">Desmarcar</string>
+    <string name="media_delete_note">O Android pede sua confirmação antes de excluir qualquer coisa.</string>
+    <string name="media_no_delete">O Activity+ não pode excluir arquivos no Android 10. Toque em um arquivo para abri-lo e excluí-lo por lá.</string>
+    <string name="media_open_failed">Nenhum app consegue abrir este arquivo.</string>
+</resources>

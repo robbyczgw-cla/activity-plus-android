@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="media_title">Vérifier les médias</string>
+    <string name="media_subtitle">Photos, vidéos et audio volumineux ou anciens, et doublons</string>
+    <string name="media_why">Pour lire la liste de vos photos, vidéos et fichiers audio, Android demande un accès une seule fois. Activity+ lit uniquement la liste des fichiers et leur taille. Rien ne quitte votre téléphone, et rien n\'est supprimé sans qu\'Android vous le demande d\'abord.</string>
+    <string name="media_check_button">Vérifier les médias</string>
+    <string name="media_denied">Sans accès, rien ne peut être vérifié. Vous pouvez l\'autoriser dans les paramètres de l\'app.</string>
+    <string name="media_open_settings">Ouvrir les paramètres de l\'app</string>
+    <string name="media_change_access">Modifier l\'accès</string>
+
+    <string name="media_overview">Photos %1$s · Vidéos %2$s · Audio %3$s</string>
+    <string name="media_partial">Vous n\'avez partagé qu\'une partie des photos et vidéos avec Activity+. Ce résultat ne couvre que celles que vous avez autorisées.</string>
+    <string name="media_missing">Aucun accès à : %1$s. Ces éléments ne sont pas inclus.</string>
+    <string name="media_kind_photos">Photos</string>
+    <string name="media_kind_videos">Vidéos</string>
+    <string name="media_kind_audio">Audio</string>
+
+    <plurals name="media_files">
+        <item quantity="one">%1$d fichier</item>
+        <item quantity="other">%1$d fichiers</item>
+    </plurals>
+    <string name="media_none">Rien trouvé.</string>
+    <string name="media_more">…et %1$d de plus</string>
+
+    <string name="media_largest_videos">Vidéos les plus volumineuses</string>
+    <string name="media_folders">Dossiers</string>
+    <string name="media_folders_note">Tels qu\'Android les répertorie.</string>
+    <string name="media_folder_screenshots">Captures d\'écran</string>
+    <string name="media_folder_screen_recordings">Enregistrements d\'écran</string>
+    <string name="media_folder_whatsapp">WhatsApp</string>
+    <string name="media_folder_telegram">Telegram</string>
+    <string name="media_folder_signal">Signal</string>
+    <string name="media_folder_camera">Appareil photo</string>
+    <string name="media_folder_downloads">Téléchargements</string>
+    <string name="media_folder_line">%1$s · %2$s</string>
+
+    <string name="media_old">Anciens et volumineux</string>
+    <string name="media_old_note">Fichiers de 50 MB ou plus, non modifiés depuis un an.</string>
+
+    <string name="media_dup_title">Doublons</string>
+    <string name="media_dup_intro">Les fichiers de même type et de même taille sont comparés en lisant le début et la fin de chacun. Une correspondance est très probablement le même fichier, mais ce n\'est pas certain. Cela peut prendre un moment.</string>
+    <string name="media_dup_start">Rechercher les doublons</string>
+    <string name="media_dup_again">Vérifier à nouveau</string>
+    <string name="media_dup_cancel">Annuler</string>
+    <string name="media_dup_progress">Comparaison de %1$d fichiers sur %2$d</string>
+    <string name="media_dup_no_candidates">Aucun couple de fichiers n\'a la même taille : il n\'y a donc aucun doublon.</string>
+    <string name="media_dup_none">Aucun doublon trouvé.</string>
+    <string name="media_dup_capped">Seuls les %1$d fichiers qui pourraient libérer le plus de place ont été comparés.</string>
+    <plurals name="media_dup_summary">
+        <item quantity="one">%1$d groupe de doublons · jusqu\'à %2$s à libérer</item>
+        <item quantity="other">%1$d groupes de doublons · jusqu\'à %2$s à libérer</item>
+    </plurals>
+    <string name="media_dup_group">%1$d copies · %2$s chacune</string>
+    <string name="media_keep">Garder</string>
+    <string name="media_select_others">Sélectionner les autres</string>
+
+    <string name="media_selected">Sélection : %1$d · %2$s</string>
+    <string name="media_delete">Supprimer…</string>
+    <string name="media_clear">Désélectionner</string>
+    <string name="media_delete_note">Android vous demande une confirmation avant toute suppression.</string>
+    <string name="media_no_delete">Activity+ ne peut pas supprimer de fichiers sous Android 10. Touchez un fichier pour l\'ouvrir et le supprimer là.</string>
+    <string name="media_open_failed">Aucune app ne peut ouvrir ce fichier.</string>
+</resources>

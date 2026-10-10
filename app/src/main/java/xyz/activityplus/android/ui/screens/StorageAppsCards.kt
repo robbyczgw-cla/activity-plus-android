@@ -139,7 +139,9 @@ private fun loadBreakdown(context: Context, access: Boolean): BreakdownResult {
         val internal = runCatching { stats.queryStatsForUser(StorageManager.UUID_DEFAULT, user) }.getOrNull()
         val external = runCatching { stats.queryExternalStatsForUser(StorageManager.UUID_DEFAULT, user) }.getOrNull()
         if (internal != null && external != null) {
-            val apps = internal.appBytes + internal.dataBytes + external.appBytes
+            // getDataBytes() already includes the app's files on shared storage (Android/data, obb);
+            // adding ExternalStorageStats.getAppBytes() would count them twice.
+            val apps = internal.appBytes + internal.dataBytes
             return BreakdownResult(
                 StorageApps.breakdown(total, free, apps, external.imageBytes, external.videoBytes, external.audioBytes), true,
             )

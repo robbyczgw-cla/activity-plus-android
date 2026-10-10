@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Storage growth per app and the "full in N days" forecast (storage page) -->
+    <string name="sgrowth_title">增长</string>
+    <plurals name="sgrowth_full_in">
+        <item quantity="other">按这个速度，约 %d 天后存储空间将满</item>
+    </plurals>
+    <string name="sgrowth_stable">存储空间使用量稳定</string>
+    <string name="sgrowth_freeing">存储空间使用量在下降</string>
+    <string name="sgrowth_too_few">预测需要约一周的每日记录</string>
+    <string name="sgrowth_per_day">每天多占用 %s</string>
+    <string name="sgrowth_starts_today">记录从今天开始。Activity+ 每天记录一次存储情况，趋势从明天起显示。</string>
+    <string name="sgrowth_used_30">已用存储空间，最近 30 天</string>
+    <string name="sgrowth_top_title">本月增长最多</string>
+    <string name="sgrowth_since">自 %s 起</string>
+    <string name="sgrowth_none">没有应用明显增长。</string>
+    <string name="sgrowth_new">新增</string>
+    <string name="sgrowth_week">本周 %s</string>
+    <string name="sgrowth_cache">缓存 %s</string>
+    <string name="sgrowth_unusual">异常</string>
+    <string name="sgrowth_no_access">按应用查看增长需要使用情况访问。应用大小将从下一次每日记录开始记录。</string>
+    <string name="sgrowth_note">仅包含应用及其数据；缓存会变化，因此单独列出。点按应用即可打开其应用信息。</string>
+</resources>

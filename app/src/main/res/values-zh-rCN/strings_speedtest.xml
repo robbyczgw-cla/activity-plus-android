@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="item_storage_used">已用存储</string>
+    <string name="speed_title">存储速度</string>
+    <string name="speed_note">会在应用缓存中写入一个 256 MB 的文件，再读回并删除。Android 可能会从内存中提供部分读取数据，因此读取速度可能偏高。</string>
+    <string name="speed_test">测试速度</string>
+    <string name="speed_cancel">取消</string>
+    <string name="speed_phase_write">写入中…</string>
+    <string name="speed_phase_read">读取中…</string>
+    <string name="speed_phase_random">随机读取中…</string>
+    <string name="speed_no_room">可用空间不足 1 GB。请先腾出一些空间：测试需要写入一个 256 MB 的文件。</string>
+    <string name="speed_failed">测试未能完成。请检查可用空间后重试。</string>
+    <string name="speed_canceled">测试已取消，文件已删除。</string>
+    <string name="speed_verdict_slow">存储速度较慢：安装或保存时手机可能会卡顿。</string>
+    <string name="speed_verdict_typical">手机的正常速度。</string>
+    <string name="speed_verdict_fast">存储速度较快。</string>
+    <string name="speed_write">写入</string>
+    <string name="speed_read">读取</string>
+    <string name="speed_random">随机 4 KB 读取</string>
+    <string name="speed_rate">%1$s MB/s</string>
+    <string name="speed_random_value">%1$s MB/s · %2$s IOPS</string>
+</resources>

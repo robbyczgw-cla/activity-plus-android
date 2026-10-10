@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Storage growth per app and the "full in N days" forecast (storage page) -->
+    <string name="sgrowth_title">Croissance</string>
+    <plurals name="sgrowth_full_in">
+        <item quantity="one">À ce rythme, le stockage sera plein dans environ %d jour</item>
+        <item quantity="other">À ce rythme, le stockage sera plein dans environ %d jours</item>
+    </plurals>
+    <string name="sgrowth_stable">L\'utilisation du stockage est stable</string>
+    <string name="sgrowth_freeing">L\'utilisation du stockage diminue</string>
+    <string name="sgrowth_too_few">Une prévision demande environ une semaine de relevés quotidiens</string>
+    <string name="sgrowth_per_day">%s de plus utilisés par jour</string>
+    <string name="sgrowth_starts_today">L\'historique commence aujourd\'hui. Activity+ note le stockage une fois par jour ; la tendance apparaîtra à partir de demain.</string>
+    <string name="sgrowth_used_30">Stockage utilisé, 30 derniers jours</string>
+    <string name="sgrowth_top_title">Plus forte croissance ce mois-ci</string>
+    <string name="sgrowth_since">Depuis le %s</string>
+    <string name="sgrowth_none">Aucune app n\'a nettement grandi.</string>
+    <string name="sgrowth_new">Nouvelle</string>
+    <string name="sgrowth_week">cette semaine %s</string>
+    <string name="sgrowth_cache">cache %s</string>
+    <string name="sgrowth_unusual">Inhabituel</string>
+    <string name="sgrowth_no_access">La croissance par app demande l\'accès aux données d\'utilisation. Les tailles des apps sont notées à partir du prochain relevé quotidien.</string>
+    <string name="sgrowth_note">App et données seulement ; le cache varie et figure à part. Touchez une app pour ouvrir ses infos.</string>
+</resources>

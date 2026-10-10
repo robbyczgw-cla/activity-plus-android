@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="media_title">メディアを確認</string>
+    <string name="media_subtitle">大きい写真・動画・音声、古いもの、重複したファイル</string>
+    <string name="media_why">写真、動画、音声の一覧を読むため、Android が一度だけアクセスを求めます。Activity+ が読むのはファイル一覧とサイズだけです。データが端末の外に出ることはなく、Android が確認するまで何も削除されません。</string>
+    <string name="media_check_button">メディアを確認</string>
+    <string name="media_denied">アクセスがないと確認できません。アプリの設定で許可できます。</string>
+    <string name="media_open_settings">アプリの設定を開く</string>
+    <string name="media_change_access">アクセスを変更</string>
+
+    <string name="media_overview">写真 %1$s · 動画 %2$s · 音声 %3$s</string>
+    <string name="media_partial">Activity+ と共有しているのは一部の写真と動画だけです。この結果は、許可したものだけが対象です。</string>
+    <string name="media_missing">アクセスできないもの：%1$s。これらは含まれません。</string>
+    <string name="media_kind_photos">写真</string>
+    <string name="media_kind_videos">動画</string>
+    <string name="media_kind_audio">音声</string>
+
+    <plurals name="media_files">
+        <item quantity="other">%1$d 件のファイル</item>
+    </plurals>
+    <string name="media_none">見つかりませんでした。</string>
+    <string name="media_more">ほか %1$d 件</string>
+
+    <string name="media_largest_videos">大きい動画</string>
+    <string name="media_folders">フォルダ</string>
+    <string name="media_folders_note">Android が一覧表示する範囲です。</string>
+    <string name="media_folder_screenshots">スクリーンショット</string>
+    <string name="media_folder_screen_recordings">画面録画</string>
+    <string name="media_folder_whatsapp">WhatsApp</string>
+    <string name="media_folder_telegram">Telegram</string>
+    <string name="media_folder_signal">Signal</string>
+    <string name="media_folder_camera">カメラ</string>
+    <string name="media_folder_downloads">ダウンロード</string>
+    <string name="media_folder_line">%1$s · %2$s</string>
+
+    <string name="media_old">古くて大きい</string>
+    <string name="media_old_note">50 MB 以上で、1 年以上変更されていないファイルです。</string>
+
+    <string name="media_dup_title">重複</string>
+    <string name="media_dup_intro">同じ種類で同じサイズのファイルについて、それぞれの先頭と末尾を読んで比較します。一致すれば同じファイルである可能性は非常に高いものの、確実ではありません。時間がかかることがあります。</string>
+    <string name="media_dup_start">重複を検索</string>
+    <string name="media_dup_again">再度確認</string>
+    <string name="media_dup_cancel">キャンセル</string>
+    <string name="media_dup_progress">%2$d 件中 %1$d 件を比較中</string>
+    <string name="media_dup_no_candidates">同じサイズのファイルがないため、重複はありません。</string>
+    <string name="media_dup_none">重複は見つかりませんでした。</string>
+    <string name="media_dup_capped">最も多くの容量を解放できる可能性がある %1$d 件のファイルだけを比較しました。</string>
+    <plurals name="media_dup_summary">
+        <item quantity="other">%1$d 組の重複 · 最大 %2$s を解放可能</item>
+    </plurals>
+    <string name="media_dup_group">%1$d 個のコピー · 各 %2$s</string>
+    <string name="media_keep">残す</string>
+    <string name="media_select_others">ほかを選択</string>
+
+    <string name="media_selected">選択中：%1$d 件 · %2$s</string>
+    <string name="media_delete">削除…</string>
+    <string name="media_clear">選択解除</string>
+    <string name="media_delete_note">削除の前に、Android が確認を求めます。</string>
+    <string name="media_no_delete">Android 10 では Activity+ はファイルを削除できません。ファイルをタップして開き、そこで削除してください。</string>
+    <string name="media_open_failed">このファイルを開けるアプリがありません。</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="item_storage_used">使用中のストレージ</string>
+    <string name="speed_title">ストレージの速度</string>
+    <string name="speed_note">アプリのキャッシュに 256 MB のファイルを書き込み、読み戻してから削除します。Android は読み取りの一部をメモリから返すことがあるため、読み取り速度が実際より速く出る場合があります。</string>
+    <string name="speed_test">速度をテスト</string>
+    <string name="speed_cancel">キャンセル</string>
+    <string name="speed_phase_write">書き込み中…</string>
+    <string name="speed_phase_read">読み取り中…</string>
+    <string name="speed_phase_random">ランダム読み取り中…</string>
+    <string name="speed_no_room">空きが 1 GB 未満です。先に容量を空けてください。テストでは 256 MB のファイルを書き込みます。</string>
+    <string name="speed_failed">テストを完了できませんでした。空き容量を確認して、もう一度お試しください。</string>
+    <string name="speed_canceled">テストをキャンセルしました。ファイルは削除されました。</string>
+    <string name="speed_verdict_slow">ストレージが遅い状態です。インストールや保存のときに端末が止まることがあります。</string>
+    <string name="speed_verdict_typical">端末として標準的な速度です。</string>
+    <string name="speed_verdict_fast">ストレージは高速です。</string>
+    <string name="speed_write">書き込み</string>
+    <string name="speed_read">読み取り</string>
+    <string name="speed_random">4 KB のランダム読み取り</string>
+    <string name="speed_rate">%1$s MB/s</string>
+    <string name="speed_random_value">%1$s MB/s · %2$s IOPS</string>
+</resources>

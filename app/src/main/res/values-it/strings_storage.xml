@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="storage_title">Archiviazione</string>
+    <string name="storage_subtitle">Chi occupa lo spazio e quando finisce</string>
+    <string name="storage_note">Activity+ non elimina mai nulla da solo. Ogni pulizia apre la schermata di Android o ti chiede prima.</string>
+</resources>

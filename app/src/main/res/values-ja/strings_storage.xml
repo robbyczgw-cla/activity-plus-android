@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="storage_title">ストレージ</string>
+    <string name="storage_subtitle">何が容量を使っていて、いつ容量が尽きるか</string>
+    <string name="storage_note">Activity+ が自分でデータを削除することはありません。整理のたびに Android の画面を開くか、先に確認します。</string>
+</resources>

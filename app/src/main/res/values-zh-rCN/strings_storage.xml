@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="storage_title">存储</string>
+    <string name="storage_subtitle">什么占用了空间，以及何时会用完</string>
+    <string name="storage_note">Activity+ 从不自行删除任何内容。每次清理都会打开 Android 自带的页面，或先征得你的同意。</string>
+</resources>

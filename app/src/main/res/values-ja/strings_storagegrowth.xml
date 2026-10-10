@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Storage growth per app and the "full in N days" forecast (storage page) -->
+    <string name="sgrowth_title">増加</string>
+    <plurals name="sgrowth_full_in">
+        <item quantity="other">このペースでは、約 %d 日後にストレージがいっぱいになります</item>
+    </plurals>
+    <string name="sgrowth_stable">ストレージの使用量は安定しています</string>
+    <string name="sgrowth_freeing">ストレージの使用量は減少しています</string>
+    <string name="sgrowth_too_few">予測には、毎日の計測が約 1 週間分必要です</string>
+    <string name="sgrowth_per_day">1 日あたり %s 増加</string>
+    <string name="sgrowth_starts_today">履歴は今日から始まります。Activity+ はストレージを 1 日 1 回記録するため、傾向は明日から表示されます。</string>
+    <string name="sgrowth_used_30">使用中のストレージ（過去 30 日）</string>
+    <string name="sgrowth_top_title">今月最も増えたアプリ</string>
+    <string name="sgrowth_since">%s 以降</string>
+    <string name="sgrowth_none">目立って増えたアプリはありません。</string>
+    <string name="sgrowth_new">新規</string>
+    <string name="sgrowth_week">今週 %s</string>
+    <string name="sgrowth_cache">キャッシュ %s</string>
+    <string name="sgrowth_unusual">通常と異なる</string>
+    <string name="sgrowth_no_access">アプリごとの増加には使用状況へのアクセスが必要です。アプリのサイズは、次回の毎日の記録から取得されます。</string>
+    <string name="sgrowth_note">アプリ本体とデータのみです。キャッシュは増減するため、別に表示しています。アプリをタップすると、そのアプリ情報を開きます。</string>
+</resources>

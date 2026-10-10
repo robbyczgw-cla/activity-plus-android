@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="storage_title">Almacenamiento</string>
+    <string name="storage_subtitle">Quién usa el espacio y cuándo se acaba</string>
+    <string name="storage_note">Activity+ nunca borra nada por su cuenta. Cada limpieza abre la pantalla de Android o te pide permiso antes.</string>
+</resources>

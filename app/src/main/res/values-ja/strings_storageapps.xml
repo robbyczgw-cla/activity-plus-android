@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Breakdown -->
+    <string name="storageapps_break_title">内訳</string>
+    <string name="storageapps_break_caption">空き %1$s</string>
+    <string name="storageapps_break_used">全 %2$s 中 %1$s 使用中</string>
+    <string name="storageapps_part_used">使用中</string>
+    <string name="storageapps_part_apps">アプリとそのデータ</string>
+    <string name="storageapps_part_images">画像</string>
+    <string name="storageapps_part_videos">動画</string>
+    <string name="storageapps_part_audio">音声</string>
+    <string name="storageapps_part_other">システムその他</string>
+    <string name="storageapps_part_free">空き</string>
+    <string name="storageapps_break_note">アプリにはキャッシュも含まれます。「システムその他」は Android 本体、ダウンロード、ドキュメント、分類できないすべてのデータです。</string>
+    <string name="storageapps_break_needs_access">使用状況へのアクセスを許可すると、容量が何に使われているかがわかります。対象はアプリ、画像、動画、音声です。</string>
+
+    <!-- Shared -->
+    <string name="storageapps_loading">アプリのサイズを読み取っています。少し時間がかかります。</string>
+    <string name="storageapps_needs_access">使用状況へのアクセスが必要です。上で許可してから戻ってください。</string>
+
+    <!-- Caches -->
+    <string name="storageapps_cache_title">キャッシュ</string>
+    <string name="storageapps_cache_total">Android が再構築できるキャッシュ %1$s</string>
+    <string name="storageapps_cache_empty">目立つキャッシュを持つアプリはありません。</string>
+    <string name="storageapps_cache_note">キャッシュは自動的に作り直されます。消去しても問題ありませんが、アプリは再び読み込みを行うため、最初の起動が遅くなったり、データ通信量が少し増えたりすることがあります。アプリをタップすると Android のアプリ画面が開き、そこでキャッシュを消去できます。Activity+ 自身はキャッシュを消去しません。</string>
+
+    <!-- Unused apps -->
+    <string name="storageapps_unused_title">未使用のアプリ</string>
+    <string name="storageapps_unused_for">次の期間以上開いていない</string>
+    <string name="storageapps_days">%1$d 日</string>
+    <plurals name="storageapps_unused_summary">
+        <item quantity="other">%1$d 個のアプリ、%2$s</item>
+    </plurals>
+    <string name="storageapps_unused_none">インストール済みのすべてのアプリが、直近 %1$d 日以内に開かれています。</string>
+    <plurals name="storageapps_last_days">
+        <item quantity="other">最終使用：%1$d 日前</item>
+    </plurals>
+    <plurals name="storageapps_last_months">
+        <item quantity="other">最終使用：%1$d か月前</item>
+    </plurals>
+    <string name="storageapps_last_none">使用記録なし</string>
+    <string name="storageapps_detail">%1$s · %2$s</string>
+    <string name="storageapps_uninstall">アンインストール</string>
+    <string name="storageapps_show_all">すべて表示（%1$d 件）</string>
+    <string name="storageapps_show_less">表示を減らす</string>
+    <string name="storageapps_unused_note">サイズはアプリ本体とそのデータの合計です。Android が保持する使用履歴は一部のみのため、履歴がないアプリは、基準日より前にインストールされていれば未使用として扱われます。アンインストールの前には必ず確認します。</string>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="storage_title">Stockage</string>
+    <string name="storage_subtitle">Qui occupe le stockage, et quand il sera plein</string>
+    <string name="storage_note">Activity+ ne supprime jamais rien de lui-même. Chaque nettoyage ouvre l\'écran Android ou vous demande votre accord d\'abord.</string>
+</resources>

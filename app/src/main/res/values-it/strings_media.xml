@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="media_title">Controlla media</string>
+    <string name="media_subtitle">Foto, video e audio grandi o vecchi, e duplicati</string>
+    <string name="media_why">Per leggere l\'elenco di foto, video e audio, Android chiede l\'accesso una volta sola. Activity+ legge solo l\'elenco dei file e le dimensioni. Niente lascia il telefono, e nulla viene eliminato senza che Android te lo chieda prima.</string>
+    <string name="media_check_button">Controlla media</string>
+    <string name="media_denied">Senza accesso non si può controllare nulla. Puoi consentirlo nelle impostazioni dell\'app.</string>
+    <string name="media_open_settings">Apri impostazioni app</string>
+    <string name="media_change_access">Modifica accesso</string>
+
+    <string name="media_overview">Foto %1$s · Video %2$s · Audio %3$s</string>
+    <string name="media_partial">Hai condiviso solo alcune foto e video con Activity+. Questo risultato riguarda solo quelli che hai consentito.</string>
+    <string name="media_missing">Nessun accesso a: %1$s. Non sono inclusi.</string>
+    <string name="media_kind_photos">Foto</string>
+    <string name="media_kind_videos">Video</string>
+    <string name="media_kind_audio">Audio</string>
+
+    <plurals name="media_files">
+        <item quantity="one">%1$d file</item>
+        <item quantity="other">%1$d file</item>
+    </plurals>
+    <string name="media_none">Nessun risultato.</string>
+    <string name="media_more">…e altri %1$d</string>
+
+    <string name="media_largest_videos">Video più grandi</string>
+    <string name="media_folders">Cartelle</string>
+    <string name="media_folders_note">Per quanto Android le elenca.</string>
+    <string name="media_folder_screenshots">Screenshot</string>
+    <string name="media_folder_screen_recordings">Registrazioni dello schermo</string>
+    <string name="media_folder_whatsapp">WhatsApp</string>
+    <string name="media_folder_telegram">Telegram</string>
+    <string name="media_folder_signal">Signal</string>
+    <string name="media_folder_camera">Fotocamera</string>
+    <string name="media_folder_downloads">Download</string>
+    <string name="media_folder_line">%1$s · %2$s</string>
+
+    <string name="media_old">Vecchi e grandi</string>
+    <string name="media_old_note">File da 50 MB o più non modificati da un anno.</string>
+
+    <string name="media_dup_title">Duplicati</string>
+    <string name="media_dup_intro">I file dello stesso tipo e della stessa dimensione vengono confrontati leggendo l\'inizio e la fine di ciascuno. Una corrispondenza è molto probabile, ma non certa, per lo stesso file. Può richiedere un po\' di tempo.</string>
+    <string name="media_dup_start">Cerca duplicati</string>
+    <string name="media_dup_again">Controlla di nuovo</string>
+    <string name="media_dup_cancel">Annulla</string>
+    <string name="media_dup_progress">Confronto di %1$d file su %2$d</string>
+    <string name="media_dup_no_candidates">Nessuna coppia di file ha la stessa dimensione, quindi non ci sono duplicati.</string>
+    <string name="media_dup_none">Nessun duplicato trovato.</string>
+    <string name="media_dup_capped">Sono stati confrontati solo i %1$d file che potrebbero liberare più spazio.</string>
+    <plurals name="media_dup_summary">
+        <item quantity="one">%1$d gruppo di duplicati · fino a %2$s liberabili</item>
+        <item quantity="other">%1$d gruppi di duplicati · fino a %2$s liberabili</item>
+    </plurals>
+    <string name="media_dup_group">%1$d copie · %2$s ciascuna</string>
+    <string name="media_keep">Tieni</string>
+    <string name="media_select_others">Seleziona gli altri</string>
+
+    <string name="media_selected">Selezionati: %1$d · %2$s</string>
+    <string name="media_delete">Elimina…</string>
+    <string name="media_clear">Deseleziona</string>
+    <string name="media_delete_note">Android ti chiede conferma prima di eliminare qualsiasi cosa.</string>
+    <string name="media_no_delete">Activity+ non può eliminare file su Android 10. Tocca un file per aprirlo ed eliminarlo lì.</string>
+    <string name="media_open_failed">Nessuna app può aprire questo file.</string>
+</resources>
