@@ -51,9 +51,7 @@ object StorageSpeedTest {
                 }
             }
 
-            // Drop the file from the page cache so the reads hit the storage; some kernels ignore the hint,
-            // so the UI still says Android may serve part of it from memory.
-            dropCache(file)
+            // Android may still serve part of this from memory; the UI says so.
             var readBytes = 0L
             val readNanos = nanos {
                 FileInputStream(file).use { input ->
@@ -71,7 +69,6 @@ object StorageSpeedTest {
 
             val offsets = SpeedTest.randomOffsets(SpeedTest.FILE_BYTES, SpeedTest.BLOCK_BYTES, SpeedTest.RANDOM_READS, Random.Default)
             val block = ByteArray(SpeedTest.BLOCK_BYTES)
-            dropCache(file)
             val randomNanos = nanos {
                 RandomAccessFile(file, "r").use { raf ->
                     offsets.forEachIndexed { i, offset ->
@@ -103,11 +100,5 @@ object StorageSpeedTest {
         val start = System.nanoTime()
         block()
         return System.nanoTime() - start
-    }
-
-    private fun dropCache(file: File) {
-        runCatching {
-            FileInputStream(file).use { android.system.Os.posix_fadvise(it.fd, 0, 0, android.system.OsConstants.POSIX_FADV_DONTNEED) }
-        }
     }
 }
