@@ -44,12 +44,13 @@ import xyz.activityplus.android.ui.screens.OnboardingScreen
 import xyz.activityplus.android.ui.screens.OverviewScreen
 import xyz.activityplus.android.ui.screens.ProScreen
 import xyz.activityplus.android.ui.screens.SettingsScreen
+import xyz.activityplus.android.ui.screens.StorageScreen
 import xyz.activityplus.android.ui.screens.WeeklyReportScreen
 import xyz.activityplus.android.ui.theme.ActivityPlusTheme
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 
 /** DIAGNOSIS, PRO and WEEKLY have no tab of their own; the overview, apps, battery and settings screens open them. */
-enum class Tab { OVERVIEW, APPS, BATTERY, HISTORY, HARDWARE, DIAGNOSIS, PRO, WEEKLY }
+enum class Tab { OVERVIEW, APPS, BATTERY, HISTORY, HARDWARE, DIAGNOSIS, PRO, WEEKLY, STORAGE }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -154,6 +155,7 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
                 Tab.HARDWARE -> HardwareScreen()
                 Tab.DIAGNOSIS -> DiagnosisScreen()
                 Tab.PRO -> ProScreen()
+                Tab.STORAGE -> StorageScreen()
                 Tab.WEEKLY -> WeeklyReportScreen()
             }
         }

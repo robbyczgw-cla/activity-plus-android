@@ -136,7 +136,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
         item {
             CardRow(
                 { NetworkCard(s, series, settings.bits) { onOpen(Tab.HISTORY) } },
-                { StorageCard(s) { onOpen(Tab.APPS) } },
+                { StorageCard(s) { onOpen(Tab.STORAGE) } },
             )
         }
         item {

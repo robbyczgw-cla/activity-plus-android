@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="storage_title">Storage</string>
+    <string name="storage_subtitle">Who uses the space, and when it runs out</string>
+    <string name="storage_note">Activity+ never deletes anything on its own. Every clean-up opens Android\'s own screen or asks you first.</string>
+</resources>

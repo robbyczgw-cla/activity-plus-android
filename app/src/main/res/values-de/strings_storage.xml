@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="storage_title">Speicher</string>
+    <string name="storage_subtitle">Wer den Platz belegt und wann er ausgeht</string>
+    <string name="storage_note">Activity+ löscht nie selbst etwas. Jedes Aufräumen öffnet die Android-Seite dafür oder fragt dich vorher.</string>
+</resources>
