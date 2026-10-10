@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="media_title">Check media</string>
+    <string name="media_subtitle">Large and old photos, videos and audio, and duplicates</string>
+    <string name="media_why">To read the list of your photos, videos and audio, Android asks for access once. Activity+ only reads the file list and sizes. Nothing leaves your phone, and nothing is deleted without Android asking you first.</string>
+    <string name="media_check_button">Check media</string>
+    <string name="media_denied">Without access nothing can be checked. You can allow it in the app settings.</string>
+    <string name="media_open_settings">Open app settings</string>
+    <string name="media_change_access">Change access</string>
+
+    <string name="media_overview">Photos %1$s · Videos %2$s · Audio %3$s</string>
+    <string name="media_partial">You shared only some photos and videos with Activity+. This result covers only the ones you allowed.</string>
+    <string name="media_missing">No access to: %1$s. They are not included.</string>
+    <string name="media_kind_photos">Photos</string>
+    <string name="media_kind_videos">Videos</string>
+    <string name="media_kind_audio">Audio</string>
+
+    <plurals name="media_files">
+        <item quantity="one">%1$d file</item>
+        <item quantity="other">%1$d files</item>
+    </plurals>
+    <string name="media_none">Nothing found.</string>
+    <string name="media_more">…and %1$d more</string>
+
+    <string name="media_largest_videos">Largest videos</string>
+    <string name="media_folders">Folders</string>
+    <string name="media_folders_note">As far as Android lists them.</string>
+    <string name="media_folder_screenshots">Screenshots</string>
+    <string name="media_folder_screen_recordings">Screen recordings</string>
+    <string name="media_folder_whatsapp">WhatsApp</string>
+    <string name="media_folder_telegram">Telegram</string>
+    <string name="media_folder_signal">Signal</string>
+    <string name="media_folder_camera">Camera</string>
+    <string name="media_folder_downloads">Downloads</string>
+    <string name="media_folder_line">%1$s · %2$s</string>
+
+    <string name="media_old">Old and large</string>
+    <string name="media_old_note">Files of 50 MB or more that have not been changed for a year.</string>
+
+    <string name="media_dup_title">Duplicates</string>
+    <string name="media_dup_intro">Files of the same type and size are compared by reading the start and end of each one. A match is very likely, but not certain, the same file. This can take a while.</string>
+    <string name="media_dup_start">Look for duplicates</string>
+    <string name="media_dup_again">Check again</string>
+    <string name="media_dup_cancel">Cancel</string>
+    <string name="media_dup_progress">Comparing %1$d of %2$d files</string>
+    <string name="media_dup_no_candidates">No two files share a size, so there are no duplicates.</string>
+    <string name="media_dup_none">No duplicates found.</string>
+    <string name="media_dup_capped">Only the %1$d files that could free the most space were compared.</string>
+    <plurals name="media_dup_summary">
+        <item quantity="one">%1$d group of duplicates · up to %2$s to free</item>
+        <item quantity="other">%1$d groups of duplicates · up to %2$s to free</item>
+    </plurals>
+    <string name="media_dup_group">%1$d copies · %2$s each</string>
+    <string name="media_keep">Keep</string>
+    <string name="media_select_others">Select the others</string>
+
+    <string name="media_selected">%1$d selected · %2$s</string>
+    <string name="media_delete">Delete…</string>
+    <string name="media_clear">Clear</string>
+    <string name="media_delete_note">Android asks you to confirm before anything is deleted.</string>
+    <string name="media_no_delete">Activity+ cannot delete files on Android 10. Tap a file to open it and delete it there.</string>
+    <string name="media_open_failed">No app can open this file.</string>
+</resources>
