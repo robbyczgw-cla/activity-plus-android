@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="item_storage_used">Speicher belegt</string>
+    <string name="speed_title">Speichertempo</string>
+    <string name="speed_note">Schreibt eine 256-MB-Datei in den Cache der App, liest sie zurück und löscht sie. Android liefert einen Teil des Lesens womöglich noch aus dem Arbeitsspeicher, die Lesegeschwindigkeit kann daher zu hoch sein.</string>
+    <string name="speed_test">Tempo testen</string>
+    <string name="speed_cancel">Abbrechen</string>
+    <string name="speed_phase_write">Schreiben…</string>
+    <string name="speed_phase_read">Lesen…</string>
+    <string name="speed_phase_random">Zufallszugriffe…</string>
+    <string name="speed_no_room">Weniger als 1 GB ist frei. Schaff zuerst etwas Platz: Der Test schreibt eine 256-MB-Datei.</string>
+    <string name="speed_failed">Der Test konnte nicht fertig werden. Prüf den freien Speicher und versuch es noch einmal.</string>
+    <string name="speed_canceled">Test abgebrochen. Die Datei wurde gelöscht.</string>
+    <string name="speed_verdict_slow">Langsamer Speicher: Das Telefon kann beim Installieren oder Speichern hängen.</string>
+    <string name="speed_verdict_typical">Normales Tempo für ein Telefon.</string>
+    <string name="speed_verdict_fast">Schneller Speicher.</string>
+    <string name="speed_write">Schreiben</string>
+    <string name="speed_read">Lesen</string>
+    <string name="speed_random">Zufällige 4-KB-Lesezugriffe</string>
+    <string name="speed_rate">%1$s MB/s</string>
+    <string name="speed_random_value">%1$s MB/s · %2$s IOPS</string>
+</resources>

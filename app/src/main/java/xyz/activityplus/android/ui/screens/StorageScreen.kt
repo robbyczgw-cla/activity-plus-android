@@ -24,6 +24,7 @@ fun StorageScreen() {
         // 4. Unused apps
         // 5–6. Media check: large and old media, duplicates (asks for media access)
         // 7. Speed test
+        item { SpeedTestCard() }
         item { Note(stringResource(R.string.storage_note), Modifier.padding(horizontal = 4.dp)) }
     }
 }

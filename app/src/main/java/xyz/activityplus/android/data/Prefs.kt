@@ -8,7 +8,7 @@ import xyz.activityplus.android.core.Interruptions.LiveWindows
 
 /** What the status bar notification can show; the Android counterpart of the Mac menu bar items. */
 enum class StatusItem {
-    POWER, BATTERY, TEMPERATURE, MEMORY, NETWORK, CLOCK, STORAGE,
+    POWER, BATTERY, TEMPERATURE, MEMORY, NETWORK, CLOCK, STORAGE, STORAGE_USED_PCT,
     CHARGE_RATE, CURRENT, VOLTAGE, TIME_LEFT, RAM_FREE, UPLOAD,
 }
 
