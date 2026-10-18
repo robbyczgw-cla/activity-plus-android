@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nc_title_well">スマホは夜によく眠れました</string>
+    <string name="nc_title_app">%1$s がスマホを起こし続けました</string>
+    <string name="nc_title_system">Android が深い眠りに入れませんでした</string>
+    <string name="nc_title_drain">寝ている間の消費が多い</string>
+    <string name="nc_title_none">確認する夜がありません</string>
+
+    <string name="nc_reason_well">%1$s、うち深いスリープ %2$s</string>
+    <string name="nc_reason_app_awake">画面オフの間に %1$s の間 wakelock を保持したため、Android は深いスリープに入れませんでした。</string>
+    <plurals name="nc_reason_app_wakeups">
+        <item quantity="other">夜の間に %1$d 回スマホを起こしたため、Android は深いスリープに入れませんでした。</item>
+    </plurals>
+    <string name="nc_excessive">Google Play は、画面オフで 2 時間以上続く wakelock を過剰と見なします。</string>
+    <string name="nc_reason_no_deep">Android は深い Doze に一度も到達せず、夜のうちスマホが深いスリープにあったのは %1$s だけでした。</string>
+    <string name="nc_reason_low_deep">夜のうちスマホが深いスリープにあったのは %1$s だけでした。</string>
+    <string name="nc_reason_low_deep_usual">夜のうちスマホが深いスリープにあったのは %1$s だけでした（普段は %2$s）。</string>
+    <string name="nc_system_explain">目立つアプリはありません。Android 自身が深いスリープに入れていませんでした。アップデート後のシステムの不具合や、携帯電波の弱さが原因であることが多いです。</string>
+    <string name="nc_system_signal">目立つアプリはありませんが、携帯電波が弱く、ネットワークを探し続けることで Android が起きたままになっていました。</string>
+    <string name="nc_system_unknown">何かがスマホを起こし続けていました。アプリか Android 自身です。</string>
+    <string name="nc_reason_drain">画面オフで %1$s、深いスリープは %2$s でした。</string>
+    <string name="nc_reason_drain_usual">画面オフで %1$s（普段は %2$s）、深いスリープは %3$s でした。</string>
+    <string name="nc_drain_explain">スマホは眠っていたので、アプリが起こしていたわけではありません。電力は無線（モバイル回線、5G）またはハードウェアに使われました。</string>
+    <string name="nc_drain_signal">携帯電波が弱く、ネットワークを維持するために無線がはるかに多くの電力を必要としました。</string>
+    <string name="nc_reason_no_record">記録された夜がありません。Activity+ は、ライブ状態がオンの間に夜を記録します。</string>
+    <string name="nc_reason_charged">夜の間スマホは充電されていました。Android は充電中は Doze に入らないため、判断する材料がありません。</string>
+    <string name="nc_reason_short">昨夜、画面が 3 時間続けて消えていたことはありませんでした。</string>
+
+    <string name="nc_stat_asleep">画面オフ</string>
+    <string name="nc_stat_deep">深いスリープ</string>
+    <string name="nc_stat_first_deep">最初の深い Doze まで</string>
+    <string name="nc_never">なし</string>
+    <string name="nc_light_only">なし（浅い Doze のみ）</string>
+    <string name="nc_stat_interruptions">Doze の中断</string>
+    <string name="nc_stat_drain">消費</string>
+    <string name="nc_stat_signal">携帯電波</string>
+    <string name="nc_signal_weak">弱い</string>
+    <string name="nc_usually">普段は %1$s</string>
+
+    <string name="nc_apps_title">夜に起きていたアプリ</string>
+    <string name="nc_pro_hint">夜に起きていたアプリは？ プロページで読み取り権限を付与すると、Activity+ がアプリ名を表示します。</string>
+
+    <string name="nc_act_update">システムアップデートを確認</string>
+    <string name="nc_act_update_note">アップデートの不具合は、通常は次のアップデートで修正されます。バッテリー最適化をしないよう許可されたアプリは、Doze も無視します。</string>
+    <string name="nc_act_optimization">バッテリーの最適化</string>
+    <string name="nc_act_network">ネットワーク設定</string>
+    <string name="nc_act_network_note">夜の Wi-Fi や Wi-Fi 通話は、モバイル無線を休ませます。Activity+ がこれを自動で変更することはありません。</string>
+    <string name="nc_act_usage">バッテリーの使用状況</string>
+    <string name="nc_act_usage_note">Android のバッテリー使用状況で、どれが電力を使ったかがわかります。</string>
+
+    <string name="nc_tap_history">タップすると直近 14 夜を表示します。</string>
+    <string name="nc_history_title">夜</string>
+    <string name="nc_history_caption">直近 14 夜</string>
+    <string name="nc_history_empty">まだ測定された夜はありません。</string>
+    <plurals name="nc_history_usual">
+        <item quantity="other">普段の夜（%1$d 夜の中央値）: %2$s</item>
+    </plurals>
+    <string name="nc_short_system">Android が起きていた</string>
+    <string name="nc_short_drain">消費が多い</string>
+    <string name="nc_short_charged">充電中</string>
+    <string name="nc_short_short">短すぎる</string>
+    <string name="nc_short_no_record">未記録</string>
+    <string name="nc_explain">深いスリープとは、プロセッサーが停止している時間のことです。Doze は Android がそこに至るための仕組みで、スマホが静止するまでアプリの動作を抑えます。</string>
+</resources>

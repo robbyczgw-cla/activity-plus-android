@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wl_badge">Acima do limite do Google</string>
+    <string name="wl_explain">O Google Play avisa sobre apps que mantêm o celular acordado por 2 horas ou mais com a tela desligada.</string>
+    <string name="wl_days">Este app chegou a esse limite em %1$d dos últimos %2$d dias medidos.</string>
+    <string name="f_wakelimit_title">%1$s está acima do limite de wakelock do Google</string>
+    <string name="f_wakelimit_body">O Google Play avisa sobre apps que mantêm o celular acordado por 2 horas ou mais com a tela desligada. Este app chegou a esse limite em %1$d dos últimos %2$d dias medidos, até %3$s em um dia. Nas informações do app você pode restringir o uso de bateria dele.</string>
+</resources>

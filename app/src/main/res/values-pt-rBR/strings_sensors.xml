@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sl_title">Sensores</string>
+    <string name="sl_subtitle">Quem usou localização, câmera e microfone</string>
+    <string name="sl_refresh">Atualizar</string>
+    <string name="sl_hint">Veja qual app usou sua localização, a câmera ou o microfone, e se foi em segundo plano. Precisa da permissão do computador na página pro.</string>
+    <string name="sl_open_log">Abrir o registro de sensores</string>
+
+    <string name="sl_location">Localização</string>
+    <string name="sl_camera">Câmera</string>
+    <string name="sl_microphone">Microfone</string>
+    <string name="sl_body">Sensores corporais e atividade</string>
+    <string name="sl_nearby">Dispositivos próximos</string>
+
+    <string name="sl_now_title">Em uso agora</string>
+    <string name="sl_now_caption">Último minuto</string>
+    <string name="sl_now_none">Nada está usando localização, câmera ou microfone neste momento.</string>
+    <string name="sl_badge_background">Segundo plano</string>
+    <string name="sl_badge_service">Serviço</string>
+
+    <string name="sl_night_title">Noite passada</string>
+    <string name="sl_night_none">Nenhum app usou sua localização em segundo plano.</string>
+    <string name="sl_night_nodata">O registro ainda não estava ativo durante aquela noite.</string>
+    <string name="sl_night_partial">O registro começou às %1$s, então o início da noite está faltando.</string>
+    <string name="sl_night_note">A localização em segundo plano gasta bateria, sobretudo à noite, quando não acontece mais nada.</string>
+
+    <string name="sl_day_title">Últimas 24 horas</string>
+    <string name="sl_day_caption">Por app</string>
+    <string name="sl_day_empty">Nada registrado ainda. O serviço lê o relatório do Android a cada 30 minutos, então as primeiras entradas aparecem em meia hora.</string>
+    <string name="sl_day_quiet">Nenhum app usou esses sensores nas últimas 24 horas.</string>
+    <string name="sl_tap">Toque em um app para abrir as permissões dele.</string>
+
+    <plurals name="sl_times">
+        <item quantity="one">%d vez</item>
+        <item quantity="other">%d vezes</item>
+    </plurals>
+    <string name="sl_part_background">%d em segundo plano</string>
+    <string name="sl_part_service">%d por um serviço</string>
+    <string name="sl_part_blocked">%d bloqueios</string>
+    <string name="sl_part_active">executou %s</string>
+    <string name="sl_part_last">último %s</string>
+
+    <string name="sl_system_show">Mostrar serviços do sistema (%d)</string>
+    <string name="sl_system_hide">Ocultar serviços do sistema (%d)</string>
+    <string name="sl_note">O Android guarda só o último acesso de cada tipo. O Activity+ lê esse relatório a cada 30 minutos e guarda o que é novo por 30 dias, então uma contagem é o mínimo de usos: vários acessos entre duas leituras aparecem como um só. Serviços do sistema ficam ocultos por padrão. O Activity+ nunca altera uma permissão.</string>
+    <string name="sl_since">Coletando desde %s</string>
+
+    <plurals name="sl_entry_apps">
+        <item quantity="one">%d app usou sua localização em segundo plano nas últimas 24 horas.</item>
+        <item quantity="other">%d apps usaram sua localização em segundo plano nas últimas 24 horas.</item>
+    </plurals>
+    <string name="sl_entry_quiet">Nenhum app usou sua localização em segundo plano nas últimas 24 horas.</string>
+    <string name="sl_entry_empty">Qual app usou localização, câmera ou microfone, e quando.</string>
+
+    <string name="sl_detail_title">Sensores, últimas 24 horas</string>
+    <plurals name="sl_detail_background">
+        <item quantity="one">%1$s: %2$d vez em segundo plano</item>
+        <item quantity="other">%1$s: %2$d vezes em segundo plano</item>
+    </plurals>
+    <plurals name="sl_detail_uses">
+        <item quantity="one">%1$s: %2$d vez</item>
+        <item quantity="other">%1$s: %2$d vezes</item>
+    </plurals>
+    <plurals name="sl_detail_blocked">
+        <item quantity="one">%1$s: o Android bloqueou %2$d tentativa</item>
+        <item quantity="other">%1$s: o Android bloqueou %2$d tentativas</item>
+    </plurals>
+
+    <string name="f_bgloc_title">%1$s continua usando sua localização em segundo plano</string>
+    <string name="f_bgloc_body">Nas últimas 24 horas, ele foi visto usando sua localização %1$d vezes enquanto você não estava no app (o número real pode ser maior). A localização em segundo plano gasta bateria. Nas informações do app, em Permissões e Localização, você pode escolher “Somente durante o uso do app”.</string>
+</resources>

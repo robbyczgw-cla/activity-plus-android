@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="th_title">发热与降频</string>
+    <string name="th_caption">最近 7 天</string>
+    <string name="th_none">最近 7 天内，Android 没有因发热而降低手机性能。</string>
+    <string name="th_total">已降频</string>
+    <plurals name="th_times">
+        <item quantity="other">%d 次</item>
+    </plurals>
+    <string name="th_total_value">%1$s，共 %2$s</string>
+    <string name="th_longest">最长一段</string>
+    <string name="th_worst">最高级别</string>
+    <string name="th_recent">最近几段</string>
+    <string name="th_ongoing">仍在进行</string>
+    <string name="th_ep_sensor">%1$s，位于 %2$s</string>
+    <plurals name="th_ep_cooling">
+        <item quantity="other">%d 个冷却装置正在工作</item>
+    </plurals>
+    <string name="th_apps_title">各应用发热情况</string>
+    <string name="th_app_power">平均 %1$s</string>
+    <string name="th_app_max">最高 %1$s</string>
+    <string name="th_after">%1$s 后降频</string>
+    <string name="th_at_once">从一开始就降频</string>
+    <string name="th_for">降频持续 %1$s</string>
+    <string name="th_apps_empty">还没有应用在屏幕上停留足够长的时间。最近 7 天内需要 10 分钟。</string>
+    <string name="th_usage_hint">各应用发热情况需要使用情况访问权限，以便知道哪个应用在屏幕上。</string>
+    <string name="th_note">温度为电池温度。功耗是应用在屏幕上时电池提供的电量。Android 认为达到“中等”及以上级别时手机即为降频状态。</string>
+    <string name="th_grant_hint">授予电脑权限后，日志还会显示 Android 认定的传感器以及正在工作的冷却装置。</string>
+    <string name="th_open_pro">打开专业模式</string>
+    <string name="th_detail_title">屏幕使用时的发热，最近 7 天</string>
+    <string name="th_detail_time">屏幕上的测量时长</string>
+    <string name="th_detail_temp">电池温度</string>
+    <string name="th_detail_temp_value">平均 %1$s · 最高 %2$s</string>
+    <string name="th_detail_power">平均功耗</string>
+    <string name="th_detail_throttled">已降频</string>
+    <string name="th_regular_badge">经常降频</string>
+    <string name="f_throttle_title">%1$s 持续导致手机降频</string>
+    <string name="f_throttle_body">在该应用位于屏幕上期间，手机因发热自行降速 %2$d 天共 %1$d 次（合计 %3$s，电池最高 %4$s）。请降低其画质或帧率，或先让手机降温。</string>
+
+    <string name="fc_title">按你的使用习惯估算的剩余时间</string>
+    <string name="fc_until_pattern">按你平常的使用，约可用到 %1$s</string>
+    <string name="fc_until_current">按当前速率，约可用到 %1$s</string>
+    <string name="fc_beyond">按你平常的使用，可用超过 3 天</string>
+    <string name="fc_reaches">将达到 %1$s</string>
+    <string name="fc_current_rate">按当前速率</string>
+    <string name="fc_not_enough">需要大约一天的电池使用数据，才能学习你的使用习惯。在此之前，这是按当前速率的估算。</string>
+    <string name="fc_chart_weekday">你平常在工作日每天各小时的耗电情况，从午夜到午夜</string>
+    <string name="fc_chart_weekend">你平常在周末每天各小时的耗电情况，从午夜到午夜</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wl_badge">超过 Google 限制</string>
+    <string name="wl_explain">Google Play 会警告那些在屏幕关闭时让手机保持唤醒达 2 小时或以上的应用。</string>
+    <string name="wl_days">该应用在最近 %2$d 个已测量日中，有 %1$d 天达到了这一限制。</string>
+    <string name="f_wakelimit_title">%1$s 超过了 Google 的 wakelock 限制</string>
+    <string name="f_wakelimit_body">Google Play 会警告那些在屏幕关闭时让手机保持唤醒达 2 小时或以上的应用。该应用在最近 %2$d 个已测量日中，有 %1$d 天达到了这一限制，单日最高 %3$s。在应用信息中，你可以限制它的电池使用。</string>
+</resources>

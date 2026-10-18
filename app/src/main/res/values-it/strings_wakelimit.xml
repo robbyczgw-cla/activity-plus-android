@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wl_badge">Sopra il limite di Google</string>
+    <string name="wl_explain">Google Play avvisa delle app che tengono sveglio il telefono per 2 ore o più con lo schermo spento.</string>
+    <string name="wl_days">Questa app ha raggiunto il limite in %1$d dei %2$d giorni misurati più recenti.</string>
+    <string name="f_wakelimit_title">%1$s supera il limite di wakelock di Google</string>
+    <string name="f_wakelimit_body">Google Play avvisa delle app che tengono sveglio il telefono per 2 ore o più con lo schermo spento. Questa app ha raggiunto il limite in %1$d dei %2$d giorni misurati più recenti, fino a %3$s in un giorno. Nelle info app puoi limitarne il consumo di batteria.</string>
+</resources>

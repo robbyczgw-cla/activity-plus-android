@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wl_badge">Google の上限を超過</string>
+    <string name="wl_explain">Google Play は、画面オフで 2 時間以上スマホを起こし続けるアプリについて警告します。</string>
+    <string name="wl_days">このアプリは直近 %2$d 日の測定のうち %1$d 日でこの上限に達しました。</string>
+    <string name="f_wakelimit_title">%1$s が Google の wakelock 上限を超えています</string>
+    <string name="f_wakelimit_body">Google Play は、画面オフで 2 時間以上スマホを起こし続けるアプリについて警告します。このアプリは直近 %2$d 日の測定のうち %1$d 日でこの上限に達し、1 日あたり最大 %3$s でした。アプリ情報からバッテリー使用を制限できます。</string>
+</resources>

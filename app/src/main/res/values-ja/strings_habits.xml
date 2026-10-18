@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_title">充電の習慣</string>
+    <string name="habits_need_days">習慣を表示するには、数日分の履歴が必要です。</string>
+    <string name="habits_full" formatted="false">95 % 以上で接続</string>
+    <string name="habits_at_temp">%1$s 以上で充電</string>
+    <string name="habits_per_day">1 日あたり %1$s</string>
+    <string name="habits_none">なし</string>
+    <string name="habits_deep" formatted="false">バッテリー駆動時に 10 % 未満</string>
+    <plurals name="habits_deep_count">
+        <item quantity="other">%2$d 日間で %1$d 回</item>
+    </plurals>
+    <string name="habits_typical">一般的な充電量</string>
+    <string name="habits_range">%1$s → %2$s</string>
+    <string name="habits_advice_hot">%1$s 以上で充電すると、バッテリーの劣化が最も早まります。スマホはその温度に 1 日あたり %2$s 置かれていました。ケースを外すか、涼しい場所で充電してください。</string>
+    <string name="habits_advice_warm">%1$s 以上での充電が積み重なっています（1 日あたり %2$s）。熱はバッテリーを時間とともに劣化させるため、涼しい環境での充電は容量を長く保ちます。</string>
+    <string name="habits_advice_full">スマホは接続中に 1 日あたり %1$s、%2$s 以上で過ごしていました。満充電でない状態に保つとバッテリーの劣化は緩やかになります。バッテリー設定で %3$s の上限または適応型充電をオンにしてください。Activity+ は（設定、充電で）%3$s になったときに通知することもできます。</string>
+    <string name="habits_advice_deep">バッテリーが %1$s を下回ったのは %3$d 日間で %2$d 回でした。深い放電はセルに負担をかけるため、代わりに %4$s あたりで充電してください。</string>
+    <string name="habits_open_battery">バッテリー設定</string>
+    <string name="habits_note">直近 30 日間の分単位の履歴から計測しています。接続とは充電器につながっている状態を指します。</string>
+
+    <string name="habits_age_title">劣化の予測</string>
+    <string name="habits_age_forecast">この調子だと %2$s で約 %1$s</string>
+    <plurals name="habits_months">
+        <item quantity="other">%d か月</item>
+    </plurals>
+    <string name="habits_age_range">測定値のばらつきにより、%1$d〜%2$d か月の範囲。</string>
+    <string name="habits_age_now_rated">現在の満充電容量：定格容量の %1$s。</string>
+    <string name="habits_age_now_first">現在の満充電容量：最初の測定値の %1$s。</string>
+    <string name="habits_age_reached">満充電容量は %1$s で、%2$s 以下です。</string>
+    <string name="habits_age_noclear">まだ明確な低下はありません：測定された満充電容量は、そのばらつきの範囲内で推移しています。</string>
+    <string name="habits_age_more">満充電の回数が不足しています：これまでに %1$d 回測定。予測には %2$d 回が必要で、%3$d 週間にわたって必要です。</string>
+    <string name="habits_age_note">完了した充電の満充電容量に基づいて算出しています。データが少ないうちは大まかですが、新しいデータが増えるほど精度が上がります。</string>
+
+    <string name="cost_title">使用 1 時間あたりのコスト</string>
+    <string name="cost_caption" formatted="false">直近 7 日間</string>
+    <string name="cost_row_note">画面表示 %1$s · 平均 %2$s</string>
+    <string name="cost_note">各アプリが画面に表示されていた間のバッテリー消費を、バッテリー駆動時に計測しています。その間の他のアプリのバックグラウンド処理も含まれます。</string>
+    <string name="cost_min_note">直近 7 日間で計測時間が %1$d 分未満のアプリは除外されます。</string>
+</resources>

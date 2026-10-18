@@ -434,7 +434,7 @@
     <string name="pro_memory_note">PSS: memoria que usa una app; la memoria compartida se reparte entre las apps que la comparten.</string>
     <string name="pro_cpu_title">CPU por app, últimos 1,5 minutos</string>
     <string name="pro_cpu_note" formatted="false">Porcentaje de un núcleo; por encima de 100 %, una app usa varios núcleos.</string>
-    <string name="pro_privacy">El modo pro ejecuta solo tres informes de solo lectura: dumpsys batterystats, meminfo y cpuinfo y, si lo pides, concede a Activity+ sus propios permisos de lectura. Cualquier otro comando se rechaza, y Activity+ no tiene acceso a Internet.</string>
+    <string name="pro_privacy">El modo pro ejecuta solo los informes de solo lectura de Android (dumpsys batterystats, meminfo, cpuinfo, appops, alarm, jobscheduler, thermalservice, deviceidle) y, si lo pides, concede a Activity+ sus propios permisos de lectura. Cualquier otro comando se rechaza, y Activity+ no tiene acceso a Internet.</string>
     <string name="pro_entry_title">Medir con precisión</string>
     <string name="pro_entry_body">Batería, memoria y CPU por app, incluido el segundo plano. Modo pro con Shizuku.</string>
     <string name="pro_entry_last">Última medición %1$s</string>

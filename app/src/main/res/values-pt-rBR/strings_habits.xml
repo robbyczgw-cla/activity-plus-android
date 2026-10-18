@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_title">Hábitos de carregamento</string>
+    <string name="habits_need_days">São necessários alguns dias de histórico para os hábitos aparecerem.</string>
+    <string name="habits_full" formatted="false">Conectado com 95 % ou mais</string>
+    <string name="habits_at_temp">Carregando a %1$s ou mais</string>
+    <string name="habits_per_day">%1$s por dia</string>
+    <string name="habits_none">Nenhum</string>
+    <string name="habits_deep" formatted="false">Abaixo de 10 % na bateria</string>
+    <plurals name="habits_deep_count">
+        <item quantity="one">%1$d vez em %2$d dias</item>
+        <item quantity="other">%1$d vezes em %2$d dias</item>
+    </plurals>
+    <string name="habits_typical">Carga típica</string>
+    <string name="habits_range">%1$s → %2$s</string>
+    <string name="habits_advice_hot">Carregar a %1$s ou mais é o que mais envelhece a bateria. O celular ficou tão quente por %2$s por dia. Tire a capinha ou carregue em um lugar mais fresco.</string>
+    <string name="habits_advice_warm">Carregar a %1$s ou mais se acumula: %2$s por dia. O calor desgasta a bateria com o tempo, então carregar com menos calor mantém a capacidade por mais tempo.</string>
+    <string name="habits_advice_full">Seu celular passou %1$s por dia a %2$s ou mais enquanto estava conectado. Uma bateria mantida abaixo do cheio envelhece mais devagar: ative o limite de %3$s ou o carregamento adaptativo nas configurações da bateria. O Activity+ também pode avisar você em %3$s (Configurações, Carregamento).</string>
+    <string name="habits_advice_deep">A bateria caiu abaixo de %1$s %2$d vezes em %3$d dias. Descargas profundas estressam as células: conecte por volta de %4$s.</string>
+    <string name="habits_open_battery">Configurações de bateria</string>
+    <string name="habits_note">Medido pelo histórico por minuto dos últimos 30 dias. Conectado significa ligado a um carregador.</string>
+
+    <string name="habits_age_title">Previsão de envelhecimento</string>
+    <string name="habits_age_forecast">Cerca de %1$s em %2$s neste ritmo</string>
+    <plurals name="habits_months">
+        <item quantity="one">%d mês</item>
+        <item quantity="other">%d meses</item>
+    </plurals>
+    <string name="habits_age_range">Entre %1$d e %2$d meses, dependendo de quanto as medições variam.</string>
+    <string name="habits_age_now_rated">Capacidade total agora: %1$s da capacidade nominal.</string>
+    <string name="habits_age_now_first">Capacidade total agora: %1$s da sua primeira medição.</string>
+    <string name="habits_age_reached">A capacidade total está em %1$s, ou seja, %2$s ou menos.</string>
+    <string name="habits_age_noclear">Ainda não há perda clara: a capacidade total medida fica dentro da própria variação.</string>
+    <string name="habits_age_more">Faltam mais cargas completas: %1$d medidas até agora. A previsão precisa de %2$d, distribuídas em %3$d semanas.</string>
+    <string name="habits_age_note">Ajustado à capacidade total das suas cargas completas. Aproximado com poucas, e mais preciso a cada nova.</string>
+
+    <string name="cost_title">Custo por hora de uso</string>
+    <string name="cost_caption" formatted="false">Últimos 7 dias</string>
+    <string name="cost_row_note">%1$s na tela · Ø %2$s</string>
+    <string name="cost_note">Bateria gasta enquanto cada app estava na tela, medida com o celular na bateria. O trabalho em segundo plano de outros apps nesse período também conta.</string>
+    <string name="cost_min_note">Apps com menos de %1$d minutos medidos nos últimos 7 dias ficam de fora.</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="habits_title">充电习惯</string>
+    <string name="habits_need_days">需要几天的历史数据后才能显示充电习惯。</string>
+    <string name="habits_full" formatted="false">电量达到 95% 或以上时接通电源</string>
+    <string name="habits_at_temp">在 %1$s 或以上温度下充电</string>
+    <string name="habits_per_day">每天 %1$s</string>
+    <string name="habits_none">无</string>
+    <string name="habits_deep" formatted="false">使用电池时低于 10%</string>
+    <plurals name="habits_deep_count">
+        <item quantity="other">%2$d 天内 %1$d 次</item>
+    </plurals>
+    <string name="habits_typical">常见充电量</string>
+    <string name="habits_range">%1$s → %2$s</string>
+    <string name="habits_advice_hot">在 %1$s 或以上温度下充电最容易加速电池老化。你的手机每天处于这种温度约 %2$s。请取下保护壳，或到更凉爽的地方充电。</string>
+    <string name="habits_advice_warm">在 %1$s 或以上温度下充电的影响会累积：每天 %2$s。热量会随时间损耗电池，因此在较凉的环境下充电能更久地保持电池容量。</string>
+    <string name="habits_advice_full">接通电源时，你的手机每天有 %1$s 处于 %2$s 或以上。电量保持在充满以下会让电池老化更慢：请在电池设置中开启 %3$s 上限或自适应充电。Activity+ 也可以在电量达到 %3$s 时提醒你（设置，充电）。</string>
+    <string name="habits_advice_deep">电池在 %3$d 天内有 %2$d 次降至 %1$s 以下。深度放电会损伤电芯：请改为在约 %4$s 时充电。</string>
+    <string name="habits_open_battery">电池设置</string>
+    <string name="habits_note">根据最近 30 天的分钟级历史记录测算。“接通电源”指连接了充电器。</string>
+
+    <string name="habits_age_title">老化预测</string>
+    <string name="habits_age_forecast">按此速度，%2$s后约为 %1$s</string>
+    <plurals name="habits_months">
+        <item quantity="other">%d 个月</item>
+    </plurals>
+    <string name="habits_age_range">根据测量数据的分散程度，约为 %1$d 至 %2$d 个月。</string>
+    <string name="habits_age_now_rated">当前满充容量：额定容量的 %1$s。</string>
+    <string name="habits_age_now_first">当前满充容量：你首次测量值的 %1$s。</string>
+    <string name="habits_age_reached">满充容量为 %1$s，即 %2$s 或更低。</string>
+    <string name="habits_age_noclear">尚无明显衰减：测得的满充容量仍在其自身的波动范围内。</string>
+    <string name="habits_age_more">需要更多次完整充电：目前测得 %1$d 次。预测需要 %2$d 次，并分布在 %3$d 周内。</string>
+    <string name="habits_age_note">依据你已完成充电的满充容量拟合。数据少时较粗略，每新增一次都会更精确。</string>
+
+    <string name="cost_title">每小时使用成本</string>
+    <string name="cost_caption" formatted="false">最近 7 天</string>
+    <string name="cost_row_note">屏幕使用 %1$s · 平均 %2$s</string>
+    <string name="cost_note">各应用位于屏幕上时的电池消耗，以使用电池时的测量为准。这段时间内其他应用的后台工作也计算在内。</string>
+    <string name="cost_min_note">最近 7 天内测量时长不足 %1$d 分钟的应用不计入。</string>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_report_title">Activity+ レポート</string>
+    <string name="share_action">レポートを共有</string>
+    <string name="share_text">テキストで共有</string>
+    <string name="share_image">画像で共有</string>
+    <string name="share_failed">共有できるアプリがありません</string>
+    <string name="share_dialog_hint">これはレポート全体です。自由に編集できます。アプリを選ぶまで何も送信されません。</string>
+    <string name="share_settings_title">レポートを共有</string>
+    <string name="share_settings_hint">端末の機種、Android のバージョン、バッテリー、昨夜の状況、バッテリーを最も使ったアプリ、空き容量を、テキストまたは画像で。フォーラムやサポートへの問い合わせに。</string>
+    <string name="share_sec_device">端末</string>
+    <string name="share_row_model">機種</string>
+    <string name="share_row_android">Android</string>
+    <string name="share_row_patch">セキュリティ更新</string>
+    <string name="share_row_version">Activity+ のバージョン</string>
+    <string name="share_row_level">レベル</string>
+    <string name="share_row_verdict">判定</string>
+    <string name="share_sec_apps">今日最もバッテリーを使ったアプリ</string>
+    <string name="share_sec_wakeups">今日の起床</string>
+
+    <string name="export_title">データを書き出す</string>
+    <string name="export_hint">履歴を表計算ファイル（CSV）と短い概要（JSON）として、1 つの ZIP ファイルに保存します。保存先はあなたが選びます。何もアップロードされません。</string>
+    <string name="export_action">データを書き出す</string>
+    <string name="export_working">書き出し中…</string>
+    <string name="export_done">%1$d 件のファイルを保存しました</string>
+    <string name="export_failed">書き出しを保存できませんでした</string>
+
+    <string name="widget_night_name">Activity+ 昨夜</string>
+    <string name="widget_night_desc">スマホは夜によく眠れた？ 判定、1 時間あたりの消費、深いスリープ、原因のアプリ</string>
+    <string name="widget_history_name">Activity+ 履歴</string>
+    <string name="widget_history_desc">直近 6 時間のバッテリー残量または電力をグラフで表示</string>
+    <string name="wn_blame">原因</string>
+    <string name="wn_blame_android">Android</string>
+    <string name="wn_blame_none">なし</string>
+    <string name="wh_title_level">バッテリー、直近 %1$d 時間</string>
+    <string name="wh_title_power">電力、直近 %1$d 時間</string>
+    <string name="wh_range">%1$s〜%2$s</string>
+    <string name="wh_empty">データを収集中…</string>
+    <string name="wh_mode_level">バッテリー残量</string>
+    <string name="wh_mode_power">電力</string>
+    <string name="wh_config_subtitle">グラフの表示内容</string>
+    <string name="wh_preview_title">バッテリー、直近 6 時間</string>
+</resources>

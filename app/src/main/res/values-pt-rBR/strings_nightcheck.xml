@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nc_title_well">O celular dormiu bem</string>
+    <string name="nc_title_app">%1$s manteve o celular acordado</string>
+    <string name="nc_title_system">O Android não dormiu profundamente</string>
+    <string name="nc_title_drain">Muita bateria gasta durante o sono</string>
+    <string name="nc_title_none">Nenhuma noite para verificar</string>
+
+    <string name="nc_reason_well">%1$s, %2$s de sono profundo</string>
+    <string name="nc_reason_app_awake">Manteve um wakelock por %1$s com a tela desligada, então o Android não conseguiu ficar em sono profundo.</string>
+    <plurals name="nc_reason_app_wakeups">
+        <item quantity="one">Acordou o celular %1$d vez durante a noite, então o Android não conseguiu ficar em sono profundo.</item>
+        <item quantity="other">Acordou o celular %1$d vezes durante a noite, então o Android não conseguiu ficar em sono profundo.</item>
+    </plurals>
+    <string name="nc_excessive">O Google Play considera excessivo um wakelock de 2 horas ou mais com a tela desligada.</string>
+    <string name="nc_reason_no_deep">O Android nunca chegou ao Doze profundo, e o celular ficou em sono profundo só %1$s da noite.</string>
+    <string name="nc_reason_low_deep">O celular ficou em sono profundo só %1$s da noite.</string>
+    <string name="nc_reason_low_deep_usual">O celular ficou em sono profundo só %1$s da noite, normalmente %2$s.</string>
+    <string name="nc_system_explain">Nenhum app se destaca: o próprio Android não chegou ao sono profundo. Costuma ser um bug do sistema depois de uma atualização, ou um sinal móvel fraco.</string>
+    <string name="nc_system_signal">Nenhum app se destaca, e o sinal móvel estava fraco: a busca pela rede mantém o Android acordado.</string>
+    <string name="nc_system_unknown">Algo manteve o celular acordado: um app ou o próprio Android.</string>
+    <string name="nc_reason_drain">%1$s com a tela desligada, com %2$s de sono profundo.</string>
+    <string name="nc_reason_drain_usual">%1$s com a tela desligada, normalmente %2$s, com %3$s de sono profundo.</string>
+    <string name="nc_drain_explain">O celular estava dormindo, então nenhum app o manteve acordado. A energia foi para o rádio (rede móvel, 5G) ou para o hardware.</string>
+    <string name="nc_drain_signal">O sinal móvel estava fraco: o rádio precisa de muito mais energia para manter a rede.</string>
+    <string name="nc_reason_no_record">Nenhuma noite registrada. O Activity+ registra a noite enquanto o status ao vivo estiver ligado.</string>
+    <string name="nc_reason_charged">O celular ficou carregando a noite toda. O Android não entra em Doze durante a carga, então não há o que avaliar.</string>
+    <string name="nc_reason_short">A tela nunca ficou desligada por 3 horas seguidas na noite passada.</string>
+
+    <string name="nc_stat_asleep">Tela desligada</string>
+    <string name="nc_stat_deep">Sono profundo</string>
+    <string name="nc_stat_first_deep">Doze profundo depois de</string>
+    <string name="nc_never">nunca</string>
+    <string name="nc_light_only">nunca, só Doze leve</string>
+    <string name="nc_stat_interruptions">Interrupções do Doze</string>
+    <string name="nc_stat_drain">Consumo</string>
+    <string name="nc_stat_signal">Sinal móvel</string>
+    <string name="nc_signal_weak">fraco</string>
+    <string name="nc_usually">normalmente %1$s</string>
+
+    <string name="nc_apps_title">Acordados à noite</string>
+    <string name="nc_pro_hint">Quais apps ficaram acordadas à noite? Com uma permissão de leitura na página pro, o Activity+ mostra os nomes.</string>
+
+    <string name="nc_act_update">Verificar atualizações do sistema</string>
+    <string name="nc_act_update_note">Um bug de atualização costuma ser corrigido na seguinte. Apps com permissão para ignorar a otimização de bateria também ignoram o Doze.</string>
+    <string name="nc_act_optimization">Otimização de bateria</string>
+    <string name="nc_act_network">Configurações de rede</string>
+    <string name="nc_act_network_note">O Wi-Fi à noite, ou as chamadas por Wi-Fi, deixam o rádio móvel descansar. O Activity+ nunca altera isso sozinho.</string>
+    <string name="nc_act_usage">Uso da bateria</string>
+    <string name="nc_act_usage_note">O uso de bateria do Android mostra o que consumiu a energia.</string>
+
+    <string name="nc_tap_history">Toque para ver as últimas 14 noites.</string>
+    <string name="nc_history_title">Noites</string>
+    <string name="nc_history_caption">Últimas 14 noites</string>
+    <string name="nc_history_empty">Nenhuma noite medida ainda.</string>
+    <plurals name="nc_history_usual">
+        <item quantity="one">Noite habitual (mediana de %1$d noite): %2$s</item>
+        <item quantity="other">Noite habitual (mediana de %1$d noites): %2$s</item>
+    </plurals>
+    <string name="nc_short_system">Android acordado</string>
+    <string name="nc_short_drain">Muito consumo</string>
+    <string name="nc_short_charged">Carregando</string>
+    <string name="nc_short_short">Curta demais</string>
+    <string name="nc_short_no_record">Não registrada</string>
+    <string name="nc_explain">Sono profundo é o tempo em que o processador ficou desligado. O Doze é o caminho do Android até lá: ele segura os apps até o celular ficar parado.</string>
+</resources>

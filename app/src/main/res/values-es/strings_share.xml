@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_report_title">Informe de Activity+</string>
+    <string name="share_action">Compartir informe</string>
+    <string name="share_text">Compartir como texto</string>
+    <string name="share_image">Compartir como imagen</string>
+    <string name="share_failed">No hay ninguna app con la que compartir</string>
+    <string name="share_dialog_hint">Este es el informe completo. Edítalo como quieras; no se envía nada hasta que elijas una app.</string>
+    <string name="share_settings_title">Compartir un informe</string>
+    <string name="share_settings_hint">Modelo del teléfono, versión de Android, batería, la última noche, las apps que más batería usaron y el almacenamiento libre, como texto o como imagen, para un foro o una petición de ayuda.</string>
+    <string name="share_sec_device">Dispositivo</string>
+    <string name="share_row_model">Modelo</string>
+    <string name="share_row_android">Android</string>
+    <string name="share_row_patch">Actualización de seguridad</string>
+    <string name="share_row_version">Versión de Activity+</string>
+    <string name="share_row_level">Nivel</string>
+    <string name="share_row_verdict">Veredicto</string>
+    <string name="share_sec_apps">Lo que más batería usó hoy</string>
+    <string name="share_sec_wakeups">Despertares hoy</string>
+
+    <string name="export_title">Exportar datos</string>
+    <string name="export_hint">Guarda el historial como archivos de hoja de cálculo (CSV) con un resumen breve (JSON) en un solo archivo ZIP. Tú eliges dónde se guarda; no se sube nada.</string>
+    <string name="export_action">Exportar datos</string>
+    <string name="export_working">Exportando…</string>
+    <string name="export_done">%1$d archivos guardados</string>
+    <string name="export_failed">No se pudo guardar la exportación</string>
+
+    <string name="widget_night_name">Activity+ última noche</string>
+    <string name="widget_night_desc">¿Durmió bien el teléfono? Veredicto, consumo por hora, sueño profundo y la app culpable</string>
+    <string name="widget_history_name">Historial de Activity+</string>
+    <string name="widget_history_desc">Nivel o potencia de la batería de las últimas 6 horas, en gráfico</string>
+    <string name="wn_blame">Culpable</string>
+    <string name="wn_blame_android">Android</string>
+    <string name="wn_blame_none">Nadie</string>
+    <string name="wh_title_level">Batería, últimas %1$d h</string>
+    <string name="wh_title_power">Potencia, últimas %1$d h</string>
+    <string name="wh_range">%1$s a %2$s</string>
+    <string name="wh_empty">Recopilando datos…</string>
+    <string name="wh_mode_level">Nivel de batería</string>
+    <string name="wh_mode_power">Potencia</string>
+    <string name="wh_config_subtitle">Qué muestra el gráfico</string>
+    <string name="wh_preview_title">Batería, últimas 6 h</string>
+</resources>

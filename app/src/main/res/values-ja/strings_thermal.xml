@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="th_title">発熱と性能制限</string>
+    <string name="th_caption">直近 7 日間</string>
+    <string name="th_none">直近 7 日間、Android は発熱を理由にスマホの動作を抑えませんでした。</string>
+    <string name="th_total">性能制限</string>
+    <plurals name="th_times">
+        <item quantity="other">%d 回</item>
+    </plurals>
+    <string name="th_total_value">%1$s、合計 %2$s</string>
+    <string name="th_longest">最長の継続時間</string>
+    <string name="th_worst">最も高いレベル</string>
+    <string name="th_recent">最近の継続</string>
+    <string name="th_ongoing">継続中</string>
+    <string name="th_ep_sensor">%1$s（%2$s）</string>
+    <plurals name="th_ep_cooling">
+        <item quantity="other">稼働中の冷却デバイス %d 台</item>
+    </plurals>
+    <string name="th_apps_title">アプリ別の発熱</string>
+    <string name="th_app_power">平均 %1$s</string>
+    <string name="th_app_max">最大 %1$s</string>
+    <string name="th_after">%1$s 後に性能制限</string>
+    <string name="th_at_once">最初から性能制限</string>
+    <string name="th_for">%1$s の間性能制限</string>
+    <string name="th_apps_empty">まだ画面に十分な時間表示されたアプリはありません。直近 7 日間で 10 分必要です。</string>
+    <string name="th_usage_hint">アプリ別の発熱には、どのアプリが画面に表示されているかを知るため、使用状況へのアクセスが必要です。</string>
+    <string name="th_note">温度はバッテリーの温度です。電力は、アプリが画面に表示されていた間にバッテリーが供給した量です。Android は「中程度」以上のレベルで性能を制限したとみなします。</string>
+    <string name="th_grant_hint">コンピューターの許可があると、ログには Android が原因とみなしたセンサーと、稼働中の冷却デバイスも表示されます。</string>
+    <string name="th_open_pro">プロモードを開く</string>
+    <string name="th_detail_title">画面表示中の発熱、直近 7 日間</string>
+    <string name="th_detail_time">画面表示中の計測時間</string>
+    <string name="th_detail_temp">バッテリー温度</string>
+    <string name="th_detail_temp_value">平均 %1$s · 最大 %2$s</string>
+    <string name="th_detail_power">平均消費電力</string>
+    <string name="th_detail_throttled">性能制限</string>
+    <string name="th_regular_badge">性能制限が頻発</string>
+    <string name="f_throttle_title">%1$s で発熱による性能制限が繰り返し起きています</string>
+    <string name="f_throttle_body">このアプリが画面に表示されている間に、%2$d 日のうち %1$d 回、発熱のためスマホが動作を抑えました（合計 %3$s、バッテリー最大 %4$s）。グラフィック品質やフレームレートを下げるか、先にスマホを冷ましてください。</string>
+
+    <string name="fc_title">パターンに基づく残り時間</string>
+    <string name="fc_until_pattern">いつもの使い方だと約 %1$s まで持ちます</string>
+    <string name="fc_until_current">現在のペースだと約 %1$s まで持ちます</string>
+    <string name="fc_beyond">いつもの使い方で 3 日以上持ちます</string>
+    <string name="fc_reaches">%1$s に到達</string>
+    <string name="fc_current_rate">現在のペースで</string>
+    <string name="fc_not_enough">パターンを学習するには、バッテリー駆動で約 1 日分の使用が必要です。それまでは現在のペースによる推定です。</string>
+    <string name="fc_chart_weekday">平日の時間帯ごとのいつもの消費量（0 時から 24 時まで）</string>
+    <string name="fc_chart_weekend">週末の時間帯ごとのいつもの消費量（0 時から 24 時まで）</string>
+</resources>
