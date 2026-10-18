@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sc_title">Prévu pour cette nuit</string>
+    <string name="sc_caption">Ce que les applis ont programmé</string>
+    <string name="sc_hint">Voyez quelle appli va réveiller le téléphone ensuite et à quelle fréquence les applis prévoient de le faire. Nécessite l\'autorisation ordinateur ou Shizuku sur la page pro.</string>
+    <string name="sc_reading">Lecture des alarmes et tâches programmées par les applis …</string>
+    <string name="sc_failed">Android n\'a pas fourni sa liste d\'alarmes. Réessayez plus tard.</string>
+    <string name="sc_shizuku">Lit les alarmes et tâches programmées par les applis, via Shizuku. Rien n\'est lu en arrière-plan.</string>
+    <string name="sc_read_now">Lire maintenant</string>
+    <string name="sc_read_again">Relire</string>
+    <string name="sc_night">Cette nuit, %1$s</string>
+    <string name="sc_quiet">Aucune appli ne prévoit de réveiller le téléphone cette nuit.</string>
+    <plurals name="sc_tonight_count">
+        <item quantity="one">%d réveil cette nuit</item>
+        <item quantity="other">%d réveils cette nuit</item>
+    </plurals>
+    <string name="sc_next">Prochain réveil %1$s</string>
+    <string name="sc_then_every">puis toutes les %1$s</string>
+    <string name="sc_then_about">puis environ toutes les %1$s</string>
+    <string name="sc_in_doze">autorisée en Doze</string>
+    <string name="sc_exact">exacte</string>
+    <string name="sc_alarm_clock">Réveil %1$s</string>
+    <string name="sc_badge_doze">Exacte en Doze</string>
+    <string name="sc_badge_jobs">Tâches fréquentes</string>
+    <plurals name="sc_jobs_count">
+        <item quantity="one">%d tâche d\'arrière-plan sur batterie</item>
+        <item quantity="other">%d tâches d\'arrière-plan sur batterie</item>
+    </plurals>
+    <string name="sc_explain">Les alarmes exactes autorisées en Doze sont le type coûteux : elles sonnent à l\'heure même en sommeil profond, et chacune réveille le téléphone à elle seule. Les alarmes ordinaires et les tâches attendent les courtes fenêtres de maintenance de Doze et les partagent.</string>
+    <string name="sc_note">Ce que les applis ont prévu en ce moment ; elles peuvent le modifier à tout moment. Lu uniquement pendant que vous regardez. Touchez une appli pour les détails.</string>
+    <string name="sc_detail_title">Réveils et tâches prévus</string>
+    <string name="sc_since_start">Réveils depuis le démarrage du téléphone</string>
+    <string name="sc_in">%1$s dans %2$s</string>
+    <string name="sc_jobs_title">Tâches d\'arrière-plan</string>
+    <string name="sc_job_every">toutes les %1$s</string>
+    <string name="sc_job_once">une fois</string>
+    <string name="sc_job_network">nécessite Internet</string>
+    <string name="sc_job_wifi">Wi-Fi uniquement</string>
+    <string name="sc_job_charging">seulement pendant la charge</string>
+    <string name="sc_job_battery">aussi sur batterie</string>
+    <string name="sc_job_idle">quand le téléphone est inactif</string>
+    <string name="sc_job_last">dernière exécution %1$s</string>
+    <string name="sc_job_runs">Tâches lancées récemment</string>
+    <string name="sc_more">+ %1$d de plus</string>
+    <string name="sc_exact_alarms">Alarmes et rappels</string>
+    <string name="sc_fix">Dans les infos de l\'appli, sous Batterie, vous pouvez restreindre son fonctionnement en arrière-plan. Sous Alarmes et rappels, vous pouvez lui retirer ses alarmes exactes. Activity+ ne modifie jamais cela lui-même.</string>
+    <string name="f_dozealarm_title">%1$s réveille le téléphone toutes les %2$s, même en Doze</string>
+    <string name="f_dozealarm_body">Elle programme une alarme exacte qui peut sonner en Doze, environ toutes les %1$s. Chacune sort le téléphone du sommeil profond, toute la nuit. Dans les infos de l\'appli, sous Batterie, vous pouvez la restreindre ; « Prévu pour cette nuit » sur l\'écran Batterie ouvre aussi sa page Alarmes et rappels.</string>
+</resources>

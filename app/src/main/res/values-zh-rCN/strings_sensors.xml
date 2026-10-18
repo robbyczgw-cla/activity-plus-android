@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sl_title">传感器</string>
+    <string name="sl_subtitle">谁使用了位置、摄像头和麦克风</string>
+    <string name="sl_refresh">刷新</string>
+    <string name="sl_hint">查看哪个应用使用了你的位置、摄像头或麦克风，以及是否在后台使用。需要在专业页面授予电脑权限。</string>
+    <string name="sl_open_log">打开传感器日志</string>
+
+    <string name="sl_location">位置</string>
+    <string name="sl_camera">摄像头</string>
+    <string name="sl_microphone">麦克风</string>
+    <string name="sl_body">身体传感器与活动</string>
+    <string name="sl_nearby">附近设备</string>
+
+    <string name="sl_now_title">当前正在使用</string>
+    <string name="sl_now_caption">最近一分钟</string>
+    <string name="sl_now_none">此刻没有任何应用在使用位置、摄像头或麦克风。</string>
+    <string name="sl_badge_background">后台</string>
+    <string name="sl_badge_service">服务</string>
+
+    <string name="sl_night_title">昨晚</string>
+    <string name="sl_night_none">没有应用在后台使用你的位置。</string>
+    <string name="sl_night_nodata">那晚日志尚未运行。</string>
+    <string name="sl_night_partial">日志于 %1$s 开始记录，因此缺少夜间开始的部分。</string>
+    <string name="sl_night_note">后台定位会消耗电量，夜间尤其明显，因为此时通常没有其他活动。</string>
+
+    <string name="sl_day_title">最近 24 小时</string>
+    <string name="sl_day_caption">按应用</string>
+    <string name="sl_day_empty">尚未记录任何内容。服务每 30 分钟读取一次 Android 的报告，因此首批记录会在半小时内出现。</string>
+    <string name="sl_day_quiet">最近 24 小时内没有应用使用这些传感器。</string>
+    <string name="sl_tap">点按应用即可打开其权限。</string>
+
+    <plurals name="sl_times">
+        <item quantity="other">%d 次</item>
+    </plurals>
+    <string name="sl_part_background">后台 %d 次</string>
+    <string name="sl_part_service">来自服务 %d 次</string>
+    <string name="sl_part_blocked">已阻止 %d 次</string>
+    <string name="sl_part_active">运行 %s</string>
+    <string name="sl_part_last">最近 %s</string>
+
+    <string name="sl_system_show">显示系统服务（%d）</string>
+    <string name="sl_system_hide">隐藏系统服务（%d）</string>
+    <string name="sl_note">Android 只保留每种访问的最近一次记录。Activity+ 每 30 分钟读取一次该报告，并保留新内容 30 天，因此计数是使用次数的下限：两次读取之间的多次访问会计为一次。系统服务默认隐藏。Activity+ 从不更改权限。</string>
+    <string name="sl_since">自 %s 起收集</string>
+
+    <plurals name="sl_entry_apps">
+        <item quantity="other">最近 24 小时内有 %d 个应用在后台使用了你的位置。</item>
+    </plurals>
+    <string name="sl_entry_quiet">最近 24 小时内没有应用在后台使用你的位置。</string>
+    <string name="sl_entry_empty">哪个应用在什么时候使用了位置、摄像头或麦克风。</string>
+
+    <string name="sl_detail_title">传感器，最近 24 小时</string>
+    <plurals name="sl_detail_background">
+        <item quantity="other">%1$s：后台 %2$d 次</item>
+    </plurals>
+    <plurals name="sl_detail_uses">
+        <item quantity="other">%1$s：%2$d 次</item>
+    </plurals>
+    <plurals name="sl_detail_blocked">
+        <item quantity="other">%1$s：Android 阻止了 %2$d 次尝试</item>
+    </plurals>
+
+    <string name="f_bgloc_title">%1$s 持续在后台使用你的位置</string>
+    <string name="f_bgloc_body">最近 24 小时内，在你未使用该应用时，观察到它使用你的位置 %1$d 次（实际次数可能更多）。后台定位会消耗电量。在应用信息的“权限”和“位置”中，你可以选择“仅在使用应用时”。</string>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nc_title_well">手机昨晚睡得很好</string>
+    <string name="nc_title_app">%1$s 让手机保持唤醒</string>
+    <string name="nc_title_system">Android 没有进入深度睡眠</string>
+    <string name="nc_title_drain">睡眠期间耗电较多</string>
+    <string name="nc_title_none">没有可检查的夜晚</string>
+
+    <string name="nc_reason_well">%1$s，深度睡眠 %2$s</string>
+    <string name="nc_reason_app_awake">屏幕关闭时，它持有 wakelock 达 %1$s，因此 Android 无法保持深度睡眠。</string>
+    <plurals name="nc_reason_app_wakeups">
+        <item quantity="other">夜间唤醒手机 %1$d 次，因此 Android 无法保持深度睡眠。</item>
+    </plurals>
+    <string name="nc_excessive">Google Play 认为屏幕关闭时持有 2 小时或以上的 wakelock 属于过度使用。</string>
+    <string name="nc_reason_no_deep">Android 从未进入深度 Doze，夜间手机仅有 %1$s 处于深度睡眠。</string>
+    <string name="nc_reason_low_deep">夜间手机仅有 %1$s 处于深度睡眠。</string>
+    <string name="nc_reason_low_deep_usual">夜间手机仅有 %1$s 处于深度睡眠，通常为 %2$s。</string>
+    <string name="nc_system_explain">没有应用特别突出：Android 本身没有进入深度睡眠。常见原因是更新后的系统问题，或移动信号较弱。</string>
+    <string name="nc_system_signal">没有应用特别突出，而且移动信号较弱：搜索网络会让 Android 保持清醒。</string>
+    <string name="nc_system_unknown">有东西让手机保持清醒：某个应用或 Android 本身。</string>
+    <string name="nc_reason_drain">屏幕关闭时耗电 %1$s，深度睡眠 %2$s。</string>
+    <string name="nc_reason_drain_usual">屏幕关闭时耗电 %1$s（通常为 %2$s），深度睡眠 %3$s。</string>
+    <string name="nc_drain_explain">手机在睡眠，因此没有应用让它保持唤醒。耗电来自无线电（移动网络、5G）或硬件。</string>
+    <string name="nc_drain_signal">移动信号较弱：无线电需要多得多的电量来维持网络连接。</string>
+    <string name="nc_reason_no_record">没有记录到夜晚。Activity+ 在实时状态开启时记录夜间情况。</string>
+    <string name="nc_reason_charged">夜间手机一直在充电。Android 充电时不会进入 Doze，因此无法判断。</string>
+    <string name="nc_reason_short">昨晚屏幕从未连续关闭达 3 小时。</string>
+
+    <string name="nc_stat_asleep">屏幕关闭</string>
+    <string name="nc_stat_deep">深度睡眠</string>
+    <string name="nc_stat_first_deep">首次深度 Doze 之后</string>
+    <string name="nc_never">从未</string>
+    <string name="nc_light_only">从未，仅浅层 Doze</string>
+    <string name="nc_stat_interruptions">Doze 中断次数</string>
+    <string name="nc_stat_drain">耗电</string>
+    <string name="nc_stat_signal">移动信号</string>
+    <string name="nc_signal_weak">弱</string>
+    <string name="nc_usually">通常 %1$s</string>
+
+    <string name="nc_apps_title">夜间保持唤醒的应用</string>
+    <string name="nc_pro_hint">夜间哪些应用保持了唤醒？在专业页面授予读取权限后，Activity+ 会列出它们的名称。</string>
+
+    <string name="nc_act_update">检查系统更新</string>
+    <string name="nc_act_update_note">更新中的错误通常会在下一个版本中修复。被允许跳过电池优化的应用同样会跳过 Doze。</string>
+    <string name="nc_act_optimization">电池优化</string>
+    <string name="nc_act_network">网络设置</string>
+    <string name="nc_act_network_note">夜间使用 Wi-Fi 或 Wi-Fi 通话，可让移动无线电得到休息。Activity+ 从不自行更改此设置。</string>
+    <string name="nc_act_usage">电池使用情况</string>
+    <string name="nc_act_usage_note">Android 的电池使用情况会显示哪些应用消耗了电量。</string>
+
+    <string name="nc_tap_history">点按可查看最近 14 个夜晚。</string>
+    <string name="nc_history_title">夜晚</string>
+    <string name="nc_history_caption">最近 14 个夜晚</string>
+    <string name="nc_history_empty">尚无已测量的夜晚。</string>
+    <plurals name="nc_history_usual">
+        <item quantity="other">通常的夜晚（%1$d 个夜晚的中位数）：%2$s</item>
+    </plurals>
+    <string name="nc_short_system">Android 保持唤醒</string>
+    <string name="nc_short_drain">耗电较多</string>
+    <string name="nc_short_charged">充电中</string>
+    <string name="nc_short_short">时间太短</string>
+    <string name="nc_short_no_record">未记录</string>
+    <string name="nc_explain">深度睡眠是指处理器关闭的时间。Doze 是 Android 进入这种状态的方式：手机静止时，它会限制应用的活动。</string>
+</resources>

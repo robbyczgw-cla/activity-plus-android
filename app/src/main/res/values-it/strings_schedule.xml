@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sc_title">Previsto per stanotte</string>
+    <string name="sc_caption">Cosa hanno programmato le app</string>
+    <string name="sc_hint">Scopri quale app sveglierà il telefono dopo e con quale frequenza le app prevedono di farlo. Richiede l\'autorizzazione del computer o Shizuku nella pagina pro.</string>
+    <string name="sc_reading">Lettura delle sveglie e dei job programmati dalle app …</string>
+    <string name="sc_failed">Android non ha fornito la sua lista di sveglie. Riprova più tardi.</string>
+    <string name="sc_shizuku">Legge le sveglie e i job programmati dalle app, tramite Shizuku. Niente viene letto in background.</string>
+    <string name="sc_read_now">Leggi ora</string>
+    <string name="sc_read_again">Leggi di nuovo</string>
+    <string name="sc_night">Stanotte, %1$s</string>
+    <string name="sc_quiet">Nessuna app prevede di svegliare il telefono stanotte.</string>
+    <plurals name="sc_tonight_count">
+        <item quantity="one">%d risveglio stanotte</item>
+        <item quantity="other">%d risvegli stanotte</item>
+    </plurals>
+    <string name="sc_next">Prossimo risveglio %1$s</string>
+    <string name="sc_then_every">poi ogni %1$s</string>
+    <string name="sc_then_about">poi circa ogni %1$s</string>
+    <string name="sc_in_doze">consentita in Doze</string>
+    <string name="sc_exact">esatta</string>
+    <string name="sc_alarm_clock">Sveglia %1$s</string>
+    <string name="sc_badge_doze">Esatta in Doze</string>
+    <string name="sc_badge_jobs">Job frequenti</string>
+    <plurals name="sc_jobs_count">
+        <item quantity="one">%d job in background a batteria</item>
+        <item quantity="other">%d job in background a batteria</item>
+    </plurals>
+    <string name="sc_explain">Le sveglie esatte consentite in Doze sono quelle costose: suonano all\'ora anche nel sonno profondo, e ognuna risveglia il telefono da sola. Le sveglie normali e i job aspettano le brevi finestre di manutenzione di Doze e le condividono.</string>
+    <string name="sc_note">Cosa hanno previsto le app in questo momento; possono cambiarlo in ogni momento. Letto solo mentre guardi. Tocca un\'app per i dettagli.</string>
+    <string name="sc_detail_title">Risvegli e job previsti</string>
+    <string name="sc_since_start">Risvegli dall\'avvio del telefono</string>
+    <string name="sc_in">%1$s tra %2$s</string>
+    <string name="sc_jobs_title">Job in background</string>
+    <string name="sc_job_every">ogni %1$s</string>
+    <string name="sc_job_once">una volta</string>
+    <string name="sc_job_network">richiede internet</string>
+    <string name="sc_job_wifi">solo Wi-Fi</string>
+    <string name="sc_job_charging">solo durante la ricarica</string>
+    <string name="sc_job_battery">anche a batteria</string>
+    <string name="sc_job_idle">quando il telefono è inattivo</string>
+    <string name="sc_job_last">ultima esecuzione %1$s</string>
+    <string name="sc_job_runs">Job avviati di recente</string>
+    <string name="sc_more">+ altri %1$d</string>
+    <string name="sc_exact_alarms">Sveglie e promemoria</string>
+    <string name="sc_fix">Nelle info app, sotto Batteria, puoi limitare l\'uso in background dell\'app. Sotto Sveglie e promemoria puoi toglierle le sveglie esatte. Activity+ non cambia mai questo da sé.</string>
+    <string name="f_dozealarm_title">%1$s risveglia il telefono ogni %2$s, anche in Doze</string>
+    <string name="f_dozealarm_body">Imposta una sveglia esatta che può suonare in Doze, circa ogni %1$s. Ognuna fa uscire il telefono dal sonno profondo, per tutta la notte. Nelle info app, sotto Batteria, puoi limitarla; «Previsto per stanotte» nella schermata Batteria apre anche la sua pagina Sveglie e promemoria.</string>
+</resources>

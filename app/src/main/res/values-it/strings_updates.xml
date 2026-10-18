@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="su_title">Dopo gli aggiornamenti</string>
+    <string name="su_caption">ultime 3 settimane</string>
+    <string name="su_updated">Aggiornamento di %1$s a %2$s</string>
+    <string name="su_updated_nov">Aggiornamento di %1$s</string>
+    <string name="su_intro">Dall\'aggiornamento del %1$s (%2$s):</string>
+    <string name="su_intro_nov">Dall\'aggiornamento del %1$s:</string>
+    <plurals name="su_none">
+        <item quantity="one">%d aggiornamento senza un cambiamento chiaro</item>
+        <item quantity="other">%d aggiornamenti senza un cambiamento chiaro</item>
+    </plurals>
+    <string name="su_waiting">Gli aggiornamenti molto recenti hanno bisogno di almeno 3 giorni di misurazioni prima di poter essere valutati.</string>
+    <string name="su_note">Un aggiornamento è solo la causa più probabile, non una prova: può dipendere anche da come usi l\'app. Si confrontano le mediane dei giorni prima e dopo, e conta solo una variazione di almeno il doppio (o della metà), con un minimo assoluto.</string>
+
+    <string name="su_bg_up">consuma %1$s di batteria in più in background</string>
+    <string name="su_bg_new">ora consuma circa %1$s al giorno in background</string>
+    <string name="su_bg_down">consuma %1$s di batteria in meno in background</string>
+    <string name="su_wake_up">risveglia il telefono %1$s più spesso</string>
+    <string name="su_wake_new">ora risveglia il telefono circa %1$s volte al giorno</string>
+    <string name="su_wake_down">risveglia il telefono %1$s meno spesso</string>
+    <string name="su_lock_up">tiene sveglio il telefono %1$s più a lungo</string>
+    <string name="su_lock_new">ora tiene sveglio il telefono circa %1$s al giorno</string>
+    <string name="su_lock_down">tiene sveglio il telefono %1$s in meno</string>
+    <string name="su_energy_up">consuma %1$s di energia in più mentre la usi</string>
+    <string name="su_energy_new">ora consuma circa %1$s mentre la usi</string>
+    <string name="su_energy_down">consuma %1$s di energia in meno mentre la usi</string>
+    <string name="su_mobile_up">usa %1$s di dati mobili in più a settimana</string>
+    <string name="su_mobile_down">usa %1$s di dati mobili in meno a settimana</string>
+    <string name="su_wifi_up">usa %1$s di dati Wi-Fi in più a settimana</string>
+    <string name="su_wifi_down">usa %1$s di dati Wi-Fi in meno a settimana</string>
+    <string name="su_storage_up">occupa %1$s in più</string>
+
+    <string name="su_detail_head">Aggiornamento da %1$s a %2$s — da allora:</string>
+    <string name="su_detail_head_nov">Aggiornamento di %1$s — da allora:</string>
+    <string name="su_detail_none">Nessun cambiamento chiaro nella batteria in background, nei risvegli, nei dati o nello spazio.</string>
+    <string name="su_detail_early">Dati ancora insufficienti: servono almeno 3 giorni di misurazioni prima e dopo l\'aggiornamento.</string>
+
+    <string name="f_since_title">%1$s è cambiata dopo il suo aggiornamento</string>
+    <string name="f_since_body">%1$s Un aggiornamento è la causa più probabile, ma non una prova. Aspetta il prossimo aggiornamento o segnalalo allo sviluppatore. Nel frattempo, le info app ti permettono di limitarne il consumo di batteria.</string>
+</resources>

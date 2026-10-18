@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sc_title">今晚的计划</string>
+    <string name="sc_caption">应用设置的内容</string>
+    <string name="sc_hint">查看下一个会唤醒手机的应用，以及应用计划唤醒的频率。需要在专业页面授予电脑权限或使用 Shizuku。</string>
+    <string name="sc_reading">正在读取应用设置的闹钟和任务…</string>
+    <string name="sc_failed">Android 未返回闹钟列表。请稍后再试。</string>
+    <string name="sc_shizuku">通过 Shizuku 读取应用设置的闹钟和任务。后台不会读取任何内容。</string>
+    <string name="sc_read_now">立即读取</string>
+    <string name="sc_read_again">再次读取</string>
+    <string name="sc_night">今晚，%1$s</string>
+    <string name="sc_quiet">今晚没有应用计划唤醒手机。</string>
+    <plurals name="sc_tonight_count">
+        <item quantity="other">今晚唤醒 %d 次</item>
+    </plurals>
+    <string name="sc_next">下次唤醒 %1$s</string>
+    <string name="sc_then_every">之后每 %1$s</string>
+    <string name="sc_then_about">之后约每 %1$s</string>
+    <string name="sc_in_doze">Doze 中允许</string>
+    <string name="sc_exact">精确</string>
+    <string name="sc_alarm_clock">闹钟 %1$s</string>
+    <string name="sc_badge_doze">Doze 中精确</string>
+    <string name="sc_badge_jobs">频繁任务</string>
+    <plurals name="sc_jobs_count">
+        <item quantity="other">使用电池时的后台任务 %d 个</item>
+    </plurals>
+    <string name="sc_explain">Doze 中允许的精确闹钟最耗电：它们即使在深度睡眠中也会准时响起，而且每一次都会单独唤醒手机。普通闹钟和任务会等待 Doze 的短暂维护时段，并与之共享。</string>
+    <string name="sc_note">应用当前的计划；可随时更改。仅在你查看时读取。点按应用可查看详情。</string>
+    <string name="sc_detail_title">计划的唤醒与任务</string>
+    <string name="sc_since_start">手机启动后的唤醒次数</string>
+    <string name="sc_in">%1$s，%2$s 后</string>
+    <string name="sc_jobs_title">后台任务</string>
+    <string name="sc_job_every">每 %1$s</string>
+    <string name="sc_job_once">一次</string>
+    <string name="sc_job_network">需要联网</string>
+    <string name="sc_job_wifi">仅 Wi-Fi</string>
+    <string name="sc_job_charging">仅在充电时</string>
+    <string name="sc_job_battery">使用电池时也运行</string>
+    <string name="sc_job_idle">手机空闲时</string>
+    <string name="sc_job_last">上次运行 %1$s</string>
+    <string name="sc_job_runs">最近启动的任务</string>
+    <string name="sc_more">另外 %1$d 个</string>
+    <string name="sc_exact_alarms">闹钟和提醒</string>
+    <string name="sc_fix">在应用信息的“电池”中，可以限制应用的后台运行。在“闹钟和提醒”中，可以取消其精确闹钟。Activity+ 从不自行更改这些设置。</string>
+    <string name="f_dozealarm_title">%1$s 即使在 Doze 中也会每 %2$s 唤醒手机一次</string>
+    <string name="f_dozealarm_body">它设置了一个可能在 Doze 中触发的精确闹钟，约每 %1$s 触发一次。每次触发都会把手机从深度睡眠中唤醒，整夜不停。在应用信息的“电池”中可以限制它；电池界面中的“今晚的计划”也会打开它的“闹钟和提醒”页面。</string>
+</resources>

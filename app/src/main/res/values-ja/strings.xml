@@ -432,7 +432,7 @@
     <string name="pro_memory_note">PSS: アプリが使用しているメモリ。共有メモリは、共有しているアプリの間で按分されます。</string>
     <string name="pro_cpu_title">アプリ別の CPU（直近 1.5 分）</string>
     <string name="pro_cpu_note" formatted="false">1 コア分に対する割合。100 % を超えると、アプリが複数のコアを使っています。</string>
-    <string name="pro_privacy">プロモードが実行するのは、読み取り専用のレポート 3 種類だけです: dumpsys batterystats、meminfo、cpuinfo。ご希望の場合は、Activity+ 自身の読み取り権限も付与します。それ以外のコマンドは拒否され、Activity+ はインターネット権限を持ちません。</string>
+    <string name="pro_privacy">プロモードが実行するのは、Android の読み取り専用レポートだけです（dumpsys batterystats、meminfo、cpuinfo、appops、alarm、jobscheduler、thermalservice、deviceidle）。ご希望の場合は、Activity+ 自身の読み取り権限も付与します。それ以外のコマンドは拒否され、Activity+ はインターネット権限を持ちません。</string>
     <string name="pro_entry_title">正確に計測</string>
     <string name="pro_entry_body">アプリ別の電池・メモリ・CPU（バックグラウンドを含む）。Shizuku を使うプロモード。</string>
     <string name="pro_entry_last">前回の計測 %1$s</string>

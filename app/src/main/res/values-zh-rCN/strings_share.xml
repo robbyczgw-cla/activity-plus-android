@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="share_report_title">Activity+ 报告</string>
+    <string name="share_action">分享报告</string>
+    <string name="share_text">以文本分享</string>
+    <string name="share_image">以图片分享</string>
+    <string name="share_failed">没有可用于分享的应用</string>
+    <string name="share_dialog_hint">这是完整报告。你可以随意编辑；在你选择应用之前不会发送任何内容。</string>
+    <string name="share_settings_title">分享报告</string>
+    <string name="share_settings_hint">手机型号、Android 版本、电池、昨晚的情况、耗电最多的应用以及可用存储空间，可以以文本或图片形式分享，用于论坛或求助。</string>
+    <string name="share_sec_device">设备</string>
+    <string name="share_row_model">型号</string>
+    <string name="share_row_android">Android</string>
+    <string name="share_row_patch">安全更新</string>
+    <string name="share_row_version">Activity+ 版本</string>
+    <string name="share_row_level">电量</string>
+    <string name="share_row_verdict">结论</string>
+    <string name="share_sec_apps">今日耗电最多</string>
+    <string name="share_sec_wakeups">今日唤醒</string>
+
+    <string name="export_title">导出数据</string>
+    <string name="export_hint">将历史记录保存为表格文件（CSV），并附带一份简要摘要（JSON），打包成一个 ZIP 文件。保存位置由你选择；不会上传任何内容。</string>
+    <string name="export_action">导出数据</string>
+    <string name="export_working">正在导出…</string>
+    <string name="export_done">已保存 %1$d 个文件</string>
+    <string name="export_failed">无法保存导出的文件</string>
+
+    <string name="widget_night_name">Activity+ 昨晚</string>
+    <string name="widget_night_desc">手机昨晚睡得好吗？结论、每小时耗电、深度睡眠以及该负责的应用</string>
+    <string name="widget_history_name">Activity+ 历史</string>
+    <string name="widget_history_desc">以图表显示最近 6 小时的电量或功耗</string>
+    <string name="wn_blame">责任方</string>
+    <string name="wn_blame_android">Android</string>
+    <string name="wn_blame_none">无</string>
+    <string name="wh_title_level">电量，最近 %1$d 小时</string>
+    <string name="wh_title_power">功耗，最近 %1$d 小时</string>
+    <string name="wh_range">%1$s 至 %2$s</string>
+    <string name="wh_empty">正在收集数据…</string>
+    <string name="wh_mode_level">电量</string>
+    <string name="wh_mode_power">功耗</string>
+    <string name="wh_config_subtitle">图表显示的内容</string>
+    <string name="wh_preview_title">电量，最近 6 小时</string>
+</resources>
