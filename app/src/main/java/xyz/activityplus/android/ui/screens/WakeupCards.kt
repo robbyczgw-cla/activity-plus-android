@@ -276,33 +276,3 @@ fun AppWakeupSection(pkg: String) {
     Spacer(Modifier.height(4.dp))
     Note(stringResource(R.string.wk_explain))
 }
-
-/** The night's worst app, when it stands out; for one line in the "Last night" card. */
-fun loadNightStandout(context: Context): AppCounters? {
-    if (!ProShell.hasBatteryStats(context)) return null
-    val store = storeIfThere(context) ?: return null
-    val zone = ZoneId.systemDefault()
-    val window = Wakeups.nightWindow(System.currentTimeMillis(), store.meta(WakeupStore.META_MORNING_TS)?.toLongOrNull(), zone)
-        ?: return null
-    return Wakeups.rank(Wakeups.inWindow(store.intervals(window.first, window.last), window), night = true)
-        .firstOrNull { Wakeups.standsOut(it.counters) }
-}
-
-/** "Messages woke the phone 212 times last night"; nothing when no app stands out. */
-@Composable
-fun WakeupNightLine() {
-    val context = LocalContext.current
-    val a = rememberLoaded(Unit) { loadNightStandout(context) } ?: return
-    val name = appName(context, a.pkg, emptyMap())
-    val c = a.counters
-    val text = if (Wakeups.wakeupsDominate(c)) {
-        val n = c.wakeups.coerceAtMost(Int.MAX_VALUE.toLong()).toInt()
-        context.resources.getQuantityString(R.plurals.wk_night_line, n, name, n)
-    } else {
-        stringResource(R.string.wk_night_awake, name, Format.duration(c.wakelockMs / 1000))
-    }
-    Row(Modifier.padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-        Icon(Icons.Outlined.Alarm, null, tint = Metric.Warn, modifier = Modifier.padding(end = 8.dp))
-        Text(text, style = MaterialTheme.typography.bodyMedium)
-    }
-}

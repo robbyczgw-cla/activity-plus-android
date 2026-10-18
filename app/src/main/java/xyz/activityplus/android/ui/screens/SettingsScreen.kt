@@ -36,6 +36,7 @@ import xyz.activityplus.android.R
 import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.data.BackgroundStore
 import xyz.activityplus.android.data.WakeupStore
+import xyz.activityplus.android.data.NightStore
 import xyz.activityplus.android.data.ColorMode
 import xyz.activityplus.android.data.MAX_STATUS_ITEMS
 import xyz.activityplus.android.data.StatusItem
@@ -211,6 +212,7 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
                     app.history.clear()
                     if (BackgroundStore.exists(context)) BackgroundStore.get(context).clear()
                     if (WakeupStore.exists(context)) WakeupStore.get(context).clear()
+                    if (NightStore.exists(context)) NightStore.get(context).clear()
                     cleared++; confirmClear = false
                 }) { Text(stringResource(R.string.delete)) }
             },

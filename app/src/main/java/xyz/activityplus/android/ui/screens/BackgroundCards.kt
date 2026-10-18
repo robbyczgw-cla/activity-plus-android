@@ -1,7 +1,6 @@
 package xyz.activityplus.android.ui.screens
 
 import android.content.Context
-import android.text.format.DateUtils
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Bedtime
 import androidx.compose.material.icons.outlined.History
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -26,12 +24,9 @@ import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.data.BackgroundStore
 import xyz.activityplus.android.pro.BackgroundDelta
 import xyz.activityplus.android.pro.BackgroundSchedule
-import xyz.activityplus.android.pro.ProReport
 import xyz.activityplus.android.service.BackgroundSampler
 import xyz.activityplus.android.ui.AppIcon
-import xyz.activityplus.android.ui.app
 import xyz.activityplus.android.ui.components.Badge
-import xyz.activityplus.android.ui.components.BigValue
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Meter
@@ -41,7 +36,6 @@ import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
-import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 
@@ -57,52 +51,6 @@ private fun mah(v: Double) = Format.number(v, if (v < 1) 2 else if (v < 10) 1 el
 
 /** Worth a row: rounds to something, or kept the phone awake a minute. */
 private fun BackgroundStore.AppDay.visible() = mah >= 0.05 || wakelockMs >= 60_000
-
-data class LastNight(val span: BackgroundStore.Span, /** From the level history, without charging. */ val lostFraction: Double?)
-
-/** From midnight to this morning's reading; only in the morning, and only after a real night. */
-fun loadLastNight(context: Context, nowMillis: Long): LastNight? {
-    val store = storeIfOn(context) ?: return null
-    val zone = ZoneId.systemDefault()
-    val now = Instant.ofEpochMilli(nowMillis).atZone(zone)
-    if (now.hour >= 12) return null
-    if (store.meta(BackgroundStore.META_MORNING_DAY) != now.toLocalDate().toString()) return null
-    val morning = store.meta(BackgroundStore.META_MORNING_TS)?.toLongOrNull() ?: return null
-    val midnight = now.toLocalDate().atStartOfDay(zone).toInstant().toEpochMilli()
-    val span = store.span(midnight, morning) ?: return null
-    if (span.toMillis - span.fromMillis < 3_600_000) return null
-    val rows = app.history.samples(span.fromMillis, span.toMillis)
-    val lost = if (rows.size >= 2) BackgroundDelta.levelLost(rows.map { it.level to it.charging }) else null
-    return LastNight(span, lost)
-}
-
-@Composable
-fun LastNightCard(night: LastNight, capacityMah: Double?, onClick: () -> Unit) {
-    val context = LocalContext.current
-    val span = night.span
-    val lost = night.lostFraction ?: capacityMah?.takeIf { it > 0 }?.let { span.totalMah / it }
-    val time = { t: Long -> DateUtils.formatDateTime(context, t, DateUtils.FORMAT_SHOW_TIME) }
-    Card(onClick = onClick) {
-        CardHeader(
-            stringResource(R.string.bg_night_title), Metric.Energy, Icons.Outlined.Bedtime,
-            time(span.fromMillis) + " – " + time(span.toMillis),
-        )
-        Spacer(Modifier.height(8.dp))
-        BigValue(
-            if (lost != null) Format.Scaled(Format.number(lost.coerceAtLeast(0.0) * 100, 0), "%")
-            else Format.Scaled(Format.number(span.totalMah, 0), "mAh")
-        )
-        Note(stringResource(R.string.bg_night_lost))
-        Spacer(Modifier.height(6.dp))
-        // Apps only: the system row is not something to act on.
-        val top = span.apps.filter { it.pkg != ProReport.SYSTEM && it.visible() }.take(3)
-        if (top.isEmpty()) Note(stringResource(R.string.bg_night_quiet))
-        top.forEach { AppDayRow(it, null) }
-        WakeupNightLine()
-        Spacer(Modifier.height(4.dp))
-        Note(stringResource(R.string.bg_note_report))
-    }
-}
 
 /** Today per app, most first; null when the feature is off. */
 fun loadBackgroundToday(context: Context): List<BackgroundStore.AppDay>? {

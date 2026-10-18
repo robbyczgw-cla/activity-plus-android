@@ -43,6 +43,17 @@ object Actions {
         launch(context, extra(Settings.ACTION_APP_NOTIFICATION_SETTINGS))
     }
 
+    /** Android's update screen. Its action is not public API, so the phone info page where it is missing. */
+    fun systemUpdates(context: Context) {
+        if (!launch(context, Intent("android.settings.SYSTEM_UPDATE_SETTINGS"))) launch(context, Intent(Settings.ACTION_DEVICE_INFO_SETTINGS))
+    }
+
+    /** The list of apps allowed to skip battery optimisation, and with it Doze. */
+    fun batteryOptimizations(context: Context) = launch(context, Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
+
+    /** Network & internet: Wi-Fi, mobile network, airplane mode. */
+    fun networkSettings(context: Context) = launch(context, Intent(Settings.ACTION_WIRELESS_SETTINGS))
+
     fun website(context: Context) = launch(context, Intent(Intent.ACTION_VIEW, Uri.parse("https://activityplus.xyz")))
 
     private fun launch(context: Context, intent: Intent): Boolean = try {

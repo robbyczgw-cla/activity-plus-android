@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night check: did the phone sleep well last night, and who is to blame -->
+    <string name="nc_title_well">Slept well</string>
+    <string name="nc_title_app">%1$s kept the phone awake</string>
+    <string name="nc_title_system">Android did not sleep deeply</string>
+    <string name="nc_title_drain">High drain while asleep</string>
+    <string name="nc_title_none">No night to check</string>
+
+    <string name="nc_reason_well">%1$s, %2$s deep sleep</string>
+    <string name="nc_reason_app_awake">It held a wakelock for %1$s with the screen off, so Android could not stay in deep sleep.</string>
+    <plurals name="nc_reason_app_wakeups">
+        <item quantity="one">It woke the phone %1$d time in the night, so Android could not stay in deep sleep.</item>
+        <item quantity="other">It woke the phone %1$d times in the night, so Android could not stay in deep sleep.</item>
+    </plurals>
+    <string name="nc_excessive">Google Play calls a wakelock of 2 hours or more with the screen off excessive.</string>
+    <string name="nc_reason_no_deep">Android never reached deep Doze, and the phone was in deep sleep only %1$s of the night.</string>
+    <string name="nc_reason_low_deep">The phone was in deep sleep only %1$s of the night.</string>
+    <string name="nc_reason_low_deep_usual">The phone was in deep sleep only %1$s of the night, usually %2$s.</string>
+    <string name="nc_system_explain">No app stands out: Android itself did not reach deep sleep. Often a system bug after an update, or a weak mobile signal.</string>
+    <string name="nc_system_signal">No app stands out, and the mobile signal was weak: searching for the network keeps Android awake.</string>
+    <string name="nc_system_unknown">Something kept the phone awake: an app or Android itself.</string>
+    <string name="nc_reason_drain">%1$s with the screen off, with %2$s deep sleep.</string>
+    <string name="nc_reason_drain_usual">%1$s with the screen off, usually %2$s, with %3$s deep sleep.</string>
+    <string name="nc_drain_explain">The phone slept, so no app kept it awake. The power went to the radio (mobile network, 5G) or the hardware.</string>
+    <string name="nc_drain_signal">The mobile signal was weak: the radio needs much more power to hold the network.</string>
+    <string name="nc_reason_no_record">No night recorded. Activity+ records the night while its live status is on.</string>
+    <string name="nc_reason_charged">The phone was charging overnight. Android does not Doze while charging, so there is nothing to judge.</string>
+    <string name="nc_reason_short">The screen was never off for 3 hours at a stretch last night.</string>
+
+    <string name="nc_stat_asleep">Screen off</string>
+    <string name="nc_stat_deep">Deep sleep</string>
+    <string name="nc_stat_first_deep">Deep Doze after</string>
+    <string name="nc_never">never</string>
+    <string name="nc_light_only">never, light Doze only</string>
+    <string name="nc_stat_interruptions">Doze interruptions</string>
+    <string name="nc_stat_drain">Drain</string>
+    <string name="nc_stat_signal">Mobile signal</string>
+    <string name="nc_signal_weak">weak</string>
+    <string name="nc_usually">usually %1$s</string>
+
+    <string name="nc_apps_title">Awake in the night</string>
+    <string name="nc_pro_hint">Which apps were awake in the night? With a read permission on the pro page, Activity+ names them.</string>
+
+    <string name="nc_act_update">Check for system updates</string>
+    <string name="nc_act_update_note">A bug in an update is usually fixed by the next one. Apps allowed to skip battery optimisation also skip Doze.</string>
+    <string name="nc_act_optimization">Battery optimisation</string>
+    <string name="nc_act_network">Network settings</string>
+    <string name="nc_act_network_note">Wi-Fi at night, or Wi-Fi calling, lets the mobile radio rest. Activity+ never changes this itself.</string>
+    <string name="nc_act_usage">Battery usage</string>
+    <string name="nc_act_usage_note">Android\'s battery usage shows what drew the power.</string>
+
+    <string name="nc_tap_history">Tap for the last 14 nights.</string>
+    <string name="nc_history_title">Nights</string>
+    <string name="nc_history_caption">Last 14 nights</string>
+    <string name="nc_history_empty">No night measured yet.</string>
+    <plurals name="nc_history_usual">
+        <item quantity="one">Usual night (median of %1$d night): %2$s</item>
+        <item quantity="other">Usual night (median of %1$d nights): %2$s</item>
+    </plurals>
+    <string name="nc_short_system">Android awake</string>
+    <string name="nc_short_drain">High drain</string>
+    <string name="nc_short_charged">Charged</string>
+    <string name="nc_short_short">Too short</string>
+    <string name="nc_short_no_record">Not recorded</string>
+    <string name="nc_explain">Deep sleep is the time the processor was switched off. Doze is Android\'s way to get there: it holds back apps until the phone lies still.</string>
+</resources>

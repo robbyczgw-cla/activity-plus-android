@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night check: did the phone sleep well last night, and who is to blame -->
+    <string name="nc_title_well">Gut geschlafen</string>
+    <string name="nc_title_app">%1$s hielt das Handy wach</string>
+    <string name="nc_title_system">Android schlief nicht tief</string>
+    <string name="nc_title_drain">Hoher Verbrauch im Schlaf</string>
+    <string name="nc_title_none">Keine Nacht zum Prüfen</string>
+
+    <string name="nc_reason_well">%1$s, %2$s Tiefschlaf</string>
+    <string name="nc_reason_app_awake">Die App hielt %1$s lang einen Wakelock bei ausgeschaltetem Bildschirm, darum konnte Android nicht im Tiefschlaf bleiben.</string>
+    <plurals name="nc_reason_app_wakeups">
+        <item quantity="one">Die App weckte das Handy in der Nacht %1$d Mal, darum konnte Android nicht im Tiefschlaf bleiben.</item>
+        <item quantity="other">Die App weckte das Handy in der Nacht %1$d Mal, darum konnte Android nicht im Tiefschlaf bleiben.</item>
+    </plurals>
+    <string name="nc_excessive">Google Play nennt einen Wakelock von 2 Stunden oder mehr bei ausgeschaltetem Bildschirm übermäßig.</string>
+    <string name="nc_reason_no_deep">Android kam nie in den tiefen Doze, und das Handy war nur %1$s der Nacht im Tiefschlaf.</string>
+    <string name="nc_reason_low_deep">Das Handy war nur %1$s der Nacht im Tiefschlaf.</string>
+    <string name="nc_reason_low_deep_usual">Das Handy war nur %1$s der Nacht im Tiefschlaf, sonst %2$s.</string>
+    <string name="nc_system_explain">Keine App fällt auf: Android selbst kam nicht in den Tiefschlaf. Oft ein Systemfehler nach einem Update oder ein schwaches Mobilfunksignal.</string>
+    <string name="nc_system_signal">Keine App fällt auf, und das Mobilfunksignal war schwach: Die Suche nach dem Netz hält Android wach.</string>
+    <string name="nc_system_unknown">Etwas hielt das Handy wach: eine App oder Android selbst.</string>
+    <string name="nc_reason_drain">%1$s bei ausgeschaltetem Bildschirm, mit %2$s Tiefschlaf.</string>
+    <string name="nc_reason_drain_usual">%1$s bei ausgeschaltetem Bildschirm, sonst %2$s, mit %3$s Tiefschlaf.</string>
+    <string name="nc_drain_explain">Das Handy hat geschlafen, also hielt es keine App wach. Der Strom ging ans Funkmodul (Mobilfunk, 5G) oder an die Hardware.</string>
+    <string name="nc_drain_signal">Das Mobilfunksignal war schwach: Das Funkmodul braucht dann viel mehr Strom, um das Netz zu halten.</string>
+    <string name="nc_reason_no_record">Keine Nacht aufgezeichnet. Activity+ zeichnet die Nacht auf, solange der Live-Status an ist.</string>
+    <string name="nc_reason_charged">Das Handy hat über Nacht geladen. Beim Laden nutzt Android keinen Doze, also gibt es nichts zu bewerten.</string>
+    <string name="nc_reason_short">Der Bildschirm war letzte Nacht nie 3 Stunden am Stück aus.</string>
+
+    <string name="nc_stat_asleep">Bildschirm aus</string>
+    <string name="nc_stat_deep">Tiefschlaf</string>
+    <string name="nc_stat_first_deep">Tiefer Doze nach</string>
+    <string name="nc_never">nie</string>
+    <string name="nc_light_only">nie, nur leichter Doze</string>
+    <string name="nc_stat_interruptions">Doze-Unterbrechungen</string>
+    <string name="nc_stat_drain">Verbrauch</string>
+    <string name="nc_stat_signal">Mobilfunksignal</string>
+    <string name="nc_signal_weak">schwach</string>
+    <string name="nc_usually">sonst %1$s</string>
+
+    <string name="nc_apps_title">Wach in der Nacht</string>
+    <string name="nc_pro_hint">Welche Apps waren in der Nacht wach? Mit einer Leseberechtigung auf der Pro-Seite nennt Activity+ sie.</string>
+
+    <string name="nc_act_update">Nach Systemupdates suchen</string>
+    <string name="nc_act_update_note">Ein Fehler in einem Update wird meist mit dem nächsten behoben. Apps, die die Akkuoptimierung umgehen dürfen, umgehen auch Doze.</string>
+    <string name="nc_act_optimization">Akkuoptimierung</string>
+    <string name="nc_act_network">Netzwerkeinstellungen</string>
+    <string name="nc_act_network_note">WLAN in der Nacht oder WLAN-Anrufe lassen das Funkmodul ruhen. Activity+ ändert das nie selbst.</string>
+    <string name="nc_act_usage">Akkunutzung</string>
+    <string name="nc_act_usage_note">Die Akkunutzung von Android zeigt, was den Strom gebraucht hat.</string>
+
+    <string name="nc_tap_history">Tippe für die letzten 14 Nächte.</string>
+    <string name="nc_history_title">Nächte</string>
+    <string name="nc_history_caption">Letzte 14 Nächte</string>
+    <string name="nc_history_empty">Noch keine Nacht gemessen.</string>
+    <plurals name="nc_history_usual">
+        <item quantity="one">Übliche Nacht (Median aus %1$d Nacht): %2$s</item>
+        <item quantity="other">Übliche Nacht (Median aus %1$d Nächten): %2$s</item>
+    </plurals>
+    <string name="nc_short_system">Android wach</string>
+    <string name="nc_short_drain">Hoher Verbrauch</string>
+    <string name="nc_short_charged">Geladen</string>
+    <string name="nc_short_short">Zu kurz</string>
+    <string name="nc_short_no_record">Nicht aufgezeichnet</string>
+    <string name="nc_explain">Tiefschlaf ist die Zeit, in der der Prozessor abgeschaltet war. Doze ist Androids Weg dorthin: Er hält Apps zurück, bis das Handy still liegt.</string>
+</resources>

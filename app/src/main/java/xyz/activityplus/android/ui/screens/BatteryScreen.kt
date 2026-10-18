@@ -76,6 +76,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
     val context = LocalContext.current
     val background = rememberLoaded(minute.intValue) { loadBackgroundToday(context) }
     val powerRails = rememberPowerRailsSupport()
+    val night = rememberNightCheck(morningOnly = false)
 
     Screen(title = stringResource(R.string.tab_battery)) {
         if (s == null) return@Screen
@@ -96,6 +97,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         } else if (data != null) {
             item { Card { Note(stringResource(R.string.drain_empty)) } }
         }
+        if (night != null) item { NightCheckCard(night, onPro) }
         item { WakeupCard(onPro) }
         if (background != null) item { BackgroundTodayCard(background, onPro) }
         // Plug-in blips (a loose cable) say nothing; keep sessions that lasted and moved something.
