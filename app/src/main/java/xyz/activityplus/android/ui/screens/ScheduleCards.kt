@@ -229,10 +229,12 @@ private fun ReasonBadge(a: Schedule.AppPlan) {
 /** "Next wakeup 23:15, then every 15 min · 32 wakeups tonight", or the jobs when the app set no alarm. */
 private fun summary(context: Context, a: Schedule.AppPlan): String {
     val parts = ArrayList<String>()
-    a.headline?.let { parts += alarmText(context, it) }
-    if (a.wakeupsTonight > 0) parts += tonight(context, a.wakeupsTonight)
     val onBattery = a.jobs.filter { it.onBattery }
-    if (a.headline == null && onBattery.isNotEmpty()) {
+    // An alarm due only after the night is no reason to be on this card; the jobs then are.
+    val headline = a.headline?.takeIf { it.tonight > 0 || it.alarmClock || onBattery.isEmpty() }
+    headline?.let { parts += alarmText(context, it) }
+    if (a.wakeupsTonight > 0) parts += tonight(context, a.wakeupsTonight)
+    if (headline == null && onBattery.isNotEmpty()) {
         val shortest = onBattery.mapNotNull { it.job.periodicMs }.minOrNull()
         parts += context.resources.getQuantityString(R.plurals.sc_jobs_count, onBattery.size, onBattery.size) +
             (shortest?.let { ", " + context.getString(R.string.sc_job_every, every(it)) } ?: "")
