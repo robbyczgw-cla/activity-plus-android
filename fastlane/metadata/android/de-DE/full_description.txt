@@ -28,8 +28,18 @@
 <li>Hardware: Chip mit Takt pro Kern live, GPU, RAM-Aufteilung und Speicherdruck, Display-Modi, Kameras, Widevine-Stufe, Hardware-Decoder, Sensoren</li>
 </ul>
 
-<p><b>Profi-Modus auf Abruf (optional)</b><br>
-Mit Shizuku oder einer einmaligen Freigabe per PC liest Activity+ einmal die Berichte von Android: Akku pro App seit der letzten Ladung inklusive Hintergrund, Arbeitsspeicher pro App und CPU pro App. Es führt nur drei lesende Berichte aus und lehnt alles andere ab. Danach kannst du die Entwickleroptionen wieder ausschalten.</p>
+<p><b>Speicher</b></p>
+<ul>
+<li>Aufteilung, Wachstum pro App und „Speicher voll in etwa N Tagen“</li>
+<li>Caches, ungenutzte Apps, große und alte Medien, Duplikate; Löschen nur über den Dialog von Android</li>
+<li>Speicher-Tempotest</li>
+</ul>
+
+<p><b>Profi-Diagnose (optional)</b><br>
+Mit Shizuku oder einer einmaligen Freigabe per PC bekommt Activity+ Leseberechtigungen, die Android normalen Apps vorenthält: Hintergrund-Akku pro App jeden Tag, wer das Handy geweckt hat (Weckvorgänge und Wakelocks pro App), einen Akku-Ausweis (Zustand, Herstellungsdatum, Ladestrategie) und ab Android 15 den Verbrauch pro Bauteil. Mit Shizuku zusätzlich Arbeitsspeicher und CPU pro App. Es führt nur lesende Berichte aus und lehnt alles andere ab. Danach kannst du die Entwickleroptionen wieder ausschalten, Banking-Apps laufen weiter.</p>
+
+<p><b>Laden</b><br>
+Laden als Live-Update ab Android 16, Alarme bei einer Ladegrenze und bei Wärme, ein 30-Sekunden-Test für Ladegerät und Kabel, der Kapazitätsverlauf und ein Wochenbericht.</p>
 
 <p><b>Privat von Grund auf</b><br>
 Keine Internet-Berechtigung, kein Konto, keine Analyse, keine Werbung. Der Verlauf bleibt in den eigenen App-Daten.</p>

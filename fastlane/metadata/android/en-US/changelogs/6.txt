@@ -1,0 +1,1 @@
+Who woke the phone (wakeups and wakelocks per app), a battery passport (health, dates, charging policy), power per component on Android 15+, charging as a Live Update on Android 16. Needs one more read permission from the pro mode.

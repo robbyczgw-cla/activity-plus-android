@@ -12,6 +12,9 @@
 ## 0.3.0 (10.10.2026)
 - Storage page: breakdown, growth and forecast, caches, unused apps, media check with duplicates, speed test
 
+## 0.4.0 (18.10.2026)
+- Wakeups and wakelocks per app, battery passport, power per component, charging as a Live Update; optional read grants
+
 ## Next
 - [ ] Test on real phones (fuel gauge sign and units differ per vendor; per-core clocks; thermal headroom)
 - [ ] Data cap alert, "unusual for this app" for data and screen time

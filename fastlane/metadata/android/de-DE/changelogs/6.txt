@@ -1,0 +1,1 @@
+Wer hat das Handy geweckt (Weckvorgänge und Wakelocks pro App), Akku-Ausweis (Zustand, Datum, Ladestrategie), Verbrauch pro Bauteil ab Android 15, Laden als Live-Update ab Android 16. Braucht eine weitere Leseberechtigung aus dem Profi-Modus.

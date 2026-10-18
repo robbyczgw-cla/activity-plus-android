@@ -15,11 +15,17 @@ responsible, and what to do about it. Native Kotlin and Jetpack Compose, Android
   Activity+ never closes apps or deletes files.
 - **Status bar**: an ongoing notification whose status bar icon is the live value you pick, up to four
   values in the notification, a Quick Settings tile, and alerts that name the cause.
-- **Privacy**: no `INTERNET` permission, no account, no analytics. English and German.
+- **Storage**: breakdown, growth per app with a "full in N days" forecast, caches, unused apps, a media
+  check with duplicates (deleting only through Android's own dialog) and a speed test.
+- **Pro diagnosis** (optional, read permissions from Shizuku or a computer): battery per app in the background,
+  who woke the phone (wakeups and wakelocks per app), a battery passport (health, dates, charging policy),
+  power per component on Android 15+. Banking apps keep working; developer options can be off again.
+- **Charging as a Live Update** on Android 16, alarms at a charge limit, a charger test, a weekly report.
+- **Privacy**: no `INTERNET` permission, no account, no analytics. Eight languages.
 
-What Android does not let an app see without root or Shizuku: CPU and memory of other apps, wakelocks,
-and background battery use per app. Activity+ says so where it matters. Research behind these choices:
-`docs/research/`.
+What Android does not let an app see without root, Shizuku or a grant from a computer: CPU and memory of
+other apps, wakelocks, and background battery use per app. Activity+ says so where it matters. Research behind
+these choices: `docs/research/`.
 
 ## Build and test
 

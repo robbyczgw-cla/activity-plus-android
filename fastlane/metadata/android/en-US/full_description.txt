@@ -28,8 +28,18 @@
 <li>Hardware: chip with live clock per core, GPU, RAM split and pressure, display modes, cameras, Widevine level, hardware decoders, sensors</li>
 </ul>
 
-<p><b>Pro mode, on demand (optional)</b><br>
-With Shizuku or a one-time grant from a computer, Activity+ reads Android's own reports once: battery per app since the last charge including background use, memory per app and CPU per app. It runs only three read-only reports; anything else is refused. You can turn developer options off again afterwards.</p>
+<p><b>Storage</b></p>
+<ul>
+<li>Breakdown, growth per app and "storage full in about N days"</li>
+<li>Caches, unused apps, large and old media, duplicates; deleting only through Android's own dialog</li>
+<li>Storage speed test</li>
+</ul>
+
+<p><b>Pro diagnosis (optional)</b><br>
+With Shizuku or a one-time grant from a computer, Activity+ gets read permissions that Android keeps from normal apps: background battery per app every day, who woke the phone (wakeups and wakelocks per app), a battery passport (state of health, manufacturing date, charging policy) and, on Android 15 and newer, power per component. With Shizuku also memory and CPU per app. It runs only read-only reports; anything else is refused. You can turn developer options off again afterwards, so banking apps keep working.</p>
+
+<p><b>Charging</b><br>
+Charging as a Live Update on Android 16, alarms at a charge limit and when warm, a 30-second charger test, the capacity trend, and a weekly report.</p>
 
 <p><b>Private by design</b><br>
 No internet permission, no account, no analytics, no ads. History stays in the app's own data.</p>

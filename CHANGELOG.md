@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0
+
+- Who woke the phone: wakeups, wakelocks, CPU time and jobs per app from Android's own counters, for today and last night, with an "unusual" badge, a 7-day view in each app's details and a line in the "Last night" card
+- Battery passport: Android's state of health, manufacturing and first-use date, charging policy (e.g. limited to 80 %), original or replaced part, cycles per month, compared with Activity+'s own capacity measurement; each row only where the phone reports it
+- Where the power goes: power per component (display, CPU, GPU, mobile radio …) from Android's power monitors on Android 15 and newer, as averages for the last hour and today; live values where the phone allows exact readings
+- Charging as a Live Update on Android 16: level, power and "full at" in the status bar and on the lock screen while charging
+- The pro mode can grant Activity+ two more read permissions (BATTERY_STATS, and where the phone knows it ACCESS_FINE_POWER_MONITORS), with one tap through Shizuku or with the computer line
+- Status notification: long labels end with "…" instead of running into the next column
+
 ## 0.3.0
 
 - Storage page (tap the storage card on the overview):
