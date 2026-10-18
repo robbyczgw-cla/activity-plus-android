@@ -4,14 +4,14 @@
     <string name="cl_channel">Carga</string>
     <string name="cl_channel_desc">Nivel de batería, potencia de carga y tiempo hasta tu límite de carga o hasta llenarla, mostrados como actualización en directo mientras el teléfono se carga.</string>
     <string name="cl_title_charging">Cargando: %1$s</string>
-    <string name="cl_title_holding">Conectado a %1$s</string>
+    <string name="cl_title_holding">Conectado al %1$s</string>
     <string name="cl_title_full">Completamente cargada</string>
     <string name="cl_title_warm">Caliente mientras carga: %1$s</string>
     <string name="cl_charging">Cargando</string>
     <string name="cl_not_charging">No se está cargando ahora</string>
     <string name="cl_unplug">Ya puedes desconectarlo</string>
-    <string name="cl_target_limit">%1$s a %2$s</string>
-    <string name="cl_target_full">Llena a %1$s</string>
+    <string name="cl_target_limit">%1$s a las %2$s</string>
+    <string name="cl_target_full">Llena a las %1$s</string>
 
     <!-- Ajustes -->
     <string name="cl_set_title">Carga como actualización en directo</string>

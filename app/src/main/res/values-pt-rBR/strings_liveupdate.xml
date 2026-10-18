@@ -10,8 +10,8 @@
     <string name="cl_charging">Carregando</string>
     <string name="cl_not_charging">Não está carregando agora</string>
     <string name="cl_unplug">Pode desconectar agora</string>
-    <string name="cl_target_limit">%1$s em %2$s</string>
-    <string name="cl_target_full">Cheia em %1$s</string>
+    <string name="cl_target_limit">%1$s às %2$s</string>
+    <string name="cl_target_full">Cheia às %1$s</string>
 
     <!-- Configurações -->
     <string name="cl_set_title">Carregamento como atualização ao vivo</string>

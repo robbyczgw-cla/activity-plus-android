@@ -4,14 +4,14 @@
     <string name="cl_channel">Ricarica</string>
     <string name="cl_channel_desc">Livello della batteria, potenza di ricarica e tempo al limite di carica o alla carica completa, mostrati come aggiornamento in tempo reale durante la ricarica.</string>
     <string name="cl_title_charging">Ricarica: %1$s</string>
-    <string name="cl_title_holding">Collegato a %1$s</string>
+    <string name="cl_title_holding">Collegato: %1$s</string>
     <string name="cl_title_full">Carica completa</string>
     <string name="cl_title_warm">Calda durante la ricarica: %1$s</string>
     <string name="cl_charging">In ricarica</string>
     <string name="cl_not_charging">Al momento non si ricarica</string>
     <string name="cl_unplug">Puoi scollegarlo ora</string>
-    <string name="cl_target_limit">%1$s a %2$s</string>
-    <string name="cl_target_full">Piena a %1$s</string>
+    <string name="cl_target_limit">%1$s alle %2$s</string>
+    <string name="cl_target_full">Piena alle %1$s</string>
 
     <!-- Impostazioni -->
     <string name="cl_set_title">Ricarica come aggiornamento in tempo reale</string>
