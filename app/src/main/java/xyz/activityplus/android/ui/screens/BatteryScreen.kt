@@ -87,6 +87,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         if (!b.plugged && s.foregroundPackage != null && data != null) item { NowDrawingCard(s, data) }
         item { ProEntryCard(onPro) }
         item { HealthCard(b) }
+        item { BatteryPassportCard(b, onPro) }
         val energy = data?.energy
         if (energy != null && energy.isNotEmpty()) {
             item { DrainByAppCard(b, energy, data) }

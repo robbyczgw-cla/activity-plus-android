@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Battery passport, under the health card -->
+    <string name="passport_title">Battery passport</string>
+    <string name="passport_made">Made</string>
+    <string name="passport_in_use">In use</string>
+    <string name="passport_under_month">Less than a month</string>
+    <plurals name="passport_months">
+        <item quantity="one">%d month</item>
+        <item quantity="other">%d months</item>
+    </plurals>
+    <string name="passport_cycles_month">Cycles a month</string>
+    <string name="passport_policy">Charging policy</string>
+    <string name="passport_policy_standard">Standard</string>
+    <string name="passport_policy_limited">Limited</string>
+    <string name="passport_policy_adaptive">Adaptive</string>
+    <string name="passport_policy_long_life">Long life</string>
+    <string name="passport_part">Battery part</string>
+    <string name="passport_part_original">Original</string>
+    <string name="passport_part_replaced">Replaced</string>
+    <string name="passport_soh">State of health (Android)</string>
+    <string name="passport_level">Capacity level</string>
+    <string name="passport_level_critical">Critical</string>
+    <string name="passport_level_low">Low</string>
+    <string name="passport_level_normal">Normal</string>
+    <string name="passport_level_high">High</string>
+    <string name="passport_level_full">Full</string>
+    <string name="passport_agree">Both say about %1$s.</string>
+    <string name="passport_differ">Android says %1$s, the measurements say %2$s.</string>
+    <string name="passport_differ_settling">Android says %1$s, the measurements say %2$s; the measurement needs a few full charges to settle.</string>
+    <string name="passport_more">More data (health, dates) with the read permission</string>
+</resources>
