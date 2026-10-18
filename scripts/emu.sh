@@ -81,8 +81,16 @@ smoke)
 widgets)
   $ADB install -r app/build/outputs/apk/debug/app-debug.apk >/dev/null
   $ADB shell appops set $PKG GET_USAGE_STATS allow
-  $ADB shell cmd appwidget grantbind --package $PKG
+  # Older images allow binding from the shell; newer ones ask once (tick "Always allow", then create).
+  $ADB shell cmd appwidget grantbind --package $PKG >/dev/null 2>&1 || true
   $ADB shell am start -n $PKG/.WidgetPreviewActivity >/dev/null
+  sleep 4
+  if $ADB shell dumpsys activity activities | grep -q "AppWidgetBind\|BindWidget\|ALLOW_WIDGET"; then
+    "$0" tap "Always allow Activity+ to create widgets and access their data" >/dev/null 2>&1 || true
+    "$0" tap "Create" >/dev/null 2>&1 || true
+    sleep 2
+    $ADB shell am start -n $PKG/.WidgetPreviewActivity >/dev/null
+  fi
   sleep "${WAIT:-6}"
   mkdir -p shots; $ADB exec-out screencap -p > shots/widgets.png
   echo shots/widgets.png ;;
