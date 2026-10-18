@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Charging habits and ageing, Battery screen -->
+    <string name="habits_title">Charging habits</string>
+    <string name="habits_need_days">Needs a few days of history before the habits show.</string>
+    <string name="habits_full" formatted="false">Plugged in at 95 % or more</string>
+    <string name="habits_at_temp">Charging at %1$s or more</string>
+    <string name="habits_per_day">%1$s a day</string>
+    <string name="habits_none">None</string>
+    <string name="habits_deep" formatted="false">Below 10 % on battery</string>
+    <plurals name="habits_deep_count">
+        <item quantity="one">%1$d time in %2$d days</item>
+        <item quantity="other">%1$d times in %2$d days</item>
+    </plurals>
+    <string name="habits_typical">Typical charge</string>
+    <string name="habits_range">%1$s → %2$s</string>
+    <string name="habits_advice_hot">Charging at %1$s or more ages the battery fastest. Your phone was that hot for %2$s a day. Take the case off or charge somewhere cooler.</string>
+    <string name="habits_advice_warm">Charging at %1$s or more adds up: %2$s a day. Heat wears the battery down over time, so cooler charging keeps its capacity longer.</string>
+    <string name="habits_advice_full">Your phone spent %1$s a day at %2$s or more while plugged in. A battery held below full ages more slowly: turn on the %3$s limit or adaptive charging in the battery settings. Activity+ can also warn you at %3$s (Settings, Charging).</string>
+    <string name="habits_advice_deep">The battery went below %1$s %2$d times in %3$d days. Deep discharges stress the cells: plug in around %4$s instead.</string>
+    <string name="habits_open_battery">Battery settings</string>
+    <string name="habits_note">Measured from the minute history of the last 30 days. Plugged in means connected to a charger.</string>
+
+    <string name="habits_age_title">Ageing forecast</string>
+    <string name="habits_age_forecast">About %1$s in %2$s at this pace</string>
+    <plurals name="habits_months">
+        <item quantity="one">%d month</item>
+        <item quantity="other">%d months</item>
+    </plurals>
+    <string name="habits_age_range">Between %1$d and %2$d months, depending on how much the measurements scatter.</string>
+    <string name="habits_age_now_rated">Full capacity now: %1$s of the rated capacity.</string>
+    <string name="habits_age_now_first">Full capacity now: %1$s of your first measurement.</string>
+    <string name="habits_age_reached">Full capacity is at %1$s, which is %2$s or less.</string>
+    <string name="habits_age_noclear">No clear loss yet: the measured full capacity moves within its own scatter.</string>
+    <string name="habits_age_more">Needs more full charges: %1$d measured so far. The forecast needs %2$d, spread over %3$d weeks.</string>
+    <string name="habits_age_note">Fitted to the full capacity of your finished charges. Rough with only a few, and it sharpens with every new one.</string>
+
+    <!-- Cost per hour of use, Apps screen -->
+    <string name="cost_title">Cost per hour of use</string>
+    <string name="cost_caption" formatted="false">Last 7 days</string>
+    <string name="cost_row_note">%1$s on screen · Ø %2$s</string>
+    <string name="cost_note">Battery drawn while each app was on screen, measured on battery. Background work of other apps in that time counts too.</string>
+    <string name="cost_min_note">Apps with less than %1$d minutes measured in the last 7 days are left out.</string>
+</resources>

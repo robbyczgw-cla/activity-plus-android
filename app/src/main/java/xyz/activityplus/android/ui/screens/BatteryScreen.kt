@@ -91,6 +91,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         if (powerRails == true) item { PowerRailCard(b, onPro) }
         item { HealthCard(b) }
         item { BatteryPassportCard(b, onPro) }
+        item { ChargingHabitsCard(b, settings.fahrenheit) }
         val energy = data?.energy
         if (energy != null && energy.isNotEmpty()) {
             item { DrainByAppCard(b, energy, data) }
