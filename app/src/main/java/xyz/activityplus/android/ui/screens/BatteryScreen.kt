@@ -82,6 +82,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         if (s == null) return@Screen
         val b = s.battery
         item { LiveCard(s, series, settings.fahrenheit) }
+        if (!b.plugged) item { ForecastCard(b) }
         val running = sessions?.firstOrNull()?.takeIf { it.charging == b.plugged }
         if (b.plugged) item { ChargingCard(b, running) } else item { SinceUnplugCard(b, running) }
         item { ChargerTestCard(s, settings.fahrenheit) }

@@ -38,6 +38,11 @@ object FindingText {
             Kind.WAKELOCK_LIMIT -> c.getString(R.string.f_wakelimit_title, app) to
                 c.getString(R.string.f_wakelimit_body, (v["days"] ?: 0.0).toInt(), (v["measured"] ?: 0.0).toInt(), dur("worst"))
             Kind.SINCE_UPDATE -> sinceUpdate(c, f)
+            Kind.THROTTLING_APP -> c.getString(R.string.f_throttle_title, app) to
+                c.getString(
+                    R.string.f_throttle_body, (v["episodes"] ?: 0.0).toInt(), (v["days"] ?: 0.0).toInt(), dur("seconds"),
+                    Format.temperature(v["temp"] ?: 0.0, fahrenheit).toString(),
+                )
             Kind.SCREEN_OFF_DRAIN -> c.getString(R.string.f_off_title) to
                 c.getString(R.string.f_off_body, Format.number(v["percentPerHour"] ?: 0.0, 1) + " %", dur("seconds"))
             Kind.BATTERY_WORN -> c.getString(R.string.f_worn_title) to

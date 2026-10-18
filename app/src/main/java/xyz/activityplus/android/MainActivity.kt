@@ -153,7 +153,7 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
                 Tab.APPS -> AppsScreen(onPro = { tab = Tab.PRO })
                 Tab.BATTERY -> BatteryScreen(onPro = { tab = Tab.PRO })
                 Tab.HISTORY -> HistoryScreen()
-                Tab.HARDWARE -> HardwareScreen()
+                Tab.HARDWARE -> HardwareScreen(onPro = { tab = Tab.PRO })
                 Tab.DIAGNOSIS -> DiagnosisScreen()
                 Tab.PRO -> ProScreen()
                 Tab.STORAGE -> StorageScreen()

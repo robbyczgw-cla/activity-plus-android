@@ -12,6 +12,7 @@ object Diagnosis {
         STORAGE_FULL, LOW_MEMORY, HOT, POWER_SAVE, TOP_DRAIN_APP, BACKGROUND_SERVICE,
         BACKGROUND_DATA, SCREEN_OFF_DRAIN, BATTERY_WORN, LONG_UPTIME, SLOW_ANIMATIONS, UNUSED_APPS, WAKELOCK_LIMIT,
         SINCE_UPDATE,
+        THROTTLING_APP,
     }
 
     enum class Fix { STORAGE_SETTINGS, APP_INFO, BATTERY_SAVER, BATTERY_USAGE, DEVELOPER_OPTIONS, NONE }
@@ -57,6 +58,8 @@ object Diagnosis {
         val wakeLimit: List<Pair<WakeLimit.Verdict, String>> = emptyList(),
         /** Recent updates with the name to show; the strong increases after them become findings (see [SinceUpdate]). */
         val sinceUpdate: List<Pair<SinceUpdate.Result, String>> = emptyList(),
+        /** Apps that regularly make the phone throttle (see [Thermal.regular]) with the name to show, worst first. */
+        val throttlers: List<Pair<Thermal.AppHeat, String>> = emptyList(),
     )
 
     private const val GB = 1_000_000_000L
@@ -158,6 +161,16 @@ object Diagnosis {
                     apps = listOfNotNull(r.update.newName),
                 )
             }
+        // The app on screen when Android keeps slowing the phone down: a game or the camera, not the phone's fault.
+        i.throttlers.take(2).forEach { (a, label) ->
+            out += Finding(
+                Kind.THROTTLING_APP, Severity.WARN, Fix.NONE, a.pkg, label,
+                values = mapOf(
+                    "episodes" to a.episodes.toDouble(), "days" to a.episodeDays.toDouble(),
+                    "seconds" to a.throttledMinutes * 60.0, "temp" to a.maxTempC,
+                ),
+            )
+        }
 
         // Screen-off drain above ~2 % per hour means something keeps the phone awake.
         val off = i.energy[DrainTracker.SCREEN_OFF]

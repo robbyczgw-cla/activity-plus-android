@@ -54,6 +54,7 @@ import xyz.activityplus.android.core.Diagnosis
 import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.core.SinceUpdate
 import xyz.activityplus.android.core.Snapshot
+import xyz.activityplus.android.core.Thermal
 import xyz.activityplus.android.core.ThermalStatus
 import xyz.activityplus.android.core.Transport
 import xyz.activityplus.android.core.WakeLimit
@@ -100,7 +101,8 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
     val wakeLimit = rememberLoaded(minute.intValue) { loadWakeLimit(context) }.orEmpty()
     val sinceUpdate = rememberLoaded(minute.intValue) { loadSinceUpdate(context) }.orEmpty()
-    val findings = if (s != null && data != null) diagnose(context, s, data, wakeLimit, sinceUpdate) else emptyList()
+    val throttlers = rememberLoaded(minute.intValue) { loadThrottlers(context, emptyMap()) }.orEmpty()
+    val findings = if (s != null && data != null) diagnose(context, s, data, wakeLimit, sinceUpdate = sinceUpdate, throttlers = throttlers) else emptyList()
     // Reloaded on every return: the user may have just allowed unrestricted battery.
     val resumes = rememberResumes()
     val interruption = rememberLoaded(resumes) { loadInterruption(context) }
@@ -157,6 +159,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
 fun diagnose(
     context: Context, s: Snapshot, data: AppsData, wakeLimit: Map<String, WakeLimit.Verdict> = emptyMap(),
     sinceUpdate: List<Pair<SinceUpdate.Result, String>> = emptyList(),
+    throttlers: List<Pair<Thermal.AppHeat, String>> = emptyList(),
 ): List<Diagnosis.Finding> {
     val animator = runCatching {
         Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)
@@ -185,6 +188,7 @@ fun diagnose(
             vpnPackages = VpnApps.packages(context),
             wakeLimit = wakeLimit.values.map { it to appName(context, it.pkg, data.labels) },
             sinceUpdate = sinceUpdate,
+            throttlers = throttlers,
         )
     )
 }
