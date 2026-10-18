@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Googles Wakelock-Grenzwert als Abzeichen (braucht die Zähler für Weckungen) -->
+    <string name="wl_badge">Über Googles Grenzwert</string>
+    <string name="wl_explain">Google Play warnt vor Apps, die das Handy mit ausgeschaltetem Display 2 Stunden oder länger wach halten.</string>
+    <string name="wl_days">Diese App hat das an %1$d der letzten %2$d gemessenen Tage erreicht.</string>
+    <string name="f_wakelimit_title">%1$s liegt über Googles Wakelock-Grenzwert</string>
+    <string name="f_wakelimit_body">Google Play warnt vor Apps, die das Handy mit ausgeschaltetem Display 2 Stunden oder länger wach halten. Diese App hat das an %1$d der letzten %2$d gemessenen Tage erreicht, am längsten %3$s an einem Tag. In der App-Info kannst du ihren Akkuverbrauch einschränken.</string>
+</resources>

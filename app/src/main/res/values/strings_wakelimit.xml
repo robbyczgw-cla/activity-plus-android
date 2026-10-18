@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Google's wakelock limit as a badge (needs the wakeup counters) -->
+    <string name="wl_badge">Above Google\'s limit</string>
+    <string name="wl_explain">Google Play warns about apps that keep the phone awake for 2 hours or more with the screen off.</string>
+    <string name="wl_days">This app reached that on %1$d of the last %2$d measured days.</string>
+    <string name="f_wakelimit_title">%1$s is above Google\'s wakelock limit</string>
+    <string name="f_wakelimit_body">Google Play warns about apps that keep the phone awake for 2 hours or more with the screen off. This app reached that on %1$d of the last %2$d measured days, up to %3$s in a day. In app info you can restrict its battery use.</string>
+</resources>

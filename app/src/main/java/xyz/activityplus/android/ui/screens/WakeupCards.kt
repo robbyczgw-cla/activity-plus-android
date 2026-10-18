@@ -111,6 +111,7 @@ fun WakeupCard(onPro: () -> Unit) {
         return
     }
     val data = rememberLoaded(resumes) { loadWakeups(context) } ?: return
+    val overLimit = rememberLoaded(resumes) { loadWakeLimit(context) }.orEmpty()
     var selected by rememberSaveable { mutableStateOf<String?>(null) }
     Card {
         CardHeader(stringResource(R.string.wk_title), Metric.Energy, Icons.Outlined.Alarm, stringResource(R.string.wk_caption))
@@ -123,12 +124,12 @@ fun WakeupCard(onPro: () -> Unit) {
                 val time = { t: Long -> DateUtils.formatDateTime(context, t, DateUtils.FORMAT_SHOW_TIME) }
                 SubTitle(stringResource(R.string.wk_night, time(window.first) + " – " + time(window.last)))
                 if (data.night.isEmpty()) Note(stringResource(R.string.wk_quiet))
-                data.night.take(3).forEach { WakeupRow(it, it.pkg in data.unusual) { selected = it.pkg } }
+                data.night.take(3).forEach { WakeupRow(it, it.pkg in data.unusual, it.pkg in overLimit) { selected = it.pkg } }
                 Spacer(Modifier.height(8.dp))
             }
             SubTitle(stringResource(R.string.wk_today))
             if (data.today.isEmpty()) Note(stringResource(R.string.wk_quiet))
-            data.today.take(5).forEach { WakeupRow(it, it.pkg in data.unusual) { selected = it.pkg } }
+            data.today.take(5).forEach { WakeupRow(it, it.pkg in data.unusual, it.pkg in overLimit) { selected = it.pkg } }
         }
         Spacer(Modifier.height(6.dp))
         Note(stringResource(R.string.wk_explain))
@@ -163,7 +164,7 @@ private fun SubTitle(text: String) {
 }
 
 @Composable
-private fun WakeupRow(a: AppCounters, unusual: Boolean, onClick: () -> Unit) {
+private fun WakeupRow(a: AppCounters, unusual: Boolean, overLimit: Boolean, onClick: () -> Unit) {
     val context = LocalContext.current
     Row(
         Modifier.fillMaxWidth().clickable(onClick = onClick).padding(vertical = 5.dp),
@@ -183,6 +184,10 @@ private fun WakeupRow(a: AppCounters, unusual: Boolean, onClick: () -> Unit) {
                 }
             }
             Note(summary(context, a.counters))
+            if (overLimit) {
+                Spacer(Modifier.height(3.dp))
+                WakeLimitBadge()
+            }
         }
         Spacer(Modifier.width(8.dp))
         Text("›", style = MaterialTheme.typography.titleLarge, color = LocalSurfaces.current.muted)
@@ -260,6 +265,7 @@ fun AppWakeupSection(pkg: String) {
         )
         if (w.unusual) Badge(stringResource(R.string.bg_unusual), Metric.Warn)
     }
+    WakeLimitNote(pkg)
     val t = w.today
     StatLine(stringResource(R.string.wk_detail_wakeups), t.wakeups.toString(), Metric.Energy)
     StatLine(stringResource(R.string.wk_detail_awake), Format.duration(t.wakelockMs / 1000))
