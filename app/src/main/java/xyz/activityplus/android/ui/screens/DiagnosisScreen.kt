@@ -19,6 +19,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -31,6 +32,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.R
+import xyz.activityplus.android.Tab
 import xyz.activityplus.android.core.Diagnosis
 import xyz.activityplus.android.ui.Actions
 import xyz.activityplus.android.ui.FindingText
@@ -44,7 +46,7 @@ import xyz.activityplus.android.ui.rememberUsageAccess
 import xyz.activityplus.android.ui.theme.Metric
 
 @Composable
-fun DiagnosisScreen() {
+fun DiagnosisScreen(onOpen: (Tab) -> Unit = {}) {
     val context = LocalContext.current
     val settings = rememberSettings()
     val access = rememberUsageAccess()
@@ -54,7 +56,7 @@ fun DiagnosisScreen() {
     val result = rememberLoaded(access, run, ready) {
         val data = loadApps(1, withStorage = true)
         val snapshot = app.monitor.latest.value ?: return@rememberLoaded null
-        diagnose(context, snapshot, data, loadWakeLimit(context))
+        diagnose(context, snapshot, data, loadWakeLimit(context), loadBackgroundLocation(context))
     }
 
     Screen(
@@ -100,6 +102,10 @@ fun DiagnosisScreen() {
                                 FilledTonalButton(onClick = { Actions.open(context, f.fix, f.pkg) }, modifier = Modifier.padding(top = 10.dp)) {
                                     Text(t.action)
                                 }
+                            }
+                            // The sensor log shows when and how often, which the app info page cannot.
+                            if (f.kind == Diagnosis.Kind.BACKGROUND_LOCATION) {
+                                TextButton(onClick = { onOpen(Tab.SENSORS) }) { Text(stringResource(R.string.sl_open_log) + " ›") }
                             }
                         }
                     }

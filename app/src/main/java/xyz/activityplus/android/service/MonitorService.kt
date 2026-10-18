@@ -144,6 +144,7 @@ class MonitorService : Service() {
         StorageGrowthRecorder.onTick(this, scope, s.timeMillis)
         WakeupSampler.onTick(this, scope, s.timeMillis, s.battery.plugged)
         PowerRailSampler.onTick(this, scope, s.timeMillis)
+        SensorLogSampler.onTick(this, scope, s.timeMillis)
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis

@@ -119,17 +119,30 @@ object ProShell {
      * One of [ShellService.OPEN_WITH_DUMP] through the computer grant only, for unattended readings;
      * never starts or binds Shizuku.
      */
-    suspend fun readWithGrant(context: Context, command: String): String {
+    suspend fun readWithGrant(context: Context, command: String): String = withContext(Dispatchers.IO) {
+        val p = startWithGrant(context, command)
+        p.inputStream.bufferedReader().use { it.readText() }.also { p.waitFor() }
+    }
+
+    /**
+     * Like [readWithGrant], but hands the report line by line to [block], so a report of
+     * several hundred kB (app ops) is never held as one string.
+     */
+    suspend fun <T> streamWithGrant(context: Context, command: String, block: (Sequence<String>) -> T): T =
+        withContext(Dispatchers.IO) {
+            val p = startWithGrant(context, command)
+            p.inputStream.bufferedReader().use { r -> block(r.lineSequence()) }.also { p.waitFor() }
+        }
+
+    private fun startWithGrant(context: Context, command: String): Process {
         require(command in ShellService.OPEN_WITH_DUMP) { "not open to apps: $command" }
         check(hasComputerGrant(context)) { "no computer grant" }
-        return withContext(Dispatchers.IO) {
-            val p = ProcessBuilder(command.split(' ')).redirectErrorStream(true).start()
-            // Unattended, so a hanging dumpsys must not block the next readings.
-            kotlin.concurrent.thread(isDaemon = true, name = "report-timeout") {
-                if (!p.waitFor(60, java.util.concurrent.TimeUnit.SECONDS)) p.destroy()
-            }
-            p.inputStream.bufferedReader().use { it.readText() }.also { p.waitFor() }
+        val p = ProcessBuilder(command.split(' ')).redirectErrorStream(true).start()
+        // Unattended, so a hanging dumpsys must not block the next readings.
+        kotlin.concurrent.thread(isDaemon = true, name = "report-timeout") {
+            if (!p.waitFor(60, java.util.concurrent.TimeUnit.SECONDS)) p.destroy()
         }
+        return p
     }
 
     /** Shows Shizuku's own dialog; [onResult] gets true when the user allows Activity+. */

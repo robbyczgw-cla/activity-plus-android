@@ -37,6 +37,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.R
+import xyz.activityplus.android.Tab
 import xyz.activityplus.android.core.BatteryHealth
 import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.core.HardwareInfo
@@ -61,7 +62,7 @@ import xyz.activityplus.android.ui.theme.Metric
 private var cached: HardwareInfo? = null
 
 @Composable
-fun HardwareScreen() {
+fun HardwareScreen(onOpen: (Tab) -> Unit = {}) {
     val context = LocalContext.current
     val (s, _) = rememberLive()
     val settings = rememberSettings()
@@ -89,6 +90,7 @@ fun HardwareScreen() {
         item { FeaturesCard(hw) }
         if (s != null) item { ThermalHwCard(s, settings.fahrenheit) }
         if (hw.sensors.isNotEmpty()) item { SensorsCard(hw.sensors) }
+        item { SensorLogEntryCard(onOpen, hint = true) }
         if (powerRails == false) item { Note(stringResource(R.string.power_unsupported), Modifier.padding(horizontal = 4.dp)) }
         item { Note(stringResource(R.string.hw_note), Modifier.padding(horizontal = 4.dp)) }
     }

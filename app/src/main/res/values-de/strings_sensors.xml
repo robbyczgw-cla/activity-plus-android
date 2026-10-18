@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sensor-Protokoll: wer Standort, Kamera, Mikrofon genutzt hat (braucht die Computer-Freigabe) -->
+    <string name="sl_title">Sensoren</string>
+    <string name="sl_subtitle">Wer Standort, Kamera und Mikrofon genutzt hat</string>
+    <string name="sl_refresh">Aktualisieren</string>
+    <string name="sl_hint">Sieh, welche App deinen Standort, deine Kamera oder dein Mikrofon genutzt hat und ob im Hintergrund. Braucht die Computer-Freigabe auf der Pro-Seite.</string>
+    <string name="sl_open_log">Sensor-Protokoll öffnen</string>
+
+    <string name="sl_location">Standort</string>
+    <string name="sl_camera">Kamera</string>
+    <string name="sl_microphone">Mikrofon</string>
+    <string name="sl_body">Körpersensoren und Aktivität</string>
+    <string name="sl_nearby">Geräte in der Nähe</string>
+
+    <string name="sl_now_title">Gerade in Benutzung</string>
+    <string name="sl_now_caption">Letzte Minute</string>
+    <string name="sl_now_none">Im Moment nutzt nichts Standort, Kamera oder Mikrofon.</string>
+    <string name="sl_badge_background">Hintergrund</string>
+    <string name="sl_badge_service">Dienst</string>
+
+    <string name="sl_night_title">Letzte Nacht</string>
+    <string name="sl_night_none">Keine App hat deinen Standort im Hintergrund genutzt.</string>
+    <string name="sl_night_nodata">Das Protokoll lief in dieser Nacht noch nicht.</string>
+    <string name="sl_night_partial">Das Protokoll hat um %1$s begonnen, der Anfang der Nacht fehlt also.</string>
+    <string name="sl_night_note">Standort im Hintergrund kostet Akku, am meisten nachts, wenn sonst nichts passiert.</string>
+
+    <string name="sl_day_title">Letzte 24 Stunden</string>
+    <string name="sl_day_caption">Pro App</string>
+    <string name="sl_day_empty">Noch nichts aufgezeichnet. Der Dienst liest Androids Bericht alle 30 Minuten, die ersten Einträge kommen also innerhalb einer halben Stunde.</string>
+    <string name="sl_day_quiet">In den letzten 24 Stunden hat keine App diese Sensoren genutzt.</string>
+    <string name="sl_tap">Tippe auf eine App, um ihre Berechtigungen zu öffnen.</string>
+
+    <plurals name="sl_times">
+        <item quantity="one">%d Mal</item>
+        <item quantity="other">%d Mal</item>
+    </plurals>
+    <string name="sl_part_background">%d im Hintergrund</string>
+    <string name="sl_part_service">%d aus einem Dienst</string>
+    <string name="sl_part_blocked">%d blockiert</string>
+    <string name="sl_part_active">lief %s</string>
+    <string name="sl_part_last">zuletzt %s</string>
+
+    <string name="sl_system_show">Systemdienste anzeigen (%d)</string>
+    <string name="sl_system_hide">Systemdienste ausblenden (%d)</string>
+    <string name="sl_note">Android merkt sich nur den letzten Zugriff jeder Art. Activity+ liest diesen Bericht alle 30 Minuten und behält Neues 30 Tage lang. Eine Zahl ist deshalb die Mindestzahl der Nutzungen: mehrere Zugriffe zwischen zwei Messungen erscheinen als einer. Systemdienste sind standardmäßig ausgeblendet. Activity+ ändert nie eine Berechtigung.</string>
+    <string name="sl_since">Aufzeichnung seit %s</string>
+
+    <plurals name="sl_entry_apps">
+        <item quantity="one">%d App hat in den letzten 24 Stunden deinen Standort im Hintergrund genutzt.</item>
+        <item quantity="other">%d Apps haben in den letzten 24 Stunden deinen Standort im Hintergrund genutzt.</item>
+    </plurals>
+    <string name="sl_entry_quiet">In den letzten 24 Stunden hat keine App deinen Standort im Hintergrund genutzt.</string>
+    <string name="sl_entry_empty">Welche App wann deinen Standort, deine Kamera oder dein Mikrofon genutzt hat.</string>
+
+    <string name="sl_detail_title">Sensoren, letzte 24 Stunden</string>
+    <plurals name="sl_detail_background">
+        <item quantity="one">%1$s: %2$d Mal im Hintergrund</item>
+        <item quantity="other">%1$s: %2$d Mal im Hintergrund</item>
+    </plurals>
+    <plurals name="sl_detail_uses">
+        <item quantity="one">%1$s: %2$d Mal</item>
+        <item quantity="other">%1$s: %2$d Mal</item>
+    </plurals>
+    <plurals name="sl_detail_blocked">
+        <item quantity="one">%1$s: Android hat %2$d Versuch blockiert</item>
+        <item quantity="other">%1$s: Android hat %2$d Versuche blockiert</item>
+    </plurals>
+
+    <string name="f_bgloc_title">%1$s nutzt deinen Standort ständig im Hintergrund</string>
+    <string name="f_bgloc_body">In den letzten 24 Stunden wurde sie %1$d Mal dabei gesehen, deinen Standort zu nutzen, während du nicht in der App warst (tatsächlich kann es öfter gewesen sein). Standort im Hintergrund kostet Akku. In der App-Info unter Berechtigungen und Standort kannst du „Nur während der Nutzung der App“ wählen.</string>
+</resources>

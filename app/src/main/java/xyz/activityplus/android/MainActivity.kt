@@ -44,14 +44,15 @@ import xyz.activityplus.android.ui.screens.MediaScreen
 import xyz.activityplus.android.ui.screens.OnboardingScreen
 import xyz.activityplus.android.ui.screens.OverviewScreen
 import xyz.activityplus.android.ui.screens.ProScreen
+import xyz.activityplus.android.ui.screens.SensorLogScreen
 import xyz.activityplus.android.ui.screens.SettingsScreen
 import xyz.activityplus.android.ui.screens.StorageScreen
 import xyz.activityplus.android.ui.screens.WeeklyReportScreen
 import xyz.activityplus.android.ui.theme.ActivityPlusTheme
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 
-/** DIAGNOSIS, PRO, WEEKLY and MEDIA have no tab of their own; the overview, apps, battery and settings screens open them. */
-enum class Tab { OVERVIEW, APPS, BATTERY, HISTORY, HARDWARE, DIAGNOSIS, PRO, WEEKLY, STORAGE, MEDIA }
+/** DIAGNOSIS, PRO, WEEKLY, MEDIA and SENSORS have no tab of their own; the overview, apps, battery and settings screens open them. */
+enum class Tab { OVERVIEW, APPS, BATTERY, HISTORY, HARDWARE, DIAGNOSIS, PRO, WEEKLY, STORAGE, MEDIA, SENSORS }
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -153,12 +154,13 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
                 Tab.APPS -> AppsScreen(onPro = { tab = Tab.PRO })
                 Tab.BATTERY -> BatteryScreen(onPro = { tab = Tab.PRO })
                 Tab.HISTORY -> HistoryScreen()
-                Tab.HARDWARE -> HardwareScreen()
-                Tab.DIAGNOSIS -> DiagnosisScreen()
+                Tab.HARDWARE -> HardwareScreen(onOpen = { tab = it })
+                Tab.DIAGNOSIS -> DiagnosisScreen(onOpen = { tab = it })
                 Tab.PRO -> ProScreen()
                 Tab.STORAGE -> StorageScreen()
                 Tab.WEEKLY -> WeeklyReportScreen()
                 Tab.MEDIA -> MediaScreen()
+                Tab.SENSORS -> SensorLogScreen(onPro = { tab = Tab.PRO })
             }
         }
     }

@@ -52,6 +52,7 @@ import xyz.activityplus.android.Tab
 import xyz.activityplus.android.core.ChargeStatus
 import xyz.activityplus.android.core.Diagnosis
 import xyz.activityplus.android.core.Format
+import xyz.activityplus.android.core.SensorLog
 import xyz.activityplus.android.core.Snapshot
 import xyz.activityplus.android.core.ThermalStatus
 import xyz.activityplus.android.core.Transport
@@ -98,7 +99,8 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
     }
     val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
     val wakeLimit = rememberLoaded(minute.intValue) { loadWakeLimit(context) }.orEmpty()
-    val findings = if (s != null && data != null) diagnose(context, s, data, wakeLimit) else emptyList()
+    val backgroundLocation = rememberLoaded(minute.intValue) { loadBackgroundLocation(context) }.orEmpty()
+    val findings = if (s != null && data != null) diagnose(context, s, data, wakeLimit, backgroundLocation) else emptyList()
     // Reloaded on every return: the user may have just allowed unrestricted battery.
     val resumes = rememberResumes()
     val interruption = rememberLoaded(resumes) { loadInterruption(context) }
@@ -128,6 +130,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
         }
         if (weekly != null) item { WeeklyCard(weekly) { onOpen(Tab.WEEKLY) } }
         if (night != null) item { NightCheckCard(night) { onOpen(Tab.PRO) } }
+        item { SensorLogEntryCard(onOpen, hint = false) }
         if (s == null) return@Screen
         item {
             CardRow(
@@ -154,6 +157,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
 /** Builds the diagnosis input from the live snapshot and today's per-app data. */
 fun diagnose(
     context: Context, s: Snapshot, data: AppsData, wakeLimit: Map<String, WakeLimit.Verdict> = emptyMap(),
+    backgroundLocation: List<Pair<SensorLog.BackgroundUse, String>> = emptyList(),
 ): List<Diagnosis.Finding> {
     val animator = runCatching {
         Settings.Global.getFloat(context.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f)
@@ -181,6 +185,7 @@ fun diagnose(
             ownPackage = context.packageName,
             vpnPackages = VpnApps.packages(context),
             wakeLimit = wakeLimit.values.map { it to appName(context, it.pkg, data.labels) },
+            backgroundLocation = backgroundLocation,
         )
     )
 }

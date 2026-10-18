@@ -36,6 +36,8 @@ object FindingText {
                 c.getString(R.string.f_data_body, bytes("bytes"))
             Kind.WAKELOCK_LIMIT -> c.getString(R.string.f_wakelimit_title, app) to
                 c.getString(R.string.f_wakelimit_body, (v["days"] ?: 0.0).toInt(), (v["measured"] ?: 0.0).toInt(), dur("worst"))
+            Kind.BACKGROUND_LOCATION -> c.getString(R.string.f_bgloc_title, app) to
+                c.getString(R.string.f_bgloc_body, (v["uses"] ?: 0.0).toInt())
             Kind.SCREEN_OFF_DRAIN -> c.getString(R.string.f_off_title) to
                 c.getString(R.string.f_off_body, Format.number(v["percentPerHour"] ?: 0.0, 1) + " %", dur("seconds"))
             Kind.BATTERY_WORN -> c.getString(R.string.f_worn_title) to
