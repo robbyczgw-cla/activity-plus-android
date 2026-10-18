@@ -28,4 +28,5 @@
     <string name="power_cat_audio">Audio</string>
     <string name="power_cat_other">Sonstiges</string>
     <string name="power_unsupported">Dieses Gerät meldet den Verbrauch nicht pro Bauteil.</string>
+    <string name="power_silent">Die Strommesser dieses Handys melden so gut wie nichts, daher lässt sich nicht zeigen, wohin der Strom geht.</string>
 </resources>

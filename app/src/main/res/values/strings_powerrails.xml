@@ -28,4 +28,5 @@
     <string name="power_cat_audio">Audio</string>
     <string name="power_cat_other">Other</string>
     <string name="power_unsupported">This phone does not report power per component.</string>
+    <string name="power_silent">This phone\'s power meters report next to nothing, so they cannot show where the power goes.</string>
 </resources>

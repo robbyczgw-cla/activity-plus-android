@@ -28,4 +28,5 @@
     <string name="power_cat_audio">Áudio</string>
     <string name="power_cat_other">Outros</string>
     <string name="power_unsupported">Este celular não informa a energia por componente.</string>
+    <string name="power_silent">Os medidores de energia deste celular quase não informam nada, então não dá para mostrar para onde vai a energia.</string>
 </resources>

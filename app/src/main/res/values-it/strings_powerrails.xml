@@ -28,4 +28,5 @@
     <string name="power_cat_audio">Audio</string>
     <string name="power_cat_other">Altro</string>
     <string name="power_unsupported">Questo telefono non segnala la potenza per componente.</string>
+    <string name="power_silent">I misuratori di energia di questo telefono non segnalano quasi nulla, quindi non possono mostrare dove va l\'energia.</string>
 </resources>

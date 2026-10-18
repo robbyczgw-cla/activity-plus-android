@@ -73,6 +73,9 @@ fun rememberPowerRailsSupport(): Boolean? {
 
 private enum class PowerWindow { NOW, HOUR, TODAY }
 
+/** Below this the meters report nothing usable. */
+private const val SILENT_MW = 20.0
+
 /** Now needs exact readings; the others are averages of what the sampler stored. */
 private const val NOW_MIN_MS = 4_000L
 private const val NOW_SPAN_MS = 10_000L
@@ -156,6 +159,9 @@ fun PowerRailCard(battery: BatteryState, onPro: () -> Unit) {
                 if (window == PowerWindow.NOW) stringResource(R.string.power_wait_now)
                 else stringResource(R.string.power_wait, Format.duration(PowerRails.minWindowMs(fine) / 1000))
             )
+        } else if (rates.values.sum() < SILENT_MW) {
+            // A whole phone never runs on a few milliwatts: such meters are placeholders (the emulator's are).
+            Note(stringResource(R.string.power_silent))
         } else {
             RailBreakdown(rates, drawMw)
         }

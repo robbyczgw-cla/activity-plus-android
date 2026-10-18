@@ -28,4 +28,5 @@
     <string name="power_cat_audio">音频</string>
     <string name="power_cat_other">其他</string>
     <string name="power_unsupported">此设备不提供分组件的耗电数据。</string>
+    <string name="power_silent">这部手机的电量计几乎不报告数据，因此无法显示电量的去向。</string>
 </resources>
