@@ -120,6 +120,8 @@ class WakeupsTest {
         assertNull(Wakeups.nightWindow(at(2026, 10, 19, 9, 0), morning, zone))
         assertNull(Wakeups.nightWindow(at(2026, 10, 18, 9, 0), at(2026, 10, 18, 3, 0), zone))
         assertNull(Wakeups.nightWindow(at(2026, 10, 18, 9, 0), null, zone))
+        // First used in the evening: no night block that would repeat the whole day.
+        assertNull(Wakeups.nightWindow(at(2026, 10, 18, 21, 30), at(2026, 10, 18, 21, 14), zone))
     }
 
     @Test fun windowTakesTheShareOfIntervalsReachingOutside() {

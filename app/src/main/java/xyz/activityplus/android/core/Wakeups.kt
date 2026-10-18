@@ -138,13 +138,18 @@ object Wakeups {
 
     /**
      * Last night: from local midnight to [morningMillis], the reading at the first screen-on after
-     * 05:00 (the same morning as the background report). Null when that morning is not today's.
+     * 05:00 (the same morning as the background report). Null when that morning is not today's, or
+     * when the first screen-on came after noon: then the "night" would be most of the day.
      */
+    /** A first screen-on at or after this hour does not end a night. */
+    const val LATEST_MORNING_HOUR = 12
+
     fun nightWindow(nowMillis: Long, morningMillis: Long?, zone: ZoneId): LongRange? {
         if (morningMillis == null || morningMillis > nowMillis) return null
         val today = Instant.ofEpochMilli(nowMillis).atZone(zone).toLocalDate()
         val morning = Instant.ofEpochMilli(morningMillis).atZone(zone)
         if (morning.toLocalDate() != today || morning.hour < BackgroundSchedule.MORNING_HOUR) return null
+        if (morning.hour >= LATEST_MORNING_HOUR) return null
         return today.atStartOfDay(zone).toInstant().toEpochMilli()..morningMillis
     }
 
