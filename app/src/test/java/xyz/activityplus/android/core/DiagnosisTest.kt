@@ -21,9 +21,10 @@ class DiagnosisTest {
         thermal: ThermalStatus = ThermalStatus.NONE, temp: Double = 30.0, uptime: Long = 3600,
         health: Double? = 0.95, apps: List<AppUsage> = emptyList(),
         energy: Map<String, Pair<Double, Double>> = emptyMap(), animator: Float = 1f,
+        wakeLimit: List<Pair<WakeLimit.Verdict, String>> = emptyList(),
     ) = Diagnosis.Input(
         free, total, avail, threshold, false, thermal, temp, false, uptime, health, BatteryHealth.GOOD,
-        animator, "Chrome", apps, energy, 4000.0, 3.9, now,
+        animator, "Chrome", apps, energy, 4000.0, 3.9, now, wakeLimit = wakeLimit,
     )
 
     @Test fun healthyPhoneHasNoFindings() {
@@ -88,5 +89,22 @@ class DiagnosisTest {
     @Test fun smallThingsAreInfo() {
         val f = Diagnosis.run(input(uptime = 20 * 86_400L, animator = 1.5f, health = 0.7))
         assertEquals(setOf(Kind.LONG_UPTIME, Kind.SLOW_ANIMATIONS, Kind.BATTERY_WORN), f.map { it.kind }.toSet())
+    }
+
+    @Test fun wakelockLimitNamesTheAppAndOpensItsInfo() {
+        val v = WakeLimit.Verdict("com.chat", exceededDays = 3, measuredDays = 20, worstMs = 5 * 3_600_000L)
+        val f = Diagnosis.run(input(wakeLimit = listOf(v to "Chat"))).single { it.kind == Kind.WAKELOCK_LIMIT }
+        assertEquals("Chat", f.app)
+        assertEquals("com.chat", f.pkg)
+        assertEquals(Diagnosis.Fix.APP_INFO, f.fix)
+        assertEquals(3.0, f.values["days"]!!, 0.0)
+        assertEquals(20.0, f.values["measured"]!!, 0.0)
+        assertEquals(5 * 3600.0, f.values["worst"]!!, 0.0)
+    }
+
+    @Test fun wakelockLimitListsAtMostTwoApps() {
+        val list = (1..4).map { WakeLimit.Verdict("app$it", 2, 20, 3_600_000L * 3) to "App $it" }
+        assertEquals(listOf("App 1", "App 2"), Diagnosis.run(input(wakeLimit = list)).map { it.app })
+        assertTrue(Diagnosis.run(input()).none { it.kind == Kind.WAKELOCK_LIMIT })
     }
 }
