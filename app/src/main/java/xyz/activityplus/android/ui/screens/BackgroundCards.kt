@@ -98,6 +98,7 @@ fun LastNightCard(night: LastNight, capacityMah: Double?, onClick: () -> Unit) {
         val top = span.apps.filter { it.pkg != ProReport.SYSTEM && it.visible() }.take(3)
         if (top.isEmpty()) Note(stringResource(R.string.bg_night_quiet))
         top.forEach { AppDayRow(it, null) }
+        WakeupNightLine()
         Spacer(Modifier.height(4.dp))
         Note(stringResource(R.string.bg_note_report))
     }
