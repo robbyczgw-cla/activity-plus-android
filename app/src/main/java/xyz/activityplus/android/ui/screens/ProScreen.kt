@@ -175,7 +175,7 @@ private fun AccessCard(access: ProShell.Access, running: Boolean, onMeasure: () 
                 Spacer(Modifier.height(10.dp))
                 Text(stringResource(R.string.pro_pc_title), style = MaterialTheme.typography.titleSmall)
                 Note(stringResource(R.string.pro_pc_body))
-                val command = ProShell.computerCommand(context.packageName)
+                val command = ProShell.computerCommand(context)
                 Text(
                     command,
                     fontFamily = FontFamily.Monospace,

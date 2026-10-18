@@ -1,7 +1,6 @@
 package xyz.activityplus.android.ui.screens
 
 import android.content.Context
-import android.os.Build
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -162,8 +161,8 @@ fun PowerRailCard(battery: BatteryState, onPro: () -> Unit) {
         }
         Spacer(Modifier.height(8.dp))
         Note(stringResource(if (fine) R.string.power_note_exact else R.string.power_note_coarse))
-        // The exact readings exist from Android 16 on; before that there is nothing to grant.
-        if (!fine && Build.VERSION.SDK_INT >= 36) {
+        // Exact readings need a permission that only some Android 16+ builds define.
+        if (!fine && ProShell.finePowerMonitorsExist(context)) {
             TextButton(onClick = onPro, contentPadding = PaddingValues(0.dp)) { Text(stringResource(R.string.power_get_exact)) }
         }
     }

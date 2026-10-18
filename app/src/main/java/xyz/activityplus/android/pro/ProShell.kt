@@ -44,14 +44,23 @@ object ProShell {
      * Read-only extras since 0.4.0, also grantable from a shell: BATTERY_STATS opens Android's per-app
      * counters (wakeups, wakelocks, CPU, jobs) and the battery's own data (state of health, dates);
      * ACCESS_FINE_POWER_MONITORS gives exact power per component instead of coarse, noisy values.
-     * The latter exists from Android 16 on; pm grant fails on older versions.
+     * The latter sits behind a feature flag (off in the Android 16 release emulator): pm grant fails
+     * with "Unknown permission" where the phone does not define it, so only [extraGrants] are offered.
      */
-    val EXTRA_GRANTS: List<String> = buildList {
-        add("android.permission.BATTERY_STATS")
-        if (Build.VERSION.SDK_INT >= 36) add("android.permission.ACCESS_FINE_POWER_MONITORS")
-    }
+    val EXTRA_GRANTS = listOf("android.permission.BATTERY_STATS", FINE_POWER_MONITORS)
+    private const val FINE_POWER_MONITORS = "android.permission.ACCESS_FINE_POWER_MONITORS"
 
-    fun computerCommand(pkg: String) = (COMPUTER_GRANTS + EXTRA_GRANTS).joinToString(" && ") { "pm grant $pkg $it" }.let { "adb shell \"$it\"" }
+    /** The [EXTRA_GRANTS] this phone knows. */
+    fun extraGrants(context: Context): List<String> = EXTRA_GRANTS.filter { isDefined(context, it) }
+
+    /** Whether the phone can grant exact power readings at all. */
+    fun finePowerMonitorsExist(context: Context) = Build.VERSION.SDK_INT >= 36 && isDefined(context, FINE_POWER_MONITORS)
+
+    private fun isDefined(context: Context, permission: String) =
+        runCatching { context.packageManager.getPermissionInfo(permission, 0) }.isSuccess
+
+    fun computerCommand(context: Context) = (COMPUTER_GRANTS + extraGrants(context))
+        .joinToString(" && ") { "pm grant ${context.packageName} $it" }.let { "adb shell \"$it\"" }
 
     /** Per-app counters and battery data (SystemHealthManager, BatteryManager); see [EXTRA_GRANTS]. */
     fun hasBatteryStats(context: Context): Boolean =
@@ -59,13 +68,13 @@ object ProShell {
 
     /** Exact power monitor readings (Android 16+). Without it the readings are coarse but still there. */
     fun hasFinePowerMonitors(context: Context): Boolean = Build.VERSION.SDK_INT >= 36 &&
-        context.checkSelfPermission("android.permission.ACCESS_FINE_POWER_MONITORS") == PackageManager.PERMISSION_GRANTED
+        context.checkSelfPermission(FINE_POWER_MONITORS) == PackageManager.PERMISSION_GRANTED
 
     fun missingExtraGrants(context: Context): List<String> =
-        EXTRA_GRANTS.filter { context.checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
+        extraGrants(context).filter { context.checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
 
     /**
-     * Grants [EXTRA_GRANTS] to Activity+ itself through Shizuku, once; like the computer grant they stay
+     * Grants [extraGrants] to Activity+ itself through Shizuku, once; like the computer grant they stay
      * after restarts. Only these fixed pm grant lines are allowed in [ShellService].
      */
     suspend fun grantExtrasWithShizuku(context: Context): Boolean {

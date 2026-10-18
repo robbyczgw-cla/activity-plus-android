@@ -65,12 +65,9 @@ There are two ways in. You can use both.
    ```
    adb shell "pm grant xyz.activityplus.android android.permission.DUMP && pm grant xyz.activityplus.android android.permission.PACKAGE_USAGE_STATS && pm grant xyz.activityplus.android android.permission.INTERACT_ACROSS_USERS && pm grant xyz.activityplus.android android.permission.BATTERY_STATS"
    ```
-   On Android 16 and newer, also run this line (older versions do not know the permission):
-   ```
-   adb shell pm grant xyz.activityplus.android android.permission.ACCESS_FINE_POWER_MONITORS
-   ```
-   Since 0.4.0, BATTERY_STATS adds wakeups and wakelocks per app and the battery's own data, and the
-   power monitors give exact power per component. Already granted before? Just run the lines again.
+   Since 0.4.0, BATTERY_STATS adds wakeups and wakelocks per app and the battery's own data. Already granted
+   before? Just run the line again. Some Android 16 phones also know `ACCESS_FINE_POWER_MONITORS` (exact power
+   per component); Activity+ then adds it to the line it shows. Other phones reject it as "Unknown permission".
 4. **Wait about ten seconds**: Android saves the grant a moment later, and a restart within that time loses it.
 5. Turn USB debugging and developer options off again.
 6. In Activity+, *Measure precisely* now says **Ready (computer grant, battery only)**.

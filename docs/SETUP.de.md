@@ -65,12 +65,10 @@ Es gibt zwei Wege. Beide lassen sich kombinieren.
    ```
    adb shell "pm grant xyz.activityplus.android android.permission.DUMP && pm grant xyz.activityplus.android android.permission.PACKAGE_USAGE_STATS && pm grant xyz.activityplus.android android.permission.INTERACT_ACROSS_USERS && pm grant xyz.activityplus.android android.permission.BATTERY_STATS"
    ```
-   Ab Android 16 zusätzlich diese Zeile (ältere Versionen kennen die Berechtigung nicht):
-   ```
-   adb shell pm grant xyz.activityplus.android android.permission.ACCESS_FINE_POWER_MONITORS
-   ```
-   Seit 0.4.0 bringt BATTERY_STATS Weckvorgänge und Wakelocks pro App sowie die Daten des Akkus selbst,
-   die Strommesser liefern den genauen Verbrauch pro Bauteil. Schon früher freigegeben? Einfach die Zeilen noch einmal ausführen.
+   Seit 0.4.0 bringt BATTERY_STATS Weckvorgänge und Wakelocks pro App sowie die Daten des Akkus selbst. Schon
+   früher freigegeben? Einfach die Zeile noch einmal ausführen. Manche Android-16-Handys kennen zusätzlich
+   `ACCESS_FINE_POWER_MONITORS` (genauer Verbrauch pro Bauteil); dann hängt Activity+ sie an die angezeigte Zeile an.
+   Andere lehnen sie mit „Unknown permission“ ab.
 4. **Etwa zehn Sekunden warten**: Android speichert die Freigabe kurz danach, ein Neustart in dieser Zeit verwirft sie.
 5. USB-Debugging und Entwickleroptionen wieder ausschalten.
 6. In Activity+ steht unter *Genau messen* jetzt **Bereit (PC-Freigabe, nur Akku)**.

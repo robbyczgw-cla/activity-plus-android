@@ -53,7 +53,7 @@ fun ExtraGrantsCard(access: ProShell.Access, onChanged: () -> Unit) {
             if (failed) Note(stringResource(R.string.grants_failed), Modifier.padding(top = 6.dp))
         } else {
             Note(stringResource(R.string.grants_computer), Modifier.padding(top = 6.dp))
-            val command = ProShell.computerCommand(context.packageName)
+            val command = ProShell.computerCommand(context)
             Text(
                 command,
                 fontFamily = FontFamily.Monospace,
