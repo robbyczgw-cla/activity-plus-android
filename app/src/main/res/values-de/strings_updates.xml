@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Seit dem Update: was sich bei einer App nach ihrem Update verändert hat -->
+    <string name="su_title">Nach Updates</string>
+    <string name="su_caption">letzte 3 Wochen</string>
+    <string name="su_updated">Am %1$s auf %2$s aktualisiert</string>
+    <string name="su_updated_nov">Am %1$s aktualisiert</string>
+    <string name="su_intro">Seit dem Update am %1$s (%2$s):</string>
+    <string name="su_intro_nov">Seit dem Update am %1$s:</string>
+    <plurals name="su_none">
+        <item quantity="one">%d Update ohne klare Veränderung</item>
+        <item quantity="other">%d Updates ohne klare Veränderung</item>
+    </plurals>
+    <string name="su_waiting">Ganz frische Updates brauchen mindestens 3 Tage Messwerte, bevor man sie beurteilen kann.</string>
+    <string name="su_note">Ein Update ist nur der wahrscheinlichste Grund, kein Beweis: Es kann auch an deiner Nutzung der App liegen. Verglichen werden die Mediane der Tage davor und danach, und nur eine Veränderung auf mindestens das Doppelte (oder die Hälfte) um einen Mindestbetrag zählt.</string>
+
+    <!-- Die Veränderung als Satzende über die App. %1$s ist ein Faktor wie 4×, ein Prozentwert oder eine Menge. -->
+    <string name="su_bg_up">verbraucht %1$s so viel Akku im Hintergrund</string>
+    <string name="su_bg_new">verbraucht jetzt etwa %1$s pro Tag im Hintergrund</string>
+    <string name="su_bg_down">verbraucht %1$s weniger Akku im Hintergrund</string>
+    <string name="su_wake_up">weckt das Handy %1$s so oft</string>
+    <string name="su_wake_new">weckt das Handy jetzt etwa %1$s Mal pro Tag</string>
+    <string name="su_wake_down">weckt das Handy %1$s seltener</string>
+    <string name="su_lock_up">hält das Handy %1$s so lange wach</string>
+    <string name="su_lock_new">hält das Handy jetzt etwa %1$s pro Tag wach</string>
+    <string name="su_lock_down">hält das Handy %1$s kürzer wach</string>
+    <string name="su_energy_up">braucht bei Nutzung %1$s so viel Strom</string>
+    <string name="su_energy_new">braucht bei Nutzung jetzt etwa %1$s</string>
+    <string name="su_energy_down">braucht bei Nutzung %1$s weniger Strom</string>
+    <string name="su_mobile_up">nutzt pro Woche %1$s mehr mobile Daten</string>
+    <string name="su_mobile_down">nutzt pro Woche %1$s weniger mobile Daten</string>
+    <string name="su_wifi_up">nutzt pro Woche %1$s mehr WLAN-Daten</string>
+    <string name="su_wifi_down">nutzt pro Woche %1$s weniger WLAN-Daten</string>
+    <string name="su_storage_up">belegt %1$s mehr Speicher</string>
+
+    <!-- App-Details -->
+    <string name="su_detail_head">Am %1$s auf %2$s aktualisiert — seitdem:</string>
+    <string name="su_detail_head_nov">Am %1$s aktualisiert — seitdem:</string>
+    <string name="su_detail_none">Keine klare Veränderung bei Hintergrund-Akku, Weckungen, Daten oder Speicher.</string>
+    <string name="su_detail_early">Noch zu wenig Daten: Es braucht mindestens 3 Tage Messwerte vor und nach dem Update.</string>
+
+    <!-- Diagnose -->
+    <string name="f_since_title">%1$s hat sich nach dem Update verändert</string>
+    <string name="f_since_body">%1$s Ein Update ist der wahrscheinlichste Grund, aber kein Beweis. Warte auf das nächste Update oder melde es dem Entwickler. Bis dahin kannst du in der App-Info den Akkuverbrauch einschränken.</string>
+</resources>

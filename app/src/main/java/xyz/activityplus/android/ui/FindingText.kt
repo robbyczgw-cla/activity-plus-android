@@ -5,6 +5,7 @@ import xyz.activityplus.android.R
 import xyz.activityplus.android.core.Diagnosis
 import xyz.activityplus.android.core.Diagnosis.Kind
 import xyz.activityplus.android.core.Format
+import xyz.activityplus.android.core.SinceUpdate
 
 /** Turns a [Diagnosis.Finding] into a headline, an explanation and a button label. */
 object FindingText {
@@ -36,6 +37,7 @@ object FindingText {
                 c.getString(R.string.f_data_body, bytes("bytes"))
             Kind.WAKELOCK_LIMIT -> c.getString(R.string.f_wakelimit_title, app) to
                 c.getString(R.string.f_wakelimit_body, (v["days"] ?: 0.0).toInt(), (v["measured"] ?: 0.0).toInt(), dur("worst"))
+            Kind.SINCE_UPDATE -> sinceUpdate(c, f)
             Kind.SCREEN_OFF_DRAIN -> c.getString(R.string.f_off_title) to
                 c.getString(R.string.f_off_body, Format.number(v["percentPerHour"] ?: 0.0, 1) + " %", dur("seconds"))
             Kind.BATTERY_WORN -> c.getString(R.string.f_worn_title) to
@@ -56,5 +58,16 @@ object FindingText {
             Diagnosis.Fix.NONE -> null
         }
         return Text(title, body, action)
+    }
+
+    /** Only increases become findings, so the direction is always up; the new version name rides in [Diagnosis.Finding.apps]. */
+    private fun sinceUpdate(c: Context, f: Diagnosis.Finding): Pair<String, String> {
+        val v = f.values
+        val change = SinceUpdate.Change(
+            SinceUpdate.Metric.entries[(v["metric"] ?: 0.0).toInt()], SinceUpdate.Direction.UP, v["before"] ?: 0.0, v["after"] ?: 0.0,
+        )
+        val app = f.app ?: ""
+        val sentence = UpdateText.sentence(c, app, change, (v["time"] ?: 0.0).toLong(), f.apps.firstOrNull())
+        return c.getString(R.string.f_since_title, app) to c.getString(R.string.f_since_body, sentence)
     }
 }

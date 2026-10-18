@@ -11,6 +11,7 @@ object Diagnosis {
     enum class Kind {
         STORAGE_FULL, LOW_MEMORY, HOT, POWER_SAVE, TOP_DRAIN_APP, BACKGROUND_SERVICE,
         BACKGROUND_DATA, SCREEN_OFF_DRAIN, BATTERY_WORN, LONG_UPTIME, SLOW_ANIMATIONS, UNUSED_APPS, WAKELOCK_LIMIT,
+        SINCE_UPDATE,
     }
 
     enum class Fix { STORAGE_SETTINGS, APP_INFO, BATTERY_SAVER, BATTERY_USAGE, DEVELOPER_OPTIONS, NONE }
@@ -54,6 +55,8 @@ object Diagnosis {
         val vpnPackages: Set<String> = emptySet(),
         /** Apps regularly above Google's wakelock limit (see [WakeLimit.flagged]) with the name to show. */
         val wakeLimit: List<Pair<WakeLimit.Verdict, String>> = emptyList(),
+        /** Recent updates with the name to show; the strong increases after them become findings (see [SinceUpdate]). */
+        val sinceUpdate: List<Pair<SinceUpdate.Result, String>> = emptyList(),
     )
 
     private const val GB = 1_000_000_000L
@@ -136,6 +139,25 @@ object Diagnosis {
                 values = mapOf("days" to v.exceededDays.toDouble(), "measured" to v.measuredDays.toDouble(), "worst" to v.worstMs / 1000.0),
             )
         }
+
+        // An update is the likeliest suspect for a sudden change; say so, name the version, and leave the decision to the user.
+        i.sinceUpdate.mapNotNull { (r, label) -> r.strongest?.let { Triple(r, it, label) } }
+            .sortedByDescending { it.second.magnitude }
+            .distinctBy { it.first.update.pkg }
+            .take(2)
+            .forEach { (r, c, label) ->
+                out += Finding(
+                    Kind.SINCE_UPDATE,
+                    if (c.metric in SinceUpdate.WHILE_ASLEEP) Severity.WARN else Severity.INFO,
+                    Fix.APP_INFO, r.update.pkg, label,
+                    values = mapOf(
+                        "metric" to c.metric.ordinal.toDouble(), "before" to c.before, "after" to c.after,
+                        "time" to r.update.timeMillis.toDouble(),
+                    ),
+                    // The new version name rides along, as the values are numbers only.
+                    apps = listOfNotNull(r.update.newName),
+                )
+            }
 
         // Screen-off drain above ~2 % per hour means something keeps the phone awake.
         val off = i.energy[DrainTracker.SCREEN_OFF]

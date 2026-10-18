@@ -57,6 +57,7 @@ fun AppsScreen(onPro: () -> Unit = {}) {
     var sort by rememberSaveable { mutableStateOf(AppSort.BATTERY) }
     var selected by rememberSaveable { mutableStateOf<String?>(null) }
     val data = rememberLoaded(access, days) { loadApps(days, withStorage = true) }
+    val updates = rememberAfterUpdates()
 
     val rows = data?.let { d ->
         d.apps.map { AppRow(it, d.energy[it.pkg]?.first ?: 0.0, d.usualEnergy[it.pkg]) }
@@ -90,6 +91,7 @@ fun AppsScreen(onPro: () -> Unit = {}) {
             return@Screen
         }
         item { ProEntryCard(onPro) }
+        updates?.let { u -> item { AfterUpdatesCard(u) { selected = it } } }
         items(rows.take(80), key = { it.usage.pkg }) { row -> AppRowView(row, sort) { selected = row.usage.pkg } }
         item { Note(stringResource(R.string.method_apps), Modifier.padding(horizontal = 4.dp)) }
     }
@@ -210,6 +212,7 @@ private fun AppDetail(row: AppRow, days: Int) {
         }
         AppBackgroundSection(u.pkg)
         AppWakeupSection(u.pkg)
+        AppUpdateSection(u.pkg)
         Spacer(Modifier.height(10.dp))
         Note(stringResource(R.string.method_foreground))
         if (!u.pkg.startsWith("#")) {
