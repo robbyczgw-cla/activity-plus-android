@@ -76,6 +76,12 @@ With this grant Activity+ also reads the battery report on its own: when you plu
 
 No cable? *Wireless debugging* (Android 11+) works the same way: pair once with `adb pair <ip>:<port> <code>`,
 then `adb connect <ip>:<port>` and run the line above.
+- Tap the words *Wireless debugging*, not just the switch, then *Pair device with pairing code*.
+- The pairing dialog has its own port, which changes every time; the IP and port on the page behind it are
+  for `adb connect`.
+- Keep the pairing dialog open until `adb pair` reports success: Android closes it, and the code becomes
+  invalid, as soon as you leave Settings. If you need the phone to pass the code on, use split screen
+  (recent apps → app icon → *Split screen*) or read it off from a second device.
 
 Some makers block `pm grant` until an extra switch is on, during setup only:
 Xiaomi: *USB debugging (Security settings)*; OnePlus/Oppo: *Disable permission monitoring* (newer: *Disable system optimization*).

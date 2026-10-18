@@ -77,6 +77,12 @@ Mit dieser Freigabe liest Activity+ den Akkubericht auch selbst: beim Einstecken
 
 Ohne Kabel? *Debugging über WLAN* (ab Android 11) geht genauso: einmal mit `adb pair <ip>:<port> <code>` koppeln,
 dann `adb connect <ip>:<port>` und die Zeile oben ausführen.
+- Auf den Text *Debugging über WLAN* tippen, nicht nur auf den Schalter, dann *Gerät über einen Kopplungscode koppeln*.
+- Der Kopplungsdialog hat einen eigenen Port, der sich jedes Mal ändert; IP und Port auf der Seite dahinter sind
+  für `adb connect`.
+- Den Kopplungsdialog offen lassen, bis `adb pair` Erfolg meldet: Sobald du die Einstellungen verlässt, schließt
+  Android ihn und der Code wird ungültig. Musst du den Code vom Handy aus weitergeben, nimm den geteilten
+  Bildschirm (Letzte Apps → App-Symbol → *Geteilter Bildschirm*) oder lies ihn von einem zweiten Gerät ab.
 
 Manche Hersteller blockieren `pm grant`, bis ein Zusatzschalter an ist, nur während der Einrichtung:
 Xiaomi: *USB-Debugging (Sicherheitseinstellungen)*; OnePlus/Oppo: *Berechtigungsüberwachung deaktivieren*
