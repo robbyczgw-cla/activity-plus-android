@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Quem acordou o celular (permissão BATTERY_STATS na página pro) -->
+    <string name="wk_title">Quem acordou o celular</string>
+    <string name="wk_caption">Contadores do Android</string>
+    <string name="wk_hint">Veja quais apps acordam o celular e o mantêm acordado à noite. Precisa de mais uma permissão de leitura na página pro.</string>
+    <string name="wk_empty">Nada foi contado ainda. O Android conta só com a bateria; a próxima leitura chega em meia hora.</string>
+    <string name="wk_night">Ontem à noite, %1$s</string>
+    <string name="wk_today">Hoje</string>
+    <string name="wk_quiet">Nenhum app se destacou.</string>
+    <string name="wk_cpu">CPU %1$s</string>
+    <plurals name="wk_wakeups">
+        <item quantity="one">%d despertar</item>
+        <item quantity="other">%d despertares</item>
+    </plurals>
+    <string name="wk_explain">Um despertar é um alarme que tira o celular do modo de espera; um wakelock o mantém acordado com a tela desligada. Os dois gastam bateria enquanto você não usa o celular.</string>
+    <string name="wk_note">Contado pelo Android, só com a bateria. Toque em um app para ver a semana dele.</string>
+    <string name="wk_fix">Em Informações do app, em Bateria, você pode restringir o uso em segundo plano. O Activity+ nunca muda isso sozinho.</string>
+    <string name="wk_detail_title">Despertares e wakelocks, últimos 7 dias</string>
+    <string name="wk_detail_wakeups">Acordou o celular hoje</string>
+    <string name="wk_detail_awake">Manteve acordado hoje</string>
+    <string name="wk_detail_cpu">Tempo de CPU hoje</string>
+    <string name="wk_detail_jobs">Tarefas em segundo plano hoje</string>
+    <string name="wk_detail_syncs">Sincronizações hoje</string>
+    <string name="wk_detail_gps">Localização hoje</string>
+    <string name="wk_detail_usual">Dia habitual</string>
+    <string name="wk_detail_chart">Despertares por dia</string>
+    <plurals name="wk_night_line">
+        <item quantity="one">%1$s acordou o celular %2$d vez ontem à noite</item>
+        <item quantity="other">%1$s acordou o celular %2$d vezes ontem à noite</item>
+    </plurals>
+    <string name="wk_night_awake">%1$s manteve o celular acordado por %2$s ontem à noite</string>
+</resources>

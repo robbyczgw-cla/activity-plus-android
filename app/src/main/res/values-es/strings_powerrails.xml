@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- A dónde va la energía (página de batería), 0.4.0 -->
+    <string name="power_title">A dónde va la energía</string>
+    <string name="power_covered">%1$s de datos</string>
+    <string name="power_now">Ahora</string>
+    <string name="power_hour">Última hora</string>
+    <string name="power_today">Hoy</string>
+    <string name="power_measured">medido en el teléfono</string>
+    <string name="power_rest">Resto del teléfono</string>
+    <string name="power_rest_note">La batería entrega más de lo que suman las partes de arriba: pérdidas del cargador y piezas sin medidor.</string>
+    <string name="power_wait_now">Midiendo, un momento …</string>
+    <string name="power_wait">Recogiendo datos. Android difumina estas lecturas, así que un promedio útil necesita unos %1$s de medición.</string>
+    <string name="power_note_exact">Lecturas exactas de los medidores de energía del propio teléfono, varias veces por segundo.</string>
+    <string name="power_note_coarse">Android solo entrega lecturas difuminadas: un valor nuevo cada 20 segundos, con ruido aleatorio encima. Por eso Activity+ muestra promedios de minutos y horas, no el instante.</string>
+    <string name="power_get_exact">Obtener lecturas exactas</string>
+    <string name="power_details_show">Mostrar todos los medidores</string>
+    <string name="power_details_hide">Ocultar medidores</string>
+    <string name="power_not_added">no sumado</string>
+    <string name="power_cat_display">Pantalla</string>
+    <string name="power_cat_cpu">CPU</string>
+    <string name="power_cat_gpu">GPU</string>
+    <string name="power_cat_radio">Red móvil</string>
+    <string name="power_cat_wifi">Wi-Fi y Bluetooth</string>
+    <string name="power_cat_camera">Cámara</string>
+    <string name="power_cat_memory">Memoria</string>
+    <string name="power_cat_gnss">Ubicación (GNSS)</string>
+    <string name="power_cat_audio">Audio</string>
+    <string name="power_cat_other">Otros</string>
+    <string name="power_unsupported">Este teléfono no informa de la energía por componente.</string>
+</resources>

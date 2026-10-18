@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 0.4.0 新增的读取权限（专业页面） -->
+    <string name="grants_title">可以获取更多数据</string>
+    <string name="grants_body">再授予两项读取权限后，可以查看各应用的唤醒和唤醒锁、电池本身的数据（健康状况、日期），以及各组件的精确耗电。</string>
+    <string name="grants_shizuku">通过 Shizuku 授权</string>
+    <string name="grants_failed">没有成功。请改用设置指南中的电脑命令。</string>
+    <string name="grants_computer">请在电脑上再运行一次该命令（点按即可复制），现在已包含这些权限。</string>
+    <string name="grants_safe">这些权限只允许 Activity+ 读取数据。银行类应用不受影响，之后也可以关闭开发者选项。</string>
+</resources>

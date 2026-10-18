@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 充電をライブ アップデートで表示（Android 16） -->
+    <string name="cl_channel">充電</string>
+    <string name="cl_channel_desc">充電中、バッテリー残量・充電電力・上限または満充電までの時間を、ライブ アップデートとして表示します。</string>
+    <string name="cl_title_charging">充電中: %1$s</string>
+    <string name="cl_title_holding">%1$s に接続中</string>
+    <string name="cl_title_full">満充電</string>
+    <string name="cl_title_warm">充電中に発熱: %1$s</string>
+    <string name="cl_charging">充電中</string>
+    <string name="cl_not_charging">現在充電していません</string>
+    <string name="cl_unplug">取り外せます</string>
+    <string name="cl_target_limit">%1$s（%2$s）</string>
+    <string name="cl_target_full">%1$s に満充電</string>
+
+    <!-- 設定 -->
+    <string name="cl_set_title">充電をライブ アップデートで表示</string>
+    <string name="cl_set_hint">充電中、バッテリー残量・電力・満充電までの時間を、ステータスバーとロック画面に表示します。充電上限はバー上の目印として表示されます。</string>
+    <string name="cl_set_blocked">現在、Android は Activity+ にライブ アップデートの表示を許可していません。アプリの通知設定で許可してください。</string>
+    <string name="cl_set_open">通知設定を開く</string>
+</resources>

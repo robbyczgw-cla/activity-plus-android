@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Où va la puissance (page batterie), 0.4.0 -->
+    <string name="power_title">Où va la puissance</string>
+    <string name="power_covered">%1$s de données</string>
+    <string name="power_now">Maintenant</string>
+    <string name="power_hour">Dernière heure</string>
+    <string name="power_today">Aujourd\'hui</string>
+    <string name="power_measured">mesuré dans le téléphone</string>
+    <string name="power_rest">Reste du téléphone</string>
+    <string name="power_rest_note">La batterie fournit plus que ce que les éléments ci-dessus consomment : pertes du chargeur et composants sans capteur.</string>
+    <string name="power_wait_now">Mesure en cours, un instant …</string>
+    <string name="power_wait">Collecte de données. Android brouille ces valeurs ; une moyenne exploitable demande environ %1$s de mesure.</string>
+    <string name="power_note_exact">Valeurs exactes des capteurs de puissance du téléphone, plusieurs fois par seconde.</string>
+    <string name="power_note_coarse">Android ne donne que des valeurs brouillées : une nouvelle valeur toutes les 20 secondes, avec du bruit aléatoire. Activity+ affiche donc des moyennes sur des minutes et des heures, pas l\'instant.</string>
+    <string name="power_get_exact">Obtenir des valeurs exactes</string>
+    <string name="power_details_show">Afficher tous les capteurs</string>
+    <string name="power_details_hide">Masquer les capteurs</string>
+    <string name="power_not_added">non compté</string>
+    <string name="power_cat_display">Écran</string>
+    <string name="power_cat_cpu">CPU</string>
+    <string name="power_cat_gpu">GPU</string>
+    <string name="power_cat_radio">Réseau mobile</string>
+    <string name="power_cat_wifi">Wi-Fi et Bluetooth</string>
+    <string name="power_cat_camera">Appareil photo</string>
+    <string name="power_cat_memory">Mémoire</string>
+    <string name="power_cat_gnss">Position (GNSS)</string>
+    <string name="power_cat_audio">Audio</string>
+    <string name="power_cat_other">Autre</string>
+    <string name="power_unsupported">Ce téléphone ne fournit pas la puissance par composant.</string>
+</resources>

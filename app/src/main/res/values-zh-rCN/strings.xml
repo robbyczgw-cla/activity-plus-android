@@ -432,7 +432,7 @@
     <string name="pro_memory_note">PSS：应用占用的内存，共享内存在共享它的应用之间平分。</string>
     <string name="pro_cpu_title">各应用 CPU，最近 1.5 分钟</string>
     <string name="pro_cpu_note" formatted="false">占单个核心的百分比；超过 100% 表示应用使用了多个核心。</string>
-    <string name="pro_privacy">专业模式只运行三项只读报告：dumpsys batterystats、meminfo 和 cpuinfo。其他任何命令都会被拒绝，Activity+ 没有网络访问权限。</string>
+    <string name="pro_privacy">专业模式只运行三项只读报告：dumpsys batterystats、meminfo 和 cpuinfo；在你需要时，还会授予 Activity+ 自身的读取权限。其他任何命令都会被拒绝，Activity+ 没有网络访问权限。</string>
     <string name="pro_entry_title">精确测量</string>
     <string name="pro_entry_body">各应用的耗电、内存和 CPU，含后台。使用 Shizuku 的专业模式。</string>
     <string name="pro_entry_last">上次测量 %1$s</string>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Passaporto della batteria, sotto la scheda dello stato -->
+    <string name="passport_title">Passaporto della batteria</string>
+    <string name="passport_made">Prodotta</string>
+    <string name="passport_in_use">In uso</string>
+    <string name="passport_under_month">Meno di un mese</string>
+    <plurals name="passport_months">
+        <item quantity="one">%d mese</item>
+        <item quantity="other">%d mesi</item>
+    </plurals>
+    <string name="passport_cycles_month">Cicli al mese</string>
+    <string name="passport_policy">Modalità di ricarica</string>
+    <string name="passport_policy_standard">Standard</string>
+    <string name="passport_policy_limited">Limitata</string>
+    <string name="passport_policy_adaptive">Adattiva</string>
+    <string name="passport_policy_long_life">Lunga durata</string>
+    <string name="passport_part">Parte della batteria</string>
+    <string name="passport_part_original">Originale</string>
+    <string name="passport_part_replaced">Sostituita</string>
+    <string name="passport_soh">Stato secondo Android</string>
+    <string name="passport_level">Livello di capacità</string>
+    <string name="passport_level_critical">Critico</string>
+    <string name="passport_level_low">Basso</string>
+    <string name="passport_level_normal">Normale</string>
+    <string name="passport_level_high">Alto</string>
+    <string name="passport_level_full">Pieno</string>
+    <string name="passport_agree">Entrambi indicano circa %1$s.</string>
+    <string name="passport_differ">Android indica %1$s, le misurazioni indicano %2$s.</string>
+    <string name="passport_differ_settling">Android indica %1$s, le misurazioni indicano %2$s; la misurazione ha bisogno di alcune ricariche complete per stabilizzarsi.</string>
+    <string name="passport_more">Altri dati (stato, date) con il permesso di lettura</string>
+</resources>

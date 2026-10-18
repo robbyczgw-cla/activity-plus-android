@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Quién despertó el teléfono (permiso BATTERY_STATS en la página pro) -->
+    <string name="wk_title">Quién despertó el teléfono</string>
+    <string name="wk_caption">Contadores de Android</string>
+    <string name="wk_hint">Mira qué apps despiertan el teléfono y lo mantienen despierto por la noche. Necesita un permiso de lectura más en la página pro.</string>
+    <string name="wk_empty">Todavía no hay nada contado. Android cuenta solo con la batería; la siguiente lectura llega en media hora.</string>
+    <string name="wk_night">Anoche, %1$s</string>
+    <string name="wk_today">Hoy</string>
+    <string name="wk_quiet">Ninguna app destacó.</string>
+    <string name="wk_cpu">CPU %1$s</string>
+    <plurals name="wk_wakeups">
+        <item quantity="one">%d despertar</item>
+        <item quantity="other">%d despertares</item>
+    </plurals>
+    <string name="wk_explain">Un despertar es una alarma que saca el teléfono del reposo; un wakelock lo mantiene despierto con la pantalla apagada. Ambos gastan batería mientras no usas el teléfono.</string>
+    <string name="wk_note">Contado por Android, solo con batería. Toca una app para ver su semana.</string>
+    <string name="wk_fix">En Información de la app, dentro de Batería, puedes restringir su uso en segundo plano. Activity+ nunca cambia esto por su cuenta.</string>
+    <string name="wk_detail_title">Despertares y wakelocks, últimos 7 días</string>
+    <string name="wk_detail_wakeups">Despertó el teléfono hoy</string>
+    <string name="wk_detail_awake">Lo mantuvo despierto hoy</string>
+    <string name="wk_detail_cpu">Tiempo de CPU hoy</string>
+    <string name="wk_detail_jobs">Tareas en segundo plano hoy</string>
+    <string name="wk_detail_syncs">Sincronizaciones hoy</string>
+    <string name="wk_detail_gps">Ubicación hoy</string>
+    <string name="wk_detail_usual">Día habitual</string>
+    <string name="wk_detail_chart">Despertares por día</string>
+    <plurals name="wk_night_line">
+        <item quantity="one">%1$s despertó el teléfono %2$d vez anoche</item>
+        <item quantity="other">%1$s despertó el teléfono %2$d veces anoche</item>
+    </plurals>
+    <string name="wk_night_awake">%1$s mantuvo el teléfono despierto durante %2$s anoche</string>
+</resources>

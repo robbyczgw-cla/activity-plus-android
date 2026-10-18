@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Permissões de leitura adicionadas na 0.4.0 (página pro) -->
+    <string name="grants_title">Mais leituras disponíveis</string>
+    <string name="grants_body">Mais duas permissões de leitura liberam os despertares e wakelocks por app, os dados da própria bateria (saúde, datas) e o consumo exato por componente.</string>
+    <string name="grants_shizuku">Conceder com o Shizuku</string>
+    <string name="grants_failed">Não funcionou. Use a linha para o computador do guia de configuração.</string>
+    <string name="grants_computer">Execute a linha de novo no computador (toque para copiar); ela agora inclui essas permissões.</string>
+    <string name="grants_safe">Elas só permitem que o Activity+ leia. Apps de banco não são afetados, e você pode desativar as opções do desenvolvedor depois.</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 以实时动态显示充电（Android 16） -->
+    <string name="cl_channel">充电</string>
+    <string name="cl_channel_desc">充电时以实时动态的形式显示电池电量、充电功率，以及距离充电上限或充满所需的时间。</string>
+    <string name="cl_title_charging">充电中：%1$s</string>
+    <string name="cl_title_holding">已接通电源，%1$s</string>
+    <string name="cl_title_full">已充满</string>
+    <string name="cl_title_warm">充电时发热：%1$s</string>
+    <string name="cl_charging">充电中</string>
+    <string name="cl_not_charging">目前未在充电</string>
+    <string name="cl_unplug">现在可以拔掉充电器</string>
+    <string name="cl_target_limit">%1$s（%2$s）</string>
+    <string name="cl_target_full">%1$s 充满</string>
+
+    <!-- 设置 -->
+    <string name="cl_set_title">以实时动态显示充电</string>
+    <string name="cl_set_hint">充电时，在状态栏和锁屏上显示电池电量、功率以及充满所需的时间。充电上限会以标记显示在进度条上。</string>
+    <string name="cl_set_blocked">Android 目前不允许 Activity+ 显示实时动态。请在应用的通知设置中允许。</string>
+    <string name="cl_set_open">打开通知设置</string>
+</resources>

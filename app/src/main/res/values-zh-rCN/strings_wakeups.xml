@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 谁唤醒了手机（专业页面上的 BATTERY_STATS 权限） -->
+    <string name="wk_title">谁唤醒了手机</string>
+    <string name="wk_caption">Android 的计数</string>
+    <string name="wk_hint">查看哪些应用会唤醒手机，并在夜间让它保持唤醒。需要在专业页面再授予一项读取权限。</string>
+    <string name="wk_empty">尚无统计数据。Android 只在电池供电时计数，下一次读取会在半小时内进行。</string>
+    <string name="wk_night">昨晚，%1$s</string>
+    <string name="wk_today">今天</string>
+    <string name="wk_quiet">没有突出的应用。</string>
+    <string name="wk_cpu">CPU %1$s</string>
+    <plurals name="wk_wakeups">
+        <item quantity="other">唤醒 %d 次</item>
+    </plurals>
+    <string name="wk_explain">唤醒是把手机从睡眠中叫醒的闹钟；唤醒锁则会在屏幕关闭时让手机保持清醒。两者都会在你不用手机时消耗电量。</string>
+    <string name="wk_note">由 Android 在电池供电时统计。点按应用可查看一周的情况。</string>
+    <string name="wk_fix">在应用信息的“电池”中，可以限制其后台运行。Activity+ 从不自行更改此设置。</string>
+    <string name="wk_detail_title">唤醒与唤醒锁，最近 7 天</string>
+    <string name="wk_detail_wakeups">今天唤醒手机</string>
+    <string name="wk_detail_awake">今天保持唤醒</string>
+    <string name="wk_detail_cpu">今天的 CPU 时间</string>
+    <string name="wk_detail_jobs">今天的后台作业</string>
+    <string name="wk_detail_syncs">今天的同步</string>
+    <string name="wk_detail_gps">今天的定位</string>
+    <string name="wk_detail_usual">平常的一天</string>
+    <string name="wk_detail_chart">每日唤醒次数</string>
+    <plurals name="wk_night_line">
+        <item quantity="other">%1$s 昨晚唤醒手机 %2$d 次</item>
+    </plurals>
+    <string name="wk_night_awake">%1$s 昨晚让手机保持唤醒 %2$s</string>
+</resources>

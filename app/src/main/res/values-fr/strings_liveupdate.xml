@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Charge en mise à jour en direct (Android 16) -->
+    <string name="cl_channel">Charge</string>
+    <string name="cl_channel_desc">Niveau de la batterie, puissance de charge et temps jusqu\'à votre limite de charge ou jusqu\'à pleine charge, affichés en mise à jour en direct pendant la charge.</string>
+    <string name="cl_title_charging">Charge : %1$s</string>
+    <string name="cl_title_holding">Branché à %1$s</string>
+    <string name="cl_title_full">Entièrement chargée</string>
+    <string name="cl_title_warm">Chaude pendant la charge : %1$s</string>
+    <string name="cl_charging">En charge</string>
+    <string name="cl_not_charging">Pas en charge pour l\'instant</string>
+    <string name="cl_unplug">Vous pouvez débrancher</string>
+    <string name="cl_target_limit">%1$s à %2$s</string>
+    <string name="cl_target_full">Pleine à %1$s</string>
+
+    <!-- Réglages -->
+    <string name="cl_set_title">Charge en mise à jour en direct</string>
+    <string name="cl_set_hint">Affiche pendant la charge le niveau de la batterie, la puissance et le temps jusqu\'à pleine charge dans la barre d\'état et sur l\'écran verrouillé. Votre limite de charge apparaît comme une marque sur la barre.</string>
+    <string name="cl_set_blocked">Android n\'autorise pas Activity+ à afficher des mises à jour en direct pour le moment. Autorisez-les dans les paramètres de notification de l\'appli.</string>
+    <string name="cl_set_open">Ouvrir les paramètres de notification</string>
+</resources>

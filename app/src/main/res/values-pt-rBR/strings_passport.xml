@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Passaporte da bateria, abaixo do cartão de saúde -->
+    <string name="passport_title">Passaporte da bateria</string>
+    <string name="passport_made">Fabricada</string>
+    <string name="passport_in_use">Em uso</string>
+    <string name="passport_under_month">Menos de um mês</string>
+    <plurals name="passport_months">
+        <item quantity="one">%d mês</item>
+        <item quantity="other">%d meses</item>
+    </plurals>
+    <string name="passport_cycles_month">Ciclos por mês</string>
+    <string name="passport_policy">Modo de carregamento</string>
+    <string name="passport_policy_standard">Padrão</string>
+    <string name="passport_policy_limited">Limitado</string>
+    <string name="passport_policy_adaptive">Adaptativo</string>
+    <string name="passport_policy_long_life">Vida longa</string>
+    <string name="passport_part">Peça da bateria</string>
+    <string name="passport_part_original">Original</string>
+    <string name="passport_part_replaced">Substituída</string>
+    <string name="passport_soh">Estado de saúde (Android)</string>
+    <string name="passport_level">Nível de capacidade</string>
+    <string name="passport_level_critical">Crítico</string>
+    <string name="passport_level_low">Baixo</string>
+    <string name="passport_level_normal">Normal</string>
+    <string name="passport_level_high">Alto</string>
+    <string name="passport_level_full">Cheio</string>
+    <string name="passport_agree">Os dois indicam cerca de %1$s.</string>
+    <string name="passport_differ">O Android indica %1$s, as medições indicam %2$s.</string>
+    <string name="passport_differ_settling">O Android indica %1$s, as medições indicam %2$s; a medição precisa de algumas cargas completas para se estabilizar.</string>
+    <string name="passport_more">Mais dados (saúde, datas) com a permissão de leitura</string>
+</resources>
