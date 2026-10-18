@@ -43,8 +43,8 @@ Erscheint der Wert nicht in der Statusleiste: prüfen, ob das Handy dort Benachr
 
 Android lässt Apps den Hintergrundverbrauch, den Arbeitsspeicher und die CPU anderer Apps nicht sehen. Der
 Profi-Modus liest die Berichte von Android einmal, wenn du *Jetzt messen* tippst (Apps oder Akku → *Genau
-messen*). Er führt nur drei lesende Berichte aus (`dumpsys batterystats`, `meminfo`, `cpuinfo`) und lehnt alles
-andere ab. Activity+ hat keine Internet-Berechtigung, nichts davon kann das Handy verlassen.
+messen*). Er führt nur die lesenden Berichte von Android aus (`dumpsys batterystats`, `meminfo`, `cpuinfo`, `appops`,
+`alarm`, `jobscheduler`, `thermalservice`, `deviceidle`) und lehnt alles andere ab. Activity+ hat keine Internet-Berechtigung, nichts davon kann das Handy verlassen.
 
 Es gibt zwei Wege. Beide lassen sich kombinieren.
 

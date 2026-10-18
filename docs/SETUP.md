@@ -43,7 +43,8 @@ makers show only a count by default).
 
 Android does not let apps see other apps' background battery use, memory or CPU. The pro mode reads
 Android's own reports once, when you tap *Measure now* (Apps or Battery → *Measure precisely*). It runs only
-three read-only reports (`dumpsys batterystats`, `meminfo`, `cpuinfo`) and refuses everything else.
+Android's read-only reports (`dumpsys batterystats`, `meminfo`, `cpuinfo`, `appops`, `alarm`, `jobscheduler`,
+`thermalservice`, `deviceidle`) and refuses everything else.
 Activity+ has no internet permission, so nothing it reads can leave the phone.
 
 There are two ways in. You can use both.

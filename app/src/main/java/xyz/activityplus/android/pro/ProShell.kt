@@ -113,12 +113,19 @@ object ProShell {
         COMPUTER_GRANTS.all { context.checkSelfPermission(it) == PackageManager.PERMISSION_GRANTED }
 
     /** The battery report through the computer grant only; never starts or binds Shizuku. */
-    suspend fun batteryWithGrant(context: Context): String {
+    suspend fun batteryWithGrant(context: Context): String = readWithGrant(context, ShellService.BATTERY)
+
+    /**
+     * One of [ShellService.OPEN_WITH_DUMP] through the computer grant only, for unattended readings;
+     * never starts or binds Shizuku.
+     */
+    suspend fun readWithGrant(context: Context, command: String): String {
+        require(command in ShellService.OPEN_WITH_DUMP) { "not open to apps: $command" }
         check(hasComputerGrant(context)) { "no computer grant" }
         return withContext(Dispatchers.IO) {
-            val p = ProcessBuilder(ShellService.BATTERY.split(' ')).redirectErrorStream(true).start()
+            val p = ProcessBuilder(command.split(' ')).redirectErrorStream(true).start()
             // Unattended, so a hanging dumpsys must not block the next readings.
-            kotlin.concurrent.thread(isDaemon = true, name = "battery-report-timeout") {
+            kotlin.concurrent.thread(isDaemon = true, name = "report-timeout") {
                 if (!p.waitFor(60, java.util.concurrent.TimeUnit.SECONDS)) p.destroy()
             }
             p.inputStream.bufferedReader().use { it.readText() }.also { p.waitFor() }
@@ -144,7 +151,7 @@ object ProShell {
         return when (access(context)) {
             // With the DUMP grant the app itself may read the reports.
             Access.DUMP -> withContext(Dispatchers.IO) {
-                require(command == ShellService.BATTERY) { "only batterystats is open to apps" }
+                require(command in ShellService.OPEN_WITH_DUMP) { "not open to apps: $command" }
                 val p = ProcessBuilder(command.split(' ')).redirectErrorStream(true).start()
                 p.inputStream.bufferedReader().use { it.readText() }.also { p.waitFor() }
             }

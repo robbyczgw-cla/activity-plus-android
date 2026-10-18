@@ -435,7 +435,7 @@
     <string name="pro_memory_note">PSS: Speicher, den eine App belegt; gemeinsam genutzter Speicher wird auf die Apps aufgeteilt.</string>
     <string name="pro_cpu_title">CPU pro App, letzte 1,5 Minuten</string>
     <string name="pro_cpu_note" formatted="false">Prozent eines Kerns; über 100 % nutzt eine App mehrere Kerne.</string>
-    <string name="pro_privacy">Der Profi-Modus führt nur drei lesende Berichte aus (dumpsys batterystats, meminfo und cpuinfo) und gibt Activity+, wenn du es willst, seine eigenen Leseberechtigungen. Jeder andere Befehl wird abgelehnt, und Activity+ hat keine Internet-Berechtigung.</string>
+    <string name="pro_privacy">Der Profi-Modus führt nur die lesenden Berichte von Android aus (dumpsys batterystats, meminfo, cpuinfo, appops, alarm, jobscheduler, thermalservice, deviceidle) und gibt Activity+, wenn du es willst, seine eigenen Leseberechtigungen. Jeder andere Befehl wird abgelehnt, und Activity+ hat keine Internet-Berechtigung.</string>
     <string name="pro_entry_title">Genau messen</string>
     <string name="pro_entry_body">Akku, Arbeitsspeicher und CPU pro App, mit Hintergrund. Profi-Modus mit Shizuku.</string>
     <string name="pro_entry_last">Letzte Messung %1$s</string>
