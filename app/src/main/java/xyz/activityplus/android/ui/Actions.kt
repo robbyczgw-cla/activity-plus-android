@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.provider.Settings
 import xyz.activityplus.android.core.Diagnosis
 
@@ -33,6 +34,13 @@ object Actions {
     fun ignoreBatteryOptimizations(context: Context) {
         val direct = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:${context.packageName}"))
         if (!launch(context, direct)) launch(context, Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
+    }
+
+    /** Where the user lets Activity+ post Live Updates; the app's notification page where that screen is missing. */
+    fun liveUpdateSettings(context: Context) {
+        val extra = { action: String -> Intent(action).putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName) }
+        if (Build.VERSION.SDK_INT >= 36 && launch(context, extra(Settings.ACTION_APP_NOTIFICATION_PROMOTION_SETTINGS))) return
+        launch(context, extra(Settings.ACTION_APP_NOTIFICATION_SETTINGS))
     }
 
     fun website(context: Context) = launch(context, Intent(Intent.ACTION_VIEW, Uri.parse("https://activityplus.xyz")))

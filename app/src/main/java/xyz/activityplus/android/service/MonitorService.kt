@@ -35,6 +35,7 @@ class MonitorService : Service() {
     private lateinit var weekly: WeeklyNotifier
     private lateinit var chargeAlarm: ChargeAlarm
     private lateinit var chargeHealth: ChargeHealthRecorder
+    private lateinit var chargeLive: ChargeLiveUpdate
     private val labels = HashMap<String, String>()
     private val background by lazy { BackgroundSampler(this, scope) }
 
@@ -70,7 +71,11 @@ class MonitorService : Service() {
                     }
                     register()
                 }
-                Intent.ACTION_POWER_CONNECTED, Intent.ACTION_POWER_DISCONNECTED -> drain.onPowerChanged()
+                Intent.ACTION_POWER_CONNECTED -> drain.onPowerChanged()
+                Intent.ACTION_POWER_DISCONNECTED -> {
+                    drain.onPowerChanged()
+                    chargeLive.cancel() // do not wait for the next sample, which may be a minute away
+                }
             }
             background.onBroadcast(intent.action, now)
         }
@@ -84,6 +89,7 @@ class MonitorService : Service() {
         weekly = WeeklyNotifier(this, app.prefs, scope)
         chargeAlarm = ChargeAlarm(this, alerts)
         chargeHealth = ChargeHealthRecorder(ChargingStore.get(this))
+        chargeLive = ChargeLiveUpdate(this)
         // Continue the session that was running when the service stopped, if the plug state still matches.
         runCatching { app.history.sessions(1).firstOrNull() }.getOrNull()?.let { last ->
             val plugged = app.monitor.batteryNow().plugged
@@ -128,6 +134,7 @@ class MonitorService : Service() {
             }
         if (settings.alerts) alerts.check(s, fgLabel)
         weekly.check(s.timeMillis)
+        chargeLive.onSample(s, settings)
         chargeAlarm.check(s, settings) // follows settings.alerts itself, but keeps its session state either way
         background.onTick(s.timeMillis, s.battery.plugged)
         StorageGrowthRecorder.onTick(this, scope, s.timeMillis)
@@ -166,6 +173,7 @@ class MonitorService : Service() {
     override fun onDestroy() {
         runCatching { unregisterReceiver(receiver) }
         app.monitor.unregister(CLIENT)
+        chargeLive.cancel()
         // Keep what was measured since the last full minute.
         runCatching {
             val measured = drain.drain()

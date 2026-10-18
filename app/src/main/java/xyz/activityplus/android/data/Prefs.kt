@@ -36,6 +36,8 @@ data class Settings(
     val chargeLimit: Int = 0,
     val chargeFullAlarm: Boolean = false,
     val chargeWarmAlarm: Boolean = true,
+    /** Charging as an Android 16 Live Update; only has an effect there. */
+    val chargeLive: Boolean = true,
     val onboarded: Boolean = false,
     /** Reads Android's battery report every few hours; only with the computer grant. */
     val backgroundMeasure: Boolean = true,
@@ -68,6 +70,7 @@ class Prefs(context: Context) {
             chargeLimit = sp.getInt("chargeLimit", d.chargeLimit),
             chargeFullAlarm = sp.getBoolean("chargeFullAlarm", d.chargeFullAlarm),
             chargeWarmAlarm = sp.getBoolean("chargeWarmAlarm", d.chargeWarmAlarm),
+            chargeLive = sp.getBoolean("chargeLive", d.chargeLive),
             onboarded = sp.getBoolean("onboarded", d.onboarded),
             backgroundMeasure = sp.getBoolean("backgroundMeasure", d.backgroundMeasure),
         )
@@ -90,6 +93,7 @@ class Prefs(context: Context) {
             .putInt("chargeLimit", s.chargeLimit)
             .putBoolean("chargeFullAlarm", s.chargeFullAlarm)
             .putBoolean("chargeWarmAlarm", s.chargeWarmAlarm)
+            .putBoolean("chargeLive", s.chargeLive)
             .putBoolean("onboarded", s.onboarded)
             .putBoolean("backgroundMeasure", s.backgroundMeasure)
             .apply()
