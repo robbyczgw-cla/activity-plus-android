@@ -107,4 +107,22 @@ class DiagnosisTest {
         assertEquals(listOf("App 1", "App 2"), Diagnosis.run(input(wakeLimit = list)).map { it.app })
         assertTrue(Diagnosis.run(input()).none { it.kind == Kind.WAKELOCK_LIMIT })
     }
+
+    @Test fun aThrottlingAppIsNamedWithTheNumbersBehindIt() {
+        val a = Thermal.AppHeat("com.game", 300, 38.0, 44.0, 6800.0, throttledMinutes = 45, episodes = 4, episodeDays = 3, runs = emptyList())
+        val f = Diagnosis.run(input().copy(throttlers = listOf(a to "Game"))).single { it.kind == Kind.THROTTLING_APP }
+        assertEquals("Game", f.app)
+        assertEquals("com.game", f.pkg)
+        assertEquals(Diagnosis.Severity.WARN, f.severity)
+        assertEquals(4.0, f.values["episodes"]!!, 0.0)
+        assertEquals(3.0, f.values["days"]!!, 0.0)
+        assertEquals(45 * 60.0, f.values["seconds"]!!, 0.0)
+        assertEquals(44.0, f.values["temp"]!!, 0.0)
+        assertTrue(Diagnosis.run(input()).none { it.kind == Kind.THROTTLING_APP })
+    }
+
+    @Test fun throttlingAppsAreListedTwoAtMost() {
+        val list = (1..3).map { Thermal.AppHeat("app$it", 100, 38.0, 42.0, null, 30, 3, 2, emptyList()) to "App $it" }
+        assertEquals(listOf("App 1", "App 2"), Diagnosis.run(input().copy(throttlers = list)).map { it.app })
+    }
 }

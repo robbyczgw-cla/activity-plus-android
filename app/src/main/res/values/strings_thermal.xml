@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Heat and throttling (Hardware page, app detail, diagnosis) -->
+    <string name="th_title">Heat and throttling</string>
+    <string name="th_caption">Last 7 days</string>
+    <string name="th_none">Android did not slow the phone down because of heat in the last 7 days.</string>
+    <string name="th_total">Throttled</string>
+    <plurals name="th_times">
+        <item quantity="one">%d time</item>
+        <item quantity="other">%d times</item>
+    </plurals>
+    <string name="th_total_value">%1$s, %2$s in total</string>
+    <string name="th_longest">Longest stretch</string>
+    <string name="th_worst">Worst level</string>
+    <string name="th_recent">Latest stretches</string>
+    <string name="th_ongoing">Still on</string>
+    <string name="th_ep_sensor">%1$s at %2$s</string>
+    <plurals name="th_ep_cooling">
+        <item quantity="one">%d cooling device working</item>
+        <item quantity="other">%d cooling devices working</item>
+    </plurals>
+    <string name="th_apps_title">Heat per app</string>
+    <string name="th_app_power">%1$s on average</string>
+    <string name="th_app_max">up to %1$s</string>
+    <string name="th_after">throttled after %1$s</string>
+    <string name="th_at_once">throttled from the start</string>
+    <string name="th_for">throttled for %1$s</string>
+    <string name="th_apps_empty">No app has been on screen long enough yet. An app needs 10 minutes in the last 7 days.</string>
+    <string name="th_usage_hint">Heat per app needs usage access, to know which app is on screen.</string>
+    <string name="th_note">Temperatures are the battery\'s. Power is what the battery delivered while the app was on screen. Android calls a phone throttled from the level \"moderate\" on.</string>
+    <string name="th_grant_hint">With the computer grant the log also names the sensor Android blamed and the cooling devices at work.</string>
+    <string name="th_open_pro">Open pro mode</string>
+    <string name="th_detail_title">Heat on screen, last 7 days</string>
+    <string name="th_detail_time">Measured on screen</string>
+    <string name="th_detail_temp">Battery temperature</string>
+    <string name="th_detail_temp_value">Ø %1$s · max %2$s</string>
+    <string name="th_detail_power">Average power</string>
+    <string name="th_detail_throttled">Throttled</string>
+    <string name="th_regular_badge">Often throttled</string>
+    <string name="f_throttle_title">%1$s keeps making the phone throttle</string>
+    <string name="f_throttle_body">The phone slowed itself down because of heat %1$d times on %2$d days while this app was on screen (%3$s in total, battery up to %4$s). Lower its graphics quality or frame rate, or let the phone cool down first.</string>
+
+    <!-- Remaining time by your pattern (Battery page) -->
+    <string name="fc_title">Remaining time by your pattern</string>
+    <string name="fc_until_pattern">Lasts until about %1$s at your usual use</string>
+    <string name="fc_until_current">Lasts until about %1$s at the current rate</string>
+    <string name="fc_beyond">More than 3 days at your usual use</string>
+    <string name="fc_reaches">Reaches %1$s</string>
+    <string name="fc_current_rate">At the current rate</string>
+    <string name="fc_not_enough">Your pattern needs about a day of use on battery to be learned. Until then this is the estimate at the current rate.</string>
+    <string name="fc_chart_weekday">Your usual drain per hour of the day on weekdays, midnight to midnight</string>
+    <string name="fc_chart_weekend">Your usual drain per hour of the day at weekends, midnight to midnight</string>
+</resources>

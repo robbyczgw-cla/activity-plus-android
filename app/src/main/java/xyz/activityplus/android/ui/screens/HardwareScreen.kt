@@ -61,7 +61,7 @@ import xyz.activityplus.android.ui.theme.Metric
 private var cached: HardwareInfo? = null
 
 @Composable
-fun HardwareScreen() {
+fun HardwareScreen(onPro: () -> Unit = {}) {
     val context = LocalContext.current
     val (s, _) = rememberLive()
     val settings = rememberSettings()
@@ -88,6 +88,7 @@ fun HardwareScreen() {
         item { MediaCard(hw) }
         item { FeaturesCard(hw) }
         if (s != null) item { ThermalHwCard(s, settings.fahrenheit) }
+        item { HeatCard(onPro) }
         if (hw.sensors.isNotEmpty()) item { SensorsCard(hw.sensors) }
         if (powerRails == false) item { Note(stringResource(R.string.power_unsupported), Modifier.padding(horizontal = 4.dp)) }
         item { Note(stringResource(R.string.hw_note), Modifier.padding(horizontal = 4.dp)) }

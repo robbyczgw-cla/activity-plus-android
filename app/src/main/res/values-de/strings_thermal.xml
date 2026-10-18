@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Hitze und Drosselung (Hardware-Seite, App-Details, Diagnose) -->
+    <string name="th_title">Hitze und Drosselung</string>
+    <string name="th_caption">Letzte 7 Tage</string>
+    <string name="th_none">Android hat das Handy in den letzten 7 Tagen nicht wegen Hitze gedrosselt.</string>
+    <string name="th_total">Gedrosselt</string>
+    <plurals name="th_times">
+        <item quantity="one">%d Mal</item>
+        <item quantity="other">%d Mal</item>
+    </plurals>
+    <string name="th_total_value">%1$s, insgesamt %2$s</string>
+    <string name="th_longest">Längste Phase</string>
+    <string name="th_worst">Höchste Stufe</string>
+    <string name="th_recent">Letzte Phasen</string>
+    <string name="th_ongoing">Läuft noch</string>
+    <string name="th_ep_sensor">%1$s bei %2$s</string>
+    <plurals name="th_ep_cooling">
+        <item quantity="one">%d Kühlung aktiv</item>
+        <item quantity="other">%d Kühlungen aktiv</item>
+    </plurals>
+    <string name="th_apps_title">Hitze pro App</string>
+    <string name="th_app_power">im Schnitt %1$s</string>
+    <string name="th_app_max">bis zu %1$s</string>
+    <string name="th_after">nach %1$s gedrosselt</string>
+    <string name="th_at_once">von Anfang an gedrosselt</string>
+    <string name="th_for">%1$s lang gedrosselt</string>
+    <string name="th_apps_empty">Noch keine App war lange genug im Vordergrund. Eine App braucht 10 Minuten in den letzten 7 Tagen.</string>
+    <string name="th_usage_hint">Hitze pro App braucht den Zugriff auf Nutzungsdaten, um zu wissen, welche App im Vordergrund ist.</string>
+    <string name="th_note">Die Temperaturen sind die des Akkus. Die Leistung ist das, was der Akku abgegeben hat, während die App im Vordergrund war. Android spricht ab der Stufe „moderat“ von Drosselung.</string>
+    <string name="th_grant_hint">Mit der Computer-Freigabe nennt das Protokoll auch den Sensor, den Android verantwortlich macht, und die aktiven Kühlungen.</string>
+    <string name="th_open_pro">Profi-Modus öffnen</string>
+    <string name="th_detail_title">Hitze im Vordergrund, letzte 7 Tage</string>
+    <string name="th_detail_time">Im Vordergrund gemessen</string>
+    <string name="th_detail_temp">Akkutemperatur</string>
+    <string name="th_detail_temp_value">Ø %1$s · max. %2$s</string>
+    <string name="th_detail_power">Durchschnittliche Leistung</string>
+    <string name="th_detail_throttled">Gedrosselt</string>
+    <string name="th_regular_badge">Oft gedrosselt</string>
+    <string name="f_throttle_title">%1$s drosselt das Handy immer wieder</string>
+    <string name="f_throttle_body">Das Handy hat sich wegen Hitze %1$d Mal an %2$d Tagen gedrosselt, während diese App im Vordergrund war (insgesamt %3$s, Akku bis zu %4$s). Senke ihre Grafikqualität oder Bildrate oder lass das Handy erst abkühlen.</string>
+
+    <!-- Restzeit nach deinem Muster (Akku-Seite) -->
+    <string name="fc_title">Restzeit nach deinem Muster</string>
+    <string name="fc_until_pattern">Hält etwa bis %1$s bei deiner üblichen Nutzung</string>
+    <string name="fc_until_current">Hält etwa bis %1$s bei der aktuellen Rate</string>
+    <string name="fc_beyond">Mehr als 3 Tage bei deiner üblichen Nutzung</string>
+    <string name="fc_reaches">Erreicht %1$s</string>
+    <string name="fc_current_rate">Bei der aktuellen Rate</string>
+    <string name="fc_not_enough">Dein Muster braucht etwa einen Tag Nutzung im Akkubetrieb, um gelernt zu werden. Bis dahin gilt die Schätzung bei der aktuellen Rate.</string>
+    <string name="fc_chart_weekday">Dein üblicher Verbrauch pro Stunde des Tages, werktags, von Mitternacht bis Mitternacht</string>
+    <string name="fc_chart_weekend">Dein üblicher Verbrauch pro Stunde des Tages, am Wochenende, von Mitternacht bis Mitternacht</string>
+</resources>

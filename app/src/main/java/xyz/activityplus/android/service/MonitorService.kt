@@ -39,6 +39,7 @@ class MonitorService : Service() {
     private val labels = HashMap<String, String>()
     private val background by lazy { BackgroundSampler(this, scope) }
     private val night by lazy { NightRecorder(this, scope) }
+    private val thermal by lazy { ThermalRecorder(this, scope) }
 
     private var minuteStart = 0L
     private var powerSum = 0.0
@@ -112,6 +113,7 @@ class MonitorService : Service() {
         screenOn = getSystemService(android.os.PowerManager::class.java).isInteractive
         // Screen-off spans and Doze changes for the night check; its own receiver, as Doze needs one registered here.
         night.start()
+        thermal.start() // throttling log: Android's thermal status changes with the app on screen
         register()
         scope.launch { app.monitor.latest.filterNotNull().collect { onSample(it) } }
         scope.launch { app.prefs.settings.collect { register() } }
@@ -144,6 +146,7 @@ class MonitorService : Service() {
         StorageGrowthRecorder.onTick(this, scope, s.timeMillis)
         WakeupSampler.onTick(this, scope, s.timeMillis, s.battery.plugged)
         PowerRailSampler.onTick(this, scope, s.timeMillis)
+        thermal.onSample(s)
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis
@@ -179,6 +182,7 @@ class MonitorService : Service() {
     override fun onDestroy() {
         runCatching { unregisterReceiver(receiver) }
         night.stop()
+        thermal.stop()
         app.monitor.unregister(CLIENT)
         chargeLive.cancel()
         // Keep what was measured since the last full minute.
