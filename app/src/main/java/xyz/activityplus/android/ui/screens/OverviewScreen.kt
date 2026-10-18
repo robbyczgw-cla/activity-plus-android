@@ -199,6 +199,7 @@ fun diagnose(
             sinceUpdate = sinceUpdate,
             throttlers = throttlers,
             backgroundLocation = backgroundLocation,
+            dozeAlarms = cachedDozeAlarms(context, data.labels),
         )
     )
 }

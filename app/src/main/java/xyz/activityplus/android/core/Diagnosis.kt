@@ -14,6 +14,7 @@ object Diagnosis {
         SINCE_UPDATE,
         THROTTLING_APP,
         BACKGROUND_LOCATION,
+        DOZE_ALARM,
     }
 
     enum class Fix { STORAGE_SETTINGS, APP_INFO, BATTERY_SAVER, BATTERY_USAGE, DEVELOPER_OPTIONS, NONE }
@@ -63,6 +64,8 @@ object Diagnosis {
         val throttlers: List<Pair<Thermal.AppHeat, String>> = emptyList(),
         /** Apps that kept using location in the background (see [SensorLog.manyInBackground]) with the name to show. */
         val backgroundLocation: List<Pair<SensorLog.BackgroundUse, String>> = emptyList(),
+        /** Apps with a short repeating exact alarm allowed in Doze ([Schedule.costly]) with the name to show. */
+        val dozeAlarms: List<Pair<Schedule.Costly, String>> = emptyList(),
     )
 
     private const val GB = 1_000_000_000L
@@ -179,6 +182,13 @@ object Diagnosis {
             out += Finding(
                 Kind.BACKGROUND_LOCATION, Severity.WARN, Fix.APP_INFO, u.pkg, label,
                 values = mapOf("uses" to u.uses.toDouble()),
+            )
+        }
+        // Exact alarms allowed in Doze at least every half hour (Schedule.SHORT_INTERVAL_MS): each breaks deep sleep.
+        i.dozeAlarms.take(2).forEach { (c, label) ->
+            out += Finding(
+                Kind.DOZE_ALARM, Severity.WARN, Fix.APP_INFO, c.pkg, label,
+                values = mapOf("interval" to c.intervalMs / 1000.0, "tonight" to c.tonight.toDouble()),
             )
         }
 

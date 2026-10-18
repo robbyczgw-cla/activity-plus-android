@@ -22,9 +22,10 @@ class DiagnosisTest {
         health: Double? = 0.95, apps: List<AppUsage> = emptyList(),
         energy: Map<String, Pair<Double, Double>> = emptyMap(), animator: Float = 1f,
         wakeLimit: List<Pair<WakeLimit.Verdict, String>> = emptyList(),
+        dozeAlarms: List<Pair<Schedule.Costly, String>> = emptyList(),
     ) = Diagnosis.Input(
         free, total, avail, threshold, false, thermal, temp, false, uptime, health, BatteryHealth.GOOD,
-        animator, "Chrome", apps, energy, 4000.0, 3.9, now, wakeLimit = wakeLimit,
+        animator, "Chrome", apps, energy, 4000.0, 3.9, now, wakeLimit = wakeLimit, dozeAlarms = dozeAlarms,
     )
 
     @Test fun healthyPhoneHasNoFindings() {
@@ -124,5 +125,22 @@ class DiagnosisTest {
     @Test fun throttlingAppsAreListedTwoAtMost() {
         val list = (1..3).map { Thermal.AppHeat("app$it", 100, 38.0, 42.0, null, 30, 3, 2, emptyList()) to "App $it" }
         assertEquals(listOf("App 1", "App 2"), Diagnosis.run(input().copy(throttlers = list)).map { it.app })
+    }
+
+    @Test fun dozeAlarmNamesTheAppAndItsInterval() {
+        val c = Schedule.Costly("com.chat", 15 * 60_000L, 32)
+        val f = Diagnosis.run(input(dozeAlarms = listOf(c to "Chat"))).single { it.kind == Kind.DOZE_ALARM }
+        assertEquals("Chat", f.app)
+        assertEquals("com.chat", f.pkg)
+        assertEquals(Diagnosis.Severity.WARN, f.severity)
+        assertEquals(Diagnosis.Fix.APP_INFO, f.fix)
+        assertEquals(900.0, f.values["interval"]!!, 0.0)
+        assertEquals(32.0, f.values["tonight"]!!, 0.0)
+    }
+
+    @Test fun dozeAlarmListsAtMostTwoApps() {
+        val list = (1..3).map { Schedule.Costly("app$it", it * 60_000L, 10) to "App $it" }
+        assertEquals(listOf("App 1", "App 2"), Diagnosis.run(input(dozeAlarms = list)).map { it.app })
+        assertTrue(Diagnosis.run(input()).none { it.kind == Kind.DOZE_ALARM })
     }
 }

@@ -216,6 +216,7 @@ private fun AppDetail(row: AppRow, days: Int) {
         AppUpdateSection(u.pkg)
         AppHeatSection(u.pkg)
         AppSensorSection(u.pkg)
+        AppScheduleSection(u.pkg)
         Spacer(Modifier.height(10.dp))
         Note(stringResource(R.string.method_foreground))
         if (!u.pkg.startsWith("#")) {
