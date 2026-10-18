@@ -181,6 +181,7 @@ fun diagnose(
             ownPackage = context.packageName,
             vpnPackages = VpnApps.packages(context),
             wakeLimit = wakeLimit.values.map { it to appName(context, it.pkg, data.labels) },
+            dozeAlarms = cachedDozeAlarms(context, data.labels),
         )
     )
 }

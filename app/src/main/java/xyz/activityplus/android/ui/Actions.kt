@@ -24,6 +24,15 @@ object Actions {
     fun appInfo(context: Context, pkg: String) =
         launch(context, Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$pkg")))
 
+    /**
+     * The app's own "Alarms & reminders" page (Android 12+), where its exact alarms can be taken away;
+     * App info where that page is missing (older Android, or an app that never asked for exact alarms).
+     */
+    fun exactAlarms(context: Context, pkg: String) {
+        val direct = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:$pkg"))
+        if (Build.VERSION.SDK_INT < 31 || !launch(context, direct)) appInfo(context, pkg)
+    }
+
     fun usageAccess(context: Context) {
         // Some phones open the app's own page with the package URI; fall back to the list.
         val direct = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS, Uri.parse("package:${context.packageName}"))

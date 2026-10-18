@@ -1,0 +1,240 @@
+Power connected: false
+Battery charging: true
+Considered charging: true
+Battery level: 100
+Battery not low: true
+
+Started users: [0]
+
+Media Cloud Providers: {0=com.google.android.apps.photos}
+
+Registered 4 jobs:
+  JOB usagestats_mapping:1000/0: ab88493 @usagestats_mapping@android/com.android.server.usage.UsageStatsIdleService
+    1000 tag=*job*/@usagestats_mapping@android/com.android.server.usage.UsageStatsIdleService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.server.usage.UsageStatsIdleService
+      PERSISTED
+      Priority: 300 [DEFAULT]
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Extras: {user_id=0}
+      Minimum latency: +1d0h0m0s0ms
+      Max execution delay: +2d0h0m0s0ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: TIMING_DELAY DEADLINE FLEXIBILITY [0xc0200000]
+    Dynamic constraints:
+    Satisfied constraints: FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3600000]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Num Required Flexible constraints: 0
+    Num Dropped Flexible constraints: 0
+    Constraint history:
+      -2m0s111ms = FLEXIBILITY [0x200000]
+      -2m0s111ms = FLEXIBILITY BACKGROUND_NOT_RESTRICTED [0x600000]
+      -2m0s111ms = FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2600000]
+      -2m0s111ms = FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3600000]
+    Uid: active
+    Tracking: TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyDeadlineSatisfied: false
+      readyComponentEnabled: true
+    Started with foreground flag: false
+    Standby bucket: EXEMPTED
+    Enqueue time: -2m0s111ms
+    Run time: earliest=+23h57m59s889ms, latest=+1d23h57m59s889ms, original latest=+1d23h57m59s889ms
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB VirtualizationSystemService:1000/1: bf6f9d0 @VirtualizationSystemService@android/com.android.system.virtualmachine.SecretkeeperJobService
+    1000 tag=*job*/@VirtualizationSystemService@android/com.android.system.virtualmachine.SecretkeeperJobService
+    Source: uid=1000 user=0 pkg=android
+    JobInfo:
+      Service: android/com.android.system.virtualmachine.SecretkeeperJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Priority: 300 [DEFAULT]
+      Requires: charging=true batteryNotLow=false deviceIdle=true
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: CHARGING TIMING_DELAY DEADLINE IDLE FLEXIBILITY [0xc0200005]
+    Dynamic constraints:
+    Satisfied constraints: CHARGING BATTERY_NOT_LOW TIMING_DELAY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83600003]
+    Unsatisfied constraints: DEADLINE IDLE [0x40000004]
+    Num Required Flexible constraints: 0
+    Num Dropped Flexible constraints: 0
+    Constraint history:
+      -2m0s721ms = FLEXIBILITY [0x200000]
+      -2m0s721ms = TIMING_DELAY FLEXIBILITY [0x80200000]
+      -2m0s721ms = CHARGING TIMING_DELAY FLEXIBILITY [0x80200001]
+      -2m0s721ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY FLEXIBILITY [0x80200003]
+      -2m0s721ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY FLEXIBILITY BACKGROUND_NOT_RESTRICTED [0x80600003]
+      -2m0s721ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x82600003]
+      -2m0s721ms = CHARGING BATTERY_NOT_LOW TIMING_DELAY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x83600003]
+    Uid: active
+    Tracking: BATTERY IDLE TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Started with foreground flag: false
+    Standby bucket: EXEMPTED
+    Enqueue time: -2m0s721ms
+    Run time: earliest=-2m0s722ms, latest=+23h57m59s278ms, original latest=+23h57m59s278ms
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a130/50: 62a4f98 com.google.android.apps.safetyhub/androidx.work.impl.background.systemjob.SystemJobService
+    u0a130 tag=*job*/com.google.android.apps.safetyhub/androidx.work.impl.background.systemjob.SystemJobService
+    Source: uid=u0a130 user=0 pkg=com.google.android.apps.safetyhub
+    JobInfo:
+      Service: com.google.android.apps.safetyhub/androidx.work.impl.background.systemjob.SystemJobService
+      Priority: 300 [DEFAULT]
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Extras: mParcelledData.dataSize=248
+      Minimum latency: +5h0m44s22ms
+      Backoff: policy=1 initial=+30s0ms
+      Has early constraint
+    Required constraints: TIMING_DELAY FLEXIBILITY [0x80200000]
+    Dynamic constraints:
+    Satisfied constraints: FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3600000]
+    Unsatisfied constraints: TIMING_DELAY [0x80000000]
+    Num Required Flexible constraints: 0
+    Num Dropped Flexible constraints: 0
+    Constraint history:
+      -1m43s283ms = FLEXIBILITY [0x200000]
+      -1m43s283ms = FLEXIBILITY BACKGROUND_NOT_RESTRICTED [0x600000]
+      -1m43s283ms = FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x2600000]
+      -1m43s283ms = FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3600000]
+    Tracking: TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Started with foreground flag: false
+    Standby bucket: EXEMPTED
+    Enqueue time: -1m43s283ms
+    Run time: earliest=+4h59m0s739ms, latest=none, original latest=none
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+  JOB #u0a134/30000: 91bf556 com.google.android.apps.messaging/com.google.android.ims.metrics.PeriodicMetricsJobService
+    u0a134 tag=*job*/com.google.android.apps.messaging/com.google.android.ims.metrics.PeriodicMetricsJobService
+    Source: uid=u0a134 user=0 pkg=com.google.android.apps.messaging
+    JobInfo:
+      Service: com.google.android.apps.messaging/com.google.android.ims.metrics.PeriodicMetricsJobService
+      PERIODIC: interval=+1d0h0m0s0ms flex=+1d0h0m0s0ms
+      Priority: 300 [DEFAULT]
+      Requires: charging=false batteryNotLow=false deviceIdle=false
+      Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&TRUSTED&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10134 UnderlyingNetworks: Null] ]
+      Backoff: policy=0 initial=+1h0m0s0ms
+      Has early constraint
+      Has late constraint
+    Required constraints: TIMING_DELAY DEADLINE CONNECTIVITY FLEXIBILITY [0xd0200000]
+    Dynamic constraints:
+    Satisfied constraints: CONNECTIVITY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x13600000]
+    Unsatisfied constraints: TIMING_DELAY DEADLINE [0xc0000000]
+    Num Required Flexible constraints: 0
+    Num Dropped Flexible constraints: 0
+    Constraint history:
+      -1m52s81ms = FLEXIBILITY [0x200000]
+      -1m52s81ms = CONNECTIVITY FLEXIBILITY [0x10200000]
+      -1m52s81ms = CONNECTIVITY FLEXIBILITY BACKGROUND_NOT_RESTRICTED [0x10600000]
+      -1m52s81ms = CONNECTIVITY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED [0x12600000]
+      -1m52s81ms = CONNECTIVITY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x13600000]
+      -1m51s239ms = FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x3600000]
+      -1m50s986ms = CONNECTIVITY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0x13600000]
+    Uid: active
+    Tracking: CONNECTIVITY TIME QUOTA
+    Implicit constraints:
+      readyNotDozing: true
+      readyNotRestrictedInBg: true
+      readyComponentEnabled: true
+    Started with foreground flag: false
+    Network: 101
+    Standby bucket: ACTIVE
+    Enqueue time: -1m52s81ms
+    Run time: earliest=+23h58m7s743ms, latest=+1d23h58m7s743ms, original latest=+1d23h58m7s743ms
+    Last successful run: 2026-10-18 21:47:56
+    Restricted due to: none.
+    Ready: false (job=false user=true !restricted=true !pending=true !active=true !backingup=true comp=true)
+
+PrefetchController:
+  Cached launch times:
+  
+
+Current stats at 2026-10-18-21-47-37 (-2m10s756ms) over +2m10s756ms:
+  Max concurrency: 7 total, 2 foreground
+  
+  1000 / android:
+    1x pending 1x active 
+    1x successful_finish
+  1000 / com.android.settings:
+    1x pending 1x active 
+    1x successful_finish
+  u0a101 / com.android.providers.calendar:
+    1x pending 1x active 
+    1x successful_finish
+  u0a130 / com.google.android.apps.safetyhub:
+    1x pending 1x active 
+    1x successful_finish
+  u0a131 / com.google.android.as.oss:
+    1x pending 1x active 
+    1x canceled
+  u0a132 / com.google.android.partnersetup:
+    4x pending 2x active 
+    4x successful_finish
+  u0a134 / com.google.android.apps.messaging:
+    11x pending 4% 7x active 
+    1x unknown:-1, 10x successful_finish
+  u0a137 / com.google.android.as:
+    10x pending 7% 1x active 
+    1x unknown:-1, 8x successful_finish
+
+  Job history:
+        -1m45s652ms    STOP: #u0a143/770 @androidx.work.systemjobscheduler@com.google.android.googlequicksearchbox/androidx.work.impl.background.systemjob.SystemJobService app called jobFinished
+        -1m45s630ms   START: #u0a143/771 @androidx.work.systemjobscheduler@com.google.android.googlequicksearchbox/androidx.work.impl.background.systemjob.SystemJobService
+        -1m45s580ms   START: #u0a143/2000010999 com.google.android.googlequicksearchbox/com.google.android.libraries.notifications.entrypoints.scheduled.ScheduledTaskService
+        -1m45s565ms    STOP: #u0a143/771 @androidx.work.systemjobscheduler@com.google.android.googlequicksearchbox/androidx.work.impl.background.systemjob.SystemJobService canceled
+        -1m45s557ms    STOP: #u0a143/2000010999 com.google.android.googlequicksearchbox/com.google.android.libraries.notifications.entrypoints.scheduled.ScheduledTaskService app called jobFinished
+        -1m45s231ms   START: #u0a168/1043 com.google.android.apps.photos/com.google.android.libraries.social.async.BackgroundTaskJobService
+        -1m44s147ms  STOP-P: #u0a134/1573857706 com.google.android.apps.messaging/com.google.android.libraries.internal.growth.growthkit.internal.jobs.impl.GrowthKitJobService app called jobFinished
+        -1m44s136ms   START: #u0a134/1424 @androidx.work.systemjobscheduler@com.google.android.apps.messaging/androidx.work.impl.background.systemjob.SystemJobService
+        -1m43s737ms   START: #u0a134/1425 @androidx.work.systemjobscheduler@com.google.android.apps.messaging/androidx.work.impl.background.systemjob.SystemJobService
+        -1m43s678ms    STOP: #u0a134/1425 @androidx.work.systemjobscheduler@com.google.android.apps.messaging/androidx.work.impl.background.systemjob.SystemJobService app called jobFinished
+        -1m42s850ms  STOP-P: #u0a134/1573857705 com.google.android.apps.messaging/com.google.android.libraries.internal.growth.growthkit.internal.jobs.impl.GrowthKitJobService app called jobFinished
+        -1m42s845ms   START: #u0a168/1028 com.google.android.apps.photos/.account.full.SyncAccountsForLoginService
+        -1m42s829ms    STOP: #u0a168/1028 com.google.android.apps.photos/.account.full.SyncAccountsForLoginService app called jobFinished
+        -1m42s827ms   START: #u0a130/111010999 com.google.android.apps.safetyhub/com.google.android.libraries.notifications.entrypoints.scheduled.ScheduledTaskService
+          -25s675ms    STOP: #u0a134/105 com.google.android.apps.messaging/.shared.datamodel.action.execution.ActionJobService app called jobFinished
+           -1s752ms   START: #u0a168/1033 com.google.android.apps.photos/.dbprocessor.impl.DatabaseProcessorJobService
+           -1s723ms    STOP: #u0a168/1033 com.google.android.apps.photos/.dbprocessor.impl.DatabaseProcessorJobService app called jobFinished
+             -197ms   START: #u0a143/-353 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.tasks.BackgroundTasksJobService
+              -71ms    STOP: #u0a143/-353 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.tasks.BackgroundTasksJobService canceled
+
+
+Pending queue:
+  None
+
+Active jobs:
+  N/A
+
+
+Recently completed jobs:
+  -22ms
+      1585608 #u0a143/-353 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.tasks.BackgroundTasksJobService
+      u0a143 tag=*job*/com.google.android.googlequicksearchbox/com.google.android.apps.gsa.tasks.BackgroundTasksJobService
+      Source: uid=u0a143 user=0 pkg=com.google.android.googlequicksearchbox
+      JobInfo:
+        Service: com.google.android.googlequicksearchbox/com.google.android.apps.gsa.tasks.BackgroundTasksJobService
+        Priority: 300 [DEFAULT]
+        Requires: charging=false batteryNotLow=false deviceIdle=false
+        Extras: mParcelledData.dataSize=176
+        Network type: NetworkRequest [ NONE id=0, [ Capabilities: INTERNET&TRUSTED&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10143 UnderlyingNetworks: Null] ]
+        Minimum latency: +1m0s0ms
+        Max execution delay: +1m0s0ms
+        Backoff: policy=1 initial=+30s0ms
+        Has early constraint
+        Has late constraint
+      Required constraints: TIMING_DELAY DEADLINE CONNECTIVITY FLEXIBILITY [0xd0200000]
+      Dynamic constraints:
+      Satisfied constraints: TIMING_DELAY DEADLINE CONNECTIVITY FLEXIBILITY DEVICE_NOT_DOZING BACKGROUND_NOT_RESTRICTED WITHIN_QUOTA [0xd3600000]

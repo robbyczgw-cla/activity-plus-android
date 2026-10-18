@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- What apps have planned: alarms and jobs (dumpsys alarm / jobscheduler, computer grant or Shizuku) -->
+    <string name="sc_title">Planned for tonight</string>
+    <string name="sc_caption">What apps have set</string>
+    <string name="sc_hint">See which app will wake the phone next and how often apps plan to. Needs the computer grant or Shizuku on the pro page.</string>
+    <string name="sc_reading">Reading the alarms and jobs apps have set …</string>
+    <string name="sc_failed">Android did not hand out its alarm list. Try again later.</string>
+    <string name="sc_shizuku">Read the alarms and jobs apps have set, through Shizuku. Nothing is read in the background.</string>
+    <string name="sc_read_now">Read now</string>
+    <string name="sc_read_again">Read again</string>
+    <string name="sc_night">Tonight, %1$s</string>
+    <string name="sc_quiet">No app plans to wake the phone tonight.</string>
+    <plurals name="sc_tonight_count">
+        <item quantity="one">%d wakeup tonight</item>
+        <item quantity="other">%d wakeups tonight</item>
+    </plurals>
+    <string name="sc_next">Next wakeup %1$s</string>
+    <string name="sc_then_every">then every %1$s</string>
+    <string name="sc_then_about">then about every %1$s</string>
+    <string name="sc_in_doze">allowed in Doze</string>
+    <string name="sc_exact">exact</string>
+    <string name="sc_alarm_clock">Alarm clock %1$s</string>
+    <string name="sc_badge_doze">Exact in Doze</string>
+    <string name="sc_badge_jobs">Frequent jobs</string>
+    <plurals name="sc_jobs_count">
+        <item quantity="one">%d background job on battery</item>
+        <item quantity="other">%d background jobs on battery</item>
+    </plurals>
+    <string name="sc_explain">Exact alarms allowed in Doze are the costly kind: they go off on time even in deep sleep, and each one wakes the phone on its own. Ordinary alarms and jobs wait for Doze\'s short maintenance windows and share them.</string>
+    <string name="sc_note">What apps have planned right now; they can change it any time. Read only while you look. Tap an app for details.</string>
+    <string name="sc_detail_title">Planned wakeups and jobs</string>
+    <string name="sc_since_start">Wakeups since the phone started</string>
+    <string name="sc_in">%1$s in %2$s</string>
+    <string name="sc_jobs_title">Background jobs</string>
+    <string name="sc_job_every">every %1$s</string>
+    <string name="sc_job_once">once</string>
+    <string name="sc_job_network">needs internet</string>
+    <string name="sc_job_wifi">Wi-Fi only</string>
+    <string name="sc_job_charging">only while charging</string>
+    <string name="sc_job_battery">also on battery</string>
+    <string name="sc_job_idle">when the phone is idle</string>
+    <string name="sc_job_last">last run %1$s</string>
+    <string name="sc_job_runs">Jobs started lately</string>
+    <string name="sc_more">+ %1$d more</string>
+    <string name="sc_exact_alarms">Alarms &amp; reminders</string>
+    <string name="sc_fix">In App info under Battery you can restrict the app\'s background use. Under Alarms &amp; reminders you can take away its exact alarms. Activity+ never changes this itself.</string>
+    <!-- Diagnosis finding -->
+    <string name="f_dozealarm_title">%1$s wakes the phone every %2$s, even in Doze</string>
+    <string name="f_dozealarm_body">It sets an exact alarm that may go off in Doze, about every %1$s. Each one pulls the phone out of deep sleep, all night long. In App info under Battery you can restrict it; Planned for tonight on the Battery screen also opens its Alarms &amp; reminders page.</string>
+</resources>

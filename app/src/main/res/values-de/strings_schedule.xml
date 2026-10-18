@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Was Apps geplant haben: Alarme und Jobs (dumpsys alarm / jobscheduler, Freigabe vom Computer oder Shizuku) -->
+    <string name="sc_title">Für heute Nacht geplant</string>
+    <string name="sc_caption">Was Apps gestellt haben</string>
+    <string name="sc_hint">Sieh, welche App das Handy als Nächstes weckt und wie oft Apps das vorhaben. Dafür brauchst du die Freigabe vom Computer oder Shizuku auf der Pro-Seite.</string>
+    <string name="sc_reading">Lese die Alarme und Jobs, die Apps gestellt haben …</string>
+    <string name="sc_failed">Android hat seine Alarmliste nicht herausgegeben. Versuch es später noch einmal.</string>
+    <string name="sc_shizuku">Lies über Shizuku die Alarme und Jobs, die Apps gestellt haben. Im Hintergrund wird nichts gelesen.</string>
+    <string name="sc_read_now">Jetzt lesen</string>
+    <string name="sc_read_again">Neu lesen</string>
+    <string name="sc_night">Heute Nacht, %1$s</string>
+    <string name="sc_quiet">Keine App hat vor, das Handy heute Nacht zu wecken.</string>
+    <plurals name="sc_tonight_count">
+        <item quantity="one">heute Nacht %d-mal</item>
+        <item quantity="other">heute Nacht %d-mal</item>
+    </plurals>
+    <string name="sc_next">Nächstes Wecken %1$s</string>
+    <string name="sc_then_every">dann alle %1$s</string>
+    <string name="sc_then_about">dann etwa alle %1$s</string>
+    <string name="sc_in_doze">auch im Doze</string>
+    <string name="sc_exact">exakt</string>
+    <string name="sc_alarm_clock">Wecker %1$s</string>
+    <string name="sc_badge_doze">Exakt im Doze</string>
+    <string name="sc_badge_jobs">Häufige Jobs</string>
+    <plurals name="sc_jobs_count">
+        <item quantity="one">%d Hintergrundjob im Akkubetrieb</item>
+        <item quantity="other">%d Hintergrundjobs im Akkubetrieb</item>
+    </plurals>
+    <string name="sc_explain">Exakte Alarme, die im Doze erlaubt sind, kosten am meisten: Sie kommen auch im Tiefschlaf pünktlich, und jeder weckt das Handy für sich allein. Normale Alarme und Jobs warten auf die kurzen Wartungsfenster des Doze und teilen sie sich.</string>
+    <string name="sc_note">Was Apps gerade geplant haben; sie können es jederzeit ändern. Gelesen wird nur, solange du hinsiehst. Tippe auf eine App für Details.</string>
+    <string name="sc_detail_title">Geplantes Wecken und Jobs</string>
+    <string name="sc_since_start">Geweckt seit dem Start des Handys</string>
+    <string name="sc_in">%1$s in %2$s</string>
+    <string name="sc_jobs_title">Hintergrundjobs</string>
+    <string name="sc_job_every">alle %1$s</string>
+    <string name="sc_job_once">einmal</string>
+    <string name="sc_job_network">braucht Internet</string>
+    <string name="sc_job_wifi">nur im WLAN</string>
+    <string name="sc_job_charging">nur beim Laden</string>
+    <string name="sc_job_battery">auch im Akkubetrieb</string>
+    <string name="sc_job_idle">wenn das Handy ruht</string>
+    <string name="sc_job_last">zuletzt %1$s</string>
+    <string name="sc_job_runs">Zuletzt gestartete Jobs</string>
+    <string name="sc_more">+ %1$d weitere</string>
+    <string name="sc_exact_alarms">Wecker und Erinnerungen</string>
+    <string name="sc_fix">In der App-Info kannst du unter Akku die Hintergrundnutzung der App einschränken. Unter Wecker und Erinnerungen kannst du ihr exakte Alarme entziehen. Activity+ ändert das nie selbst.</string>
+    <!-- Diagnose-Befund -->
+    <string name="f_dozealarm_title">%1$s weckt das Handy alle %2$s, auch im Doze</string>
+    <string name="f_dozealarm_body">Die App stellt einen exakten Alarm, der auch im Doze kommen darf, etwa alle %1$s. Jeder holt das Handy aus dem Tiefschlaf, die ganze Nacht lang. In der App-Info kannst du sie unter Akku einschränken; „Für heute Nacht geplant“ auf der Akku-Seite öffnet auch ihre Seite „Wecker und Erinnerungen“.</string>
+</resources>

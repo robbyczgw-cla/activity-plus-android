@@ -11,6 +11,7 @@ object Diagnosis {
     enum class Kind {
         STORAGE_FULL, LOW_MEMORY, HOT, POWER_SAVE, TOP_DRAIN_APP, BACKGROUND_SERVICE,
         BACKGROUND_DATA, SCREEN_OFF_DRAIN, BATTERY_WORN, LONG_UPTIME, SLOW_ANIMATIONS, UNUSED_APPS, WAKELOCK_LIMIT,
+        DOZE_ALARM,
     }
 
     enum class Fix { STORAGE_SETTINGS, APP_INFO, BATTERY_SAVER, BATTERY_USAGE, DEVELOPER_OPTIONS, NONE }
@@ -54,6 +55,8 @@ object Diagnosis {
         val vpnPackages: Set<String> = emptySet(),
         /** Apps regularly above Google's wakelock limit (see [WakeLimit.flagged]) with the name to show. */
         val wakeLimit: List<Pair<WakeLimit.Verdict, String>> = emptyList(),
+        /** Apps with a short repeating exact alarm allowed in Doze ([Schedule.costly]) with the name to show. */
+        val dozeAlarms: List<Pair<Schedule.Costly, String>> = emptyList(),
     )
 
     private const val GB = 1_000_000_000L
@@ -134,6 +137,14 @@ object Diagnosis {
             out += Finding(
                 Kind.WAKELOCK_LIMIT, Severity.WARN, Fix.APP_INFO, v.pkg, label,
                 values = mapOf("days" to v.exceededDays.toDouble(), "measured" to v.measuredDays.toDouble(), "worst" to v.worstMs / 1000.0),
+            )
+        }
+
+        // Exact alarms allowed in Doze at least every half hour (Schedule.SHORT_INTERVAL_MS): each breaks deep sleep.
+        i.dozeAlarms.take(2).forEach { (c, label) ->
+            out += Finding(
+                Kind.DOZE_ALARM, Severity.WARN, Fix.APP_INFO, c.pkg, label,
+                values = mapOf("interval" to c.intervalMs / 1000.0, "tonight" to c.tonight.toDouble()),
             )
         }
 

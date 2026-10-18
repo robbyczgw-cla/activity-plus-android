@@ -54,6 +54,7 @@ fun DiagnosisScreen() {
     val result = rememberLoaded(access, run, ready) {
         val data = loadApps(1, withStorage = true)
         val snapshot = app.monitor.latest.value ?: return@rememberLoaded null
+        loadSchedule(context) // fresh alarms for the Doze alarm finding; the grant only, never Shizuku
         diagnose(context, snapshot, data, loadWakeLimit(context))
     }
 
