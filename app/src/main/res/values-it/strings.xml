@@ -434,7 +434,7 @@
     <string name="pro_memory_note">PSS: memoria usata da un\'app; la memoria condivisa viene divisa tra le app che la condividono.</string>
     <string name="pro_cpu_title">CPU per app, ultimi 1,5 minuti</string>
     <string name="pro_cpu_note" formatted="false">Percentuale di un core; oltre 100 % un\'app usa più core.</string>
-    <string name="pro_privacy">La modalità pro esegue solo tre report di sola lettura: dumpsys batterystats, meminfo e cpuinfo. Ogni altro comando viene rifiutato, e Activity+ non ha l\'autorizzazione Internet.</string>
+    <string name="pro_privacy">La modalità pro esegue solo tre report di sola lettura: dumpsys batterystats, meminfo e cpuinfo e, se lo chiedi, concede ad Activity+ i propri permessi di lettura. Ogni altro comando viene rifiutato, e Activity+ non ha l\'autorizzazione Internet.</string>
     <string name="pro_entry_title">Misura con precisione</string>
     <string name="pro_entry_body">Batteria, memoria e CPU per app, anche in background. Modalità pro con Shizuku.</string>
     <string name="pro_entry_last">Ultima misurazione %1$s</string>

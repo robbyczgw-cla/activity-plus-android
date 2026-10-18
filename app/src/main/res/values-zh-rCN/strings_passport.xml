@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 电池护照，位于健康状况卡片下方 -->
+    <string name="passport_title">电池护照</string>
+    <string name="passport_made">出厂</string>
+    <string name="passport_in_use">使用中</string>
+    <string name="passport_under_month">不足一个月</string>
+    <plurals name="passport_months">
+        <item quantity="other">%d 个月</item>
+    </plurals>
+    <string name="passport_cycles_month">每月循环次数</string>
+    <string name="passport_policy">充电策略</string>
+    <string name="passport_policy_standard">标准</string>
+    <string name="passport_policy_limited">限制</string>
+    <string name="passport_policy_adaptive">自适应</string>
+    <string name="passport_policy_long_life">长寿命</string>
+    <string name="passport_part">电池部件</string>
+    <string name="passport_part_original">原装</string>
+    <string name="passport_part_replaced">已更换</string>
+    <string name="passport_soh">Android 报告的健康状况</string>
+    <string name="passport_level">容量等级</string>
+    <string name="passport_level_critical">严重</string>
+    <string name="passport_level_low">低</string>
+    <string name="passport_level_normal">正常</string>
+    <string name="passport_level_high">高</string>
+    <string name="passport_level_full">满</string>
+    <string name="passport_agree">两者都约为 %1$s。</string>
+    <string name="passport_differ">Android 显示 %1$s，测量结果为 %2$s。</string>
+    <string name="passport_differ_settling">Android 显示 %1$s，测量结果为 %2$s；测量需要几次完整充电后才能稳定。</string>
+    <string name="passport_more">授予读取权限后可查看更多数据（健康状况、日期）</string>
+</resources>

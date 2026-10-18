@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dove va la potenza (pagina batteria), 0.4.0 -->
+    <string name="power_title">Dove va la potenza</string>
+    <string name="power_covered">%1$s di dati</string>
+    <string name="power_now">Adesso</string>
+    <string name="power_hour">Ultima ora</string>
+    <string name="power_today">Oggi</string>
+    <string name="power_measured">misurato nel telefono</string>
+    <string name="power_rest">Resto del telefono</string>
+    <string name="power_rest_note">La batteria eroga più di quanto sommino le parti sopra: perdite del caricabatterie e componenti senza misuratore.</string>
+    <string name="power_wait_now">Misurazione in corso, un momento …</string>
+    <string name="power_wait">Raccolta dati. Android sfoca queste letture, quindi per una media utile servono circa %1$s di misurazione.</string>
+    <string name="power_note_exact">Letture esatte dai misuratori di potenza del telefono, più volte al secondo.</string>
+    <string name="power_note_coarse">Android fornisce solo letture sfocate: un valore nuovo ogni 20 secondi, con rumore casuale. Activity+ mostra quindi medie su minuti e ore, non l\'istante.</string>
+    <string name="power_get_exact">Ottieni letture esatte</string>
+    <string name="power_details_show">Mostra tutti i misuratori</string>
+    <string name="power_details_hide">Nascondi i misuratori</string>
+    <string name="power_not_added">non conteggiato</string>
+    <string name="power_cat_display">Display</string>
+    <string name="power_cat_cpu">CPU</string>
+    <string name="power_cat_gpu">GPU</string>
+    <string name="power_cat_radio">Rete mobile</string>
+    <string name="power_cat_wifi">Wi-Fi e Bluetooth</string>
+    <string name="power_cat_camera">Fotocamera</string>
+    <string name="power_cat_memory">Memoria</string>
+    <string name="power_cat_gnss">Posizione (GNSS)</string>
+    <string name="power_cat_audio">Audio</string>
+    <string name="power_cat_other">Altro</string>
+    <string name="power_unsupported">Questo telefono non segnala la potenza per componente.</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 0.4.0 で追加した読み取り権限（プロページ） -->
+    <string name="grants_title">利用できる計測項目が増えます</string>
+    <string name="grants_body">読み取り権限を 2 つ追加すると、アプリごとの起床と wakelock、バッテリー自体のデータ（状態・日付）、部品ごとの正確な消費電力が見られるようになります。</string>
+    <string name="grants_shizuku">Shizuku で許可する</string>
+    <string name="grants_failed">うまくいきませんでした。代わりに、セットアップガイドのパソコン用のコマンドを使ってください。</string>
+    <string name="grants_computer">パソコンからもう一度コマンドを実行してください（タップでコピー）。今回から権限も含まれています。</string>
+    <string name="grants_safe">この権限で Activity+ ができるのは読み取りだけです。銀行アプリには影響せず、後から開発者向けオプションをオフに戻せます。</string>
+</resources>

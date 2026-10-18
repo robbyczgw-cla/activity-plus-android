@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Para onde vai a energia (página da bateria), 0.4.0 -->
+    <string name="power_title">Para onde vai a energia</string>
+    <string name="power_covered">%1$s de dados</string>
+    <string name="power_now">Agora</string>
+    <string name="power_hour">Última hora</string>
+    <string name="power_today">Hoje</string>
+    <string name="power_measured">medido no celular</string>
+    <string name="power_rest">Resto do celular</string>
+    <string name="power_rest_note">A bateria entrega mais do que as partes acima somam: perdas do carregador e peças sem medidor.</string>
+    <string name="power_wait_now">Medindo, um momento …</string>
+    <string name="power_wait">Coletando dados. O Android embaça essas leituras, então uma média útil precisa de cerca de %1$s de medição.</string>
+    <string name="power_note_exact">Leituras exatas dos medidores de energia do próprio celular, várias vezes por segundo.</string>
+    <string name="power_note_coarse">O Android só entrega leituras embaçadas: um valor novo a cada 20 segundos, com ruído aleatório por cima. Por isso o Activity+ mostra médias de minutos e horas, não o momento.</string>
+    <string name="power_get_exact">Ativar leituras exatas</string>
+    <string name="power_details_show">Mostrar todos os medidores</string>
+    <string name="power_details_hide">Ocultar medidores</string>
+    <string name="power_not_added">não somado</string>
+    <string name="power_cat_display">Tela</string>
+    <string name="power_cat_cpu">CPU</string>
+    <string name="power_cat_gpu">GPU</string>
+    <string name="power_cat_radio">Rádio móvel</string>
+    <string name="power_cat_wifi">Wi-Fi e Bluetooth</string>
+    <string name="power_cat_camera">Câmera</string>
+    <string name="power_cat_memory">Memória</string>
+    <string name="power_cat_gnss">Localização (GNSS)</string>
+    <string name="power_cat_audio">Áudio</string>
+    <string name="power_cat_other">Outros</string>
+    <string name="power_unsupported">Este celular não informa a energia por componente.</string>
+</resources>

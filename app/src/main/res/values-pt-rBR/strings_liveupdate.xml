@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Carregamento como atualização ao vivo (Android 16) -->
+    <string name="cl_channel">Carregamento</string>
+    <string name="cl_channel_desc">Nível da bateria, potência de carregamento e tempo até o seu limite de carga ou até a carga completa, mostrados como atualização ao vivo enquanto o celular carrega.</string>
+    <string name="cl_title_charging">Carregando: %1$s</string>
+    <string name="cl_title_holding">Conectado a %1$s</string>
+    <string name="cl_title_full">Totalmente carregado</string>
+    <string name="cl_title_warm">Esquentando ao carregar: %1$s</string>
+    <string name="cl_charging">Carregando</string>
+    <string name="cl_not_charging">Não está carregando agora</string>
+    <string name="cl_unplug">Pode desconectar agora</string>
+    <string name="cl_target_limit">%1$s em %2$s</string>
+    <string name="cl_target_full">Cheia em %1$s</string>
+
+    <!-- Configurações -->
+    <string name="cl_set_title">Carregamento como atualização ao vivo</string>
+    <string name="cl_set_hint">Mostra durante o carregamento o nível da bateria, a potência e o tempo até a carga completa na barra de status e na tela de bloqueio. Seu limite de carga aparece como uma marca na barra.</string>
+    <string name="cl_set_blocked">No momento o Android não deixa o Activity+ mostrar atualizações ao vivo. Permita nas configurações de notificação do app.</string>
+    <string name="cl_set_open">Abrir configurações de notificação</string>
+</resources>

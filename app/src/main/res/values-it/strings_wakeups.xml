@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Chi ha svegliato il telefono (permesso BATTERY_STATS nella pagina pro) -->
+    <string name="wk_title">Chi ha svegliato il telefono</string>
+    <string name="wk_caption">Contatori di Android</string>
+    <string name="wk_hint">Scopri quali app svegliano il telefono e lo tengono sveglio di notte. Nella pagina pro serve un altro permesso di lettura.</string>
+    <string name="wk_empty">Non è ancora stato conteggiato nulla. Android conta solo a batteria; la prossima lettura arriva entro mezz\'ora.</string>
+    <string name="wk_night">Ieri notte, %1$s</string>
+    <string name="wk_today">Oggi</string>
+    <string name="wk_quiet">Nessuna app si è distinta.</string>
+    <string name="wk_cpu">CPU %1$s</string>
+    <plurals name="wk_wakeups">
+        <item quantity="one">%d risveglio</item>
+        <item quantity="other">%d risvegli</item>
+    </plurals>
+    <string name="wk_explain">Un risveglio è una sveglia che fa uscire il telefono dal sonno; un wakelock lo tiene sveglio con lo schermo spento. Entrambi consumano batteria mentre non usi il telefono.</string>
+    <string name="wk_note">Conteggiato da Android, solo a batteria. Tocca un\'app per vedere la sua settimana.</string>
+    <string name="wk_fix">In Info app, alla voce Batteria, puoi limitarne l\'uso in background. Activity+ non cambia mai questa impostazione da solo.</string>
+    <string name="wk_detail_title">Risvegli e wakelock, ultimi 7 giorni</string>
+    <string name="wk_detail_wakeups">Ha svegliato il telefono oggi</string>
+    <string name="wk_detail_awake">Lo ha tenuto sveglio oggi</string>
+    <string name="wk_detail_cpu">Tempo CPU oggi</string>
+    <string name="wk_detail_jobs">Attività in background oggi</string>
+    <string name="wk_detail_syncs">Sincronizzazioni oggi</string>
+    <string name="wk_detail_gps">Posizione oggi</string>
+    <string name="wk_detail_usual">Giorno abituale</string>
+    <string name="wk_detail_chart">Risvegli al giorno</string>
+    <plurals name="wk_night_line">
+        <item quantity="one">%1$s ha svegliato il telefono %2$d volta ieri notte</item>
+        <item quantity="other">%1$s ha svegliato il telefono %2$d volte ieri notte</item>
+    </plurals>
+    <string name="wk_night_awake">%1$s ha tenuto il telefono sveglio per %2$s ieri notte</string>
+</resources>

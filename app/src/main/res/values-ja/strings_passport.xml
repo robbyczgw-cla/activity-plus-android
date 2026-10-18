@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- バッテリーパスポート（健康状態カードの下） -->
+    <string name="passport_title">バッテリーパスポート</string>
+    <string name="passport_made">製造</string>
+    <string name="passport_in_use">使用期間</string>
+    <string name="passport_under_month">1 か月未満</string>
+    <plurals name="passport_months">
+        <item quantity="other">%d か月</item>
+    </plurals>
+    <string name="passport_cycles_month">月あたりの充電サイクル</string>
+    <string name="passport_policy">充電モード</string>
+    <string name="passport_policy_standard">標準</string>
+    <string name="passport_policy_limited">制限</string>
+    <string name="passport_policy_adaptive">適応型</string>
+    <string name="passport_policy_long_life">長寿命</string>
+    <string name="passport_part">バッテリーの部品</string>
+    <string name="passport_part_original">純正</string>
+    <string name="passport_part_replaced">交換済み</string>
+    <string name="passport_soh">Android が報告する状態</string>
+    <string name="passport_level">容量レベル</string>
+    <string name="passport_level_critical">危険</string>
+    <string name="passport_level_low">低い</string>
+    <string name="passport_level_normal">通常</string>
+    <string name="passport_level_high">高い</string>
+    <string name="passport_level_full">満充電</string>
+    <string name="passport_agree">どちらも約 %1$s です。</string>
+    <string name="passport_differ">Android は %1$s、計測値は %2$s です。</string>
+    <string name="passport_differ_settling">Android は %1$s、計測値は %2$s です。計測値が安定するには、数回の満充電が必要です。</string>
+    <string name="passport_more">読み取り権限を与えると、より多くのデータ（状態、日付）が見られます</string>
+</resources>

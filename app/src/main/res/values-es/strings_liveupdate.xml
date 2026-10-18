@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Carga como actualización en directo (Android 16) -->
+    <string name="cl_channel">Carga</string>
+    <string name="cl_channel_desc">Nivel de batería, potencia de carga y tiempo hasta tu límite de carga o hasta llenarla, mostrados como actualización en directo mientras el teléfono se carga.</string>
+    <string name="cl_title_charging">Cargando: %1$s</string>
+    <string name="cl_title_holding">Conectado a %1$s</string>
+    <string name="cl_title_full">Completamente cargada</string>
+    <string name="cl_title_warm">Caliente mientras carga: %1$s</string>
+    <string name="cl_charging">Cargando</string>
+    <string name="cl_not_charging">No se está cargando ahora</string>
+    <string name="cl_unplug">Ya puedes desconectarlo</string>
+    <string name="cl_target_limit">%1$s a %2$s</string>
+    <string name="cl_target_full">Llena a %1$s</string>
+
+    <!-- Ajustes -->
+    <string name="cl_set_title">Carga como actualización en directo</string>
+    <string name="cl_set_hint">Muestra mientras carga el nivel de batería, la potencia y el tiempo hasta llenarla en la barra de estado y en la pantalla de bloqueo. Tu límite de carga aparece como una marca en la barra.</string>
+    <string name="cl_set_blocked">Ahora mismo Android no deja que Activity+ muestre actualizaciones en directo. Permítelas en los ajustes de notificaciones de la app.</string>
+    <string name="cl_set_open">Abrir ajustes de notificaciones</string>
+</resources>

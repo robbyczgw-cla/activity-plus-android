@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 電力の内訳（バッテリーページ）、0.4.0 -->
+    <string name="power_title">電力の内訳</string>
+    <string name="power_covered">%1$s のデータ</string>
+    <string name="power_now">現在</string>
+    <string name="power_hour">直近 1 時間</string>
+    <string name="power_today">今日</string>
+    <string name="power_measured">端末内で計測</string>
+    <string name="power_rest">端末のその他の部分</string>
+    <string name="power_rest_note">バッテリーからの出力は、上の部品の合計より多くなります。充電時の損失や、計測器のない部品などが含まれるためです。</string>
+    <string name="power_wait_now">計測中です。少々お待ちください …</string>
+    <string name="power_wait">データを収集しています。Android は値をぼかして出すため、使える平均にはおよそ %1$s の計測が必要です。</string>
+    <string name="power_note_exact">端末が持つ電力計による正確な値を、毎秒複数回取得します。</string>
+    <string name="power_note_coarse">Android が提供するのはぼかされた値だけです。20 秒ごとに新しい値が出て、ランダムなノイズも加わります。そのため Activity+ は、その瞬間ではなく、数分から数時間の平均を表示します。</string>
+    <string name="power_get_exact">正確な値を取得</string>
+    <string name="power_details_show">すべての計測器を表示</string>
+    <string name="power_details_hide">計測器を隠す</string>
+    <string name="power_not_added">合計に含まれない</string>
+    <string name="power_cat_display">ディスプレイ</string>
+    <string name="power_cat_cpu">CPU</string>
+    <string name="power_cat_gpu">GPU</string>
+    <string name="power_cat_radio">モバイル通信</string>
+    <string name="power_cat_wifi">Wi-Fi と Bluetooth</string>
+    <string name="power_cat_camera">カメラ</string>
+    <string name="power_cat_memory">メモリ</string>
+    <string name="power_cat_gnss">位置情報（GNSS）</string>
+    <string name="power_cat_audio">オーディオ</string>
+    <string name="power_cat_other">その他</string>
+    <string name="power_unsupported">この端末は部品ごとの電力を報告しません。</string>
+</resources>
