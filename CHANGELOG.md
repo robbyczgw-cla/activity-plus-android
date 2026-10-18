@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.0
+
+- Night check: every morning, did the phone sleep well? Deep sleep share, when deep Doze started, drain per hour against your usual nights, and a verdict with the next step: an app kept the phone awake (named with the grant), Android itself did not reach deep sleep, or the drain was high despite deep sleep (e.g. a weak signal). The last 14 nights at a glance
+- "Above Google's limit": apps that keep the phone awake for 2 hours or more, as Google Play counts it, get a badge and a finding
+- Planned for tonight: which app has set alarms and background jobs for the coming night, and which exact alarms ignore Doze (computer grant or Shizuku)
+- Sensor log: which app used location, camera, microphone, body sensors or nearby devices, when, and whether in the background (computer grant)
+- Since the update: what changed for an app after an update (background battery, wakeups, data, storage)
+- Heat and throttling: when Android slowed the phone down because of heat, and which app was on screen; heat per app
+- Time remaining by your pattern, charging habits with advice and a battery ageing forecast, and the cost per hour of use per app
+- Share a report as text or image, export your data as CSV/JSON in a ZIP, and two new widgets: night check and a 6-hour history graph
+- With the computer grant Activity+ now also reads Android's read-only reports on app ops, alarms, jobs, thermal state and Doze
+
 ## 0.4.0
 
 - Who woke the phone: wakeups, wakelocks, CPU time and jobs per app from Android's own counters, for today and last night, with an "unusual" badge, a 7-day view in each app's details and a line in the "Last night" card

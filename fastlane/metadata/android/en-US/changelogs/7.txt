@@ -1,0 +1,1 @@
+Night check every morning (deep sleep, Doze, drain, who is to blame), Google's wakelock limit, planned alarms and jobs for tonight, a sensor log (location, camera, microphone), what changed after app updates, heat and throttling per app, remaining time by your pattern, charging habits, share/export and two new widgets.

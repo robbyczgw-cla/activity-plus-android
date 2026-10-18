@@ -28,6 +28,9 @@
 <li>Hardware: Chip mit Takt pro Kern live, GPU, RAM-Aufteilung und Speicherdruck, Display-Modi, Kameras, Widevine-Stufe, Hardware-Decoder, Sensoren</li>
 </ul>
 
+<p><b>Nacht-Check</b><br>
+Jeden Morgen: Hat das Handy gut geschlafen? Tiefschlaf, Doze und Verbrauch im Vergleich zu deinen üblichen Nächten, und wer schuld ist: eine App, Android selbst oder schwacher Empfang. Dazu, welche Apps für heute Nacht Alarme und Jobs geplant haben, ein Sensor-Protokoll (Standort, Kamera, Mikrofon) und was sich nach App-Updates geändert hat.</p>
+
 <p><b>Speicher</b></p>
 <ul>
 <li>Aufteilung, Wachstum pro App und „Speicher voll in etwa N Tagen“</li>

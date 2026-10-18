@@ -15,6 +15,9 @@
 ## 0.4.0 (18.10.2026)
 - Wakeups and wakelocks per app, battery passport, power per component, charging as a Live Update; optional read grants
 
+## 0.5.0 (19.10.2026)
+- Night check, Google's wakelock limit, planned alarms and jobs, sensor log, since the update, heat and throttling, forecast by pattern, charging habits, cost per hour, share/export, two widgets
+
 ## Next
 - [ ] Test on real phones (fuel gauge sign and units differ per vendor; per-core clocks; thermal headroom)
 - [ ] Data cap alert, "unusual for this app" for data and screen time

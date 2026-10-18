@@ -28,6 +28,9 @@
 <li>Hardware: chip with live clock per core, GPU, RAM split and pressure, display modes, cameras, Widevine level, hardware decoders, sensors</li>
 </ul>
 
+<p><b>Night check</b><br>
+Every morning: did the phone sleep well? Deep sleep, Doze and drain against your usual nights, and who is to blame: an app, Android itself, or a weak signal. Plus which apps have planned alarms and jobs for tonight, a sensor log (location, camera, microphone) and what changed after app updates.</p>
+
 <p><b>Storage</b></p>
 <ul>
 <li>Breakdown, growth per app and "storage full in about N days"</li>

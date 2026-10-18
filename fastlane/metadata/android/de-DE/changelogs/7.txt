@@ -1,0 +1,1 @@
+Nacht-Check jeden Morgen (Tiefschlaf, Doze, Verbrauch, wer schuld ist), Googles Wakelock-Grenzwert, geplante Alarme und Jobs für heute Nacht, ein Sensor-Protokoll (Standort, Kamera, Mikrofon), was sich nach App-Updates geändert hat, Hitze und Drosselung pro App, Restlaufzeit nach deinem Muster, Ladegewohnheiten, Teilen/Export und zwei neue Widgets.

@@ -47,6 +47,9 @@ that stop apps in the background.
 
 ### Which app is responsible
 - **Overview** with a verdict that names one app and the next step, and live cards in the Mac colors.
+- **Night check** every morning: did the phone sleep well? Deep sleep, Doze and drain against your usual nights,
+  and who is to blame: an app, Android itself, or a weak signal.
+- **Since the update**: what changed for an app after it was updated.
 - **Apps**: battery (measured while on screen), screen time, data with the background share and storage,
   one row per app, with "unusual for this app" when one uses far more than on a normal day.
 - **Why slow?** Plain-language findings, each with a button into the Android screen that fixes it.
@@ -57,6 +60,8 @@ that stop apps in the background.
 - Sessions from plug to unplug, a 30-second **charger and cable test**, the measured capacity as a trend.
 - **Charge alarms** at a limit such as 80 %, when full and when the battery gets warm while charging.
 - **Charging as a Live Update** on Android 16: level, power and "full at" in the status bar.
+- **Remaining time by your pattern**, **charging habits** with advice and an ageing forecast, cost per hour of use per app.
+- **Heat and throttling**: when Android slowed the phone down, and which app was on screen.
 
 ### Storage
 - Breakdown, **growth per app** and "storage full in about N days".
@@ -72,7 +77,8 @@ that stop apps in the background.
 
 ### Always in view
 - A live value as the **status bar icon**, up to eight values in the notification, a Quick Settings tile.
-- **Widgets**: one value, a panel with six values, a battery ring.
+- **Widgets**: one value, a panel with six values, a battery ring, the night check, a 6-hour history graph.
+- **Share** a report as text or image, **export** your data as CSV and JSON.
 - **Alerts** that name the cause: heat, full storage, a charger too weak for the load, an app drawing a lot of power.
 - **History**: 30 days on the phone, one point per minute; tap a point to see the app that was on screen.
 - **Hardware**: chip with live clock per core, GPU, memory split, display modes, cameras, sensors.
@@ -86,6 +92,8 @@ Android keeps some things from normal apps. With a one-time grant from a compute
 | Background battery per app, every day, and a "Last night" card | yes | yes |
 | **Who woke the phone**: wakeups, wakelocks, CPU and jobs per app | yes | yes |
 | **Battery passport**: state of health, manufacturing date, charging policy | yes | yes |
+| **Planned for tonight**: alarms and jobs per app, exact alarms that ignore Doze | yes | yes |
+| **Sensor log**: who used location, camera, microphone, and in the background | yes | no |
 | Memory and CPU per app | no | yes |
 | Developer options afterwards | off, permanently | needed while you measure |
 
