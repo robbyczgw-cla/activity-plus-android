@@ -253,9 +253,14 @@ fun Gap(h: Dp = 12.dp) = Spacer(Modifier.height(h))
 
 val CardSpacing = Arrangement.spacedBy(12.dp)
 
-/** One bar split into colored parts, with a legend below; used for the RAM breakdown. */
+/** One bar split into colored parts, with a legend below; used for the RAM breakdown. [valueText] replaces the byte sizes in the legend. */
 @Composable
-fun SegmentBar(parts: List<Triple<String, Long, Color>>, total: Long, modifier: Modifier = Modifier) {
+fun SegmentBar(
+    parts: List<Triple<String, Long, Color>>,
+    total: Long,
+    modifier: Modifier = Modifier,
+    valueText: (Long) -> String = { Format.bytes(it).toString() },
+) {
     if (total <= 0) return
     Column(modifier) {
         Row(Modifier.fillMaxWidth().height(12.dp).clip(RoundedCornerShape(50)).background(LocalSurfaces.current.cardRaised)) {
@@ -272,7 +277,7 @@ fun SegmentBar(parts: List<Triple<String, Long, Color>>, total: Long, modifier: 
                 Box(Modifier.size(10.dp).clip(RoundedCornerShape(3.dp)).background(color))
                 Spacer(Modifier.width(8.dp))
                 Text(label, style = MaterialTheme.typography.bodyMedium, color = LocalSurfaces.current.muted, modifier = Modifier.weight(1f))
-                Text(Format.bytes(bytes).toString(), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+                Text(valueText(bytes), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
             }
         }
     }

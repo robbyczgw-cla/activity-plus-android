@@ -75,6 +75,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
     val sessions = rememberLoaded(minute.intValue) { app.history.sessions(12) }
     val context = LocalContext.current
     val background = rememberLoaded(minute.intValue) { loadBackgroundToday(context) }
+    val powerRails = rememberPowerRailsSupport()
 
     Screen(title = stringResource(R.string.tab_battery)) {
         if (s == null) return@Screen
@@ -86,6 +87,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         // Which app is drawing the power right now.
         if (!b.plugged && s.foregroundPackage != null && data != null) item { NowDrawingCard(s, data) }
         item { ProEntryCard(onPro) }
+        if (powerRails == true) item { PowerRailCard(b, onPro) }
         item { HealthCard(b) }
         val energy = data?.energy
         if (energy != null && energy.isNotEmpty()) {

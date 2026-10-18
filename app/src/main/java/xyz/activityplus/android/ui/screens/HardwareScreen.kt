@@ -66,6 +66,7 @@ fun HardwareScreen() {
     val (s, _) = rememberLive()
     val settings = rememberSettings()
     val hw = rememberLoaded(Unit) { cached ?: HardwareInfo.read(context.applicationContext).also { cached = it } } ?: cached
+    val powerRails = rememberPowerRailsSupport()
 
     Screen(
         title = stringResource(R.string.hw_title),
@@ -88,6 +89,7 @@ fun HardwareScreen() {
         item { FeaturesCard(hw) }
         if (s != null) item { ThermalHwCard(s, settings.fahrenheit) }
         if (hw.sensors.isNotEmpty()) item { SensorsCard(hw.sensors) }
+        if (powerRails == false) item { Note(stringResource(R.string.power_unsupported), Modifier.padding(horizontal = 4.dp)) }
         item { Note(stringResource(R.string.hw_note), Modifier.padding(horizontal = 4.dp)) }
     }
 }
