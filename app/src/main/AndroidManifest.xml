@@ -21,6 +21,9 @@
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.BATTERY_STATS"
         tools:ignore="ProtectedPermissions" />
+    <!-- Exact power per component (Android 16+), granted like BATTERY_STATS; coarse readings need nothing. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_POWER_MONITORS"
+        tools:ignore="ProtectedPermissions" />
     <!-- batterystats lists the packages of all users; the computer route grants this too. -->
     <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"
         tools:ignore="ProtectedPermissions" />

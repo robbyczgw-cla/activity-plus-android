@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Leseberechtigungen ab 0.4.0 (Pro-Seite) -->
+    <string name="grants_title">Mehr Messwerte verfügbar</string>
+    <string name="grants_body">Zwei weitere Leseberechtigungen schalten Weckvorgänge und Wakelocks pro App, die Daten des Akkus selbst (Zustand, Datum) und den genauen Verbrauch pro Bauteil frei.</string>
+    <string name="grants_shizuku">Mit Shizuku freigeben</string>
+    <string name="grants_failed">Das hat nicht geklappt. Nimm stattdessen die Zeile für den Computer aus der Anleitung.</string>
+    <string name="grants_computer">Führe die Zeile noch einmal am Computer aus (zum Kopieren tippen); sie enthält sie jetzt.</string>
+    <string name="grants_safe">Damit kann Activity+ nur lesen. Banking-Apps sind nicht betroffen, und die Entwickleroptionen können danach wieder aus.</string>
+</resources>

@@ -63,8 +63,14 @@ There are two ways in. You can use both.
    and accept the prompt on the phone.
 3. Run (Activity+ shows this line with a copy button):
    ```
-   adb shell "pm grant xyz.activityplus.android android.permission.DUMP && pm grant xyz.activityplus.android android.permission.PACKAGE_USAGE_STATS && pm grant xyz.activityplus.android android.permission.INTERACT_ACROSS_USERS"
+   adb shell "pm grant xyz.activityplus.android android.permission.DUMP && pm grant xyz.activityplus.android android.permission.PACKAGE_USAGE_STATS && pm grant xyz.activityplus.android android.permission.INTERACT_ACROSS_USERS && pm grant xyz.activityplus.android android.permission.BATTERY_STATS"
    ```
+   On Android 16 and newer, also run this line (older versions do not know the permission):
+   ```
+   adb shell pm grant xyz.activityplus.android android.permission.ACCESS_FINE_POWER_MONITORS
+   ```
+   Since 0.4.0, BATTERY_STATS adds wakeups and wakelocks per app and the battery's own data, and the
+   power monitors give exact power per component. Already granted before? Just run the lines again.
 4. **Wait about ten seconds**: Android saves the grant a moment later, and a restart within that time loses it.
 5. Turn USB debugging and developer options off again.
 6. In Activity+, *Measure precisely* now says **Ready (computer grant, battery only)**.
@@ -84,6 +90,9 @@ Xiaomi: *USB debugging (Security settings)*; OnePlus/Oppo: *Disable permission m
 3. Tap *Measure now*. You can turn developer options off afterwards; the result stays in Activity+.
 
 Shizuku stops when the phone restarts. Start it again only when you want to measure.
+
+Tap *Grant with Shizuku* once when Activity+ offers it: it gives Activity+ the read permissions for wakeups
+per app, the battery's own data and exact power per component. They stay after restarts, without Shizuku.
 
 ## 5. Storage and media
 

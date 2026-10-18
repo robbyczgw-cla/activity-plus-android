@@ -1,12 +1,14 @@
 package xyz.activityplus.android.pro
 
 import android.os.ParcelFileDescriptor
+import xyz.activityplus.android.BuildConfig
 import kotlin.concurrent.thread
 import kotlin.system.exitProcess
 
 /**
  * Lives in Shizuku's shell process (adb rights). Runs nothing but the three read-only reports
- * below; any other command is refused, so the pro mode can never change the phone.
+ * below and the grants of Activity+'s own read permissions; any other command is refused, so the
+ * pro mode can never change anything else on the phone.
  */
 class ShellService : IShellService.Stub() {
     override fun destroy() {
@@ -33,6 +35,7 @@ class ShellService : IShellService.Stub() {
         const val BATTERY = "dumpsys batterystats -c"
         const val MEMORY = "dumpsys meminfo"
         const val CPU = "dumpsys cpuinfo"
-        val ALLOWED = setOf(BATTERY, MEMORY, CPU)
+        fun grantCommand(permission: String) = "pm grant ${BuildConfig.APPLICATION_ID} $permission"
+        val ALLOWED = setOf(BATTERY, MEMORY, CPU) + ProShell.EXTRA_GRANTS.map(::grantCommand)
     }
 }

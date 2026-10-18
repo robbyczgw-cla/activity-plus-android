@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Read permissions added in 0.4.0 (pro page) -->
+    <string name="grants_title">More readings available</string>
+    <string name="grants_body">Two more read permissions unlock wakeups and wakelocks per app, the battery\'s own data (health, dates) and exact power per component.</string>
+    <string name="grants_shizuku">Grant with Shizuku</string>
+    <string name="grants_failed">That did not work. Use the computer line in the setup guide instead.</string>
+    <string name="grants_computer">Run the line once more from your computer (tap to copy); it now includes them.</string>
+    <string name="grants_safe">They only let Activity+ read. Banking apps are not affected, and developer options can be off again afterwards.</string>
+</resources>

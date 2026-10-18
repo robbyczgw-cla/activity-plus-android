@@ -4,6 +4,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.ServiceConnection
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.IBinder
 import android.os.ParcelFileDescriptor
 import kotlinx.coroutines.Dispatchers
@@ -15,7 +16,8 @@ import xyz.activityplus.android.BuildConfig
 import kotlin.coroutines.resume
 
 /**
- * How the pro mode reaches the system reports: a DUMP grant from a computer, or Shizuku.
+ * How the pro mode reaches the system reports: a DUMP grant from a computer, or Shizuku. Both can
+ * add [EXTRA_GRANTS] for the per-app counters, the battery data and exact power readings.
  * Nothing here runs unless the user taps "Measure now", or, with the computer grant, the
  * automatic background measurement reads the battery report (BackgroundSampler).
  */
@@ -38,7 +40,45 @@ object ProShell {
         "android.permission.INTERACT_ACROSS_USERS",
     )
 
-    fun computerCommand(pkg: String) = COMPUTER_GRANTS.joinToString(" && ") { "pm grant $pkg $it" }.let { "adb shell \"$it\"" }
+    /**
+     * Read-only extras since 0.4.0, also grantable from a shell: BATTERY_STATS opens Android's per-app
+     * counters (wakeups, wakelocks, CPU, jobs) and the battery's own data (state of health, dates);
+     * ACCESS_FINE_POWER_MONITORS gives exact power per component instead of coarse, noisy values.
+     * The latter exists from Android 16 on; pm grant fails on older versions.
+     */
+    val EXTRA_GRANTS: List<String> = buildList {
+        add("android.permission.BATTERY_STATS")
+        if (Build.VERSION.SDK_INT >= 36) add("android.permission.ACCESS_FINE_POWER_MONITORS")
+    }
+
+    fun computerCommand(pkg: String) = (COMPUTER_GRANTS + EXTRA_GRANTS).joinToString(" && ") { "pm grant $pkg $it" }.let { "adb shell \"$it\"" }
+
+    /** Per-app counters and battery data (SystemHealthManager, BatteryManager); see [EXTRA_GRANTS]. */
+    fun hasBatteryStats(context: Context): Boolean =
+        context.checkSelfPermission("android.permission.BATTERY_STATS") == PackageManager.PERMISSION_GRANTED
+
+    /** Exact power monitor readings (Android 16+). Without it the readings are coarse but still there. */
+    fun hasFinePowerMonitors(context: Context): Boolean = Build.VERSION.SDK_INT >= 36 &&
+        context.checkSelfPermission("android.permission.ACCESS_FINE_POWER_MONITORS") == PackageManager.PERMISSION_GRANTED
+
+    fun missingExtraGrants(context: Context): List<String> =
+        EXTRA_GRANTS.filter { context.checkSelfPermission(it) != PackageManager.PERMISSION_GRANTED }
+
+    /**
+     * Grants [EXTRA_GRANTS] to Activity+ itself through Shizuku, once; like the computer grant they stay
+     * after restarts. Only these fixed pm grant lines are allowed in [ShellService].
+     */
+    suspend fun grantExtrasWithShizuku(context: Context): Boolean {
+        if (shizukuState(context) != Access.SHIZUKU) return false
+        val service = service(context)
+        withContext(Dispatchers.IO) {
+            for (permission in missingExtraGrants(context)) {
+                val command = ShellService.grantCommand(permission)
+                ParcelFileDescriptor.AutoCloseInputStream(service.run(command)).bufferedReader().use { it.readText() }
+            }
+        }
+        return missingExtraGrants(context).isEmpty()
+    }
 
     /** State of the Shizuku route alone, whatever the computer grant says. */
     fun shizukuState(context: Context): Access {

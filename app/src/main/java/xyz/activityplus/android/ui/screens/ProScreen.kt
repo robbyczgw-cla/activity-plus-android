@@ -72,6 +72,7 @@ fun ProScreen() {
         onDispose { owner.lifecycle.removeObserver(o) }
     }
     val access = remember(checks) { ProShell.access(context) }
+    val missingGrants = remember(checks) { ProShell.missingExtraGrants(context) }
     var saved by remember { mutableIntStateOf(0) }
     val reports = rememberLoaded(saved) { app.history.proReports(10) }
     var selected by remember { mutableIntStateOf(0) }
@@ -101,6 +102,9 @@ fun ProScreen() {
 
     Screen(title = stringResource(R.string.pro_title), subtitle = stringResource(R.string.pro_subtitle)) {
         item { AccessCard(access, running, ::measure) { checks++ } }
+        if (access.ready && missingGrants.isNotEmpty()) {
+            item { ExtraGrantsCard(access) { checks++ } }
+        }
         error?.let { e -> item { Card { Text(stringResource(R.string.pro_error, e), color = Metric.Heat) } } }
         val report = reports?.getOrNull(selected)
         if (report != null) {

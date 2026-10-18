@@ -63,8 +63,14 @@ Es gibt zwei Wege. Beide lassen sich kombinieren.
    Abfrage auf dem Handy bestätigen.
 3. Ausführen (Activity+ zeigt diese Zeile mit Kopierknopf):
    ```
-   adb shell "pm grant xyz.activityplus.android android.permission.DUMP && pm grant xyz.activityplus.android android.permission.PACKAGE_USAGE_STATS && pm grant xyz.activityplus.android android.permission.INTERACT_ACROSS_USERS"
+   adb shell "pm grant xyz.activityplus.android android.permission.DUMP && pm grant xyz.activityplus.android android.permission.PACKAGE_USAGE_STATS && pm grant xyz.activityplus.android android.permission.INTERACT_ACROSS_USERS && pm grant xyz.activityplus.android android.permission.BATTERY_STATS"
    ```
+   Ab Android 16 zusätzlich diese Zeile (ältere Versionen kennen die Berechtigung nicht):
+   ```
+   adb shell pm grant xyz.activityplus.android android.permission.ACCESS_FINE_POWER_MONITORS
+   ```
+   Seit 0.4.0 bringt BATTERY_STATS Weckvorgänge und Wakelocks pro App sowie die Daten des Akkus selbst,
+   die Strommesser liefern den genauen Verbrauch pro Bauteil. Schon früher freigegeben? Einfach die Zeilen noch einmal ausführen.
 4. **Etwa zehn Sekunden warten**: Android speichert die Freigabe kurz danach, ein Neustart in dieser Zeit verwirft sie.
 5. USB-Debugging und Entwickleroptionen wieder ausschalten.
 6. In Activity+ steht unter *Genau messen* jetzt **Bereit (PC-Freigabe, nur Akku)**.
@@ -85,6 +91,10 @@ Xiaomi: *USB-Debugging (Sicherheitseinstellungen)*; OnePlus/Oppo: *Berechtigungs
 3. *Jetzt messen* tippen. Danach kannst du die Entwickleroptionen ausschalten; das Ergebnis bleibt in Activity+.
 
 Shizuku stoppt beim Neustart des Handys. Nur neu starten, wenn du messen willst.
+
+Tippe einmal auf *Mit Shizuku freigeben*, wenn Activity+ es anbietet: Das gibt Activity+ die Leseberechtigungen
+für Weckvorgänge pro App, die Daten des Akkus selbst und den genauen Verbrauch pro Bauteil. Sie bleiben nach
+Neustarts erhalten, auch ohne Shizuku.
 
 ## 5. Speicher und Medien
 
