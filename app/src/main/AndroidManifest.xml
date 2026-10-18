@@ -136,6 +136,50 @@
                 android:resource="@xml/widget_battery_info" />
         </receiver>
 
+        <activity
+            android:name=".widget.HistoryWidgetConfigActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ActivityPlus">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".widget.NightWidget"
+            android:exported="true"
+            android:label="@string/widget_night_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_night_info" />
+        </receiver>
+
+        <receiver
+            android:name=".widget.HistoryWidget"
+            android:exported="true"
+            android:label="@string/widget_history_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_history_info" />
+        </receiver>
+
+        <!-- Share report as image: the PNG lives in the cache and is handed out as a content:// URI. -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.share"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/share_paths" />
+        </provider>
+
         <!-- Shizuku hands its binder to the app through this provider. -->
         <provider
             android:name="rikka.shizuku.ShizukuProvider"

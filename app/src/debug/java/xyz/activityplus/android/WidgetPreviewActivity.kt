@@ -7,6 +7,8 @@ import android.content.ComponentName
 import android.os.Bundle
 import android.widget.LinearLayout
 import xyz.activityplus.android.widget.BatteryWidget
+import xyz.activityplus.android.widget.HistoryWidget
+import xyz.activityplus.android.widget.NightWidget
 import xyz.activityplus.android.widget.PanelWidget
 import xyz.activityplus.android.widget.ValueWidget
 import xyz.activityplus.android.widget.WidgetUpdater
@@ -30,6 +32,8 @@ class WidgetPreviewActivity : Activity() {
         val dp = resources.displayMetrics.density
         for ((cls, w, h) in listOf(
             Triple(PanelWidget::class.java, 340, 170),
+            Triple(NightWidget::class.java, 340, 170),
+            Triple(HistoryWidget::class.java, 340, 170),
             Triple(BatteryWidget::class.java, 160, 160),
             Triple(ValueWidget::class.java, 160, 80),
         )) {

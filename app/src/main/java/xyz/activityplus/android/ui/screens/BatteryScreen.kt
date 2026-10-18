@@ -78,7 +78,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
     val powerRails = rememberPowerRailsSupport()
     val night = rememberNightCheck(morningOnly = false)
 
-    Screen(title = stringResource(R.string.tab_battery)) {
+    Screen(title = stringResource(R.string.tab_battery), action = { ShareReportIconButton() }) {
         if (s == null) return@Screen
         val b = s.battery
         item { LiveCard(s, series, settings.fahrenheit) }

@@ -181,6 +181,7 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
         }
 
         item { SectionTitle(stringResource(R.string.set_data)) }
+        item { ShareAndExportCard() }
         item {
             Card {
                 Text(stringResource(R.string.set_history_size, historySize?.let { Format.bytes(it).toString() } ?: "–"))

@@ -175,6 +175,7 @@ fun NightCheckCard(report: NightReport, onPro: () -> Unit) {
         NextStep(r)
         Spacer(Modifier.height(4.dp))
         Note(stringResource(R.string.nc_tap_history))
+        ShareReportTextButton()
     }
     if (history) {
         ModalBottomSheet(onDismissRequest = { history = false }, containerColor = LocalSurfaces.current.card) {

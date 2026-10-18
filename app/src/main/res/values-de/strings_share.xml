@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bericht teilen, Daten exportieren -->
+    <string name="share_report_title">Activity+ Bericht</string>
+    <string name="share_action">Bericht teilen</string>
+    <string name="share_text">Text teilen</string>
+    <string name="share_image">Als Bild teilen</string>
+    <string name="share_failed">Keine App zum Teilen gefunden</string>
+    <string name="share_dialog_hint">Das ist der ganze Bericht. Ändere ihn nach Belieben; gesendet wird erst, wenn du eine App wählst.</string>
+    <string name="share_settings_title">Bericht teilen</string>
+    <string name="share_settings_hint">Handymodell, Android-Version, Akku, letzte Nacht, die größten Akkuverbraucher und freier Speicher als Text oder Bild, für ein Forum oder eine Support-Anfrage.</string>
+    <string name="share_sec_device">Gerät</string>
+    <string name="share_row_model">Modell</string>
+    <string name="share_row_android">Android</string>
+    <string name="share_row_patch">Sicherheitsupdate</string>
+    <string name="share_row_version">Activity+ Version</string>
+    <string name="share_row_level">Ladestand</string>
+    <string name="share_row_verdict">Urteil</string>
+    <string name="share_sec_apps">Meiste Akkunutzung heute</string>
+    <string name="share_sec_wakeups">Weckungen heute</string>
+
+    <string name="export_title">Daten exportieren</string>
+    <string name="export_hint">Speichert den Verlauf als Tabellen-Dateien (CSV) mit einer kurzen Zusammenfassung (JSON) in einer ZIP-Datei. Du wählst, wohin sie kommt; nichts wird hochgeladen.</string>
+    <string name="export_action">Daten exportieren</string>
+    <string name="export_working">Exportiere …</string>
+    <string name="export_done">%1$d Dateien gespeichert</string>
+    <string name="export_failed">Der Export konnte nicht gespeichert werden</string>
+
+    <!-- Widgets: letzte Nacht, Verlaufsgrafik -->
+    <string name="widget_night_name">Activity+ Letzte Nacht</string>
+    <string name="widget_night_desc">Hat das Handy gut geschlafen? Urteil, Verbrauch pro Stunde, Tiefschlaf und die App, die schuld ist</string>
+    <string name="widget_history_name">Activity+ Verlauf</string>
+    <string name="widget_history_desc">Akkustand oder Leistung der letzten 6 Stunden als Grafik</string>
+    <string name="wn_blame">Schuld</string>
+    <string name="wn_blame_android">Android</string>
+    <string name="wn_blame_none">Niemand</string>
+    <string name="wh_title_level">Akku, letzte %1$d Std.</string>
+    <string name="wh_title_power">Leistung, letzte %1$d Std.</string>
+    <string name="wh_range">%1$s bis %2$s</string>
+    <string name="wh_empty">Daten werden gesammelt …</string>
+    <string name="wh_mode_level">Akkustand</string>
+    <string name="wh_mode_power">Leistung</string>
+    <string name="wh_config_subtitle">Was die Grafik zeigt</string>
+    <!-- Beispielwerte in der Widget-Auswahl -->
+    <string name="wh_preview_title">Akku, letzte 6 Std.</string>
+</resources>

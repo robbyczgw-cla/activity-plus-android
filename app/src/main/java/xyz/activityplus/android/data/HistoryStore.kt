@@ -151,24 +151,31 @@ class HistoryStore(context: Context) : SQLiteOpenHelper(context, "history.db", n
 
     fun samples(fromMillis: Long, toMillis: Long = Long.MAX_VALUE): List<Row> {
         val rows = ArrayList<Row>()
+        forEachSample(fromMillis, toMillis) { rows += it }
+        return rows
+    }
+
+    /** The same rows one at a time, so the export never holds 30 days of minutes in memory. */
+    fun forEachSample(fromMillis: Long, toMillis: Long = Long.MAX_VALUE, block: (Row) -> Unit) {
         readableDatabase.rawQuery(
             "SELECT ts, level, power_mw, temp_c, charging, mem_used, rx_bps, tx_bps, clock, thermal, screen_on, fg_pkg " +
                 "FROM samples WHERE ts >= ? AND ts <= ? ORDER BY ts",
             arrayOf(fromMillis.toString(), toMillis.toString())
         ).use { c ->
             while (c.moveToNext()) {
-                rows += Row(
-                    ts = c.getLong(0), level = c.getDouble(1),
-                    powerMw = if (c.isNull(2)) null else c.getDouble(2),
-                    tempC = c.getDouble(3), charging = c.getInt(4) == 1, memUsed = c.getDouble(5),
-                    rxBps = c.getDouble(6), txBps = c.getDouble(7),
-                    clock = if (c.isNull(8)) null else c.getDouble(8),
-                    thermal = c.getInt(9), screenOn = c.getInt(10) == 1,
-                    fgPkg = if (c.isNull(11)) null else c.getString(11),
+                block(
+                    Row(
+                        ts = c.getLong(0), level = c.getDouble(1),
+                        powerMw = if (c.isNull(2)) null else c.getDouble(2),
+                        tempC = c.getDouble(3), charging = c.getInt(4) == 1, memUsed = c.getDouble(5),
+                        rxBps = c.getDouble(6), txBps = c.getDouble(7),
+                        clock = if (c.isNull(8)) null else c.getDouble(8),
+                        thermal = c.getInt(9), screenOn = c.getInt(10) == 1,
+                        fgPkg = if (c.isNull(11)) null else c.getString(11),
+                    )
                 )
             }
         }
-        return rows
     }
 
     data class AppEnergy(val pkg: String, val mwh: Double, val seconds: Double)
@@ -183,6 +190,13 @@ class HistoryStore(context: Context) : SQLiteOpenHelper(context, "history.db", n
             while (c.moveToNext()) out += AppEnergy(c.getString(0), c.getDouble(1), c.getDouble(2))
         }
         return out
+    }
+
+    /** Every app and day, oldest day first, one row at a time (the export). */
+    fun forEachEnergyRow(block: (day: String, pkg: String, mwh: Double, seconds: Double) -> Unit) {
+        readableDatabase.rawQuery("SELECT day, pkg, mwh, seconds FROM app_energy ORDER BY day, mwh DESC", null).use { c ->
+            while (c.moveToNext()) block(c.getString(0), c.getString(1), c.getDouble(2), c.getDouble(3))
+        }
     }
 
     /** Energy per app and day, for "unusual for this app" comparisons. */
