@@ -92,6 +92,7 @@ fun AppsScreen(onPro: () -> Unit = {}) {
         }
         item { ProEntryCard(onPro) }
         updates?.let { u -> item { AfterUpdatesCard(u) { selected = it } } }
+        item { CostPerHourCard() }
         items(rows.take(80), key = { it.usage.pkg }) { row -> AppRowView(row, sort) { selected = row.usage.pkg } }
         item { Note(stringResource(R.string.method_apps), Modifier.padding(horizontal = 4.dp)) }
     }

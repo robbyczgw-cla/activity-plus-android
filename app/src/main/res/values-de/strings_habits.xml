@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Gewohnheiten beim Laden und Alterung, Akku-Seite -->
+    <string name="habits_title">Gewohnheiten beim Laden</string>
+    <string name="habits_need_days">Braucht ein paar Tage Verlauf, bis die Gewohnheiten erscheinen.</string>
+    <string name="habits_full" formatted="false">Angesteckt bei 95 % oder mehr</string>
+    <string name="habits_at_temp">Laden bei %1$s oder mehr</string>
+    <string name="habits_per_day">%1$s am Tag</string>
+    <string name="habits_none">Keine</string>
+    <string name="habits_deep" formatted="false">Unter 10 % im Akkubetrieb</string>
+    <plurals name="habits_deep_count">
+        <item quantity="one">%1$d Mal in %2$d Tagen</item>
+        <item quantity="other">%1$d Mal in %2$d Tagen</item>
+    </plurals>
+    <string name="habits_typical">Übliches Laden</string>
+    <string name="habits_range">%1$s → %2$s</string>
+    <string name="habits_advice_hot">Laden bei %1$s oder mehr altert den Akku am schnellsten. Dein Handy war so heiß, %2$s am Tag. Nimm die Hülle ab oder lade an einem kühleren Ort.</string>
+    <string name="habits_advice_warm">Laden bei %1$s oder mehr summiert sich: %2$s am Tag. Wärme nutzt den Akku mit der Zeit ab, kühleres Laden hält seine Kapazität länger.</string>
+    <string name="habits_advice_full">Dein Handy war %1$s am Tag bei %2$s oder mehr angesteckt. Ein nicht voller Akku altert langsamer: Schalte in den Akku-Einstellungen das %3$s-Limit oder das adaptive Laden ein. Activity+ kann dich außerdem bei %3$s warnen (Einstellungen, Laden).</string>
+    <string name="habits_advice_deep">Der Akku fiel %2$d Mal unter %1$s in %3$d Tagen. Tiefe Entladungen belasten die Zellen: Steck früher an, etwa bei %4$s.</string>
+    <string name="habits_open_battery">Akku-Einstellungen</string>
+    <string name="habits_note">Aus dem Minutenverlauf der letzten 30 Tage. Angesteckt heißt am Ladegerät.</string>
+
+    <string name="habits_age_title">Alterungsprognose</string>
+    <string name="habits_age_forecast">Etwa %1$s in %2$s bei diesem Tempo</string>
+    <plurals name="habits_months">
+        <item quantity="one">%d Monat</item>
+        <item quantity="other">%d Monate</item>
+    </plurals>
+    <string name="habits_age_range">Zwischen %1$d und %2$d Monaten, je nachdem, wie stark die Messungen streuen.</string>
+    <string name="habits_age_now_rated">Volle Kapazität jetzt: %1$s der Nennkapazität.</string>
+    <string name="habits_age_now_first">Volle Kapazität jetzt: %1$s deiner ersten Messung.</string>
+    <string name="habits_age_reached">Die volle Kapazität liegt bei %1$s und damit bei %2$s oder darunter.</string>
+    <string name="habits_age_noclear">Noch kein klarer Verlust: Die gemessene volle Kapazität schwankt im Rahmen ihrer Streuung.</string>
+    <string name="habits_age_more">Es braucht mehr volle Ladungen: bisher %1$d Messungen. Die Prognose braucht %2$d, verteilt über %3$d Wochen.</string>
+    <string name="habits_age_note">Angepasst an die volle Kapazität deiner abgeschlossenen Ladungen. Mit wenigen grob, und mit jeder neuen wird sie genauer.</string>
+
+    <!-- Kosten pro Stunde Nutzung, Apps-Seite -->
+    <string name="cost_title">Kosten pro Stunde Nutzung</string>
+    <string name="cost_caption" formatted="false">Letzte 7 Tage</string>
+    <string name="cost_row_note">%1$s am Bildschirm · Ø %2$s</string>
+    <string name="cost_note">Der Akkuverbrauch, während jede App auf dem Bildschirm war, im Akkubetrieb gemessen. Hintergrundarbeit anderer Apps in dieser Zeit zählt mit.</string>
+    <string name="cost_min_note">Apps mit weniger als %1$d Minuten Messzeit in den letzten 7 Tagen fehlen.</string>
+</resources>
