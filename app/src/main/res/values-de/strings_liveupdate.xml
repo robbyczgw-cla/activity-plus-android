@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Laden als Live-Update (Android 16) -->
+    <string name="cl_channel">Laden</string>
+    <string name="cl_channel_desc">Akkustand, Ladeleistung und Zeit bis zu deinem Ladelimit oder bis voll, als Live-Update, solange das Handy lädt.</string>
+    <string name="cl_title_charging">Laden: %1$s</string>
+    <string name="cl_title_holding">Angeschlossen bei %1$s</string>
+    <string name="cl_title_full">Vollständig geladen</string>
+    <string name="cl_title_warm">Warm beim Laden: %1$s</string>
+    <string name="cl_charging">Laden</string>
+    <string name="cl_not_charging">Lädt gerade nicht</string>
+    <string name="cl_unplug">Du kannst jetzt abstecken</string>
+    <string name="cl_target_limit">%1$s um %2$s</string>
+    <string name="cl_target_full">Voll um %1$s</string>
+
+    <!-- Einstellungen -->
+    <string name="cl_set_title">Laden als Live-Update</string>
+    <string name="cl_set_hint">Zeigt beim Laden Akkustand, Leistung und Zeit bis voll in der Statusleiste und auf dem Sperrbildschirm. Dein Ladelimit erscheint als Markierung auf dem Balken.</string>
+    <string name="cl_set_blocked">Android erlaubt Activity+ gerade keine Live-Updates. Erlaube sie in den Benachrichtigungseinstellungen der App.</string>
+    <string name="cl_set_open">Benachrichtigungseinstellungen öffnen</string>
+</resources>

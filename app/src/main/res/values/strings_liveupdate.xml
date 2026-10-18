@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Charging as a Live Update (Android 16) -->
+    <string name="cl_channel">Charging</string>
+    <string name="cl_channel_desc">Battery level, charging power and the time to your charge limit or full, shown as a Live Update while the phone charges.</string>
+    <string name="cl_title_charging">Charging: %1$s</string>
+    <string name="cl_title_holding">Plugged in at %1$s</string>
+    <string name="cl_title_full">Fully charged</string>
+    <string name="cl_title_warm">Warm while charging: %1$s</string>
+    <string name="cl_charging">Charging</string>
+    <string name="cl_not_charging">Not charging right now</string>
+    <string name="cl_unplug">You can unplug now</string>
+    <string name="cl_target_limit">%1$s at %2$s</string>
+    <string name="cl_target_full">Full at %1$s</string>
+
+    <!-- Settings -->
+    <string name="cl_set_title">Charging as Live Update</string>
+    <string name="cl_set_hint">Shows the battery level, power and time to full in the status bar and on the lock screen while charging. Your charge limit appears as a mark on the bar.</string>
+    <string name="cl_set_blocked">Android currently does not let Activity+ show Live Updates. Allow them in the notification settings of the app.</string>
+    <string name="cl_set_open">Open notification settings</string>
+</resources>

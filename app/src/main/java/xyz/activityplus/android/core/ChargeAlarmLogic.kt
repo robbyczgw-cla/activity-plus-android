@@ -8,7 +8,7 @@ enum class ChargeAlarmKind { LIMIT, FULL, WARM }
  * alarm is off, so switching one on mid-charge does not fire for something that already happened.
  */
 class ChargeAlarmLogic(
-    private val warmC: Double = 40.0,
+    private val warmC: Double = WARM_C,
     private val warmMillis: Long = 2 * 60_000L,
     /** A longer gap between samples (the phone slept) breaks the "warm for two minutes" streak. */
     private val maxGapMillis: Long = 5 * 60_000L,
@@ -74,7 +74,9 @@ class ChargeAlarmLogic(
         lastTime = 0L
     }
 
-    private companion object {
-        const val NONE = -1L
+    companion object {
+        /** Warm for a charging battery; the Live Update says "warm" at the same temperature. */
+        const val WARM_C = 40.0
+        private const val NONE = -1L
     }
 }

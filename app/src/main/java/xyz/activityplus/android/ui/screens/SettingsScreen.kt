@@ -173,6 +173,7 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
                     app.prefs.update { it.copy(chargeWarmAlarm = on) }
                 }
                 Note(stringResource(R.string.chg_set_note))
+                ChargeLiveSetting(settings.chargeLive)
             }
         }
 
@@ -219,7 +220,7 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
 }
 
 @Composable
-private fun Toggle(title: String, hint: String?, value: Boolean, onChange: (Boolean) -> Unit) {
+internal fun Toggle(title: String, hint: String?, value: Boolean, onChange: (Boolean) -> Unit) {
     Row(
         Modifier.fillMaxWidth().clickable { onChange(!value) }.padding(vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
