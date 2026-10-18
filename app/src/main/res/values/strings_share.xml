@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Share a report, export data -->
+    <string name="share_report_title">Activity+ report</string>
+    <string name="share_action">Share report</string>
+    <string name="share_text">Share text</string>
+    <string name="share_image">Share as image</string>
+    <string name="share_failed">There is no app to share with</string>
+    <string name="share_dialog_hint">This is the whole report. Edit it as you like; nothing is sent until you pick an app.</string>
+    <string name="share_settings_title">Share a report</string>
+    <string name="share_settings_hint">Phone model, Android version, battery, last night, the apps that used the most battery and free storage, as text or as an image, for a forum or a support request.</string>
+    <string name="share_sec_device">Device</string>
+    <string name="share_row_model">Model</string>
+    <string name="share_row_android">Android</string>
+    <string name="share_row_patch">Security update</string>
+    <string name="share_row_version">Activity+ version</string>
+    <string name="share_row_level">Level</string>
+    <string name="share_row_verdict">Verdict</string>
+    <string name="share_sec_apps">Most battery today</string>
+    <string name="share_sec_wakeups">Wakeups today</string>
+
+    <string name="export_title">Export data</string>
+    <string name="export_hint">Saves the history as spreadsheet files (CSV) with a short summary (JSON) in one ZIP file. You choose where it goes; nothing is uploaded.</string>
+    <string name="export_action">Export data</string>
+    <string name="export_working">Exporting…</string>
+    <string name="export_done">Saved %1$d files</string>
+    <string name="export_failed">The export could not be saved</string>
+
+    <!-- Widgets: last night, history graph -->
+    <string name="widget_night_name">Activity+ last night</string>
+    <string name="widget_night_desc">Did the phone sleep well? Verdict, drain per hour, deep sleep and the app to blame</string>
+    <string name="widget_history_name">Activity+ history</string>
+    <string name="widget_history_desc">Battery level or power of the last 6 hours as a graph</string>
+    <string name="wn_blame">Blame</string>
+    <string name="wn_blame_android">Android</string>
+    <string name="wn_blame_none">No one</string>
+    <string name="wh_title_level">Battery, last %1$d h</string>
+    <string name="wh_title_power">Power, last %1$d h</string>
+    <string name="wh_range">%1$s to %2$s</string>
+    <string name="wh_empty">Collecting data…</string>
+    <string name="wh_mode_level">Battery level</string>
+    <string name="wh_mode_power">Power</string>
+    <string name="wh_config_subtitle">What the graph shows</string>
+    <!-- Example values in the widget picker -->
+    <string name="wh_preview_title">Battery, last 6 h</string>
+    <string name="wn_preview_time" translatable="false">22:40 – 06:55</string>
+    <string name="wn_preview_drain" translatable="false" formatted="false">0.5 %/h</string>
+    <string name="wn_preview_deep" translatable="false" formatted="false">93 %</string>
+    <string name="wh_preview_value" translatable="false" formatted="false">64 %</string>
+    <string name="wh_preview_range" translatable="false" formatted="false">41 % – 78 %</string>
+</resources>

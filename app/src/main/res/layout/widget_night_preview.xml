@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What the widget picker shows: the layout with an example night in it. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/widget_bg" android:orientation="vertical" android:padding="14dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView android:layout_width="16dp" android:layout_height="16dp" android:src="@drawable/ic_pulse" />
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+            android:layout_marginStart="6dp" android:text="@string/bg_night_title" android:textColor="#FFFFFFFF"
+            android:fontFamily="sans-serif-medium" android:textStyle="bold" android:textSize="13sp" android:maxLines="1" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/wn_preview_time" android:textColor="#FF9AA0BC" android:textSize="11sp" android:maxLines="1" />
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:gravity="center_vertical" android:fontFamily="sans-serif-medium" android:textColor="#FF26A862"
+        android:text="@string/nc_title_well" android:textSize="18sp" android:textStyle="bold" android:maxLines="2" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nc_stat_drain"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wn_preview_drain"
+                android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="16sp" android:textStyle="bold" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/nc_stat_deep"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wn_preview_deep"
+                android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="16sp" android:textStyle="bold" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wn_blame"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wn_blame_none"
+                android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="16sp" android:textStyle="bold" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

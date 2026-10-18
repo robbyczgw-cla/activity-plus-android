@@ -51,12 +51,14 @@ object WidgetUpdater {
         awm.getAppWidgetIds(ComponentName(context, ValueWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.VALUE) }
         awm.getAppWidgetIds(ComponentName(context, PanelWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.PANEL) }
         awm.getAppWidgetIds(ComponentName(context, BatteryWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.BATTERY) }
+        // Night check and history graph change slowly: redrawn every five minutes at most.
+        SlowWidgets.updateAll(context, awm, s.timeMillis)
     }
 
     fun hasWidgets(context: Context): Boolean {
         val awm = AppWidgetManager.getInstance(context)
         return listOf(ValueWidget::class.java, PanelWidget::class.java, BatteryWidget::class.java)
-            .any { awm.getAppWidgetIds(ComponentName(context, it)).isNotEmpty() }
+            .any { awm.getAppWidgetIds(ComponentName(context, it)).isNotEmpty() } || SlowWidgets.hasWidgets(context)
     }
 
     enum class Kind { VALUE, PANEL, BATTERY }
@@ -189,3 +191,16 @@ abstract class BaseWidget : AppWidgetProvider() {
 class ValueWidget : BaseWidget()
 class PanelWidget : BaseWidget()
 class BatteryWidget : BaseWidget()
+class NightWidget : BaseWidget()
+
+class HistoryWidget : BaseWidget() {
+    /** The graph is drawn for the widget's size, so a resize draws it again. */
+    override fun onAppWidgetOptionsChanged(context: Context, manager: AppWidgetManager, id: Int, newOptions: android.os.Bundle) {
+        SlowWidgets.redrawHistory(context, id)
+    }
+
+    override fun onDeleted(context: Context, ids: IntArray) {
+        super.onDeleted(context, ids)
+        HistoryWidgetPrefs.remove(context, ids)
+    }
+}

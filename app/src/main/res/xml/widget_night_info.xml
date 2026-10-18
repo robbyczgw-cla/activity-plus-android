@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="250dp" android:minHeight="110dp"
+    android:targetCellWidth="4" android:targetCellHeight="2"
+    android:minResizeWidth="110dp" android:minResizeHeight="57dp"
+    android:resizeMode="horizontal|vertical"
+    android:updatePeriodMillis="1800000"
+    android:initialLayout="@layout/widget_night"
+    android:previewLayout="@layout/widget_night_preview"
+    android:description="@string/widget_night_desc"
+    android:widgetCategory="home_screen" />

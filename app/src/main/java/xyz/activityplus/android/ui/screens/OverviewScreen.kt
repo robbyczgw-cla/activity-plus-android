@@ -113,8 +113,11 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
         title = stringResource(R.string.app_name),
         subtitle = s?.let { stringResource(R.string.overview_subtitle, Build.MODEL, Format.duration(it.uptimeSeconds)) },
         action = {
-            IconButton(onClick = onSettings) {
-                Icon(Icons.Outlined.Settings, contentDescription = stringResource(R.string.settings))
+            Row {
+                ShareReportIconButton()
+                IconButton(onClick = onSettings) {
+                    Icon(Icons.Outlined.Settings, contentDescription = stringResource(R.string.settings))
+                }
             }
         },
     ) {

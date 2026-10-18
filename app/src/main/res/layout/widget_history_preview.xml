@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What the widget picker shows: the layout with an example graph in it. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/widget_bg" android:orientation="vertical" android:padding="12dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView android:layout_width="14dp" android:layout_height="14dp" android:src="@drawable/ic_pulse" />
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+            android:layout_marginStart="6dp" android:text="@string/wh_preview_title" android:textColor="#FF9AA0BC"
+            android:textSize="11sp" android:textStyle="bold" android:maxLines="1" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wh_preview_value"
+            android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="16sp" android:textStyle="bold" android:maxLines="1" />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:layout_marginTop="4dp" android:scaleType="fitXY" android:src="@drawable/widget_history_preview"
+        android:contentDescription="@null" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/wh_preview_range"
+        android:textColor="#FF9AA0BC" android:textSize="11sp" android:maxLines="1" />
+</LinearLayout>
