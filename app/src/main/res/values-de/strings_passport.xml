@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Akku-Pass, unter der Zustands-Karte -->
+    <string name="passport_title">Akku-Pass</string>
+    <string name="passport_made">Hergestellt</string>
+    <string name="passport_in_use">In Benutzung</string>
+    <string name="passport_under_month">Weniger als ein Monat</string>
+    <plurals name="passport_months">
+        <item quantity="one">%d Monat</item>
+        <item quantity="other">%d Monate</item>
+    </plurals>
+    <string name="passport_cycles_month">Ladezyklen pro Monat</string>
+    <string name="passport_policy">Ladeverhalten</string>
+    <string name="passport_policy_standard">Normal</string>
+    <string name="passport_policy_limited">Begrenzt</string>
+    <string name="passport_policy_adaptive">Adaptiv</string>
+    <string name="passport_policy_long_life">Langlebig</string>
+    <string name="passport_part">Akkuteil</string>
+    <string name="passport_part_original">Original</string>
+    <string name="passport_part_replaced">Ausgetauscht</string>
+    <string name="passport_soh">Zustand laut Android</string>
+    <string name="passport_level">Kapazitätsstufe</string>
+    <string name="passport_level_critical">Kritisch</string>
+    <string name="passport_level_low">Niedrig</string>
+    <string name="passport_level_normal">Normal</string>
+    <string name="passport_level_high">Hoch</string>
+    <string name="passport_level_full">Voll</string>
+    <string name="passport_agree">Beide sagen etwa %1$s.</string>
+    <string name="passport_differ">Android sagt %1$s, die Messungen sagen %2$s.</string>
+    <string name="passport_differ_settling">Android sagt %1$s, die Messungen sagen %2$s. Die Messung braucht ein paar volle Ladungen, bis sie sich einpendelt.</string>
+    <string name="passport_more">Mehr Daten (Zustand, Datum) mit der Leseberechtigung</string>
+</resources>

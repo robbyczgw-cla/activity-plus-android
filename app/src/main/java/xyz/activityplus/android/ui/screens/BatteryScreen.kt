@@ -89,6 +89,7 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         item { ProEntryCard(onPro) }
         if (powerRails == true) item { PowerRailCard(b, onPro) }
         item { HealthCard(b) }
+        item { BatteryPassportCard(b, onPro) }
         val energy = data?.energy
         if (energy != null && energy.isNotEmpty()) {
             item { DrainByAppCard(b, energy, data) }
