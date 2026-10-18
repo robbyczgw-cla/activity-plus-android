@@ -209,6 +209,7 @@ private fun AppDetail(row: AppRow, days: Int) {
             p.pssBytes?.let { StatLine(stringResource(R.string.detail_pro_ram), Format.bytes(it).toString(), Metric.Memory) }
         }
         AppBackgroundSection(u.pkg)
+        AppWakeupSection(u.pkg)
         Spacer(Modifier.height(10.dp))
         Note(stringResource(R.string.method_foreground))
         if (!u.pkg.startsWith("#")) {

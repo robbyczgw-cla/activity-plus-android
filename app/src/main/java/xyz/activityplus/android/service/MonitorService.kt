@@ -73,6 +73,7 @@ class MonitorService : Service() {
                 Intent.ACTION_POWER_CONNECTED, Intent.ACTION_POWER_DISCONNECTED -> drain.onPowerChanged()
             }
             background.onBroadcast(intent.action, now)
+            WakeupSampler.onBroadcast(this@MonitorService, scope, intent.action, now)
         }
     }
 
@@ -131,6 +132,7 @@ class MonitorService : Service() {
         chargeAlarm.check(s, settings) // follows settings.alerts itself, but keeps its session state either way
         background.onTick(s.timeMillis, s.battery.plugged)
         StorageGrowthRecorder.onTick(this, scope, s.timeMillis)
+        WakeupSampler.onTick(this, scope, s.timeMillis, s.battery.plugged)
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis

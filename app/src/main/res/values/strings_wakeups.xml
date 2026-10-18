@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Who woke the phone (grant BATTERY_STATS on the pro page) -->
+    <string name="wk_title">Who woke the phone</string>
+    <string name="wk_caption">Android\'s counters</string>
+    <string name="wk_hint">See which apps wake the phone and keep it awake at night. Needs one more read permission on the pro page.</string>
+    <string name="wk_empty">Nothing counted yet. Android counts on battery only; the next reading comes within half an hour.</string>
+    <string name="wk_night">Last night, %1$s</string>
+    <string name="wk_today">Today</string>
+    <string name="wk_quiet">No app stood out.</string>
+    <string name="wk_cpu">CPU %1$s</string>
+    <plurals name="wk_wakeups">
+        <item quantity="one">%d wakeup</item>
+        <item quantity="other">%d wakeups</item>
+    </plurals>
+    <string name="wk_explain">A wakeup is an alarm that pulls the phone out of sleep; a wakelock keeps it awake with the screen off. Both drain the battery while you are not using the phone.</string>
+    <string name="wk_note">Counted by Android on battery only. Tap an app for its week.</string>
+    <string name="wk_fix">In App info under Battery you can restrict its background use. Activity+ never changes this itself.</string>
+    <string name="wk_detail_title">Wakeups and wakelocks, last 7 days</string>
+    <string name="wk_detail_wakeups">Woke the phone today</string>
+    <string name="wk_detail_awake">Kept it awake today</string>
+    <string name="wk_detail_cpu">CPU time today</string>
+    <string name="wk_detail_jobs">Background jobs today</string>
+    <string name="wk_detail_syncs">Syncs today</string>
+    <string name="wk_detail_gps">Location today</string>
+    <string name="wk_detail_usual">Usual day</string>
+    <string name="wk_detail_chart">Wakeups per day</string>
+    <plurals name="wk_night_line">
+        <item quantity="one">%1$s woke the phone %2$d time last night</item>
+        <item quantity="other">%1$s woke the phone %2$d times last night</item>
+    </plurals>
+    <string name="wk_night_awake">%1$s kept the phone awake for %2$s last night</string>
+</resources>
