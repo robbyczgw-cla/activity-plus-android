@@ -20,16 +20,21 @@ PORT="${EMU_PORT:-5560}"
 ADB="$SDK/platform-tools/adb -s emulator-$PORT"
 EMU_ARGS=(-avd "$AVD" -port "$PORT" -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot-save)
 PKG=xyz.activityplus.android
+# One container per AVD, so two emulators (e.g. Android 15 and 16) can run side by side.
+CONTAINER="droidplus-emu-$AVD"
 
 case "${1:-}" in
 start)
   # A container removed with docker rm -f leaves its locks behind; clear them when no instance runs.
   if ! pgrep -f -- "-avd $AVD " >/dev/null; then rm -f "$HOME/.android/avd/$AVD.avd/"*.lock; fi
   if [ -n "${EMU_DOCKER_IMAGE:-}" ]; then
-    docker rm -f droidplus-emu >/dev/null 2>&1 || true
-    docker run -d --name droidplus-emu --network host --device /dev/kvm --group-add "$(getent group kvm | cut -d: -f3)" \
+    docker rm -f "$CONTAINER" >/dev/null 2>&1 || true
+    # An SDK folder may link parts of another SDK (e.g. a user-installed system image next to a shared SDK).
+    mounts=(-v "$SDK:$SDK:ro")
+    for link in "$SDK"/*; do [ -L "$link" ] && target="$(readlink -f "$link")" && mounts+=(-v "$target:$target:ro"); done
+    docker run -d --name "$CONTAINER" --network host --device /dev/kvm --group-add "$(getent group kvm | cut -d: -f3)" \
       -u "$(id -u):$(id -g)" -e HOME="$HOME" -e ANDROID_SDK_ROOT="$SDK" \
-      -v "$HOME/.android:$HOME/.android" -v "$SDK:$SDK:ro" \
+      -v "$HOME/.android:$HOME/.android" "${mounts[@]}" \
       --entrypoint "$SDK/emulator/emulator" "$EMU_DOCKER_IMAGE" "${EMU_ARGS[@]}" >/dev/null
   else
     nohup "$SDK/emulator/emulator" "${EMU_ARGS[@]}" >/tmp/droidplus-emulator.log 2>&1 &
@@ -89,7 +94,7 @@ tap)
   $ADB shell input tap $(( ($1 + $3) / 2 )) $(( ($2 + $4) / 2 ))
   echo "tapped" ;;
 stop)
-  if [ -n "${EMU_DOCKER_IMAGE:-}" ]; then docker rm -f droidplus-emu >/dev/null; else $ADB emu kill; fi ;;
+  if [ -n "${EMU_DOCKER_IMAGE:-}" ]; then docker rm -f "$CONTAINER" >/dev/null; else $ADB emu kill; fi ;;
 *)
   sed -n '2,13p' "$0"; exit 1 ;;
 esac
