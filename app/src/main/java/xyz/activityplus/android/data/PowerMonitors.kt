@@ -8,6 +8,8 @@ import android.os.PowerMonitorReadings
 import android.os.health.SystemHealthManager
 import androidx.annotation.RequiresApi
 import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import xyz.activityplus.android.core.PowerRails
 import xyz.activityplus.android.core.RailReading
 import java.util.concurrent.Executor
@@ -43,14 +45,18 @@ object PowerMonitors {
     /** Everything that names an Android 15 class sits here, so older phones never load it. */
     @RequiresApi(35)
     private object Api35 {
+        private const val ANSWER_MS = 10_000L
         private val direct = Executor { it.run() }
         private var monitors: List<Pair<String, PowerMonitor>>? = null
 
         suspend fun list(context: Context): List<Pair<String, PowerMonitor>> {
             monitors?.let { return it }
             val manager = context.getSystemService(SystemHealthManager::class.java) ?: return emptyList()
-            val raw = suspendCancellableCoroutine<List<PowerMonitor>> { cont ->
-                manager.getSupportedPowerMonitors(direct) { if (cont.isActive) cont.resume(it) }
+            // The answer comes through a callback; one that never comes must not park the sampler for good.
+            val raw = withTimeout(ANSWER_MS) {
+                suspendCancellableCoroutine<List<PowerMonitor>> { cont ->
+                    manager.getSupportedPowerMonitors(direct) { if (cont.isActive) cont.resume(it) }
+                }
             }
             val keys = PowerRails.uniqueKeys(raw.map { (it.type == PowerMonitor.POWER_MONITOR_TYPE_CONSUMER) to it.name })
             return keys.zip(raw).also { monitors = it }
@@ -59,7 +65,7 @@ object PowerMonitors {
         suspend fun read(context: Context): Map<String, RailReading> {
             val list = list(context)
             val manager = context.getSystemService(SystemHealthManager::class.java) ?: return emptyMap()
-            val readings = suspendCancellableCoroutine<PowerMonitorReadings?> { cont ->
+            val readings = withTimeoutOrNull(ANSWER_MS) { suspendCancellableCoroutine<PowerMonitorReadings?> { cont ->
                 manager.getPowerMonitorReadings(list.map { it.second }, direct, object : OutcomeReceiver<PowerMonitorReadings, RuntimeException> {
                     override fun onResult(result: PowerMonitorReadings) {
                         if (cont.isActive) cont.resume(result)
@@ -69,7 +75,7 @@ object PowerMonitors {
                         if (cont.isActive) cont.resume(null)
                     }
                 })
-            } ?: return emptyMap()
+            } } ?: return emptyMap()
             val out = HashMap<String, RailReading>()
             for ((key, monitor) in list) {
                 val energy = readings.getConsumedEnergy(monitor)
