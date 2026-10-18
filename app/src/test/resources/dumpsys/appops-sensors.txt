@@ -1,0 +1,71 @@
+Current AppOps Service state:
+  Settings:
+    top_state_settle_time=+5s0ms
+    fg_service_state_settle_time=+5s0ms
+    bg_state_settle_time=+1s0ms
+
+  Uid u0a144:
+    state=fg
+    capability=LCMNFUA
+    appWidgetVisible=false
+      CAMERA: mode=foreground
+      RECORD_AUDIO: mode=foreground
+      BODY_SENSORS: mode=foreground
+    Package com.google.android.gms:
+      COARSE_LOCATION (allow): 
+      FINE_LOCATION (allow): 
+        com.google.android.gms.personalsafety=[
+          Access: [fg-s] 2026-10-18 15:01:55.509 (-6h47m52s708ms)
+        ]
+        location_nlp_network=[
+          Access: [fg-s] 2026-10-18 21:48:05.610 (-1m42s607ms)
+        ]
+        com.google.android.gms.gcm=[
+          Access: [fg-s] 2026-10-18 21:48:02.586 (-1m45s631ms)
+        ]
+        earthquake_alerting=[
+          Access: [fg-s] 2026-10-18 15:01:55.507 (-6h47m52s710ms)
+        ]
+      MONITOR_LOCATION (allow / switch COARSE_LOCATION=allow): 
+        com.google.android.gms.personalsafety=[
+          Access: [fgsvc-s] 2026-10-09 15:41:28.089 (-9d6h8m20s128ms) duration=+34ms
+          Access: [fg-s] 2026-10-18 21:48:05.555 (-1m42s662ms) duration=+1m42s681ms
+          Running start at: +1m42s662ms
+        ]
+        earthquake_alerting=[
+          Access: [fgsvc-s] 2026-10-09 15:41:28.089 (-9d6h8m20s128ms) duration=+34ms
+          Access: [fg-s] 2026-10-18 21:48:06.210 (-1m42s7ms) duration=+1m42s26ms
+          Running start at: +1m42s7ms
+        ]
+      MONITOR_HIGH_POWER_LOCATION (allow / switch COARSE_LOCATION=allow): 
+        earthquake_alerting=[
+          Access: [fg-s] 2026-10-18 15:01:51.779 (-6h47m56s438ms) duration=+3s739ms
+        ]
+      BLUETOOTH_SCAN (allow): 
+        nearby_fast_pair=[
+          Access: [fg-s] 2026-10-18 21:47:58.186 (-1m50s31ms)
+        ]
+      ACTIVITY_RECOGNITION (allow): 
+        com.google.android.gms.personalsafety=[
+          Access: [fgsvc-s] 2026-10-09 15:41:28.089 (-9d6h8m20s128ms) duration=+34ms
+          Access: [fg-s] 2026-10-18 21:48:05.568 (-1m42s649ms) duration=+1m42s668ms
+          Running start at: +1m42s649ms
+        ]
+    Package com.google.android.gsf:
+  Uid u0a137:
+    state=fg
+    capability=LCMNFUA
+    appWidgetVisible=false
+      CAMERA: mode=foreground
+      RECORD_AUDIO: mode=foreground
+      BODY_SENSORS: mode=ignore
+      ACTIVITY_RECOGNITION: mode=ignore
+      NEARBY_WIFI_DEVICES: mode=ignore
+    Package com.google.android.as:
+      COARSE_LOCATION (allow): 
+      CAMERA (allow): 
+      MONITOR_LOCATION (allow / switch COARSE_LOCATION=allow): 
+        null=[
+          Access: [fg-s] 2026-10-18 21:47:58.874 (-1m49s343ms) duration=+1m49s360ms
+          Running start at: +1m49s342ms
+        ]

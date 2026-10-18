@@ -151,6 +151,7 @@ class MonitorService : Service() {
         PowerRailSampler.onTick(this, scope, s.timeMillis)
         updates.onTick(s.timeMillis)
         thermal.onSample(s)
+        SensorLogSampler.onTick(this, scope, s.timeMillis)
         // Widgets every 30 s while someone can see them; launchers ignore faster updates anyway.
         if (s.screenOn && s.timeMillis - lastWidgets >= 30_000) {
             lastWidgets = s.timeMillis

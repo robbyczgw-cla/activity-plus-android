@@ -13,6 +13,7 @@ object Diagnosis {
         BACKGROUND_DATA, SCREEN_OFF_DRAIN, BATTERY_WORN, LONG_UPTIME, SLOW_ANIMATIONS, UNUSED_APPS, WAKELOCK_LIMIT,
         SINCE_UPDATE,
         THROTTLING_APP,
+        BACKGROUND_LOCATION,
     }
 
     enum class Fix { STORAGE_SETTINGS, APP_INFO, BATTERY_SAVER, BATTERY_USAGE, DEVELOPER_OPTIONS, NONE }
@@ -60,6 +61,8 @@ object Diagnosis {
         val sinceUpdate: List<Pair<SinceUpdate.Result, String>> = emptyList(),
         /** Apps that regularly make the phone throttle (see [Thermal.regular]) with the name to show, worst first. */
         val throttlers: List<Pair<Thermal.AppHeat, String>> = emptyList(),
+        /** Apps that kept using location in the background (see [SensorLog.manyInBackground]) with the name to show. */
+        val backgroundLocation: List<Pair<SensorLog.BackgroundUse, String>> = emptyList(),
     )
 
     private const val GB = 1_000_000_000L
@@ -169,6 +172,13 @@ object Diagnosis {
                     "episodes" to a.episodes.toDouble(), "days" to a.episodeDays.toDouble(),
                     "seconds" to a.throttledMinutes * 60.0, "temp" to a.maxTempC,
                 ),
+            )
+        }
+        // Location in the background costs battery on every request; the sensor log counts them (30 minute readings).
+        i.backgroundLocation.take(2).forEach { (u, label) ->
+            out += Finding(
+                Kind.BACKGROUND_LOCATION, Severity.WARN, Fix.APP_INFO, u.pkg, label,
+                values = mapOf("uses" to u.uses.toDouble()),
             )
         }
 

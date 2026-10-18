@@ -43,6 +43,8 @@ object FindingText {
                     R.string.f_throttle_body, (v["episodes"] ?: 0.0).toInt(), (v["days"] ?: 0.0).toInt(), dur("seconds"),
                     Format.temperature(v["temp"] ?: 0.0, fahrenheit).toString(),
                 )
+            Kind.BACKGROUND_LOCATION -> c.getString(R.string.f_bgloc_title, app) to
+                c.getString(R.string.f_bgloc_body, (v["uses"] ?: 0.0).toInt())
             Kind.SCREEN_OFF_DRAIN -> c.getString(R.string.f_off_title) to
                 c.getString(R.string.f_off_body, Format.number(v["percentPerHour"] ?: 0.0, 1) + " %", dur("seconds"))
             Kind.BATTERY_WORN -> c.getString(R.string.f_worn_title) to
