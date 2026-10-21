@@ -49,6 +49,7 @@ import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.StatLine
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.theme.LocalSurfaces
@@ -194,7 +195,7 @@ private fun PlanSubTitle(text: String) {
 private fun PlanRow(a: Schedule.AppPlan, onClick: () -> Unit) {
     val context = LocalContext.current
     Row(
-        Modifier.fillMaxWidth().clickable(onClick = onClick).padding(vertical = 5.dp),
+        Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_details), onClick).padding(vertical = 5.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AppIcon(a.pkg, 30.dp)

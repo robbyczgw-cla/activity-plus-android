@@ -71,6 +71,7 @@ import xyz.activityplus.android.ui.components.Gap
 import xyz.activityplus.android.ui.components.Meter
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.StatLine
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
@@ -308,7 +309,7 @@ fun MediaScreen() {
                     if (p != null) {
                         Note(stringResource(R.string.media_dup_progress, p.first, p.second))
                         Gap(8.dp)
-                        Meter(p.first.toDouble() / p.second.coerceAtLeast(1), Metric.Disk)
+                        Meter(p.first.toDouble() / p.second.coerceAtLeast(1), Metric.Disk, label = stringResource(R.string.media_dup_title))
                         TextButton(onClick = { job?.cancel() }) { Text(stringResource(R.string.media_dup_cancel)) }
                     } else {
                         val done = hashed
@@ -435,7 +436,7 @@ private fun MediaRow(
 ) {
     val context = LocalContext.current
     Row(
-        Modifier.fillMaxWidth().clickable { openItem(context, item) }.padding(vertical = 4.dp),
+        Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_file)) { openItem(context, item) }.padding(vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {

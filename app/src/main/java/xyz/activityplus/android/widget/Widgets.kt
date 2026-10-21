@@ -81,9 +81,15 @@ object WidgetUpdater {
         return RemoteViews(c.packageName, R.layout.widget_value).apply {
             setTextViewText(R.id.label, StatusText.label(c, item))
             setTextColor(R.id.label, StatusText.color(item, s, settings.colorMode) ?: 0xFF9AA0BC.toInt())
-            setTextViewText(R.id.value, StatusText.value(item, s, settings)?.toString() ?: "–")
+            val value = StatusText.value(item, s, settings)?.toString()
+            setTextViewText(R.id.value, value ?: "–")
+            // One phrase for the whole widget, with a spoken "no value" where it shows the dash.
+            setContentDescription(R.id.root, spoken(c, StatusText.label(c, item), value))
         }
     }
+
+    private fun spoken(c: Context, label: String, value: String?) =
+        c.getString(R.string.a11y_label_value, label, value ?: c.getString(R.string.a11y_no_value))
 
     private val cells = listOf(
         Triple(R.id.cell0, R.id.label0, R.id.value0), Triple(R.id.cell1, R.id.label1, R.id.value1),
@@ -102,7 +108,10 @@ object WidgetUpdater {
             v.setViewVisibility(cell, View.VISIBLE)
             v.setTextViewText(label, StatusText.label(c, item))
             v.setTextColor(label, StatusText.color(item, s, settings.colorMode) ?: 0xFF9AA0BC.toInt())
-            v.setTextViewText(value, StatusText.value(item, s, settings)?.toString() ?: "–")
+            val text = StatusText.value(item, s, settings)?.toString()
+            v.setTextViewText(value, text ?: "–")
+            // The cell reads as "Power, 3.2 W"; its two texts are hidden from TalkBack in the layout.
+            v.setContentDescription(cell, spoken(c, StatusText.label(c, item), text))
         }
         v.setViewVisibility(R.id.row2, if (items.size > 3) View.VISIBLE else View.GONE)
         v.setTextViewText(R.id.updated, android.text.format.DateFormat.getTimeFormat(c).format(java.util.Date(s.timeMillis)))
@@ -131,6 +140,7 @@ object WidgetUpdater {
         val b = s.battery
         val v = RemoteViews(c.packageName, R.layout.widget_battery)
         v.setImageViewBitmap(R.id.ring, ring(b.levelFraction, b.plugged))
+        v.setContentDescription(R.id.ring, c.getString(R.string.a11y_widget_ring, Format.percent(b.levelFraction)))
         val power = b.avgPowerMw?.let { Format.watts(abs(it)).toString() }
         v.setTextViewText(R.id.line1, listOfNotNull(power, b.percentPerHour?.let { (if (it > 0) "+" else "") + Format.number(it, 1) + " %/h" }).joinToString(" · "))
         v.setTextViewText(

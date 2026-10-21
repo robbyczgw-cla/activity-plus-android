@@ -52,6 +52,7 @@ import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.SegmentBar
 import xyz.activityplus.android.ui.components.Sparkline
 import xyz.activityplus.android.ui.components.StatLine
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.app
 import xyz.activityplus.android.ui.rememberLive
 import xyz.activityplus.android.ui.rememberLoaded
@@ -194,7 +195,10 @@ private fun RamCard(s: Snapshot) {
         }
         if (!day.isNullOrEmpty() && day.size > 10) {
             Spacer(Modifier.height(6.dp))
-            Sparkline(day, Metric.Memory, height = 44.dp, max = 1.0)
+            Sparkline(
+                day, Metric.Memory, height = 44.dp, max = 1.0,
+                label = stringResource(R.string.a11y_ram_day), format = { Format.percent(it) },
+            )
             Note(stringResource(R.string.ram_day_chart, Format.percent(day.average()), Format.percent(day.max())))
         }
         Spacer(Modifier.height(6.dp))
@@ -215,7 +219,7 @@ private fun ramPressure(m: xyz.activityplus.android.core.MemoryState): String = 
 private fun MemoryStorageCard(hw: HardwareInfo, s: Snapshot) {
     Section(stringResource(R.string.hw_storage), Icons.Outlined.Storage, Metric.Disk) {
         StatLine(stringResource(R.string.hw_internal), Format.bytes(s.storage.totalBytes).toString(), Metric.Disk)
-        Meter(1 - s.storage.freeFraction, Metric.Disk, Modifier.padding(vertical = 4.dp))
+        Meter(1 - s.storage.freeFraction, Metric.Disk, Modifier.padding(vertical = 4.dp), label = stringResource(R.string.item_storage_used))
         StatLine(stringResource(R.string.storage_free), Format.bytes(s.storage.freeBytes).toString())
         hw.volumes.forEach { v ->
             Spacer(Modifier.height(6.dp))
@@ -280,7 +284,7 @@ private fun NetworkHwCard(hw: HardwareInfo, s: Snapshot, bits: Boolean) {
                 stringResource(if (showIps) R.string.hw_hide_ip else R.string.hw_show_ip),
                 color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(vertical = 6.dp).clickable { showIps = !showIps },
+                modifier = Modifier.tapRow { showIps = !showIps }.padding(vertical = 6.dp),
             )
             if (showIps) n.addresses.forEach { Note(it) }
         }
@@ -389,7 +393,7 @@ private fun SensorsCard(sensors: List<HardwareInfo.SensorInfo>) {
                 stringResource(if (all) R.string.hw_show_less else R.string.hw_show_all, sensors.size),
                 color = MaterialTheme.colorScheme.primary,
                 style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(top = 6.dp).clickable { all = !all },
+                modifier = Modifier.tapRow { all = !all }.padding(top = 6.dp),
             )
         }
     }

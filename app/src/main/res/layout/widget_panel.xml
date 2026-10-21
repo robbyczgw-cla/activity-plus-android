@@ -14,55 +14,73 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
         android:layout_marginTop="8dp" android:orientation="horizontal" android:gravity="center_vertical">
         <LinearLayout android:id="@+id/cell0" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:orientation="vertical">
-            <TextView android:id="@+id/label0" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
-            <TextView android:id="@+id/value0" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:importantForAccessibility="noHideDescendants">
+            <TextView android:id="@+id/label0" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="8sp" android:autoSizeMaxTextSize="11sp" android:textColor="#FF9AA0BC" />
+            <TextView android:id="@+id/value0" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="18sp"
-                android:textStyle="bold" android:maxLines="1" />
+                android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="18sp" />
         </LinearLayout>
         <LinearLayout android:id="@+id/cell1" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:orientation="vertical">
-            <TextView android:id="@+id/label1" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
-            <TextView android:id="@+id/value1" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:importantForAccessibility="noHideDescendants">
+            <TextView android:id="@+id/label1" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="8sp" android:autoSizeMaxTextSize="11sp" android:textColor="#FF9AA0BC" />
+            <TextView android:id="@+id/value1" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="18sp"
-                android:textStyle="bold" android:maxLines="1" />
+                android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="18sp" />
         </LinearLayout>
         <LinearLayout android:id="@+id/cell2" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:orientation="vertical">
-            <TextView android:id="@+id/label2" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
-            <TextView android:id="@+id/value2" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:importantForAccessibility="noHideDescendants">
+            <TextView android:id="@+id/label2" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="8sp" android:autoSizeMaxTextSize="11sp" android:textColor="#FF9AA0BC" />
+            <TextView android:id="@+id/value2" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="18sp"
-                android:textStyle="bold" android:maxLines="1" />
+                android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="18sp" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout android:id="@+id/row2" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
         android:orientation="horizontal" android:gravity="center_vertical">
         <LinearLayout android:id="@+id/cell3" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:orientation="vertical">
-            <TextView android:id="@+id/label3" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
-            <TextView android:id="@+id/value3" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:importantForAccessibility="noHideDescendants">
+            <TextView android:id="@+id/label3" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="8sp" android:autoSizeMaxTextSize="11sp" android:textColor="#FF9AA0BC" />
+            <TextView android:id="@+id/value3" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="18sp"
-                android:textStyle="bold" android:maxLines="1" />
+                android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="18sp" />
         </LinearLayout>
         <LinearLayout android:id="@+id/cell4" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:orientation="vertical">
-            <TextView android:id="@+id/label4" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
-            <TextView android:id="@+id/value4" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:importantForAccessibility="noHideDescendants">
+            <TextView android:id="@+id/label4" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="8sp" android:autoSizeMaxTextSize="11sp" android:textColor="#FF9AA0BC" />
+            <TextView android:id="@+id/value4" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="18sp"
-                android:textStyle="bold" android:maxLines="1" />
+                android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="18sp" />
         </LinearLayout>
         <LinearLayout android:id="@+id/cell5" android:layout_width="0dp" android:layout_height="wrap_content"
-            android:layout_weight="1" android:orientation="vertical">
-            <TextView android:id="@+id/label5" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:textColor="#FF9AA0BC" />
-            <TextView android:id="@+id/value5" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:importantForAccessibility="noHideDescendants">
+            <TextView android:id="@+id/label5" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="11sp" android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="8sp" android:autoSizeMaxTextSize="11sp" android:textColor="#FF9AA0BC" />
+            <TextView android:id="@+id/value5" android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium" android:textColor="#FFFFFFFF" android:textSize="18sp"
-                android:textStyle="bold" android:maxLines="1" />
+                android:textStyle="bold" android:maxLines="1" android:ellipsize="end"
+                android:autoSizeTextType="uniform" android:autoSizeMinTextSize="10sp" android:autoSizeMaxTextSize="18sp" />
         </LinearLayout>
     </LinearLayout>
     <TextView android:id="@+id/footer" android:layout_width="match_parent" android:layout_height="wrap_content"

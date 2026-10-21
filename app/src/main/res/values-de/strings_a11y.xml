@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Barrierefreiheit (TalkBack): Beschreibungen von Diagrammen und Balken, und was ein Tippen bewirkt -->
+    <string name="a11y_chart_generic">Diagramm</string>
+    <string name="a11y_chart_empty">%1$s: noch keine Daten</string>
+    <string name="a11y_chart_flat">%1$s, konstant bei %2$s</string>
+    <string name="a11y_chart_range">%1$s, %2$s bis %3$s, jetzt %4$s</string>
+    <string name="a11y_chart_span">%1$s, %2$s bis %3$s</string>
+    <string name="a11y_chart_bars">%1$s, niedrigster Wert %2$s, höchster Wert %3$s</string>
+    <string name="a11y_chart_point">Ausgewählter Punkt: %1$s, %2$s</string>
+    <string name="a11y_chart_prev">Vorheriger Punkt</string>
+    <string name="a11y_chart_next">Nächster Punkt</string>
+    <string name="a11y_series_power">Leistung in den letzten Minuten</string>
+    <string name="a11y_series_memory">Belegter Arbeitsspeicher in den letzten Minuten</string>
+    <string name="a11y_series_download">Download-Geschwindigkeit in den letzten Minuten</string>
+    <string name="a11y_series_temperature">Akkutemperatur in den letzten Minuten</string>
+    <string name="a11y_cpu_cores">CPU-Takt pro Kern</string>
+    <string name="a11y_ram_day">Belegter Arbeitsspeicher in den letzten 24 Stunden</string>
+    <string name="a11y_history_subject">%1$s, letzte %2$s</string>
+    <string name="a11y_label_value">%1$s, %2$s</string>
+    <string name="a11y_no_value">Kein Wert</string>
+    <string name="a11y_severity_bad">Ernst</string>
+    <string name="a11y_severity_warn">Warnung</string>
+    <string name="a11y_severity_info">Zur Information</string>
+    <string name="a11y_open_details">Details öffnen</string>
+    <string name="a11y_open_app_info">App-Info öffnen</string>
+    <string name="a11y_open_diagnosis">Diagnose öffnen</string>
+    <string name="a11y_open_weekly">Wochenbericht öffnen</string>
+    <string name="a11y_open_pro">Genaues Messen öffnen</string>
+    <string name="a11y_open_file">Datei öffnen</string>
+    <string name="a11y_choose_language">Sprache wählen</string>
+    <string name="a11y_copy_command">Befehl kopieren</string>
+    <string name="a11y_move_up">%1$s nach oben</string>
+    <string name="a11y_move_down">%1$s nach unten</string>
+    <string name="a11y_widget_ring">Akkuladung %1$s</string>
+</resources>

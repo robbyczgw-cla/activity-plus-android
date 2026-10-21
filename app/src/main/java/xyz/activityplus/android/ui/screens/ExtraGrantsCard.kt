@@ -28,6 +28,7 @@ import xyz.activityplus.android.pro.ProShell
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Note
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.theme.Metric
 
 /**
@@ -58,7 +59,7 @@ fun ExtraGrantsCard(access: ProShell.Access, onChanged: () -> Unit) {
                 command,
                 fontFamily = FontFamily.Monospace,
                 style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.padding(vertical = 6.dp).clickable {
+                modifier = Modifier.tapRow(stringResource(R.string.a11y_copy_command)) {
                     context.getSystemService(ClipboardManager::class.java)
                         .setPrimaryClip(ClipData.newPlainText("adb", command))
                 },

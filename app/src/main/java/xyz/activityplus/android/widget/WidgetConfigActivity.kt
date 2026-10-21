@@ -11,8 +11,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
@@ -27,15 +30,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.ActivityPlusApp
 import xyz.activityplus.android.R
 import xyz.activityplus.android.data.StatusItem
 import xyz.activityplus.android.ui.StatusText
 import xyz.activityplus.android.ui.components.Card
+import xyz.activityplus.android.ui.components.MinTouch
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.screens.Screen
 import xyz.activityplus.android.ui.theme.ActivityPlusTheme
+import xyz.activityplus.android.ui.theme.forText
 
 /** Picks the values of one widget: a single value, or up to six for the panel. */
 class WidgetConfigActivity : ComponentActivity() {
@@ -66,19 +72,23 @@ class WidgetConfigActivity : ComponentActivity() {
                             Card {
                                 StatusItem.entries.forEach { item ->
                                     val on = item in chosen
-                                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                                    // The whole row is the control (label and box read as one), at least 48 dp tall.
+                                    val row = Modifier.fillMaxWidth().heightIn(min = MinTouch)
+                                    Row(
+                                        if (single) row.selectable(selected = on, role = Role.RadioButton) { chosen = listOf(item) }
+                                        else row.toggleable(
+                                            value = on, enabled = on || chosen.size < max, role = Role.Checkbox,
+                                        ) { c -> chosen = if (c) chosen + item else chosen - item },
+                                        verticalAlignment = Alignment.CenterVertically,
+                                    ) {
                                         if (single) {
-                                            RadioButton(selected = on, onClick = { chosen = listOf(item) })
+                                            RadioButton(selected = on, onClick = null)
                                         } else {
-                                            Checkbox(
-                                                checked = on,
-                                                enabled = on || chosen.size < max,
-                                                onCheckedChange = { c -> chosen = if (c) chosen + item else chosen - item },
-                                            )
+                                            Checkbox(checked = on, onCheckedChange = null, enabled = on || chosen.size < max)
                                         }
                                         Text(
                                             StatusText.label(this@WidgetConfigActivity, item),
-                                            color = Color(StatusText.metricColor(item)),
+                                            color = Color(StatusText.metricColor(item)).forText(),
                                         )
                                     }
                                 }
@@ -90,7 +100,7 @@ class WidgetConfigActivity : ComponentActivity() {
                             Button(
                                 enabled = chosen.isNotEmpty(),
                                 onClick = { save(id, chosen) },
-                                modifier = Modifier.fillMaxWidth().height(52.dp).navigationBarsPadding().padding(bottom = 8.dp),
+                                modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp).navigationBarsPadding().padding(bottom = 8.dp),
                             ) { Text(stringResource(R.string.widget_config_done)) }
                         }
                     }

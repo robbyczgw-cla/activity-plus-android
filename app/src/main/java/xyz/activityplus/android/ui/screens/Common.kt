@@ -17,7 +17,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.ActivityPlusApp
 import xyz.activityplus.android.R
@@ -53,7 +56,7 @@ fun <T> Chips(options: List<T>, selected: T, label: @Composable (T) -> String, o
             FilterChip(
                 selected = o == selected,
                 onClick = { onSelect(o) },
-                label = { Text(label(o), maxLines = 1) },
+                label = { Text(label(o), maxLines = 2, overflow = TextOverflow.Ellipsis) },
                 colors = FilterChipDefaults.filterChipColors(
                     selectedContainerColor = LocalSurfaces.current.cardRaised,
                     selectedLabelColor = MaterialTheme.colorScheme.onSurface,

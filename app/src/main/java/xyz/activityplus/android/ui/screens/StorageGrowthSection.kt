@@ -43,6 +43,7 @@ import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.Sparkline
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.theme.Metric
@@ -154,7 +155,10 @@ private fun UsedSparkline(used: List<Double?>, totalBytes: Long?) {
     val hi = values.max()
     val minRange = (totalBytes ?: 0L) * 0.02
     val pad = ((minRange - (hi - lo)) / 2).coerceAtLeast((hi - lo) * 0.1)
-    Sparkline(used, Metric.Disk, min = (lo - pad).coerceAtLeast(0.0), max = hi + pad)
+    Sparkline(
+        used, Metric.Disk, min = (lo - pad).coerceAtLeast(0.0), max = hi + pad,
+        label = stringResource(R.string.sgrowth_used_30), format = { Format.bytes(it.toLong()).toString() },
+    )
 }
 
 private fun signed(bytes: Long) = (if (bytes > 0) "+" else "") + Format.bytes(bytes)
@@ -163,7 +167,7 @@ private fun signed(bytes: Long) = (if (bytes > 0) "+" else "") + Format.bytes(by
 private fun GrowthRow(g: AppGrowth, week: AppGrowth?, unusual: Boolean) {
     val context = LocalContext.current
     Row(
-        Modifier.fillMaxWidth().clickable { Actions.appInfo(context, g.pkg) }.padding(vertical = 5.dp),
+        Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_app_info)) { Actions.appInfo(context, g.pkg) }.padding(vertical = 5.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AppIcon(g.pkg, 30.dp)

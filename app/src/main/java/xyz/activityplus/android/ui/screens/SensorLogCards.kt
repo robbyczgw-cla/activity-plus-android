@@ -55,10 +55,12 @@ import xyz.activityplus.android.ui.components.Badge
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Note
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
+import xyz.activityplus.android.ui.theme.forText
 import java.time.ZoneId
 
 /*
@@ -236,7 +238,7 @@ private fun NowCard(live: List<SensorLog.Live>) {
         Spacer(Modifier.height(8.dp))
         if (live.isEmpty()) Note(stringResource(R.string.sl_now_none))
         live.forEach { l ->
-            Row(Modifier.fillMaxWidth().clickable { Actions.appInfo(context, l.pkg) }.padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
+            Row(Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_app_info)) { Actions.appInfo(context, l.pkg) }.padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
                 AppIcon(l.pkg, 30.dp)
                 Spacer(Modifier.width(12.dp))
                 Column(Modifier.weight(1f)) {
@@ -269,7 +271,7 @@ private fun NightCard(d: SensorLogData, night: List<SensorLog.BackgroundUse>) {
             since == null || since > window.last -> Note(stringResource(R.string.sl_night_nodata))
             night.isEmpty() -> Note(stringResource(R.string.sl_night_none))
             else -> night.take(5).forEach { u ->
-                Row(Modifier.fillMaxWidth().clickable { Actions.appInfo(context, u.pkg) }.padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
+                Row(Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_app_info)) { Actions.appInfo(context, u.pkg) }.padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
                     AppIcon(u.pkg, 30.dp)
                     Spacer(Modifier.width(12.dp))
                     Text(appName(context, u.pkg, emptyMap()), style = MaterialTheme.typography.bodyLarge, maxLines = 1, modifier = Modifier.weight(1f))
@@ -294,7 +296,7 @@ private fun DayCard(day: List<SensorLog.AppUse>, d: SensorLogData) {
         Spacer(Modifier.height(8.dp))
         if (day.isEmpty()) Note(stringResource(if (d.since == null) R.string.sl_day_empty else R.string.sl_day_quiet))
         day.take(20).forEach { a ->
-            Row(Modifier.fillMaxWidth().clickable { Actions.appInfo(context, a.pkg) }.padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
+            Row(Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_app_info)) { Actions.appInfo(context, a.pkg) }.padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
                 AppIcon(a.pkg, 30.dp)
                 Spacer(Modifier.width(12.dp))
                 Column(Modifier.weight(1f)) {
@@ -362,7 +364,7 @@ fun AppSensorSection(pkg: String) {
         val name = sensorName(context, s)
         val res = context.resources
         if (u.background > 0) {
-            Text(res.getQuantityString(R.plurals.sl_detail_background, u.background, name, u.background), style = MaterialTheme.typography.bodyMedium, color = Metric.Warn)
+            Text(res.getQuantityString(R.plurals.sl_detail_background, u.background, name, u.background), style = MaterialTheme.typography.bodyMedium, color = Metric.Warn.forText())
         } else if (u.uses > 0) {
             Text(res.getQuantityString(R.plurals.sl_detail_uses, u.uses, name, u.uses), style = MaterialTheme.typography.bodyMedium)
         }

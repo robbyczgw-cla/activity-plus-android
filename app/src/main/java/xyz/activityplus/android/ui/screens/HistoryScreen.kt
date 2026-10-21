@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
@@ -28,10 +29,16 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.CustomAccessibilityAction
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.customActions
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.ActivityPlusApp
 import xyz.activityplus.android.R
+import xyz.activityplus.android.core.ChartText
 import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.data.HistoryStore
 import xyz.activityplus.android.data.Settings
@@ -41,6 +48,7 @@ import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Meter
 import xyz.activityplus.android.ui.components.Note
+import xyz.activityplus.android.ui.components.rememberChartWords
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.theme.LocalSurfaces
@@ -48,6 +56,7 @@ import xyz.activityplus.android.ui.theme.Metric
 import java.text.DateFormat
 import java.util.Date
 import kotlin.math.abs
+import xyz.activityplus.android.ui.theme.forGraphic
 
 enum class HistoryMetric(val color: Color) {
     LEVEL(Metric.Energy), POWER(Metric.Energy), TEMPERATURE(Metric.Heat),
@@ -87,7 +96,7 @@ fun HistoryScreen() {
                     Note(stringResource(R.string.history_empty))
                 } else {
                     // A young history fills the chart instead of hiding at its right edge.
-                    Chart(rows, maxOf(from, rows.first().ts), now, metric, settings)
+                    Chart(rows, maxOf(from, rows.first().ts), now, metric, settings, rangeLabel(range))
                 }
             }
         }
@@ -171,7 +180,7 @@ private fun buckets(rows: List<HistoryStore.Row>, from: Long, to: Long, m: Histo
 }
 
 @Composable
-private fun Chart(rows: List<HistoryStore.Row>, from: Long, to: Long, m: HistoryMetric, settings: Settings) {
+private fun Chart(rows: List<HistoryStore.Row>, from: Long, to: Long, m: HistoryMetric, settings: Settings, rangeText: String) {
     val context = LocalContext.current
     val data = remember(rows, m, from) { buckets(rows, from, to, m, ((to - from) / 60_000).toInt().coerceIn(2, 160)) }
     var selected by remember(rows, m) { mutableStateOf<Int?>(null) }
@@ -184,6 +193,21 @@ private fun Chart(rows: List<HistoryStore.Row>, from: Long, to: Long, m: History
     val sel = selected?.let { data.getOrNull(it) }
     val muted = LocalSurfaces.current.muted
     val line = LocalSurfaces.current.line
+    val stroke = m.color.forGraphic()
+
+    // For a screen reader: what the chart shows as a whole, the inspected point, and two actions to
+    // step through the points, since touch and drag are the only other way to inspect one.
+    val subject = stringResource(R.string.a11y_history_subject, metricLabel(m), rangeText)
+    val overview = ChartText.describe(subject, data.map { it.value }, { format(it, m, settings) }, rememberChartWords())
+    val pointText = sel?.let {
+        stringResource(
+            R.string.a11y_chart_point,
+            DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(Date(it.start)),
+            it.value?.let { v -> format(v, m, settings) } ?: "–",
+        )
+    }
+    val previous = stringResource(R.string.a11y_chart_prev)
+    val next = stringResource(R.string.a11y_chart_next)
 
     // Header: the inspected point, or the range's average and peak.
     if (sel != null) {
@@ -192,7 +216,7 @@ private fun Chart(rows: List<HistoryStore.Row>, from: Long, to: Long, m: History
             color = muted, style = MaterialTheme.typography.bodySmall,
         )
         Text(sel.value?.let { format(it, m, settings) } ?: "–", style = MaterialTheme.typography.headlineSmall)
-        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.height(28.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.heightIn(min = 28.dp)) {
             if (sel.app != null) {
                 AppIcon(sel.app, 20.dp)
                 Spacer(Modifier.width(6.dp))
@@ -206,7 +230,7 @@ private fun Chart(rows: List<HistoryStore.Row>, from: Long, to: Long, m: History
         Text(values.takeIf { it.isNotEmpty() }?.average()?.let { format(it, m, settings) } ?: "–", style = MaterialTheme.typography.headlineSmall)
         Text(
             stringResource(R.string.history_peak, values.maxOrNull()?.let { format(it, m, settings) } ?: "–"),
-            color = muted, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.height(28.dp),
+            color = muted, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.heightIn(min = 28.dp),
         )
     }
     Spacer(Modifier.height(8.dp))
@@ -214,6 +238,14 @@ private fun Chart(rows: List<HistoryStore.Row>, from: Long, to: Long, m: History
         Modifier
             .fillMaxWidth()
             .height(180.dp)
+            .semantics {
+                contentDescription = overview
+                if (pointText != null) stateDescription = pointText
+                customActions = listOf(
+                    CustomAccessibilityAction(previous) { selected = ((selected ?: data.size) - 1).coerceAtLeast(0); true },
+                    CustomAccessibilityAction(next) { selected = ((selected ?: -1) + 1).coerceAtMost(data.lastIndex); true },
+                )
+            }
             .pointerInput(data) {
                 detectTapGestures { o -> selected = (o.x / size.width * data.size).toInt().coerceIn(0, data.lastIndex) }
             }
@@ -254,12 +286,12 @@ private fun Chart(rows: List<HistoryStore.Row>, from: Long, to: Long, m: History
             lastX = x
         }
         if (open) { fill.lineTo(lastX, size.height); fill.lineTo(startX, size.height); fill.close() }
-        drawPath(fill, Brush.verticalGradient(listOf(m.color.copy(alpha = 0.35f), m.color.copy(alpha = 0.03f))))
-        drawPath(path, m.color, style = Stroke(width = 2.dp.toPx()))
+        drawPath(fill, Brush.verticalGradient(listOf(stroke.copy(alpha = 0.35f), stroke.copy(alpha = 0.03f))))
+        drawPath(path, stroke, style = Stroke(width = 2.dp.toPx()))
         selected?.let { i ->
             val x = i * stepX
             drawLine(muted, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5f)
-            data[i].value?.let { drawCircle(m.color, 4.dp.toPx(), Offset(x, y(it))) }
+            data[i].value?.let { drawCircle(stroke, 4.dp.toPx(), Offset(x, y(it))) }
         }
     }
     Row(Modifier.fillMaxWidth().padding(top = 4.dp)) {

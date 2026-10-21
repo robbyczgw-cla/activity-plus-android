@@ -3,6 +3,7 @@ package xyz.activityplus.android.ui.screens
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Speed
@@ -39,6 +40,7 @@ import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
+import xyz.activityplus.android.ui.theme.forGraphic
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -84,7 +86,7 @@ fun SpeedTestCard() {
             LinearProgressIndicator(
                 progress = { current?.fraction ?: 0f },
                 modifier = Modifier.fillMaxWidth(),
-                color = Metric.Disk,
+                color = Metric.Disk.forGraphic(),
             )
             Spacer(Modifier.height(4.dp))
             Note(stringResource(
@@ -102,7 +104,7 @@ fun SpeedTestCard() {
                 modifier = Modifier.padding(top = 6.dp),
             ) { Text(stringResource(R.string.speed_cancel)) }
         } else {
-            Button(onClick = ::start, modifier = Modifier.fillMaxWidth().height(50.dp)) {
+            Button(onClick = ::start, modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp)) {
                 Text(stringResource(R.string.speed_test))
             }
         }

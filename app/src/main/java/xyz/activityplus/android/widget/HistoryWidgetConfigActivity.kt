@@ -6,14 +6,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
@@ -26,9 +27,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.R
 import xyz.activityplus.android.ui.components.Card
+import xyz.activityplus.android.ui.components.MinTouch
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.screens.Screen
 import xyz.activityplus.android.ui.theme.ActivityPlusTheme
@@ -58,10 +61,10 @@ class HistoryWidgetConfigActivity : ComponentActivity() {
                             Card {
                                 HistoryMode.entries.forEach { m ->
                                     Row(
-                                        Modifier.fillMaxWidth().clickable { mode = m },
+                                        Modifier.fillMaxWidth().heightIn(min = MinTouch).selectable(selected = mode == m, role = Role.RadioButton) { mode = m },
                                         verticalAlignment = Alignment.CenterVertically,
                                     ) {
-                                        RadioButton(selected = mode == m, onClick = { mode = m })
+                                        RadioButton(selected = mode == m, onClick = null)
                                         Text(stringResource(if (m == HistoryMode.LEVEL) R.string.wh_mode_level else R.string.wh_mode_power))
                                     }
                                 }
@@ -72,7 +75,7 @@ class HistoryWidgetConfigActivity : ComponentActivity() {
                             Spacer(Modifier.height(12.dp))
                             Button(
                                 onClick = { save(id, mode) },
-                                modifier = Modifier.fillMaxWidth().height(52.dp).navigationBarsPadding().padding(bottom = 8.dp),
+                                modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp).navigationBarsPadding().padding(bottom = 8.dp),
                             ) { Text(stringResource(R.string.widget_config_done)) }
                         }
                     }

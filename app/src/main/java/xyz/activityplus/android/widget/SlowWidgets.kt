@@ -17,11 +17,13 @@ import xyz.activityplus.android.ActivityPlusApp
 import xyz.activityplus.android.MainActivity
 import xyz.activityplus.android.R
 import xyz.activityplus.android.Tab
+import xyz.activityplus.android.core.ChartText
 import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.core.GraphScale
 import xyz.activityplus.android.core.NightCheck.Verdict
 import xyz.activityplus.android.data.NightStore
 import xyz.activityplus.android.share.ReportBuilder
+import xyz.activityplus.android.ui.components.ChartWords
 import xyz.activityplus.android.ui.screens.loadNightCheck
 import xyz.activityplus.android.ui.screens.appName
 import kotlin.math.abs
@@ -155,6 +157,7 @@ object SlowWidgets {
         }
         if (samples.size < 2) {
             v.setImageViewBitmap(R.id.graph, null)
+            v.setContentDescription(R.id.graph, null)
             v.setTextViewText(R.id.value, "")
             v.setTextViewText(R.id.range, c.getString(R.string.wh_empty))
             return v
@@ -174,6 +177,14 @@ object SlowWidgets {
         val text = { x: Double -> if (mode == HistoryMode.LEVEL) Format.number(x, 0) + " %" else Format.watts(x * 1000).toString() }
         v.setTextViewText(R.id.value, text(samples.last().value))
         v.setTextViewText(R.id.range, c.getString(R.string.wh_range, text(lo), text(hi)))
+        // The picture alone says nothing to TalkBack; the title and range texts beside it do not give the course.
+        v.setContentDescription(
+            R.id.graph,
+            ChartText.describe(
+                c.getString(if (mode == HistoryMode.LEVEL) R.string.wh_title_level else R.string.wh_title_power, HOURS),
+                samples.map { it.value }, text, ChartWords(c.resources),
+            ),
+        )
         return v
     }
 

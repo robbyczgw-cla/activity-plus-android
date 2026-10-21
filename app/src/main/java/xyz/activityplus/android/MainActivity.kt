@@ -55,6 +55,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.core.WindowLayout
 import xyz.activityplus.android.service.MonitorService
+import xyz.activityplus.android.ui.components.NavLabel
 import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.screens.AppsScreen
 import xyz.activityplus.android.ui.screens.BatteryScreen
@@ -206,7 +207,7 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
                         selected = tab == t,
                         onClick = { tab = t },
                         icon = { Icon(icon, contentDescription = null) },
-                        label = { Text(stringResource(label), maxLines = 1) },
+                        label = { NavLabel(stringResource(label)) },
                         colors = NavigationBarItemDefaults.colors(indicatorColor = surfaces.cardRaised),
                     )
                 }

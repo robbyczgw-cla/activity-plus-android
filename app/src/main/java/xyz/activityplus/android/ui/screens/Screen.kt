@@ -34,6 +34,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.core.WindowLayout
 import xyz.activityplus.android.ui.theme.LocalSurfaces
@@ -96,7 +98,7 @@ fun Screen(
         val header: @Composable () -> Unit = {
             Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)) {
                 Column(Modifier.weight(1f)) {
-                    Text(title, style = MaterialTheme.typography.headlineMedium)
+                    Text(title, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.semantics { heading() })
                     if (subtitle != null) {
                         Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = LocalSurfaces.current.muted)
                     }

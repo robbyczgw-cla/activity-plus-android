@@ -18,10 +18,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.R
@@ -38,10 +38,10 @@ import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberUsageAccess
-import xyz.activityplus.android.ui.theme.BrandEnd
-import xyz.activityplus.android.ui.theme.BrandStart
+import xyz.activityplus.android.ui.theme.BannerBrush
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
+import xyz.activityplus.android.ui.theme.forText
 
 /** The last full week against the week before: a headline, the top five by battery, screen time and data, and totals. */
 @Composable
@@ -114,12 +114,12 @@ fun WeeklyHeadline(text: String, onClick: (() -> Unit)? = null) {
         Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(22.dp))
-            .background(Brush.linearGradient(listOf(BrandStart.copy(alpha = 0.9f), BrandEnd.copy(alpha = 0.9f))))
-            .let { if (onClick != null) it.clickable(onClick = onClick) else it }
+            .background(BannerBrush)
+            .let { if (onClick != null) it.clickable(onClickLabel = stringResource(R.string.a11y_open_weekly), role = Role.Button, onClick = onClick) else it }
             .padding(18.dp)
     ) {
         Column {
-            Text(stringResource(R.string.weekly_title), color = Color.White.copy(alpha = 0.8f), style = MaterialTheme.typography.labelLarge)
+            Text(stringResource(R.string.weekly_title), color = Color.White, style = MaterialTheme.typography.labelLarge)
             Spacer(Modifier.height(6.dp))
             Text(text, color = Color.White, style = MaterialTheme.typography.titleLarge)
             if (onClick != null) {
@@ -158,7 +158,7 @@ private fun TopCard(
                 Column(horizontalAlignment = Alignment.End) {
                     Text(value(e.value), style = MaterialTheme.typography.bodyLarge)
                     WeeklyText.change(context, e.change)?.let {
-                        Text(it, color = changeColor(e.change), style = MaterialTheme.typography.bodySmall, fontWeight = FontWeight.SemiBold)
+                        Text(it, color = changeColor(e.change).forText(), style = MaterialTheme.typography.bodySmall, fontWeight = FontWeight.SemiBold)
                     }
                 }
             }

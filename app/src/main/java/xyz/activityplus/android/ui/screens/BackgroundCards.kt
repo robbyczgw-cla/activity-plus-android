@@ -131,6 +131,9 @@ fun AppBackgroundSection(pkg: String) {
     StatLine(stringResource(R.string.bg_detail_today), mah(b.todayMah), Metric.Energy)
     b.usualMah?.let { StatLine(stringResource(R.string.bg_detail_usual), mah(it)) }
     Spacer(Modifier.height(4.dp))
-    Sparkline(b.week, Metric.Energy, height = 36.dp)
+    Sparkline(
+        b.week, Metric.Energy, height = 36.dp,
+        label = stringResource(R.string.bg_detail_title), format = ::mah, latest = false,
+    )
     Note(stringResource(R.string.bg_detail_note))
 }

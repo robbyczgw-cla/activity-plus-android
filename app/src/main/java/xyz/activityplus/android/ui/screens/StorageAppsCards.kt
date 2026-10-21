@@ -49,6 +49,7 @@ import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.SegmentBar
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.rememberUsageAccess
@@ -223,7 +224,7 @@ fun StorageCachesSection() {
                 modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
             )
             caches.top.forEach { a ->
-                AppLine(a, Format.bytes(a.cacheBytes).toString(), Modifier.clickable { Actions.appInfo(context, a.pkg) })
+                AppLine(a, Format.bytes(a.cacheBytes).toString(), Modifier.tapRow(stringResource(R.string.a11y_open_app_info)) { Actions.appInfo(context, a.pkg) })
             }
         }
         Note(stringResource(R.string.storageapps_cache_note), Modifier.padding(top = 8.dp))

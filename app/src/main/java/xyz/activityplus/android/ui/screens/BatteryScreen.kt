@@ -198,9 +198,15 @@ private fun LiveCard(s: Snapshot, series: Monitor.Series, fahrenheit: Boolean) {
             }
         }
         Spacer(Modifier.height(8.dp))
-        Meter(b.levelFraction, if (b.levelFraction < 0.15) Metric.Heat else Metric.Energy, height = 10.dp)
+        Meter(
+            b.levelFraction, if (b.levelFraction < 0.15) Metric.Heat else Metric.Energy, height = 10.dp,
+            label = stringResource(R.string.metric_level),
+        )
         Spacer(Modifier.height(10.dp))
-        Sparkline(series.power.map { it?.let(::abs) }, Metric.Energy, height = 56.dp)
+        Sparkline(
+            series.power.map { it?.let(::abs) }, Metric.Energy, height = 56.dp,
+            label = stringResource(R.string.a11y_series_power), format = { Format.watts(it).toString() },
+        )
         Note(stringResource(R.string.battery_live_chart))
         Spacer(Modifier.height(8.dp))
         // Instant and averaged side by side: the instant value jumps with every frame drawn.

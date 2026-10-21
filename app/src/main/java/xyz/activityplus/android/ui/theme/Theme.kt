@@ -8,6 +8,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
@@ -34,6 +35,18 @@ object Metric {
 val BrandStart = Color(0xFF3E8BFF)
 val BrandEnd = Color(0xFF9B5CF6)
 
+/**
+ * The gradient behind the white text of the verdict and weekly banners: the brand colours, opaque and
+ * a little deeper, so white reads on both ends at 4.5:1 or better (the plain brand blue gave 3.9:1,
+ * on the light theme with the old 90 % alpha only 3.0:1).
+ */
+internal val BannerStart = Color(0xFF2E68BF)
+internal val BannerEnd = Color(0xFF8C53DD)
+val BannerBrush = Brush.linearGradient(listOf(BannerStart, BannerEnd))
+
+/** Primary on the light theme: the Cpu blue is 4.4:1 on white, which is short for button text; this is 5.4:1. */
+internal val LightPrimary = Color(0xFF335DEB)
+
 @Immutable
 data class Surfaces(
     val background: Color,
@@ -47,7 +60,7 @@ val LocalSurfaces = staticCompositionLocalOf {
     Surfaces(Color(0xFF0E1024), Color(0xFF1A1D36), Color(0xFF23274A), Color(0x1FFFFFFF), Color(0xFF9AA0BC))
 }
 
-private val DarkSurfaces = Surfaces(
+internal val DarkSurfaces = Surfaces(
     background = Color(0xFF0E1024),
     card = Color(0xFF171A33),
     cardRaised = Color(0xFF22264A),
@@ -55,7 +68,7 @@ private val DarkSurfaces = Surfaces(
     muted = Color(0xFF9AA0BC),
 )
 
-private val LightSurfaces = Surfaces(
+internal val LightSurfaces = Surfaces(
     background = Color(0xFFEDF0F6),
     card = Color(0xFFFFFFFF),
     cardRaised = Color(0xFFE2E7F1),
@@ -103,7 +116,7 @@ fun ActivityPlusTheme(dark: Boolean = isSystemInDarkTheme(), content: @Composabl
         )
     } else {
         lightColorScheme(
-            primary = Metric.Cpu,
+            primary = LightPrimary,
             secondary = Metric.Memory,
             background = surfaces.background,
             surface = surfaces.background,
