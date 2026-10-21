@@ -143,7 +143,7 @@ fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}, onOpen: (
             morning = isMorning(),
         )
 
-        item(key = "glance") {
+        item(key = "glance", fullWidth = true) {
             val scrollTo = LocalScreenScroll.current
             GlanceCard(Glance.glance(facts, Glance.CardId.hidden(settings.hiddenCards)), settings.fahrenheit) { target ->
                 when (target) {

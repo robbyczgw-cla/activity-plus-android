@@ -66,8 +66,10 @@ private class GridScreenScope(private val scope: LazyStaggeredGridScope) : Scree
         scope.item(key = key, span = if (fullWidth) StaggeredGridItemSpan.FullLine else StaggeredGridItemSpan.SingleLane) { content() }
     }
 
+    // Rows of a ranked list (apps, findings) span both lanes: split into two lanes they would zigzag
+    // left, right, left, and the order would be lost.
     override fun <T> items(items: List<T>, key: ((T) -> Any)?, content: @Composable (T) -> Unit) {
-        scope.items(items, key = key) { content(it) }
+        scope.items(items, key = key, span = { StaggeredGridItemSpan.FullLine }) { content(it) }
     }
 }
 
