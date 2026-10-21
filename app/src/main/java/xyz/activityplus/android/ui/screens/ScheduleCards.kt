@@ -122,37 +122,52 @@ fun ScheduleCard(onPro: () -> Unit) {
     val loaded = rememberLoaded(resumes, grant) { Loaded(if (grant) loadSchedule(context) else PlanCache.get(STALE_MS)) }
     val plan = asked?.plan ?: loaded?.plan
     var selected by rememberSaveable { mutableStateOf<String?>(null) }
-    Card {
-        CardHeader(stringResource(R.string.sc_title), Metric.Energy, Icons.Outlined.Schedule, stringResource(R.string.sc_caption))
-        Spacer(Modifier.height(8.dp))
-        when {
-            reading || (grant && loaded == null) -> Note(stringResource(R.string.sc_reading))
-            plan == null && grant -> Note(stringResource(R.string.sc_failed))
-            plan == null -> {
-                Note(stringResource(if (asked != null) R.string.sc_failed else R.string.sc_shizuku))
+    ScheduleContent(
+        plan = plan,
+        reading = reading || (grant && loaded == null),
+        // With the grant a missing plan is a failed reading; with Shizuku only after the user asked.
+        failed = plan == null && (grant || asked != null),
+        canRead = shizuku && !reading,
+        onRead = {
+            reading = true
+            scope.launch {
+                asked = Loaded(runCatching { readSchedule(context, viaShizuku = true) }.getOrNull())
+                reading = false
             }
-            else -> PlanBody(plan) { selected = it }
-        }
-        if (shizuku && !reading) {
-            TextButton(
-                onClick = {
-                    reading = true
-                    scope.launch {
-                        asked = Loaded(runCatching { readSchedule(context, viaShizuku = true) }.getOrNull())
-                        reading = false
-                    }
-                },
-                contentPadding = PaddingValues(0.dp),
-            ) {
-                Text(stringResource(if (plan == null) R.string.sc_read_now else R.string.sc_read_again) + " ›")
-            }
-        }
-    }
+        },
+        onSelect = { selected = it },
+    )
     // A new reading may have dropped the app; then there is no sheet to show.
     val app = selected?.let { pkg -> plan?.apps?.find { it.pkg == pkg } }
     if (plan != null && app != null) {
         ModalBottomSheet(onDismissRequest = { selected = null }, containerColor = LocalSurfaces.current.card) {
             ScheduleAppSheet(app, plan)
+        }
+    }
+}
+
+/** The card for a reading in any state; [canRead] offers a reading through Shizuku. */
+@Composable
+internal fun ScheduleContent(
+    plan: Schedule.Plan?,
+    reading: Boolean,
+    failed: Boolean,
+    canRead: Boolean,
+    onRead: () -> Unit,
+    onSelect: (String) -> Unit,
+) {
+    Card {
+        CardHeader(stringResource(R.string.sc_title), Metric.Energy, Icons.Outlined.Schedule, stringResource(R.string.sc_caption))
+        Spacer(Modifier.height(8.dp))
+        when {
+            reading -> Note(stringResource(R.string.sc_reading))
+            plan == null -> Note(stringResource(if (failed) R.string.sc_failed else R.string.sc_shizuku))
+            else -> PlanBody(plan, onSelect)
+        }
+        if (canRead) {
+            TextButton(onClick = onRead, contentPadding = PaddingValues(0.dp)) {
+                Text(stringResource(if (plan == null) R.string.sc_read_now else R.string.sc_read_again) + " ›")
+            }
         }
     }
 }
@@ -172,7 +187,7 @@ private fun PlanBody(plan: Schedule.Plan, onSelect: (String) -> Unit) {
 }
 
 @Composable
-private fun ScheduleHintCard(onPro: () -> Unit) {
+internal fun ScheduleHintCard(onPro: () -> Unit) {
     Card(onClick = onPro) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Icons.Outlined.Schedule, null, tint = Metric.Energy)

@@ -100,7 +100,7 @@ fun AppsScreen(onPro: () -> Unit = {}) {
     val sel = rows?.find { it.usage.pkg == selected }
     if (sel != null) {
         ModalBottomSheet(onDismissRequest = { selected = null }, containerColor = LocalSurfaces.current.card) {
-            AppDetail(sel, days)
+            AppDetail(sel, days, onPro)
         }
     }
 }
@@ -155,7 +155,7 @@ private fun AppRowView(row: AppRow, sort: AppSort, onClick: () -> Unit) {
 }
 
 @Composable
-private fun AppDetail(row: AppRow, days: Int) {
+private fun AppDetail(row: AppRow, days: Int, onPro: () -> Unit) {
     val u = row.usage
     val context = LocalContext.current
     Column(Modifier.sheetContent()) {
@@ -217,6 +217,7 @@ private fun AppDetail(row: AppRow, days: Int) {
         AppHeatSection(u.pkg)
         AppSensorSection(u.pkg)
         AppScheduleSection(u.pkg)
+        AppDetailCoverage(onPro)
         Spacer(Modifier.height(10.dp))
         Note(stringResource(R.string.method_foreground))
         if (!u.pkg.startsWith("#")) {

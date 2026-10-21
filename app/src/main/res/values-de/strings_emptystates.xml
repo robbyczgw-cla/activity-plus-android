@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="es_set_up">Einrichten</string>
+
+    <!-- Battery -->
+    <string name="es_forecast_none">Noch keine Schätzung. Dein Muster braucht etwa einen Tag Nutzung im Akkubetrieb, um gelernt zu werden.</string>
+    <string name="es_unplug_none">Beginnt, wenn du das Ladegerät absteckst. Activity+ verfolgt jede Akkuphase, solange es läuft.</string>
+    <string name="es_unplug_soon">Gerade abgesteckt. Die Werte folgen nach der ersten Minute.</string>
+    <string name="es_charger_test_plug">Steck ein Ladegerät an, um zu testen, was es samt Kabel liefert.</string>
+    <string name="es_power_needs_android15">Verbrauch pro Bauteil braucht Android 15 oder neuer.</string>
+    <string name="es_passport_none">Dieses Gerät meldet keine dieser Angaben, auch nicht mit der Leseberechtigung.</string>
+    <string name="es_trend_none" formatted="false">Erscheint ab der zweiten Ladung, die mindestens 30 % nachlädt.</string>
+    <string name="es_drain_needs_access">Akku pro App braucht den Nutzungszugriff, um zu wissen, welche App im Vordergrund ist.</string>
+    <string name="es_bg_hint">Akku pro App im Hintergrund, aus dem eigenen Bericht von Android. Braucht die Computer-Freigabe auf der Pro-Seite.</string>
+    <string name="es_bg_off">Die automatische Hintergrundmessung ist in den Einstellungen aus.</string>
+    <string name="es_sessions_none">Noch keine. Ladungen und Akkuphasen erscheinen hier, sobald eine 5 Minuten gedauert hat.</string>
+
+    <!-- Apps -->
+    <string name="es_cost_none">Noch keine App hat in den letzten 7 Tagen %1$d Minuten gemessene Bildschirmzeit.</string>
+    <string name="es_updates_none">In den letzten %1$d Tagen wurde keine App aktualisiert.</string>
+    <string name="es_detail_sections">Updates, Hitze, Hintergrund, Wecken, Sensoren und Pläne erscheinen hier nur, wenn sie diese App betreffen.</string>
+    <string name="es_detail_grant">Hintergrund, Wecken, Sensoren und Pläne pro App brauchen eine Freigabe auf der Pro-Seite.</string>
+
+    <!-- History, Hardware, Settings, widgets -->
+    <string name="es_history_drain_none">In diesem Zeitraum wurde kein Akku pro App gemessen. Activity+ misst, solange es läuft; lass den Live-Status an.</string>
+    <string name="es_hw_not_reported">Von diesem Gerät nicht gemeldet: %1$s.</string>
+    <string name="es_live_needs_android16">Laden als Live-Update braucht Android 16.</string>
+    <string name="es_lang_needs_android13">Activity+ folgt der Sprache des Geräts. Eine eigene Sprache für diese App braucht Android 13.</string>
+    <string name="es_bg_setting_grant">Die automatische Hintergrundmessung braucht die Computer-Freigabe auf der Pro-Seite.</string>
+    <string name="es_widget_nothing_today">Heute noch nichts gemessen</string>
+</resources>

@@ -163,6 +163,8 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
                     Toggle(stringResource(R.string.bg_setting_title), stringResource(R.string.bg_setting_hint), settings.backgroundMeasure) { on ->
                         app.prefs.update { it.copy(backgroundMeasure = on) }
                     }
+                } else {
+                    Note(stringResource(R.string.es_bg_setting_grant), Modifier.padding(vertical = 6.dp))
                 }
                 Toggle(stringResource(R.string.set_weekly), stringResource(R.string.set_weekly_hint), settings.weekly) { on ->
                     app.prefs.update { it.copy(weekly = on) }

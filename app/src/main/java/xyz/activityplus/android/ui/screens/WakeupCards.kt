@@ -113,6 +113,18 @@ fun WakeupCard(onPro: () -> Unit) {
     val data = rememberLoaded(resumes) { loadWakeups(context) } ?: return
     val overLimit = rememberLoaded(resumes) { loadWakeLimit(context) }.orEmpty()
     var selected by rememberSaveable { mutableStateOf<String?>(null) }
+    WakeupContent(data, overLimit.keys) { selected = it }
+    selected?.let { pkg ->
+        ModalBottomSheet(onDismissRequest = { selected = null }, containerColor = LocalSurfaces.current.card) {
+            WakeupAppSheet(pkg)
+        }
+    }
+}
+
+/** The card for counters already read; [overLimit] are the apps above Google's wakelock limit. */
+@Composable
+internal fun WakeupContent(data: WakeupOverview, overLimit: Set<String>, onSelect: (String) -> Unit) {
+    val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.wk_title), Metric.Energy, Icons.Outlined.Alarm, stringResource(R.string.wk_caption))
         Spacer(Modifier.height(8.dp))
@@ -124,27 +136,22 @@ fun WakeupCard(onPro: () -> Unit) {
                 val time = { t: Long -> DateUtils.formatDateTime(context, t, DateUtils.FORMAT_SHOW_TIME) }
                 SubTitle(stringResource(R.string.wk_night, time(window.first) + " – " + time(window.last)))
                 if (data.night.isEmpty()) Note(stringResource(R.string.wk_quiet))
-                data.night.take(3).forEach { WakeupRow(it, it.pkg in data.unusual, it.pkg in overLimit) { selected = it.pkg } }
+                data.night.take(3).forEach { WakeupRow(it, it.pkg in data.unusual, it.pkg in overLimit) { onSelect(it.pkg) } }
                 Spacer(Modifier.height(8.dp))
             }
             SubTitle(stringResource(R.string.wk_today))
             if (data.today.isEmpty()) Note(stringResource(R.string.wk_quiet))
-            data.today.take(5).forEach { WakeupRow(it, it.pkg in data.unusual, it.pkg in overLimit) { selected = it.pkg } }
+            data.today.take(5).forEach { WakeupRow(it, it.pkg in data.unusual, it.pkg in overLimit) { onSelect(it.pkg) } }
         }
         Spacer(Modifier.height(6.dp))
         Note(stringResource(R.string.wk_explain))
         Spacer(Modifier.height(4.dp))
         Note(stringResource(R.string.wk_note))
     }
-    selected?.let { pkg ->
-        ModalBottomSheet(onDismissRequest = { selected = null }, containerColor = LocalSurfaces.current.card) {
-            WakeupAppSheet(pkg)
-        }
-    }
 }
 
 @Composable
-private fun WakeupHintCard(onPro: () -> Unit) {
+internal fun WakeupHintCard(onPro: () -> Unit) {
     Card(onClick = onPro) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Icons.Outlined.Alarm, null, tint = Metric.Energy)

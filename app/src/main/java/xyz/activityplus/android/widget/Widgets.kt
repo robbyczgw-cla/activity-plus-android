@@ -120,7 +120,7 @@ object WidgetUpdater {
     }
 
     /** "Most today: Chrome 0.7 Wh", or the charging line while plugged in. */
-    private fun footer(c: Context, s: Snapshot): String {
+    internal fun footer(c: Context, s: Snapshot): String {
         val b = s.battery
         if (b.plugged) {
             val w = b.avgPowerMw?.takeIf { it > 0 } ?: return c.getString(R.string.status_charging)
@@ -130,7 +130,8 @@ object WidgetUpdater {
         val now = System.currentTimeMillis()
         val day = ActivityPlusApp.dayKey(now)
         val top = runCatching { ActivityPlusApp.instance.history.energy(day, day) }.getOrNull()
-            ?.firstOrNull { !it.pkg.startsWith("#") && it.pkg != c.packageName } ?: return ""
+            // An empty footer would look like a broken widget; early in the day there is simply nothing yet.
+            ?.firstOrNull { !it.pkg.startsWith("#") && it.pkg != c.packageName } ?: return c.getString(R.string.es_widget_nothing_today)
         val label = runCatching { c.packageManager.getApplicationLabel(c.packageManager.getApplicationInfo(top.pkg, 0)).toString() }
             .getOrDefault(top.pkg)
         return c.getString(R.string.widget_most_today, label, Format.energy(top.mwh).toString())

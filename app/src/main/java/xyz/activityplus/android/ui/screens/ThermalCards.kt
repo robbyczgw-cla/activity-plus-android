@@ -106,6 +106,11 @@ fun HeatCard(onPro: () -> Unit) {
     val settings = rememberSettings()
     val access = rememberUsageAccess()
     val heat = rememberLoaded(rememberResumes(), access) { loadHeat(context) } ?: return
+    HeatContent(heat, access, ProShell.hasComputerGrant(context), settings.fahrenheit, onPro)
+}
+
+@Composable
+internal fun HeatContent(heat: HeatReport, access: Boolean, grant: Boolean, fahrenheit: Boolean, onPro: () -> Unit) {
     Card {
         CardHeader(stringResource(R.string.th_title), Metric.Heat, Icons.Outlined.DeviceThermostat, stringResource(R.string.th_caption))
         Spacer(Modifier.height(8.dp))
@@ -122,8 +127,8 @@ fun HeatCard(onPro: () -> Unit) {
             s.peak?.let { StatLine(stringResource(R.string.th_worst), thermalLabel(it)) }
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.th_recent), style = MaterialTheme.typography.titleSmall, color = LocalSurfaces.current.muted)
-            heat.episodes.take(HEAT_EPISODES).forEach { EpisodeRow(it, settings.fahrenheit) }
-            if (!ProShell.hasComputerGrant(context)) {
+            heat.episodes.take(HEAT_EPISODES).forEach { EpisodeRow(it, fahrenheit) }
+            if (!grant) {
                 Note(stringResource(R.string.th_grant_hint), Modifier.padding(top = 6.dp))
                 TextButton(onClick = onPro, contentPadding = PaddingValues(0.dp)) { Text(stringResource(R.string.th_open_pro) + " ›") }
             }
@@ -133,7 +138,7 @@ fun HeatCard(onPro: () -> Unit) {
         when {
             !access -> Note(stringResource(R.string.th_usage_hint))
             heat.apps.isEmpty() -> Note(stringResource(R.string.th_apps_empty))
-            else -> heat.apps.take(HEAT_APPS).forEach { AppHeatRow(it, settings.fahrenheit) }
+            else -> heat.apps.take(HEAT_APPS).forEach { AppHeatRow(it, fahrenheit) }
         }
         Spacer(Modifier.height(6.dp))
         Note(stringResource(R.string.th_note))

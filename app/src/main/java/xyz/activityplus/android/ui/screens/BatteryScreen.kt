@@ -109,7 +109,10 @@ fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}, onOpen: (
     var expanded by rememberSaveable { mutableStateOf(emptyList<String>()) }
 
     Screen(title = stringResource(R.string.tab_battery), action = { ShareReportIconButton() }) {
-        if (s == null) return@Screen
+        if (s == null) {
+            item { Note(stringResource(R.string.loading)) }
+            return@Screen
+        }
         val b = s.battery
         val running = sessions?.firstOrNull()?.takeIf { it.charging == b.plugged }
         // Plug-in blips (a loose cable) say nothing; keep sessions that lasted and moved something.
@@ -157,20 +160,20 @@ fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}, onOpen: (
             when (id) {
                 Glance.CardId.LIVE -> LiveCard(s, series, settings.fahrenheit)
                 Glance.CardId.FORECAST -> ForecastCard(b)
-                Glance.CardId.SESSION -> if (b.plugged) ChargingCard(b, running) else SinceUnplugCard(b, running)
+                Glance.CardId.SESSION -> if (b.plugged) ChargingCard(b, running) else SinceUnplugCard(running, loaded = sessions != null)
                 // Which app is drawing the power right now.
                 Glance.CardId.NOW_DRAWING -> if (data != null) NowDrawingCard(s, data)
-                Glance.CardId.POWER_RAIL -> PowerRailCard(b, onPro)
+                Glance.CardId.POWER_RAIL -> if (powerRails == false) PowerRailUnavailable() else PowerRailCard(b, onPro)
                 Glance.CardId.NIGHT -> if (night != null) NightCheckCard(night, onPro)
                 Glance.CardId.WAKEUP -> WakeupCard(onPro)
-                Glance.CardId.DRAIN -> if (data != null && energy.isNotEmpty()) DrainByAppCard(b, energy, data, onSelfCost) else Card { Note(stringResource(R.string.drain_empty)); SelfCostLink(onSelfCost) }
+                Glance.CardId.DRAIN -> if (data != null && energy.isNotEmpty()) DrainByAppCard(b, energy, data, onSelfCost) else Column { DrainEmptyCard(stringResource(R.string.drain_today), access); SelfCostLink(onSelfCost) }
                 Glance.CardId.CHARGER_TEST -> ChargerTestCard(s, settings.fahrenheit)
                 Glance.CardId.HEALTH -> HealthCard(b)
                 Glance.CardId.PASSPORT -> BatteryPassportCard(b, onPro)
                 Glance.CardId.HABITS -> ChargingHabitsCard(b, settings.fahrenheit)
-                Glance.CardId.SESSIONS -> if (!past.isNullOrEmpty()) SessionsCard(past)
+                Glance.CardId.SESSIONS -> if (past != null) SessionsCard(past)
                 Glance.CardId.SCHEDULE -> ScheduleCard(onPro)
-                Glance.CardId.BACKGROUND -> if (background != null) BackgroundTodayCard(background, onPro) else BackgroundHintCard(onPro)
+                Glance.CardId.BACKGROUND -> if (background != null) BackgroundTodayCard(background, onPro) else BackgroundUnavailableCard(onPro)
                 Glance.CardId.PRO -> ProEntryCard(onPro)
             }
         }
@@ -303,15 +306,20 @@ private fun ChargingCard(b: BatteryState, session: BatterySession?) {
     }
 }
 
+/** [session] is the running one; before it has a minute the card says when its numbers come. */
 @Composable
-private fun SinceUnplugCard(b: BatteryState, session: BatterySession?) {
-    if (session == null || session.seconds < 60) return
+internal fun SinceUnplugCard(session: BatterySession?, loaded: Boolean) {
     Card {
         CardHeader(
             stringResource(R.string.session_since_unplug_title), Metric.Energy, Icons.Outlined.BatteryStd,
-            Format.duration(session.seconds.toLong()),
+            session?.takeIf { it.seconds >= 60 }?.let { Format.duration(it.seconds.toLong()) },
         )
         Spacer(Modifier.height(8.dp))
+        if (session == null || session.seconds < 60) {
+            // No session: Activity+ was not running at the unplug, or it is just now being recorded.
+            Note(stringResource(if (!loaded) R.string.loading else if (session == null) R.string.es_unplug_none else R.string.es_unplug_soon))
+            return@Card
+        }
         StatLine(stringResource(R.string.session_level), levelRange(session))
         // The level moves in 1 % steps, so the session rate means something only after a while.
         session.percentPerHour?.takeIf { session.seconds >= 900 }?.let {
@@ -422,11 +430,12 @@ private fun DrainByAppCard(b: BatteryState, energy: Map<String, Pair<Double, Dou
 }
 
 @Composable
-private fun SessionsCard(sessions: List<BatterySession>) {
+internal fun SessionsCard(sessions: List<BatterySession>) {
     val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.sessions_title), Metric.Energy, Icons.Outlined.History)
         Spacer(Modifier.height(6.dp))
+        if (sessions.isEmpty()) Note(stringResource(R.string.es_sessions_none))
         sessions.take(8).forEach { se ->
             Column(Modifier.padding(vertical = 5.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {

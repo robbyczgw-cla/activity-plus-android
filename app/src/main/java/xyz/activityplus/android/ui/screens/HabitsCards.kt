@@ -66,6 +66,12 @@ fun ChargingHabitsCard(b: BatteryState, fahrenheit: Boolean) {
     val context = LocalContext.current
     // Reloads when the user comes back from system settings, where the charging limit is changed.
     val data = rememberLoaded(rememberResumes(), b.designMah) { loadHabits(context, b.designMah) } ?: return
+    ChargingHabitsContent(data, fahrenheit)
+}
+
+@Composable
+fun ChargingHabitsContent(data: HabitsData, fahrenheit: Boolean) {
+    val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.habits_title), Metric.Energy, Icons.Outlined.Insights)
         Spacer(Modifier.height(8.dp))
@@ -186,8 +192,8 @@ private fun perDay(seconds: Double): String =
     if (seconds < 60) stringResource(R.string.habits_none)
     else stringResource(R.string.habits_per_day, Format.duration(seconds.toLong()))
 
-/** Runs on IO. Null when there is neither a habit to show nor a capacity measurement. */
-private fun loadHabits(context: Context, designMah: Double?): HabitsData? {
+/** Runs on IO. A fresh install gets the card too: both parts then say how much history they still need. */
+private fun loadHabits(context: Context, designMah: Double?): HabitsData {
     val now = System.currentTimeMillis()
     val from = now - ChargingHabits.WINDOW_DAYS * DAY
     val samples = app.history.samples(from).map { HabitSample(it.ts, it.level, it.tempC, it.charging) }
@@ -197,7 +203,6 @@ private fun loadHabits(context: Context, designMah: Double?): HabitsData? {
         .map { PlugSpan(it.startMillis, it.endMillis, it.startLevel, it.endLevel) }
     val summary = ChargingHabits.summarize(samples, spans)
     val estimates = ChargingStore.get(context).capacity()
-    if (summary == null && estimates.isEmpty()) return null
     // The policy decides which advice still applies: a phone that already limits its charge needs none.
     val policy = BatteryPassport.from(
         BatteryPassportReader.read(context), designMah, estimates, now, ZoneId.systemDefault(),
@@ -219,15 +224,24 @@ fun CostPerHourCard() {
     val measured = rememberLoaded(rememberResumes()) { loadMeasuredApps() } ?: return
     val battery = app.monitor.latest.collectAsState().value?.battery
     val batteryMwh = battery?.let { b -> b.capacityMah?.let { it * b.voltageV } }
-    val rows = UsageCost.rank(measured, batteryMwh)
-    if (rows.isEmpty()) return
+    CostPerHourContent(UsageCost.rank(measured, batteryMwh))
+}
+
+@Composable
+fun CostPerHourContent(rows: List<AppCost>) {
+    val minutes = (UsageCost.MIN_SECONDS / 60).roundToInt()
     Card {
         CardHeader(stringResource(R.string.cost_title), Metric.Energy, Icons.Outlined.Timer, caption = stringResource(R.string.cost_caption))
         Spacer(Modifier.height(6.dp))
+        // A fresh install or a week without the live status: no app has the minutes a fair figure needs.
+        if (rows.isEmpty()) {
+            Note(stringResource(R.string.es_cost_none, minutes))
+            return@Card
+        }
         rows.forEach { CostRow(it) }
         Spacer(Modifier.height(6.dp))
         Note(stringResource(R.string.cost_note))
-        Note(stringResource(R.string.cost_min_note, (UsageCost.MIN_SECONDS / 60).roundToInt()))
+        Note(stringResource(R.string.cost_min_note, minutes))
     }
 }
 

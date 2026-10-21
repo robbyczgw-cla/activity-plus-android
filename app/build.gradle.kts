@@ -53,6 +53,17 @@ android {
         buildConfig = true
         aidl = true
     }
+    testOptions {
+        unitTests {
+            // The card tests render Compose under Robolectric, which reads the real strings and themes.
+            isIncludeAndroidResources = true
+            all {
+                it.maxHeapSize = "1536m"
+                // Robolectric's Android 16 sets up shared memory through a JDK internal.
+                it.jvmArgs("--add-opens=java.base/jdk.internal.access=ALL-UNNAMED")
+            }
+        }
+    }
     androidResources {
         // The Mac app's eight languages; English is the default in values/.
         localeFilters += listOf("en", "de", "fr", "es", "it", "pt-rBR", "ja", "zh-rCN")
@@ -63,6 +74,11 @@ android {
 
 kotlin {
     jvmToolchain(17)
+}
+
+// Robolectric runs Android 15 and 16 only on Java 21; the app itself still builds for 17.
+tasks.withType<Test>().configureEach {
+    javaLauncher.set(javaToolchains.launcherFor { languageVersion.set(JavaLanguageVersion.of(21)) })
 }
 
 dependencies {
@@ -85,6 +101,12 @@ dependencies {
     implementation("dev.rikka.shizuku:provider:13.1.5")
 
     testImplementation("junit:junit:4.13.2")
+    // Card tests: each empty or unavailable state is rendered on the JVM and its text asserted.
+    testImplementation(composeBom)
+    testImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("org.robolectric:robolectric:4.17")
+    // The empty activity the compose test rule starts; only in debug builds, never in the release APK.
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
     // Android's org.json is a stub in local unit tests.
     testImplementation("org.json:json:20240303")
 }

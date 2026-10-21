@@ -106,10 +106,11 @@ No internet permission, no account, no analytics, no ads. Everything stays in th
 
 ## Build and test
 
-Needs JDK 17+ and the Android SDK (platform 36). Put `sdk.dir=/path/to/sdk` in `local.properties`.
+Needs JDK 17+ and the Android SDK (platform 36). Put `sdk.dir=/path/to/sdk` in `local.properties`. The unit tests
+also need a JDK 21 installed (Gradle finds it): Robolectric renders the cards as Android 16, which runs only on 21.
 
 ```bash
-./gradlew :app:testDebugUnitTest      # unit tests: formatting, fuel gauge quirks, drain split, diagnosis, dumpsys parsers
+./gradlew :app:testDebugUnitTest      # unit tests: formatting, fuel gauge quirks, drain split, diagnosis, dumpsys parsers, cards with missing data
 ./gradlew :app:assembleRelease        # unsigned unless the release signing properties below are set
 python3 -I scripts/l10n-check.py      # every translation against values/strings*.xml
 scripts/emu.sh start && scripts/emu.sh install && scripts/emu.sh smoke   # emulator smoke test

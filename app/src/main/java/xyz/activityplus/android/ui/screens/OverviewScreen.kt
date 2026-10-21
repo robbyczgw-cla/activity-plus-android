@@ -135,7 +135,10 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
                 dismissed = true
             }
         }
-        if (s == null) return@Screen
+        if (s == null) {
+            item { Note(stringResource(R.string.loading)) }
+            return@Screen
+        }
         // The four live cards. CPU clock and temperature live on the hardware page, the busiest apps
         // on the battery page, last night on the battery page too (and in "worth a look" when it went wrong).
         item {

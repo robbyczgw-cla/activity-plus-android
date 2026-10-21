@@ -77,10 +77,13 @@ object AppLanguage {
     }
 }
 
-/** One row ("Language: Deutsch ▾") that opens the list. Hidden below Android 13. */
+/** One row ("Language: Deutsch ▾") that opens the list. Below Android 13 a line why there is none. */
 @Composable
 fun LanguageRow(modifier: Modifier = Modifier) {
-    if (!AppLanguage.supported) return
+    if (!AppLanguage.supported) {
+        Note(stringResource(R.string.es_lang_needs_android13), modifier.padding(vertical = 6.dp))
+        return
+    }
     val context = LocalContext.current
     var open by remember { mutableStateOf(false) }
     val current = remember { AppLanguage.current(context) }
