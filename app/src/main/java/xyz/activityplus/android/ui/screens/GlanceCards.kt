@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.BatteryChargingFull
@@ -268,14 +267,14 @@ private fun nightText(context: Context, f: Glance.NightFact): String = when (f.v
  * "Hidden: X · Show" footer. [card] draws one card. [expanded] holds the keys of the folded cards the
  * user opened.
  */
-fun LazyListScope.glanceSections(
+fun ScreenScope.glanceSections(
     sections: List<Glance.Section>,
     expanded: List<String>,
     onToggle: (CardId) -> Unit,
     card: @Composable (CardId) -> Unit,
 ) {
     sections.forEach { section ->
-        item(key = "title-${section.group}") { SectionTitle(section.group.title()) }
+        item(key = "title-${section.group}", fullWidth = true) { SectionTitle(section.group.title()) }
         section.slots.forEach { slot ->
             item(key = slot.card.key) {
                 val quiet = slot.status.quiet
