@@ -160,6 +160,9 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
             }
         }
 
+        item { SectionTitle(stringResource(R.string.glance_set_section)) }
+        item { CardVisibilityCard(settings) }
+
         item { SectionTitle(stringResource(R.string.chg_section)) }
         item {
             Card {

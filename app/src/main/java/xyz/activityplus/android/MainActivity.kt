@@ -152,7 +152,7 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
             when (tab) {
                 Tab.OVERVIEW -> OverviewScreen(onOpen = { tab = it }, onSettings = { showSettings = true })
                 Tab.APPS -> AppsScreen(onPro = { tab = Tab.PRO })
-                Tab.BATTERY -> BatteryScreen(onPro = { tab = Tab.PRO })
+                Tab.BATTERY -> BatteryScreen(onPro = { tab = Tab.PRO }, onOpen = { tab = it })
                 Tab.HISTORY -> HistoryScreen()
                 Tab.HARDWARE -> HardwareScreen(onOpen = { tab = it })
                 Tab.DIAGNOSIS -> DiagnosisScreen(onOpen = { tab = it })

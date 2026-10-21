@@ -41,6 +41,8 @@ data class Settings(
     val onboarded: Boolean = false,
     /** Reads Android's battery report every few hours; only with the computer grant. */
     val backgroundMeasure: Boolean = true,
+    /** Keys of the Battery screen cards the user hid (see Glance.CardId.key). */
+    val hiddenCards: Set<String> = emptySet(),
 )
 
 class Prefs(context: Context) {
@@ -73,6 +75,7 @@ class Prefs(context: Context) {
             chargeLive = sp.getBoolean("chargeLive", d.chargeLive),
             onboarded = sp.getBoolean("onboarded", d.onboarded),
             backgroundMeasure = sp.getBoolean("backgroundMeasure", d.backgroundMeasure),
+            hiddenCards = sp.getStringSet("hiddenCards", null)?.toSet() ?: d.hiddenCards,
         )
     }
 
@@ -96,6 +99,7 @@ class Prefs(context: Context) {
             .putBoolean("chargeLive", s.chargeLive)
             .putBoolean("onboarded", s.onboarded)
             .putBoolean("backgroundMeasure", s.backgroundMeasure)
+            .putStringSet("hiddenCards", s.hiddenCards)
             .apply()
         _settings.value = s
     }
