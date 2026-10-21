@@ -45,6 +45,11 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent>
+        <!-- The home screen is on screen a lot; without this it would show as a bare package name. -->
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
         <!-- VPN apps: Diagnosis leaves their always-on service alone. -->
         <intent>
             <action android:name="android.net.VpnService" />
