@@ -203,6 +203,13 @@ fun StorageCachesSection() {
     val access = rememberUsageAccess()
     val resumes = rememberResumes()
     val data = keepLast(rememberLoaded(access, resumes) { StorageAppsLoader.load(context, resumes) })
+    StorageCachesContent(access, data)
+}
+
+/** [data] is null while it loads; its apps are null without usage access. */
+@Composable
+internal fun StorageCachesContent(access: Boolean, data: StorageAppsData?) {
+    val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.storageapps_cache_title), Metric.Network)
         val apps = data?.apps
@@ -276,9 +283,16 @@ fun StorageUnusedSection() {
     val context = LocalContext.current
     val access = rememberUsageAccess()
     val resumes = rememberResumes()
+    val data = keepLast(rememberLoaded(access, resumes) { StorageAppsLoader.load(context, resumes) })
+    StorageUnusedContent(access, data)
+}
+
+/** [data] is null while it loads; its apps are null without usage access. */
+@Composable
+internal fun StorageUnusedContent(access: Boolean, data: StorageAppsData?) {
+    val context = LocalContext.current
     var days by rememberSaveable { mutableStateOf(StorageApps.DEFAULT_UNUSED_DAYS) }
     var showAll by rememberSaveable { mutableStateOf(false) }
-    val data = keepLast(rememberLoaded(access, resumes) { StorageAppsLoader.load(context, resumes) })
     Card {
         CardHeader(stringResource(R.string.storageapps_unused_title), Metric.Warn)
         val apps = data?.apps

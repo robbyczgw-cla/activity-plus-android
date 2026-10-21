@@ -93,7 +93,17 @@ fun HardwareScreen(onOpen: (Tab) -> Unit = {}) {
         item { HeatCard(onPro) }
         if (hw.sensors.isNotEmpty()) item { SensorsCard(hw.sensors) }
         item { SensorLogEntryCard(onOpen, hint = true) }
-        if (powerRails == false) item { Note(stringResource(R.string.power_unsupported), Modifier.padding(horizontal = 4.dp)) }
+        if (powerRails == false) item { PowerRailUnavailable() }
+        // The cards this phone has nothing for, named in one line instead of disappearing.
+        if (hw.display == null || hw.cameras.isEmpty() || hw.sensors.isEmpty()) item {
+            NotReportedNote(
+                listOfNotNull(
+                    stringResource(R.string.hw_display).takeIf { hw.display == null },
+                    stringResource(R.string.hw_cameras).takeIf { hw.cameras.isEmpty() },
+                    stringResource(R.string.hw_sensors).takeIf { hw.sensors.isEmpty() },
+                )
+            )
+        }
         item { Note(stringResource(R.string.hw_note), Modifier.padding(horizontal = 4.dp)) }
     }
 }

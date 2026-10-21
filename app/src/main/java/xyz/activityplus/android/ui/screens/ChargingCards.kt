@@ -38,6 +38,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.filterNotNull
 import xyz.activityplus.android.R
+import xyz.activityplus.android.core.CapacityEstimate
 import xyz.activityplus.android.core.ChargeHealth
 import xyz.activityplus.android.core.ChargerMeasurement
 import xyz.activityplus.android.core.ChargerTestRun
@@ -54,7 +55,8 @@ import xyz.activityplus.android.ui.theme.Metric
 
 /**
  * Measures what the charger and cable deliver for 30 seconds from the live snapshots, saves the
- * result under a name, and ranks the saved tests. The button shows only while charging.
+ * result under a name, and ranks the saved tests. The button shows only while charging; on battery
+ * one line says to plug in.
  */
 @Composable
 fun ChargerTestCard(s: Snapshot, fahrenheit: Boolean) {
@@ -93,7 +95,6 @@ fun ChargerTestCard(s: Snapshot, fahrenheit: Boolean) {
     }
 
     val list = tests.orEmpty()
-    if (!b.charging && active == null && pending == null && list.isEmpty()) return
     Card {
         CardHeader(stringResource(R.string.chg_test_title), Metric.Energy, Icons.Outlined.ElectricBolt)
         Spacer(Modifier.height(8.dp))
@@ -114,6 +115,8 @@ fun ChargerTestCard(s: Snapshot, fahrenheit: Boolean) {
                     elapsed = 0
                     run = ChargerTestRun(s.timeMillis, b.levelFraction, b.temperatureC)
                 }) { Text(stringResource(R.string.chg_test_button)) }
+            } else {
+                Note(stringResource(R.string.es_charger_test_plug))
             }
             message?.let {
                 Spacer(Modifier.height(6.dp))
@@ -178,15 +181,25 @@ fun ChargerTestCard(s: Snapshot, fahrenheit: Boolean) {
     }
 }
 
-/** Inside the Health card: the full capacity estimated from each finished charge. Hidden below two. */
+/** Inside the Health card: the full capacity estimated from each finished charge; below two, when it will show. */
 @Composable
 fun ChargingHealthTrend() {
     val context = LocalContext.current
     val estimates = rememberLoaded { ChargingStore.get(context).capacity() } ?: return
-    val trend = ChargeHealth.trend(estimates) ?: return
+    ChargingHealthTrendContent(estimates)
+}
+
+@Composable
+fun ChargingHealthTrendContent(estimates: List<CapacityEstimate>) {
+    val context = LocalContext.current
     Spacer(Modifier.height(10.dp))
     Text(stringResource(R.string.chg_trend_title), style = MaterialTheme.typography.titleSmall)
     Spacer(Modifier.height(4.dp))
+    val trend = ChargeHealth.trend(estimates)
+    if (trend == null) {
+        Note(stringResource(R.string.es_trend_none))
+        return
+    }
     Sparkline(estimates.map { it.mah }, Metric.Energy, height = 48.dp, min = null)
     Spacer(Modifier.height(4.dp))
     Row(verticalAlignment = Alignment.CenterVertically) {

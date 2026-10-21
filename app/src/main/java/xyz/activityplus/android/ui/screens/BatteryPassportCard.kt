@@ -26,6 +26,7 @@ import xyz.activityplus.android.data.BatteryPassportReader
 import xyz.activityplus.android.data.ChargingStore
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
+import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
@@ -46,7 +47,12 @@ fun BatteryPassportCard(b: BatteryState, onPro: () -> Unit) {
             System.currentTimeMillis(), ZoneId.systemDefault(),
         )
     } ?: return
+    BatteryPassportContent(passport, onPro)
+}
 
+@Composable
+fun BatteryPassportContent(passport: BatteryPassport, onPro: () -> Unit) {
+    val context = LocalContext.current
     val rows = listOfNotNull(
         passport.madeMillis?.let {
             R.string.passport_made to DateUtils.formatDateTime(context, it, DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_NO_MONTH_DAY)
@@ -64,12 +70,11 @@ fun BatteryPassportCard(b: BatteryState, onPro: () -> Unit) {
         passport.sohPercent?.let { R.string.passport_soh to Format.percent(it / 100.0) },
         passport.capacityLevel?.let { R.string.passport_level to stringResource(levelText(it)) },
     )
-    // A phone that reports nothing with the grant in place has nothing to show; without it the hint is the card.
-    if (rows.isEmpty() && passport.statsGranted) return
-
     Card {
         CardHeader(stringResource(R.string.passport_title), Metric.Energy, Icons.Outlined.Badge)
         Spacer(Modifier.height(8.dp))
+        // With the grant in place an empty card is the phone's doing; without it the hint below says what is missing.
+        if (rows.isEmpty() && passport.statsGranted) Note(stringResource(R.string.es_passport_none))
         rows.forEach { (label, value) -> StatLine(stringResource(label), value) }
         passport.verdict?.let {
             Spacer(Modifier.height(6.dp))

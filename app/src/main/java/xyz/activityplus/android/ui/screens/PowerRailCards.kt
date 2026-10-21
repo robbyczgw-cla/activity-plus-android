@@ -61,7 +61,7 @@ import kotlin.math.roundToLong
  * PowerRails (pure) and PowerRailSampler (energy per 15 minutes in power.db); this file only draws them.
  */
 
-/** Whether this phone reports power per component at all; null while Android is asked, false hides the card. */
+/** Whether this phone reports power per component at all; null while Android is asked, false shows [PowerRailUnavailable]. */
 @Composable
 fun rememberPowerRailsSupport(): Boolean? {
     val context = LocalContext.current
@@ -71,7 +71,7 @@ fun rememberPowerRailsSupport(): Boolean? {
     }.value
 }
 
-private enum class PowerWindow { NOW, HOUR, TODAY }
+internal enum class PowerWindow { NOW, HOUR, TODAY }
 
 /** Below this the meters report nothing usable. */
 private const val SILENT_MW = 20.0
@@ -144,13 +144,33 @@ fun PowerRailCard(battery: BatteryState, onPro: () -> Unit) {
         enough = PowerRails.enoughData(coveredMs, fine)
     }
 
+    PowerRailContent(
+        options, window, { chosen = it }, rates, coveredMs, enough, drawMw, fine,
+        canGetExact = !fine && ProShell.finePowerMonitorsExist(context), onPro = onPro,
+    )
+}
+
+/** The card for readings already taken; [rates] is null while the stored ones load. */
+@Composable
+internal fun PowerRailContent(
+    options: List<PowerWindow>,
+    window: PowerWindow,
+    onChoose: (PowerWindow) -> Unit,
+    rates: Map<String, Double>?,
+    coveredMs: Long,
+    enough: Boolean,
+    drawMw: Double?,
+    fine: Boolean,
+    canGetExact: Boolean,
+    onPro: () -> Unit,
+) {
     Card {
         CardHeader(
             stringResource(R.string.power_title), Metric.Energy, Icons.Outlined.PieChart,
             if (window != PowerWindow.NOW && coveredMs > 0) stringResource(R.string.power_covered, Format.duration(coveredMs / 1000)) else null,
         )
         Spacer(Modifier.height(8.dp))
-        Chips(options, window, { windowLabel(it) }) { chosen = it }
+        Chips(options, window, { windowLabel(it) }, onChoose)
         Spacer(Modifier.height(10.dp))
         if (rates == null) {
             Note(stringResource(R.string.loading))
@@ -168,10 +188,22 @@ fun PowerRailCard(battery: BatteryState, onPro: () -> Unit) {
         Spacer(Modifier.height(8.dp))
         Note(stringResource(if (fine) R.string.power_note_exact else R.string.power_note_coarse))
         // Exact readings need a permission that only some Android 16+ builds define.
-        if (!fine && ProShell.finePowerMonitorsExist(context)) {
+        if (canGetExact) {
             TextButton(onClick = onPro, contentPadding = PaddingValues(0.dp)) { Text(stringResource(R.string.power_get_exact)) }
         }
     }
+}
+
+/**
+ * One line where the card would be on a phone that cannot show it: Android before 15 has no power
+ * monitors to ask, and many phones on 15 and later report none. Neither changes with time or a grant.
+ */
+@Composable
+fun PowerRailUnavailable(possible: Boolean = PowerMonitors.possible()) {
+    Note(
+        stringResource(if (possible) R.string.power_unsupported else R.string.es_power_needs_android15),
+        Modifier.padding(horizontal = 4.dp),
+    )
 }
 
 @Composable

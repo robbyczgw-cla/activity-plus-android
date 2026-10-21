@@ -51,20 +51,29 @@ private fun clock(context: Context, millis: Long, nowMillis: Long): String {
     return DateUtils.formatDateTime(context, millis, flags)
 }
 
-/** Not shown while charging (the caller decides) or when neither the pattern nor the current rate gives an answer. */
+/** Not shown while charging (the caller decides); the charging card has the time to full. */
 @Composable
 fun ForecastCard(b: BatteryState) {
-    val context = LocalContext.current
     // Learned once per visit; the level and the clock move on every second, the pattern does not.
     val profile = rememberLoaded(Unit) { loadForecastProfile() }
-    val now = System.currentTimeMillis()
+    ForecastContent(b, profile, System.currentTimeMillis())
+}
+
+/** The card for a learned [profile] (null while it loads), without loading anything itself. */
+@Composable
+fun ForecastContent(b: BatteryState, profile: Forecast.Profile?, now: Long) {
+    val context = LocalContext.current
     val empty = Forecast.outcome(profile, now, b.levelFraction, 0.0, b.percentPerHour)
-    if (!empty.patternReady && empty.current == null) return
     val low = Forecast.outcome(profile, now, b.levelFraction, Forecast.LOW, b.percentPerHour)
 
     Card {
         CardHeader(stringResource(R.string.fc_title), Metric.Energy, Icons.Outlined.Schedule)
         Spacer(Modifier.height(8.dp))
+        // Neither the pattern nor the current rate gives an answer yet: say so instead of leaving a gap.
+        if (!empty.patternReady && empty.current == null) {
+            Note(stringResource(if (profile == null) R.string.loading else R.string.es_forecast_none))
+            return@Card
+        }
         // The pattern when it is learned, else the current rate; the other one only if it says something else.
         val main = if (empty.patternReady) empty.pattern else empty.current
         Text(

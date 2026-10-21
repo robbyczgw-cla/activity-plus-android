@@ -10,10 +10,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.History
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -24,6 +26,7 @@ import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.data.BackgroundStore
 import xyz.activityplus.android.pro.BackgroundDelta
 import xyz.activityplus.android.pro.BackgroundSchedule
+import xyz.activityplus.android.pro.ProShell
 import xyz.activityplus.android.service.BackgroundSampler
 import xyz.activityplus.android.ui.AppIcon
 import xyz.activityplus.android.ui.components.Badge
@@ -34,6 +37,8 @@ import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.Sparkline
 import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLoaded
+import xyz.activityplus.android.ui.rememberResumes
+import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
 import java.time.LocalDate
@@ -41,7 +46,8 @@ import java.time.ZoneId
 
 /*
  * The cards of the automatic background measurement (BackgroundSampler). Each loader returns null
- * without the computer grant or with the setting off, so the screens look exactly as before.
+ * without the computer grant or with the setting off; the Battery screen then shows
+ * [BackgroundUnavailableCard] with the reason, the app detail leaves its section out.
  */
 
 private fun storeIfOn(context: Context): BackgroundStore? =
@@ -52,9 +58,11 @@ private fun mah(v: Double) = Format.number(v, if (v < 1) 2 else if (v < 10) 1 el
 /** Worth a row: rounds to something, or kept the phone awake a minute. */
 private fun BackgroundStore.AppDay.visible() = mah >= 0.05 || wakelockMs >= 60_000
 
-/** Today per app, most first; null when the feature is off. */
+/** Today per app, most first; null when the feature is off, empty before its first reading. */
 fun loadBackgroundToday(context: Context): List<BackgroundStore.AppDay>? {
-    val store = storeIfOn(context) ?: return null
+    if (!BackgroundSampler.enabled(context)) return null
+    // Switched on but not read yet (the store comes with the first reading): the card says when that is.
+    val store = storeIfOn(context) ?: return emptyList()
     return store.day(BackgroundSchedule.dayKey(System.currentTimeMillis(), ZoneId.systemDefault())).filter { it.visible() }
 }
 
@@ -70,6 +78,33 @@ fun BackgroundTodayCard(apps: List<BackgroundStore.AppDay>, onPro: () -> Unit) {
         Note(stringResource(R.string.bg_today_note))
         TextButton(onClick = onPro, contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp)) {
             Text(stringResource(R.string.bg_open_pro) + " ›")
+        }
+    }
+}
+
+/** In place of "Background today" when it does not run; nothing while it is on and today's figures load. */
+@Composable
+fun BackgroundUnavailableCard(onPro: () -> Unit) {
+    val context = LocalContext.current
+    // Checked again on every return: the grant is given on the pro page or from a computer.
+    val grant = remember(rememberResumes()) { ProShell.hasComputerGrant(context) }
+    val on = rememberSettings().backgroundMeasure
+    if (grant && on) return
+    BackgroundUnavailableContent(grant, onPro)
+}
+
+/** Without the grant a hint that opens the pro page; with it the setting is off, which the user chose. */
+@Composable
+fun BackgroundUnavailableContent(grant: Boolean, onPro: () -> Unit) {
+    Card(onClick = if (grant) null else onPro) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Icon(Icons.Outlined.History, null, tint = Metric.Energy)
+            Spacer(Modifier.width(10.dp))
+            Column(Modifier.weight(1f)) {
+                Text(stringResource(R.string.bg_today_title), style = MaterialTheme.typography.titleMedium)
+                Note(stringResource(if (grant) R.string.es_bg_off else R.string.es_bg_hint))
+            }
+            if (!grant) Text("›", style = MaterialTheme.typography.titleLarge, color = LocalSurfaces.current.muted)
         }
     }
 }

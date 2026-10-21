@@ -98,6 +98,12 @@ fun StorageGrowthSection() {
         if (withContext(Dispatchers.IO) { StorageGrowthRecorder.recordIfDue(context) }) version++
     }
     val data = rememberLoaded(resumes, version) { loadStorageGrowth(context) } ?: return
+    StorageGrowthCard(data)
+}
+
+@Composable
+fun StorageGrowthCard(data: StorageGrowthData) {
+    val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.sgrowth_title), Metric.Disk, Icons.AutoMirrored.Outlined.TrendingUp)
         Spacer(Modifier.height(8.dp))

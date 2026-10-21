@@ -62,14 +62,14 @@ fun loadSinceUpdate(context: Context): List<Pair<SinceUpdate.Result, String>> =
 
 class AfterUpdates(val changed: List<ShownUpdate>, val unchanged: List<ShownUpdate>, val waiting: Boolean)
 
-/** Null while loading and when there is nothing to say, so the page does not get an empty card. */
+/** Null while loading. With nothing to judge yet the card still comes, and says why. */
 @Composable
 fun rememberAfterUpdates(): AfterUpdates? {
     val context = LocalContext.current
     val all = rememberLoaded { loadUpdates(context) } ?: return null
     val changed = all.filter { it.result.clear }
     val unchanged = all.filter { it.result.enough && !it.result.clear }
-    return if (changed.isEmpty() && unchanged.isEmpty()) null else AfterUpdates(changed, unchanged, all.any { !it.result.enough })
+    return AfterUpdates(changed, unchanged, all.any { !it.result.enough })
 }
 
 @Composable
@@ -79,6 +79,10 @@ fun AfterUpdatesCard(u: AfterUpdates, onOpenApp: (String) -> Unit) {
     Card {
         CardHeader(stringResource(R.string.su_title), Metric.Warn, Icons.Outlined.SystemUpdate, stringResource(R.string.su_caption))
         Spacer(Modifier.height(8.dp))
+        // Nothing updated lately; with only very recent updates the waiting line below says it all.
+        if (u.changed.isEmpty() && u.unchanged.isEmpty() && !u.waiting) {
+            Note(stringResource(R.string.es_updates_none, SinceUpdate.RECENT_DAYS))
+        }
         u.changed.forEach { UpdateRow(it, showChanges = true) { onOpenApp(it.pkg) } }
         if (u.unchanged.isNotEmpty()) {
             TextButton(onClick = { expanded = !expanded }, contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp)) {

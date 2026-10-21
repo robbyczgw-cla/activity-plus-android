@@ -79,17 +79,20 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
     val night = rememberNightCheck(morningOnly = false)
 
     Screen(title = stringResource(R.string.tab_battery), action = { ShareReportIconButton() }) {
-        if (s == null) return@Screen
+        if (s == null) {
+            item { Note(stringResource(R.string.loading)) }
+            return@Screen
+        }
         val b = s.battery
         item { LiveCard(s, series, settings.fahrenheit) }
         if (!b.plugged) item { ForecastCard(b) }
         val running = sessions?.firstOrNull()?.takeIf { it.charging == b.plugged }
-        if (b.plugged) item { ChargingCard(b, running) } else item { SinceUnplugCard(b, running) }
+        if (b.plugged) item { ChargingCard(b, running) } else item { SinceUnplugCard(running, loaded = sessions != null) }
         item { ChargerTestCard(s, settings.fahrenheit) }
         // Which app is drawing the power right now.
         if (!b.plugged && s.foregroundPackage != null && data != null) item { NowDrawingCard(s, data) }
         item { ProEntryCard(onPro) }
-        if (powerRails == true) item { PowerRailCard(b, onPro) }
+        if (powerRails == true) item { PowerRailCard(b, onPro) } else if (powerRails == false) item { PowerRailUnavailable() }
         item { HealthCard(b) }
         item { BatteryPassportCard(b, onPro) }
         item { ChargingHabitsCard(b, settings.fahrenheit) }
@@ -97,15 +100,15 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         if (energy != null && energy.isNotEmpty()) {
             item { DrainByAppCard(b, energy, data) }
         } else if (data != null) {
-            item { Card { Note(stringResource(R.string.drain_empty)) } }
+            item { DrainEmptyCard(stringResource(R.string.drain_today), access) }
         }
         if (night != null) item { NightCheckCard(night, onPro) }
         item { WakeupCard(onPro) }
         item { ScheduleCard(onPro) }
-        if (background != null) item { BackgroundTodayCard(background, onPro) }
+        if (background != null) item { BackgroundTodayCard(background, onPro) } else item { BackgroundUnavailableCard(onPro) }
         // Plug-in blips (a loose cable) say nothing; keep sessions that lasted and moved something.
         val past = sessions?.filter { it !== running && it.seconds >= 300 && (it.energyMwh > 0 || it.levelChange != 0.0) }
-        if (!past.isNullOrEmpty()) item { SessionsCard(past) }
+        if (past != null) item { SessionsCard(past) }
     }
 }
 
@@ -229,15 +232,20 @@ private fun ChargingCard(b: BatteryState, session: BatterySession?) {
     }
 }
 
+/** [session] is the running one; before it has a minute the card says when its numbers come. */
 @Composable
-private fun SinceUnplugCard(b: BatteryState, session: BatterySession?) {
-    if (session == null || session.seconds < 60) return
+internal fun SinceUnplugCard(session: BatterySession?, loaded: Boolean) {
     Card {
         CardHeader(
             stringResource(R.string.session_since_unplug_title), Metric.Energy, Icons.Outlined.BatteryStd,
-            Format.duration(session.seconds.toLong()),
+            session?.takeIf { it.seconds >= 60 }?.let { Format.duration(it.seconds.toLong()) },
         )
         Spacer(Modifier.height(8.dp))
+        if (session == null || session.seconds < 60) {
+            // No session: Activity+ was not running at the unplug, or it is just now being recorded.
+            Note(stringResource(if (!loaded) R.string.loading else if (session == null) R.string.es_unplug_none else R.string.es_unplug_soon))
+            return@Card
+        }
         StatLine(stringResource(R.string.session_level), levelRange(session))
         // The level moves in 1 % steps, so the session rate means something only after a while.
         session.percentPerHour?.takeIf { session.seconds >= 900 }?.let {
@@ -347,11 +355,12 @@ private fun DrainByAppCard(b: BatteryState, energy: Map<String, Pair<Double, Dou
 }
 
 @Composable
-private fun SessionsCard(sessions: List<BatterySession>) {
+internal fun SessionsCard(sessions: List<BatterySession>) {
     val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.sessions_title), Metric.Energy, Icons.Outlined.History)
         Spacer(Modifier.height(6.dp))
+        if (sessions.isEmpty()) Note(stringResource(R.string.es_sessions_none))
         sessions.take(8).forEach { se ->
             Column(Modifier.padding(vertical = 5.dp)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {

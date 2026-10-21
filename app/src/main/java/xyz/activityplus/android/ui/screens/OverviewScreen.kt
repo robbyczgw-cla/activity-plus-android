@@ -140,7 +140,10 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
         if (weekly != null) item { WeeklyCard(weekly) { onOpen(Tab.WEEKLY) } }
         if (night != null) item { NightCheckCard(night) { onOpen(Tab.PRO) } }
         item { SensorLogEntryCard(onOpen, hint = false) }
-        if (s == null) return@Screen
+        if (s == null) {
+            item { Note(stringResource(R.string.loading)) }
+            return@Screen
+        }
         item {
             CardRow(
                 { BatteryCard(s, series, settings.fahrenheit) { onOpen(Tab.BATTERY) } },
@@ -159,7 +162,9 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
                 { ThermalCard(s, series, settings.fahrenheit) { onOpen(Tab.HISTORY) } },
             )
         }
-        if (data != null && data.energy.isNotEmpty()) item { BusiestCard(data) { onOpen(Tab.APPS) } }
+        if (data != null) item {
+            if (data.energy.isNotEmpty()) BusiestCard(data) { onOpen(Tab.APPS) } else DrainEmptyCard(stringResource(R.string.busiest_title), access)
+        }
     }
 }
 

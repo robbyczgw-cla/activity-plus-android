@@ -214,7 +214,7 @@ fun SensorLogScreen(onPro: () -> Unit) {
 }
 
 @Composable
-private fun SensorLogHint(onPro: () -> Unit) {
+internal fun SensorLogHint(onPro: () -> Unit) {
     Card(onClick = onPro) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(Icons.Outlined.LocationOn, null, tint = Metric.Energy)
@@ -229,7 +229,7 @@ private fun SensorLogHint(onPro: () -> Unit) {
 }
 
 @Composable
-private fun NowCard(live: List<SensorLog.Live>) {
+internal fun NowCard(live: List<SensorLog.Live>) {
     val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.sl_now_title), Metric.Energy, Icons.Outlined.CameraAlt, stringResource(R.string.sl_now_caption))
@@ -254,7 +254,7 @@ private fun NowCard(live: List<SensorLog.Live>) {
 }
 
 @Composable
-private fun NightCard(d: SensorLogData, night: List<SensorLog.BackgroundUse>) {
+internal fun NightCard(d: SensorLogData, night: List<SensorLog.BackgroundUse>) {
     val context = LocalContext.current
     val window = d.nightWindow
     Card {
@@ -287,7 +287,7 @@ private fun NightCard(d: SensorLogData, night: List<SensorLog.BackgroundUse>) {
 }
 
 @Composable
-private fun DayCard(day: List<SensorLog.AppUse>, d: SensorLogData) {
+internal fun DayCard(day: List<SensorLog.AppUse>, d: SensorLogData) {
     val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.sl_day_title), Metric.Energy, Icons.Outlined.MonitorHeart, stringResource(R.string.sl_day_caption))

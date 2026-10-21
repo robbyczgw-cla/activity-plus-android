@@ -91,11 +91,12 @@ fun HistoryScreen() {
                 }
             }
         }
-        if (!energy.isNullOrEmpty()) {
+        if (energy != null) {
             item {
                 Card {
                     CardHeader(stringResource(R.string.history_drain_title), Metric.Energy, caption = rangeLabel(range))
                     Spacer(Modifier.height(8.dp))
+                    if (energy.isEmpty()) Note(stringResource(R.string.es_history_drain_none))
                     val total = energy.sumOf { it.mwh }.coerceAtLeast(1.0)
                     energy.take(8).forEach { e ->
                         Row(Modifier.fillMaxWidth().padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
