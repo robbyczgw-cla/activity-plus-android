@@ -36,6 +36,7 @@ import xyz.activityplus.android.R
 import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.data.BackgroundStore
 import xyz.activityplus.android.data.WakeupStore
+import xyz.activityplus.android.data.SelfCostStore
 import xyz.activityplus.android.data.NightStore
 import xyz.activityplus.android.data.UpdateLog
 import xyz.activityplus.android.data.ThermalStore
@@ -82,6 +83,7 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
                 }
             }
         }
+        item { SelfCostCard() }
         item {
             Card {
                 Text(stringResource(R.string.set_items), style = MaterialTheme.typography.titleSmall)
@@ -218,6 +220,7 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
                     if (NightStore.exists(context)) NightStore.get(context).clear()
                     if (UpdateLog.exists(context)) UpdateLog.get(context).clear()
                     if (ThermalStore.exists(context)) ThermalStore.get(context).clear()
+                    if (SelfCostStore.exists(context)) SelfCostStore.get(context).clear()
                     cleared++; confirmClear = false
                 }) { Text(stringResource(R.string.delete)) }
             },

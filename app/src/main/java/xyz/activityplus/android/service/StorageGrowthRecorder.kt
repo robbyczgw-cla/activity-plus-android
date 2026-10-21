@@ -17,6 +17,7 @@ import xyz.activityplus.android.data.StorageGrowthStore
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.temporal.ChronoUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -37,6 +38,11 @@ object StorageGrowthRecorder {
         if (nowMillis - lastCheck < 60_000 || nowMillis < retryAfter || running.get()) return
         lastCheck = nowMillis
         if (loaded && !StorageGrowth.due(local(nowMillis), lastDay)) return
+        // A pass over every app's storage takes seconds: at midnight, with the screen off on battery, it waits for the morning.
+        if (loaded) {
+            val sinceMs = lastDay?.let { ChronoUnit.DAYS.between(it, local(nowMillis).toLocalDate()) * StorageGrowth.DAY_MS }
+            if (!HeavyWork.mayRun(context, sinceMs, StorageGrowth.DAY_MS)) return
+        }
         val appContext = context.applicationContext
         scope.launch(Dispatchers.IO) { recordIfDue(appContext, nowMillis) }
     }

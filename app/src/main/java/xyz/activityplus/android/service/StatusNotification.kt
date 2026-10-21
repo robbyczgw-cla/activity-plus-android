@@ -19,6 +19,7 @@ import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.core.Snapshot
 import xyz.activityplus.android.data.Settings
 import xyz.activityplus.android.ui.StatusText
+import kotlin.math.abs
 
 /**
  * The Android counterpart of the Mac menu bar: a quiet ongoing notification whose small icon is
@@ -37,6 +38,19 @@ object StatusNotification {
         Triple(R.id.cell6, R.id.label6, R.id.value6),
         Triple(R.id.cell7, R.id.label7, R.id.value7),
     )
+
+    /**
+     * Everything [build] shows, as one string. The service posts only when it changes: a sample every
+     * few seconds often shows the same rounded values, and a post costs two RemoteViews, an icon bitmap and a binder call.
+     */
+    fun signature(s: Snapshot, settings: Settings, foregroundLabel: String?): String = buildString {
+        append(StatusText.iconText(settings.iconItem, s, settings)).append('#')
+        settings.items.take(cells.size).forEach { append(it.name).append('=').append(StatusText.value(it, s, settings)).append(StatusText.color(it, s, settings.colorMode)).append(';') }
+        if (settings.appLine) {
+            append(foregroundLabel).append('|')
+            s.battery.avgPowerMw?.let { append(it < 0).append(Format.watts(abs(it))) }
+        }
+    }
 
     fun build(context: Context, s: Snapshot?, settings: Settings, foregroundLabel: String?): Notification {
         val open = PendingIntent.getActivity(

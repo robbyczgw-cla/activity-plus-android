@@ -60,7 +60,7 @@ import xyz.activityplus.android.ui.theme.Metric
 import kotlin.math.abs
 
 @Composable
-fun BatteryScreen(onPro: () -> Unit = {}) {
+fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}) {
     // One sample per second while this screen is open: charging power changes fast.
     val (s, series) = rememberLive(fastMillis = 1000L)
     val settings = rememberSettings()
@@ -95,9 +95,9 @@ fun BatteryScreen(onPro: () -> Unit = {}) {
         item { ChargingHabitsCard(b, settings.fahrenheit) }
         val energy = data?.energy
         if (energy != null && energy.isNotEmpty()) {
-            item { DrainByAppCard(b, energy, data) }
+            item { DrainByAppCard(b, energy, data, onSelfCost) }
         } else if (data != null) {
-            item { Card { Note(stringResource(R.string.drain_empty)) } }
+            item { Card { Note(stringResource(R.string.drain_empty)); SelfCostLink(onSelfCost) } }
         }
         if (night != null) item { NightCheckCard(night, onPro) }
         item { WakeupCard(onPro) }
@@ -306,7 +306,7 @@ private fun HealthCard(b: BatteryState) {
 }
 
 @Composable
-private fun DrainByAppCard(b: BatteryState, energy: Map<String, Pair<Double, Double>>, data: AppsData) {
+private fun DrainByAppCard(b: BatteryState, energy: Map<String, Pair<Double, Double>>, data: AppsData, onSelfCost: () -> Unit) {
     val context = LocalContext.current
     Card {
         CardHeader(stringResource(R.string.drain_today), Metric.Energy, caption = stringResource(R.string.drain_today_caption))
@@ -343,6 +343,7 @@ private fun DrainByAppCard(b: BatteryState, energy: Map<String, Pair<Double, Dou
         }
         Spacer(Modifier.height(6.dp))
         Note(stringResource(R.string.method_foreground))
+        SelfCostLink(onSelfCost)
     }
 }
 

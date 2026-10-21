@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity+ itself: what the app costs, and what it does in the background -->
+    <string name="own_title">Activity+ itself</string>
+    <string name="own_caption">Counted by Android</string>
+    <string name="own_loading">Reading Android\'s counters for Activity+…</string>
+    <string name="own_unreadable">This phone does not hand Activity+ its own counters, so its cost cannot be shown. The list below still says what it does.</string>
+    <string name="own_empty">No reading yet. Activity+ reads Android\'s counters when you open this card and then every hour while the live status is on; the first numbers appear after the first reading with a known time on battery.</string>
+    <string name="own_empty_today">No reading for today yet. The next one comes within the hour while the live status is on.</string>
+
+    <string name="own_col_today">Today</string>
+    <string name="own_col_week">7 days</string>
+    <string name="own_cpu">CPU time</string>
+    <string name="own_wakeups">Wakeups</string>
+    <string name="own_wakelock">Kept awake</string>
+    <string name="own_wakelock_value">%1$s (%2$d×)</string>
+    <string name="own_jobs">Background jobs</string>
+    <string name="own_data">Data (mobile + Wi-Fi)</string>
+    <string name="own_service">Live status running</string>
+    <string name="own_energy">Energy (estimated)</string>
+    <string name="own_energy_value">%1$s · %2$s</string>
+    <string name="own_none">–</string>
+
+    <string name="own_energy_needs_grant">Energy is not measured: Android shows the energy of other apps only to the computer grant on the pro page. CPU time, wakeups and wakelocks above are counted without it.</string>
+    <string name="own_energy_setting_off">Energy is not measured: switch on the automatic background measurement in the settings below.</string>
+    <string name="own_energy_not_yet">Energy: Android\'s battery report has no entry for Activity+ yet. The automatic measurement reads it every 3 hours on battery.</string>
+    <string name="own_energy_note">Energy is Android\'s own estimate from its battery report, an average over the days it covers. Everything else is counted by Android for Activity+.</string>
+    <string name="own_note">Android counts only while the phone runs on battery, and Activity+ reads the counters once an hour, so a day can be off a little at its edges. Data stays at 0 B because Activity+ has no internet permission.</string>
+
+    <string name="own_running_title">What runs in the background</string>
+    <string name="own_live_off">The live status is off, so nothing of Activity+ runs on its own except the widgets below. Opening the app reads what it shows at that moment.</string>
+    <string name="own_no_wake">Activity+ holds no wake lock and sets no alarm. All of this runs on the live monitor\'s own timer, which sleeps when the phone sleeps. Heavy reports wait for the screen when it is off on battery, and do not run in Doze.</string>
+    <string name="own_link">What does Activity+ itself cost?</string>
+
+    <string name="own_job_monitor">Live monitor</string>
+    <string name="own_job_monitor_when">Every %1$d s with the screen on, once a minute with it off, and one history row a minute. Stops in deep sleep.</string>
+    <string name="own_job_wakeups">Wakeup counters</string>
+    <string name="own_job_wakeups_when">Every 30 minutes on battery: one call to Android, no shell.</string>
+    <string name="own_job_sensors">Sensor log</string>
+    <string name="own_job_sensors_when">Every 30 minutes: Android\'s app-ops report (700 kB), read as a stream. Waits for the screen when it is off.</string>
+    <string name="own_job_rails">Power rails</string>
+    <string name="own_job_rails_when">Every 5 minutes: one reading of the power monitors.</string>
+    <string name="own_job_background">Background measurement</string>
+    <string name="own_job_background_when">Every 3 hours on battery, when you plug in and in the morning: Android\'s battery report, read as a stream. Waits for the screen when it is off.</string>
+    <string name="own_job_updates">App updates and data per app</string>
+    <string name="own_job_updates_when">Once a day, and shortly after an app is updated.</string>
+    <string name="own_job_storage">Storage history</string>
+    <string name="own_job_storage_when">Once a day. Waits for the screen when it is off.</string>
+    <string name="own_job_thermal">Throttling log</string>
+    <string name="own_job_thermal_when">When Android\'s heat status changes; nothing in between.</string>
+    <string name="own_job_night">Night check</string>
+    <string name="own_job_night_when">When the screen goes off or on, the plug changes or Doze changes; nothing in between.</string>
+    <string name="own_job_self">This card\'s counters</string>
+    <string name="own_job_self_when">Once an hour on battery, and when you open the card.</string>
+    <string name="own_job_weekly">Weekly report</string>
+    <string name="own_job_weekly_when">Monday morning: one notification.</string>
+    <string name="own_job_widgets">Widgets</string>
+    <string name="own_job_widgets_when">Every 30 seconds while the screen is on (by the live monitor), and by Android at most every 30 minutes.</string>
+
+    <string name="own_need_battery_stats">Not running: needs the extra grant on the pro page.</string>
+    <string name="own_need_computer_grant">Not running: needs the computer grant (pro page).</string>
+    <string name="own_need_background_setting">Not running: the automatic background measurement is off.</string>
+    <string name="own_need_unsupported">Not running: this phone has no power monitors (Android 15 or newer).</string>
+    <string name="own_need_weekly_setting">Not running: alerts or the weekly report are switched off.</string>
+    <string name="own_need_no_widgets">Not running: no widget is placed.</string>
+</resources>

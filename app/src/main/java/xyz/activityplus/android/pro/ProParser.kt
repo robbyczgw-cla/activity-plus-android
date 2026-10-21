@@ -18,14 +18,17 @@ object ProParser {
         val system: Map<String, Double>,
     )
 
-    fun batteryCheckin(text: String): BatteryReport {
+    fun batteryCheckin(text: String): BatteryReport = batteryCheckin(text.lineSequence())
+
+    /** Line by line, so the unattended reading never holds the whole report (megabytes) as one string. */
+    fun batteryCheckin(lines: Sequence<String>): BatteryReport {
         val mah = HashMap<Int, Double>()
         val cpu = HashMap<Int, Long>()
         val wake = HashMap<Int, Long>()
         val packages = HashMap<Int, MutableList<String>>()
         val system = HashMap<String, Double>()
         var onBattery: Long? = null
-        for (line in text.lineSequence()) {
+        for (line in lines) {
             val f = line.split(',')
             if (f.size < 5) continue
             val uid = f[1].toIntOrNull() ?: continue

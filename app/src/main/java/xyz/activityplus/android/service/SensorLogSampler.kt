@@ -18,7 +18,8 @@ import java.time.ZoneId
  * service runs and stores the accesses that are new, so the log reaches further back than Android's
  * own memory of "the latest access". Only with the computer grant; never through Shizuku. The
  * report is 700 kB and more on a full phone, so it is parsed as it streams in and only the sensor
- * ops are kept. It runs on the service's ticks, which pause in deep sleep: it never wakes the phone.
+ * ops are kept. It runs on the service's ticks, which pause in deep sleep: it never wakes the phone, and
+ * with the screen off on battery it waits for the next screen-on (see [HeavyWork]).
  * Failures are logged and otherwise ignored.
  */
 object SensorLogSampler {
@@ -39,6 +40,10 @@ object SensorLogSampler {
         if (nowMillis - lastCheck < CHECK_MS || nowMillis < retryAfter) return
         lastCheck = nowMillis
         if (nowMillis - lastRun < PERIOD_MS) return
+        // No grant: nothing to read, so do not start a coroutine every minute to find out.
+        if (!ProShell.hasComputerGrant(context)) return
+        // 700 kB of text: not in Doze, and with the screen off on battery only when long overdue; it waits for the screen.
+        if (!HeavyWork.mayRun(context, lastRun.takeIf { it > 0 }?.let { nowMillis - it }, PERIOD_MS)) return
         val appContext = context.applicationContext
         scope.launch(Dispatchers.IO) {
             try {

@@ -55,6 +55,9 @@ class UpdateRecorder(private val context: Context, private val scope: CoroutineS
     fun onTick(nowMillis: Long) {
         val today = ActivityPlusApp.dayKey(nowMillis)
         if (today == lastDay || nowMillis < retryAfter) return
+        // The daily pass reads usage statistics of two weeks: with the screen off on battery it waits for the morning
+        // (lastDay stays unset, so the next screen-on tick runs it).
+        if (!HeavyWork.mayRun(context, lastDay?.let { DAY_MS }, DAY_MS)) return
         lastDay = today
         scope.launch(Dispatchers.IO) {
             try {
@@ -72,6 +75,7 @@ class UpdateRecorder(private val context: Context, private val scope: CoroutineS
     companion object {
         private const val TAG = "UpdateRecorder"
         private const val SETTLE_MS = 15_000L
+        private const val DAY_MS = 86_400_000L
         /** NetworkStats keeps weeks, but the stores that are compared with it keep 30 days, and a week of "before" is enough. */
         private const val NET_DAYS = 14
         private val scanning = AtomicBoolean(false)

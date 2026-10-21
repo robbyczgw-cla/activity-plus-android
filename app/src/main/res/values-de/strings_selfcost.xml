@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity+ selbst: was die App kostet und was sie im Hintergrund tut -->
+    <string name="own_title">Activity+ selbst</string>
+    <string name="own_caption">Von Android gezählt</string>
+    <string name="own_loading">Android-Zähler für Activity+ werden gelesen…</string>
+    <string name="own_unreadable">Dieses Handy gibt Activity+ die eigenen Zähler nicht heraus, deshalb lassen sich die Kosten nicht anzeigen. Die Liste unten zeigt trotzdem, was die App tut.</string>
+    <string name="own_empty">Noch keine Messung. Activity+ liest die Android-Zähler, wenn du diese Karte öffnest, und danach jede Stunde, solange die Live-Anzeige an ist. Die ersten Zahlen erscheinen nach der ersten Messung mit bekannter Akkulaufzeit.</string>
+    <string name="own_empty_today">Für heute gibt es noch keine Messung. Die nächste kommt innerhalb einer Stunde, solange die Live-Anzeige an ist.</string>
+
+    <string name="own_col_today">Heute</string>
+    <string name="own_col_week">7 Tage</string>
+    <string name="own_cpu">CPU-Zeit</string>
+    <string name="own_wakeups">Weckungen</string>
+    <string name="own_wakelock">Wach gehalten</string>
+    <string name="own_wakelock_value">%1$s (%2$d×)</string>
+    <string name="own_jobs">Hintergrundaufgaben</string>
+    <string name="own_data">Daten (Mobilfunk + WLAN)</string>
+    <string name="own_service">Live-Anzeige aktiv</string>
+    <string name="own_energy">Energie (geschätzt)</string>
+    <string name="own_energy_value">%1$s · %2$s</string>
+    <string name="own_none">–</string>
+
+    <string name="own_energy_needs_grant">Die Energie wird nicht gemessen: Android zeigt den Verbrauch anderer Apps nur mit der Computer-Freigabe auf der Pro-Seite. CPU-Zeit, Weckungen und Wakelocks oben werden auch ohne gezählt.</string>
+    <string name="own_energy_setting_off">Die Energie wird nicht gemessen: Schalte unten in den Einstellungen die automatische Hintergrundmessung ein.</string>
+    <string name="own_energy_not_yet">Energie: Der Akkubericht von Android enthält noch keinen Eintrag für Activity+. Die automatische Messung liest ihn alle 3 Stunden im Akkubetrieb.</string>
+    <string name="own_energy_note">Die Energie ist Androids eigene Schätzung aus dem Akkubericht, gemittelt über die Tage, die er abdeckt. Alles andere zählt Android für Activity+ selbst.</string>
+    <string name="own_note">Android zählt nur im Akkubetrieb, und Activity+ liest die Zähler einmal pro Stunde, deshalb kann ein Tag an den Rändern etwas abweichen. Die Daten bleiben bei 0 B, weil Activity+ keine Internet-Berechtigung hat.</string>
+
+    <string name="own_running_title">Was im Hintergrund läuft</string>
+    <string name="own_live_off">Die Live-Anzeige ist aus, deshalb läuft von Activity+ nichts von selbst, außer den Widgets weiter unten. Beim Öffnen der App wird nur gelesen, was gerade angezeigt wird.</string>
+    <string name="own_no_wake">Activity+ hält keinen Wake-Lock und setzt keinen Alarm. Alles läuft auf dem eigenen Timer des Live-Monitors, der schläft, wenn das Handy schläft. Schwere Berichte warten bei ausgeschaltetem Display im Akkubetrieb auf den Bildschirm und laufen nicht im Doze-Modus.</string>
+    <string name="own_link">Was kostet Activity+ selbst?</string>
+
+    <string name="own_job_monitor">Live-Monitor</string>
+    <string name="own_job_monitor_when">Alle %1$d s bei eingeschaltetem Display, einmal pro Minute bei ausgeschaltetem, und eine Verlaufszeile pro Minute. Hält im Tiefschlaf an.</string>
+    <string name="own_job_wakeups">Weck-Zähler</string>
+    <string name="own_job_wakeups_when">Alle 30 Minuten im Akkubetrieb: ein Aufruf bei Android, keine Shell.</string>
+    <string name="own_job_sensors">Sensor-Protokoll</string>
+    <string name="own_job_sensors_when">Alle 30 Minuten: Androids App-Ops-Bericht (700 kB), als Datenstrom gelesen. Wartet bei ausgeschaltetem Display auf den Bildschirm.</string>
+    <string name="own_job_rails">Stromschienen</string>
+    <string name="own_job_rails_when">Alle 5 Minuten: eine Messung der Leistungsmonitore.</string>
+    <string name="own_job_background">Hintergrundmessung</string>
+    <string name="own_job_background_when">Alle 3 Stunden im Akkubetrieb, beim Anstecken und am Morgen: Androids Akkubericht, als Datenstrom gelesen. Wartet bei ausgeschaltetem Display auf den Bildschirm.</string>
+    <string name="own_job_updates">App-Updates und Daten pro App</string>
+    <string name="own_job_updates_when">Einmal am Tag und kurz nach dem Update einer App.</string>
+    <string name="own_job_storage">Speicherverlauf</string>
+    <string name="own_job_storage_when">Einmal am Tag. Wartet bei ausgeschaltetem Display auf den Bildschirm.</string>
+    <string name="own_job_thermal">Drosselungs-Protokoll</string>
+    <string name="own_job_thermal_when">Wenn sich Androids Wärmestatus ändert, dazwischen nichts.</string>
+    <string name="own_job_night">Nacht-Check</string>
+    <string name="own_job_night_when">Wenn das Display an- oder ausgeht, der Stecker wechselt oder Doze wechselt, dazwischen nichts.</string>
+    <string name="own_job_self">Zähler dieser Karte</string>
+    <string name="own_job_self_when">Einmal pro Stunde im Akkubetrieb und wenn du die Karte öffnest.</string>
+    <string name="own_job_weekly">Wochenbericht</string>
+    <string name="own_job_weekly_when">Montagmorgen: eine Benachrichtigung.</string>
+    <string name="own_job_widgets">Widgets</string>
+    <string name="own_job_widgets_when">Alle 30 Sekunden bei eingeschaltetem Display (durch den Live-Monitor) und durch Android höchstens alle 30 Minuten.</string>
+
+    <string name="own_need_battery_stats">Läuft nicht: braucht die zusätzliche Freigabe auf der Pro-Seite.</string>
+    <string name="own_need_computer_grant">Läuft nicht: braucht die Computer-Freigabe (Pro-Seite).</string>
+    <string name="own_need_background_setting">Läuft nicht: Die automatische Hintergrundmessung ist aus.</string>
+    <string name="own_need_unsupported">Läuft nicht: Dieses Handy hat keine Leistungsmonitore (ab Android 15).</string>
+    <string name="own_need_weekly_setting">Läuft nicht: Hinweise oder der Wochenbericht sind ausgeschaltet.</string>
+    <string name="own_need_no_widgets">Läuft nicht: Es ist kein Widget platziert.</string>
+</resources>
