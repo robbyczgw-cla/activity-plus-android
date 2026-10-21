@@ -118,6 +118,13 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
         return out
     }
 
+    /** Every day and app, oldest day first, one row at a time (the export). */
+    fun forEachDay(block: (day: String, app: AppDay) -> Unit) {
+        readableDatabase.rawQuery("SELECT day, pkg, mah, cpu_ms, wakelock_ms FROM days ORDER BY day, mah DESC", null).use { c ->
+            while (c.moveToNext()) block(c.getString(0), AppDay(c.getString(1), c.getDouble(2), c.getLong(3), c.getLong(4)))
+        }
+    }
+
     /** One app's mAh per day; days without a row are missing. */
     fun series(pkg: String, fromDay: String, toDay: String): Map<String, Double> {
         val out = HashMap<String, Double>()

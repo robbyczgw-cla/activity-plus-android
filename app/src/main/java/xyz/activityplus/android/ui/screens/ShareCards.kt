@@ -152,6 +152,7 @@ fun ShareAndExportCard() {
         TextButton(enabled = !busy, onClick = { save.launch(Csv.zipName(LocalDate.now())) }) {
             Text(stringResource(if (busy) R.string.export_working else R.string.export_action))
         }
+        ImportDataSection()
     }
     if (share) ShareReportDialog { share = false }
 }

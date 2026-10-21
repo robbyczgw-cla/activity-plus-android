@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Import data: the way back for Export data, for a new phone -->
+    <string name="import_title">Import data</string>
+    <string name="import_hint">Reads a ZIP file made by Export data, for example from your old phone, and adds its history to this phone. Nothing here is replaced or deleted; entries that are already here are skipped. Counters and baselines belong to the phone that measured them and are not taken over.</string>
+    <string name="import_action">Import data</string>
+    <string name="import_working">Working…</string>
+    <string name="import_ok">OK</string>
+    <string name="import_go">Import</string>
+
+    <string name="import_confirm_title">Import this history?</string>
+    <string name="import_source">From %1$s, saved %2$s</string>
+    <string name="import_source_unknown">an unknown phone</string>
+    <string name="import_date_unknown">at an unknown time</string>
+    <string name="import_range">History from %1$s to %2$s</string>
+    <string name="import_range_none">No minute-by-minute history in this file, only the other tables below.</string>
+    <string name="import_partial">This is an older kind of export (%1$s). It holds only the minute samples and the energy per app, so that is all that can be imported.</string>
+    <string name="import_version_unknown">unknown version</string>
+    <string name="import_confirm_hint">Entries that are already here are skipped and nothing here is deleted. You can run the import again safely.</string>
+
+    <string name="import_problem_title">This file cannot be imported</string>
+    <string name="import_err_not_export">This is not an Activity+ export. Choose the ZIP file that Export data saved.</string>
+    <string name="import_err_newer">This file was made by a newer version of Activity+ (format %1$d). Update Activity+ on this phone and try again.</string>
+    <string name="import_err_format">This file has a format that Activity+ does not know. Choose a ZIP file that Export data saved.</string>
+    <string name="import_err_empty">The file is an Activity+ export, but it holds no history that can be imported.</string>
+    <string name="import_err_read">The file could not be read. Check that it is the whole ZIP file and try again.</string>
+
+    <string name="import_done_title">Import finished</string>
+    <string name="import_done_added">%1$d entries added</string>
+    <string name="import_done_nothing">Nothing new: everything in the file was already here.</string>
+    <string name="import_done_duplicates">%1$d entries were already here and skipped</string>
+    <string name="import_done_invalid">%1$d rows could not be read and were skipped</string>
+    <string name="import_done_unreadable">%1$d files lacked columns and were skipped</string>
+    <string name="import_row_result">%1$d new, %2$d already here</string>
+    <string name="import_failed_title">The import was interrupted</string>
+    <string name="import_failed">Something went wrong while saving. What was saved so far is kept; run the import again to add the rest.</string>
+
+    <!-- What the file holds, one line per table -->
+    <string name="import_t_samples">Minute samples</string>
+    <string name="import_t_app_energy">Energy per app and day</string>
+    <string name="import_t_sessions">Charging and battery sessions</string>
+    <string name="import_t_pro_reports">Pro reports</string>
+    <string name="import_t_charger_tests">Charger tests</string>
+    <string name="import_t_charge_capacity">Capacity estimates</string>
+    <string name="import_t_background_days">Background battery per app</string>
+    <string name="import_t_wakeup_days">Wakeups per app</string>
+    <string name="import_t_night_spans">Nights</string>
+    <string name="import_t_storage_device">Storage per day</string>
+    <string name="import_t_storage_apps">Storage per app</string>
+    <string name="import_t_sensor_events">Sensor accesses</string>
+    <string name="import_t_app_updates">App updates</string>
+    <string name="import_t_net_usage">Network use per app</string>
+    <string name="import_t_thermal_events">Heat events</string>
+</resources>
