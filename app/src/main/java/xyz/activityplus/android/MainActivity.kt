@@ -9,9 +9,22 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.displayCutout
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.union
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Apps
 import androidx.compose.material.icons.outlined.BatteryChargingFull
@@ -23,16 +36,24 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
+import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import xyz.activityplus.android.core.WindowLayout
 import xyz.activityplus.android.service.MonitorService
 import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.screens.AppsScreen
@@ -106,7 +127,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@androidx.compose.runtime.Composable
+@Composable
 private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRequestHandled: () -> Unit) {
     var tab by rememberSaveable { mutableStateOf(startTab) }
     var showSettings by rememberSaveable { mutableStateOf(startSettings) }
@@ -125,17 +146,61 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
         return
     }
     val surfaces = LocalSurfaces.current
+    val items = listOf(
+        Triple(Tab.OVERVIEW, Icons.Outlined.Dashboard, R.string.tab_overview),
+        Triple(Tab.APPS, Icons.Outlined.Apps, R.string.tab_apps),
+        Triple(Tab.BATTERY, Icons.Outlined.BatteryChargingFull, R.string.tab_battery),
+        Triple(Tab.HISTORY, Icons.Outlined.History, R.string.tab_history),
+        Triple(Tab.HARDWARE, Icons.Outlined.DeveloperBoard, R.string.tab_hardware),
+    )
+    val content: @Composable () -> Unit = {
+        when (tab) {
+            Tab.OVERVIEW -> OverviewScreen(onOpen = { tab = it }, onSettings = { showSettings = true })
+            Tab.APPS -> AppsScreen(onPro = { tab = Tab.PRO })
+            Tab.BATTERY -> BatteryScreen(onPro = { tab = Tab.PRO })
+            Tab.HISTORY -> HistoryScreen()
+            Tab.HARDWARE -> HardwareScreen(onOpen = { tab = it })
+            Tab.DIAGNOSIS -> DiagnosisScreen(onOpen = { tab = it })
+            Tab.PRO -> ProScreen()
+            Tab.STORAGE -> StorageScreen()
+            Tab.WEEKLY -> WeeklyReportScreen()
+            Tab.MEDIA -> MediaScreen()
+            Tab.SENSORS -> SensorLogScreen(onPro = { tab = Tab.PRO })
+        }
+    }
+
+    if (WindowLayout.useRail(LocalConfiguration.current.screenWidthDp.toFloat())) {
+        // Landscape, tablets, foldables: the bar moves to the left edge, where the thumbs are and
+        // where it takes no height from a screen that has little of it.
+        val sides = WindowInsets.systemBars.union(WindowInsets.displayCutout)
+        Row(Modifier.fillMaxSize()) {
+            NavigationRail(containerColor = surfaces.card, windowInsets = sides.only(WindowInsetsSides.Start + WindowInsetsSides.Vertical)) {
+                // Scrolls: five items are taller than a phone held sideways.
+                Column(
+                    Modifier.weight(1f).verticalScroll(rememberScrollState()),
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    items.forEach { (t, icon, label) ->
+                        NavigationRailItem(
+                            selected = tab == t,
+                            onClick = { tab = t },
+                            icon = { Icon(icon, contentDescription = null) },
+                            label = { Text(stringResource(label), maxLines = 1) },
+                            colors = NavigationRailItemDefaults.colors(indicatorColor = surfaces.cardRaised),
+                        )
+                    }
+                }
+            }
+            // The rail already keeps clear of the system bar and cutout on its side; the pages pad the rest.
+            Box(Modifier.weight(1f).fillMaxHeight().consumeWindowInsets(sides.only(WindowInsetsSides.Start))) { content() }
+        }
+        return
+    }
     Scaffold(
         containerColor = MaterialTheme.colorScheme.background,
         bottomBar = {
             NavigationBar(containerColor = surfaces.card) {
-                val items = listOf(
-                    Triple(Tab.OVERVIEW, Icons.Outlined.Dashboard, R.string.tab_overview),
-                    Triple(Tab.APPS, Icons.Outlined.Apps, R.string.tab_apps),
-                    Triple(Tab.BATTERY, Icons.Outlined.BatteryChargingFull, R.string.tab_battery),
-                    Triple(Tab.HISTORY, Icons.Outlined.History, R.string.tab_history),
-                    Triple(Tab.HARDWARE, Icons.Outlined.DeveloperBoard, R.string.tab_hardware),
-                )
                 items.forEach { (t, icon, label) ->
                     NavigationBarItem(
                         selected = tab == t,
@@ -148,20 +213,7 @@ private fun Main(startTab: Tab, startSettings: Boolean, requestedTab: Tab?, onRe
             }
         },
     ) { padding ->
-        Box(Modifier.fillMaxSize().padding(padding)) {
-            when (tab) {
-                Tab.OVERVIEW -> OverviewScreen(onOpen = { tab = it }, onSettings = { showSettings = true })
-                Tab.APPS -> AppsScreen(onPro = { tab = Tab.PRO })
-                Tab.BATTERY -> BatteryScreen(onPro = { tab = Tab.PRO })
-                Tab.HISTORY -> HistoryScreen()
-                Tab.HARDWARE -> HardwareScreen(onOpen = { tab = it })
-                Tab.DIAGNOSIS -> DiagnosisScreen(onOpen = { tab = it })
-                Tab.PRO -> ProScreen()
-                Tab.STORAGE -> StorageScreen()
-                Tab.WEEKLY -> WeeklyReportScreen()
-                Tab.MEDIA -> MediaScreen()
-                Tab.SENSORS -> SensorLogScreen(onPro = { tab = Tab.PRO })
-            }
-        }
+        // Consumed, so the pages do not pad the status bar a second time (Scaffold already left room for it).
+        Box(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding)) { content() }
     }
 }

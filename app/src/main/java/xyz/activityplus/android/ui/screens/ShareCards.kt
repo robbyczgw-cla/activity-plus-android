@@ -85,7 +85,7 @@ private fun ShareReportDialog(onDismiss: () -> Unit) {
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.share_action)) },
         text = {
-            Column {
+            Column(Modifier.dialogContent()) {
                 Note(stringResource(R.string.share_dialog_hint))
                 Spacer(Modifier.height(10.dp))
                 if (report == null) {

@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -341,7 +340,7 @@ private fun StepButton(label: String, onClick: () -> Unit) {
 private fun NightsSheet(report: NightReport) {
     val context = LocalContext.current
     val zone = ZoneId.systemDefault()
-    Column(Modifier.padding(horizontal = 20.dp).padding(bottom = 24.dp).navigationBarsPadding()) {
+    Column(Modifier.sheetContent()) {
         Text(stringResource(R.string.nc_history_title), style = MaterialTheme.typography.titleLarge)
         Note(stringResource(R.string.nc_history_caption))
         Spacer(Modifier.height(8.dp))

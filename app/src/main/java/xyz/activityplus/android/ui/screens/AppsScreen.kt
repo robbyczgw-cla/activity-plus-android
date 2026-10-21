@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.items
@@ -158,7 +157,7 @@ private fun AppRowView(row: AppRow, sort: AppSort, onClick: () -> Unit) {
 private fun AppDetail(row: AppRow, days: Int) {
     val u = row.usage
     val context = LocalContext.current
-    Column(Modifier.padding(horizontal = 20.dp).padding(bottom = 24.dp).navigationBarsPadding()) {
+    Column(Modifier.sheetContent()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             AppIcon(u.pkg, 52.dp)
             Spacer(Modifier.width(14.dp))

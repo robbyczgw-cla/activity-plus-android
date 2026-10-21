@@ -9,17 +9,19 @@ import androidx.compose.ui.graphics.Brush
 import xyz.activityplus.android.ui.theme.BrandEnd
 import xyz.activityplus.android.ui.theme.BrandStart
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -37,6 +39,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.R
+import xyz.activityplus.android.core.WindowLayout
 import xyz.activityplus.android.ui.Actions
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.Note
@@ -48,10 +51,9 @@ import xyz.activityplus.android.ui.theme.Metric
 fun OnboardingScreen(onRequestNotifications: () -> Unit, onDone: () -> Unit) {
     val context = LocalContext.current
     val access = rememberUsageAccess()
-    Column(
-        Modifier.fillMaxSize().statusBarsPadding().navigationBarsPadding().verticalScroll(rememberScrollState()).padding(24.dp),
-        verticalArrangement = Arrangement.spacedBy(14.dp),
-    ) {
+    // Two halves instead of one long column: in landscape the page is wide but short, so the intro
+    // stays on the left and the steps (with the start button) sit next to it.
+    val intro: @Composable ColumnScope.() -> Unit = {
         // Language first, so everything below can be read in the right one.
         if (AppLanguage.supported) Card { LanguageRow() }
         Spacer(Modifier.height(4.dp))
@@ -70,6 +72,8 @@ fun OnboardingScreen(onRequestNotifications: () -> Unit, onDone: () -> Unit) {
             Bullet(stringResource(R.string.onb_point_statusbar))
             Bullet(stringResource(R.string.onb_point_private))
         }
+    }
+    val steps: @Composable ColumnScope.() -> Unit = {
         Card {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(stringResource(R.string.onb_access_title), style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
@@ -93,6 +97,30 @@ fun OnboardingScreen(onRequestNotifications: () -> Unit, onDone: () -> Unit) {
             Text(stringResource(R.string.onb_start))
         }
         Note(stringResource(R.string.onb_later), Modifier.align(Alignment.CenterHorizontally))
+    }
+    // The whole page scrolls (also in landscape, where the start button would be below the fold),
+    // and stays out from under the system bars and the camera cutout on every side.
+    BoxWithConstraints(Modifier.fillMaxSize().safeDrawingPadding()) {
+        val lanes = WindowLayout.lanes(maxWidth.value)
+        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()), horizontalAlignment = Alignment.CenterHorizontally) {
+            if (lanes == 1) {
+                Column(
+                    Modifier.widthIn(max = WindowLayout.maxContentDp(1).dp).fillMaxWidth().padding(24.dp),
+                    verticalArrangement = Arrangement.spacedBy(14.dp),
+                ) {
+                    intro()
+                    steps()
+                }
+            } else {
+                Row(
+                    Modifier.widthIn(max = WindowLayout.maxContentDp(2).dp).fillMaxWidth().padding(24.dp),
+                    horizontalArrangement = Arrangement.spacedBy(24.dp),
+                ) {
+                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(14.dp), content = intro)
+                    Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(14.dp), content = steps)
+                }
+            }
+        }
     }
 }
 

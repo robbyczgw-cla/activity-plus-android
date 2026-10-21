@@ -157,7 +157,7 @@ fun ChargerTestCard(s: Snapshot, fahrenheit: Boolean) {
             onDismissRequest = { pending = null },
             title = { Text(stringResource(R.string.chg_test_save_title)) },
             text = {
-                Column {
+                Column(Modifier.dialogContent()) {
                     Text(
                         stringResource(R.string.chg_test_save_summary, Format.watts(m.avgMw).toString(), Format.watts(m.peakMw).toString()),
                         style = MaterialTheme.typography.bodyLarge,

@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -210,7 +209,7 @@ private fun wakeups(context: Context, n: Long): String {
 @Composable
 private fun WakeupAppSheet(pkg: String) {
     val context = LocalContext.current
-    Column(Modifier.padding(horizontal = 20.dp).padding(bottom = 24.dp).navigationBarsPadding()) {
+    Column(Modifier.sheetContent()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             AppIcon(pkg, 52.dp)
             Spacer(Modifier.width(14.dp))

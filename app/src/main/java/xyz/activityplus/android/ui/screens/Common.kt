@@ -2,18 +2,11 @@ package xyz.activityplus.android.ui.screens
 
 import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FilterChip
@@ -21,7 +14,6 @@ import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -37,34 +29,6 @@ import xyz.activityplus.android.ui.app
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.theme.LocalSurfaces
-
-/** Page with a big title and a lazy list of cards. */
-@Composable
-fun Screen(
-    title: String,
-    subtitle: String? = null,
-    action: (@Composable () -> Unit)? = null,
-    content: LazyListScope.() -> Unit,
-) {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize().statusBarsPadding(),
-        contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 24.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-        item {
-            Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)) {
-                Column(Modifier.weight(1f)) {
-                    Text(title, style = MaterialTheme.typography.headlineMedium)
-                    if (subtitle != null) {
-                        Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = LocalSurfaces.current.muted)
-                    }
-                }
-                action?.invoke()
-            }
-        }
-        content()
-    }
-}
 
 @Composable
 fun UsageAccessCard() {

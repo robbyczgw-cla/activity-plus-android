@@ -92,7 +92,7 @@ fun LanguageRow(modifier: Modifier = Modifier) {
             onDismissRequest = { open = false },
             title = { Text(stringResource(R.string.set_language)) },
             text = {
-                Column {
+                Column(Modifier.dialogContent()) {
                     AppLanguage.options.forEach { (tag, name) ->
                         Row(
                             Modifier.fillMaxWidth().clickable { open = false; AppLanguage.set(context, tag) },
