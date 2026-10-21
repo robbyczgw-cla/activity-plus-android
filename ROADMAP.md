@@ -18,6 +18,9 @@
 ## 0.5.0 (19.10.2026)
 - Night check, Google's wakelock limit, planned alarms and jobs, sensor log, since the update, heat and throttling, forecast by pattern, charging habits, cost per hour, share/export, two widgets
 
+## 0.6.0 (21.10.2026)
+- Today at a glance, grouped and foldable cards, no silent gaps, Activity+'s own cost, landscape/tablet, import, accessibility, reviewed translations
+
 ## Next
 - [ ] Test on real phones (fuel gauge sign and units differ per vendor; per-core clocks; thermal headroom)
 - [ ] Data cap alert, "unusual for this app" for data and screen time

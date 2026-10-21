@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0
+
+- Today at a glance: the Battery screen opens with what matters now, then its cards in groups (Now, Last night, Apps, Charging and health, Planned and background); cards with nothing to say fold into one line with the reason; any card can be hidden in Settings. The Overview is shorter
+- No silent gaps: every card says why it is empty and when that changes (no grant, too little history, not on this phone)
+- Activity+ itself: its own CPU time, wakeups and wakelocks from Android's counters, and what runs in the background; heavy reports no longer run in Doze and wait for the screen when it is off
+- Landscape, tablets and foldables: navigation on the side and two columns of cards
+- Import: bring your history to a new phone from an export ZIP (merged, nothing overwritten)
+- Accessibility: TalkBack reads charts and values, large text no longer clips, bigger touch targets, better contrast
+- Translations reviewed in all languages
+
 ## 0.5.0
 
 - Night check: every morning, did the phone sleep well? Deep sleep share, when deep Doze started, drain per hour against your usual nights, and a verdict with the next step: an app kept the phone awake (named with the grant), Android itself did not reach deep sleep, or the drain was high despite deep sleep (e.g. a weak signal). The last 14 nights at a glance

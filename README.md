@@ -78,7 +78,9 @@ that stop apps in the background.
 ### Always in view
 - A live value as the **status bar icon**, up to eight values in the notification, a Quick Settings tile.
 - **Widgets**: one value, a panel with six values, a battery ring, the night check, a 6-hour history graph.
-- **Share** a report as text or image, **export** your data as CSV and JSON.
+- **Share** a report as text or image, **export** your data as CSV and JSON and **import** it on a new phone.
+- **Landscape, tablets and foldables**: navigation on the side and two columns. **Accessible**: TalkBack reads
+  charts and values, large text does not clip.
 - **Alerts** that name the cause: heat, full storage, a charger too weak for the load, an app drawing a lot of power.
 - **History**: 30 days on the phone, one point per minute; tap a point to see the app that was on screen.
 - **Hardware**: chip with live clock per core, GPU, memory split, display modes, cameras, sensors.
@@ -103,6 +105,7 @@ any grant, on phones that have them. How to set it all up: [setup guide](docs/SE
 
 ### Private by design
 No internet permission, no account, no analytics, no ads. Everything stays in the app's own data on the phone.
+Settings → *Activity+ itself* shows what the app costs: its own CPU time, wakeups and what runs in the background.
 
 ## Build and test
 
