@@ -18,7 +18,7 @@
     <string name="channel_alerts">Avvisi</string>
 
     <string name="access_title">Consenti l\'accesso all\'utilizzo per vedere quale app è responsabile</string>
-    <string name="access_body">Con l\'accesso all\'utilizzo, Android comunica a Activity+ solo quale app è sullo schermo, quanti dati e quanto spazio di archiviazione usa ogni app e per quanto tempo resta in esecuzione in background. Niente lascia il telefono: Activity+ non ha l\'autorizzazione Internet.</string>
+    <string name="access_body">Android comunica a Activity+ quale app è sullo schermo, quanti dati e quanto spazio di archiviazione usa ogni app e per quanto tempo resta in esecuzione in background solo se consenti l\'accesso all\'utilizzo. Niente lascia il telefono: Activity+ non ha l\'autorizzazione Internet.</string>
     <string name="access_button">Apri accesso all\'utilizzo</string>
 
     <string name="overview_subtitle">%1$s · attivo da %2$s</string>
@@ -143,7 +143,7 @@
     <string name="health_note" formatted="false">La capacità misurata viene dal misuratore di carica della batteria ed è solo una stima; si stabilizza dopo alcune ricariche e non è affidabile sotto il 15 %.</string>
     <string name="drain_today">Batteria per app oggi</string>
     <string name="drain_today_caption">Misurato</string>
-    <string name="drain_empty">Nessuna misurazione per ora oggi. Activity+ misura mentre è in esecuzione; tieni attivo lo stato in tempo reale.</string>
+    <string name="drain_empty">Ancora nessuna misurazione per oggi. Activity+ misura mentre è in esecuzione; tieni attivo lo stato in tempo reale.</string>
     <string name="screen_off_rate">Con lo schermo spento la batteria cala di %1$s all\'ora.</string>
 
     <string name="history_subtitle">30 giorni, conservati solo su questo telefono</string>
@@ -174,20 +174,20 @@
     <string name="f_memory_body">Ne sono disponibili solo %1$s. Android chiude le app in background, quindi si ricaricano quando ci torni.</string>
     <string name="f_on_screen">%1$s è sullo schermo.</string>
     <string name="f_hot_title">Il telefono è caldo</string>
-    <string name="f_hot_body">La batteria è al %1$s e Android riduce la velocità per raffreddarsi.</string>
-    <string name="f_hot_app">%1$s è sullo schermo ed è probabilmente il carico.</string>
+    <string name="f_hot_body">La batteria è a %1$s e Android riduce la velocità per raffreddarsi.</string>
+    <string name="f_hot_app">%1$s è sullo schermo ed è probabilmente la causa.</string>
     <string name="f_saver_title">Il risparmio energetico è attivo</string>
     <string name="f_saver_body">Limita l\'attività in background e le prestazioni.</string>
     <string name="f_drain_title">%1$s ha consumato più batteria oggi</string>
     <string name="f_drain_body">%1$s in %2$s sullo schermo, %3$s della batteria usata con lo schermo acceso.</string>
     <string name="f_service_title">%1$s continua a funzionare in background</string>
-    <string name="f_service_body">Oggi è stata in background per %1$s, anche se l\'hai aperta a malapena. Nelle info app puoi limitarne il consumo di batteria.</string>
+    <string name="f_service_body">Oggi è rimasta attiva in background per %1$s, anche se l\'hai aperta a malapena. Nelle info app puoi limitarne il consumo di batteria.</string>
     <string name="f_data_title">%1$s usa molti dati in background</string>
     <string name="f_data_body">Oggi %1$s in background. Nelle info app puoi disattivare i dati in background.</string>
     <string name="f_off_title">La batteria cala con lo schermo spento</string>
     <string name="f_off_body">%1$s all\'ora per %2$s con lo schermo spento. Qualcosa tiene sveglio il telefono; la pagina di utilizzo della batteria di Android mostra l\'attività in background per app.</string>
     <string name="f_worn_title">La batteria è usurata</string>
-    <string name="f_worn_body">Mantiene circa il %1$s della sua capacità nominale. Una batteria usurata può far rallentare il telefono sotto carico.</string>
+    <string name="f_worn_body">Conserva circa %1$s della sua capacità nominale. Una batteria usurata può far rallentare il telefono sotto carico.</string>
     <string name="f_worn_body_unknown">Android segnala un problema con la batteria.</string>
     <string name="f_uptime_title">Acceso da %1$s senza riavvio</string>
     <string name="f_uptime_body">Un riavvio cancella le attività in background bloccate.</string>
@@ -234,10 +234,10 @@
     <string name="set_items">Nella notifica</string>
     <string name="set_items_hint">Fino a otto valori, in quest\'ordine; i primi quattro appaiono quando la notifica è compressa.</string>
     <string name="set_colors">Colori</string>
-    <string name="color_metric">Per misura</string>
+    <string name="color_metric">Per grandezza</string>
     <string name="color_load">Dal verde al rosso</string>
     <string name="color_mono">Semplice</string>
-    <string name="set_tile_hint">C\'è anche una tile in Impostazioni rapide: modifica le impostazioni rapide e trascina dentro Activity+.</string>
+    <string name="set_tile_hint">C\'è anche un riquadro nelle Impostazioni rapide: modifica le impostazioni rapide e trascina dentro Activity+.</string>
     <string name="set_general">Generale</string>
     <string name="set_interval">Aggiornamento</string>
     <string name="set_interval_hint">Con lo schermo spento Activity+ misura una volta al minuto, e per nulla mentre il telefono dorme.</string>
@@ -251,7 +251,7 @@
     <string name="set_clear_history">Elimina cronologia</string>
     <string name="set_clear_confirm">Questo elimina tutta la cronologia e tutte le misurazioni della batteria su questo telefono.</string>
     <string name="privacy_title">Ciò che usi resta sul tuo telefono</string>
-    <string name="privacy_body">Activity+ non ha l\'autorizzazione Internet, né account né analisi. Non può inviare nulla a nessuno. La sua cronologia è nei dati dell\'app; disinstallandola, viene eliminata.</string>
+    <string name="privacy_body">Activity+ non ha l\'autorizzazione Internet, né account né analytics. Non può inviare nulla da nessuna parte. La sua cronologia è nei dati dell\'app; disinstallandola, viene eliminata.</string>
     <string name="about_title">Activity+ %1$s per Android</string>
     <string name="about_body">La versione Android dell\'app per Mac. activityplus.xyz ›</string>
 
@@ -299,7 +299,7 @@
     <string name="hw_wifi_standard">Standard Wi-Fi</string>
     <string name="hw_wifi_band">Banda</string>
     <string name="hw_channel">canale %1$d</string>
-    <string name="hw_link">Collegamento</string>
+    <string name="hw_link">Connessione</string>
     <string name="hw_vpn">VPN attiva</string>
     <string name="hw_operator">Operatore</string>
     <string name="hw_sim_slots">Slot SIM</string>
@@ -325,7 +325,7 @@
     <string name="hw_f_wifi_aware">Wi-Fi Aware</string>
     <string name="hw_f_uwb">Ultra-wideband (UWB)</string>
     <string name="hw_sensors">Sensori</string>
-    <string name="hw_show_all">Mostra tutti i %1$d</string>
+    <string name="hw_show_all">Mostra tutti (%1$d)</string>
     <string name="hw_show_less">Mostra meno</string>
     <string name="hw_yes">Sì</string>
     <string name="hw_no">No</string>
@@ -339,11 +339,11 @@
     <string name="battery_rate">Ritmo</string>
     <string name="charging_speed_note">Nella batteria, media su 30 secondi</string>
     <string name="hw_storage">Archiviazione</string>
-    <string name="item_charge_rate">Ritmo carica</string>
+    <string name="item_charge_rate">Velocità di carica</string>
     <string name="item_current">Corrente</string>
     <string name="item_ram_free">RAM libera</string>
     <string name="item_time_left">Autonomia</string>
-    <string name="item_upload">Invio</string>
+    <string name="item_upload">Upload</string>
     <string name="item_voltage">Tensione</string>
     <string name="now_drawing">%1$s è sullo schermo, il telefono assorbe %2$s</string>
     <string name="ram_apps">App e sistema</string>
@@ -381,14 +381,14 @@
     <string name="widget_config_single">Un valore, grande</string>
     <string name="widget_config_title">Valori del widget</string>
     <string name="widget_full_in">piena tra %1$s</string>
-    <string name="widget_left">%1$s rimasti</string>
-    <string name="widget_most_today">Più oggi: %1$s %2$s</string>
+    <string name="widget_left">restano %1$s</string>
+    <string name="widget_most_today">Più consumo oggi: %1$s %2$s</string>
     <string name="widget_battery_desc">Anello di carica, potenza e autonomia</string>
-    <string name="widget_battery_name">Activity+ batteria</string>
+    <string name="widget_battery_name">Batteria Activity+</string>
     <string name="widget_panel_desc">Fino a sei valori e l\'app che oggi ha consumato più batteria</string>
-    <string name="widget_panel_name">Activity+ pannello</string>
+    <string name="widget_panel_name">Pannello Activity+</string>
     <string name="widget_value_desc">Un valore a scelta, grande</string>
-    <string name="widget_value_name">Activity+ valore</string>
+    <string name="widget_value_name">Valore Activity+</string>
 
     <!-- Pro mode -->
     <string name="pro_title">Misura con precisione</string>
@@ -429,12 +429,12 @@
     <string name="pro_hw_idle">Inattivo</string>
     <string name="pro_hw_camera">Fotocamera</string>
     <string name="pro_hw_flashlight">Torcia</string>
-    <string name="pro_battery_note">Stima di Android stesso, uguale a quella delle impostazioni batteria: in primo piano e in background, secondo il suo modello di consumo.</string>
+    <string name="pro_battery_note">La stima di Android, la stessa delle impostazioni batteria: in primo piano e in background, secondo il suo modello di consumo.</string>
     <string name="pro_memory_title">Memoria per app adesso</string>
     <string name="pro_memory_note">PSS: memoria usata da un\'app; la memoria condivisa viene divisa tra le app che la condividono.</string>
-    <string name="pro_cpu_title">CPU per app, ultimi 1,5 minuti</string>
+    <string name="pro_cpu_title">CPU per app, ultimo minuto e mezzo</string>
     <string name="pro_cpu_note" formatted="false">Percentuale di un core; oltre 100 % un\'app usa più core.</string>
-    <string name="pro_privacy">La modalità pro esegue solo i report di sola lettura di Android (dumpsys batterystats, meminfo, cpuinfo, appops, alarm, jobscheduler, thermalservice, deviceidle) e, se lo chiedi, concede ad Activity+ i propri permessi di lettura. Ogni altro comando viene rifiutato, e Activity+ non ha l\'autorizzazione Internet.</string>
+    <string name="pro_privacy">La modalità pro esegue solo i report di sola lettura di Android (dumpsys batterystats, meminfo, cpuinfo, appops, alarm, jobscheduler, thermalservice, deviceidle) e, se lo chiedi, concede ad Activity+ le proprie autorizzazioni di lettura. Ogni altro comando viene rifiutato, e Activity+ non ha l\'autorizzazione Internet.</string>
     <string name="pro_entry_title">Misura con precisione</string>
     <string name="pro_entry_body">Batteria, memoria e CPU per app, anche in background. Modalità pro con Shizuku.</string>
     <string name="pro_entry_last">Ultima misurazione %1$s</string>

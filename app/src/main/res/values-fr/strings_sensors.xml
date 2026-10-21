@@ -3,7 +3,7 @@
     <string name="sl_title">Capteurs</string>
     <string name="sl_subtitle">Qui a utilisé la position, la caméra et le micro</string>
     <string name="sl_refresh">Actualiser</string>
-    <string name="sl_hint">Voyez quelle appli a utilisé votre position, la caméra ou le micro, et si c\'était en arrière-plan. Nécessite l\'autorisation ordinateur sur la page pro.</string>
+    <string name="sl_hint">Voyez quelle app a utilisé votre position, la caméra ou le micro, et si c\'était en arrière-plan. Nécessite l\'autorisation depuis un ordinateur sur la page pro.</string>
     <string name="sl_open_log">Ouvrir le journal des capteurs</string>
 
     <string name="sl_location">Position</string>
@@ -19,16 +19,16 @@
     <string name="sl_badge_service">Service</string>
 
     <string name="sl_night_title">Dernière nuit</string>
-    <string name="sl_night_none">Aucune appli n\'a utilisé votre position en arrière-plan.</string>
+    <string name="sl_night_none">Aucune app n\'a utilisé votre position en arrière-plan.</string>
     <string name="sl_night_nodata">Le journal n\'a pas encore fonctionné pendant cette nuit.</string>
     <string name="sl_night_partial">Le journal a démarré à %1$s, le début de la nuit manque donc.</string>
     <string name="sl_night_note">La position en arrière-plan consomme de la batterie, surtout la nuit quand rien d\'autre ne se passe.</string>
 
     <string name="sl_day_title">Dernières 24 heures</string>
-    <string name="sl_day_caption">Par appli</string>
+    <string name="sl_day_caption">Par app</string>
     <string name="sl_day_empty">Rien n\'est encore enregistré. Le service lit le rapport d\'Android toutes les 30 minutes, les premières entrées arrivent donc dans la demi-heure.</string>
-    <string name="sl_day_quiet">Aucune appli n\'a utilisé ces capteurs au cours des 24 dernières heures.</string>
-    <string name="sl_tap">Touchez une appli pour ouvrir ses autorisations.</string>
+    <string name="sl_day_quiet">Aucune app n\'a utilisé ces capteurs au cours des 24 dernières heures.</string>
+    <string name="sl_tap">Touchez une app pour ouvrir ses autorisations.</string>
 
     <plurals name="sl_times">
         <item quantity="one">%d fois</item>
@@ -37,8 +37,8 @@
     <string name="sl_part_background">%d en arrière-plan</string>
     <string name="sl_part_service">%d depuis un service</string>
     <string name="sl_part_blocked">%d bloqué(s)</string>
-    <string name="sl_part_active">exécutée %s</string>
-    <string name="sl_part_last">dernière %s</string>
+    <string name="sl_part_active">actif %s</string>
+    <string name="sl_part_last">dernier accès %s</string>
 
     <string name="sl_system_show">Afficher les services système (%d)</string>
     <string name="sl_system_hide">Masquer les services système (%d)</string>
@@ -46,11 +46,11 @@
     <string name="sl_since">Collecte depuis le %s</string>
 
     <plurals name="sl_entry_apps">
-        <item quantity="one">%d appli a utilisé votre position en arrière-plan au cours des 24 dernières heures.</item>
-        <item quantity="other">%d applis ont utilisé votre position en arrière-plan au cours des 24 dernières heures.</item>
+        <item quantity="one">%d app a utilisé votre position en arrière-plan au cours des 24 dernières heures.</item>
+        <item quantity="other">%d apps ont utilisé votre position en arrière-plan au cours des 24 dernières heures.</item>
     </plurals>
-    <string name="sl_entry_quiet">Aucune appli n\'a utilisé votre position en arrière-plan au cours des 24 dernières heures.</string>
-    <string name="sl_entry_empty">Quelle appli a utilisé votre position, la caméra ou le micro, et quand.</string>
+    <string name="sl_entry_quiet">Aucune app n\'a utilisé votre position en arrière-plan au cours des 24 dernières heures.</string>
+    <string name="sl_entry_empty">Quelle app a utilisé votre position, la caméra ou le micro, et quand.</string>
 
     <string name="sl_detail_title">Capteurs, 24 dernières heures</string>
     <plurals name="sl_detail_background">
@@ -67,5 +67,5 @@
     </plurals>
 
     <string name="f_bgloc_title">%1$s utilise votre position en arrière-plan</string>
-    <string name="f_bgloc_body">Au cours des 24 dernières heures, son usage de votre position a été vu %1$d fois alors que vous n\'étiez pas dans l\'appli (le nombre réel peut être plus élevé). La position en arrière-plan consomme de la batterie. Dans les infos de l\'appli, sous Autorisations et Position, vous pouvez choisir « Uniquement pendant l\'utilisation de l\'appli ».</string>
+    <string name="f_bgloc_body">Au cours des dernières 24 heures, elle a été vue %1$d fois en train d\'utiliser votre position alors que vous n\'étiez pas dans l\'app (le nombre réel peut être plus élevé). La position en arrière-plan consomme de la batterie. Dans les infos de l\'app, sous Autorisations et Position, vous pouvez choisir « Uniquement pendant l\'utilisation de l\'app ».</string>
 </resources>

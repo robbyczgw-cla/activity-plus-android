@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
+    <string name="glance_title">Oggi in breve</string>
+    <string name="glance_label_battery">Batteria adesso</string>
+    <string name="glance_label_top">Più usata oggi</string>
+    <string name="glance_label_heads">Da sapere</string>
+    <string name="glance_full_in">Piena tra %1$s</string>
+    <string name="glance_plugged">Collegato</string>
+    <string name="glance_no_estimate">Ancora nessuna stima</string>
+    <string name="glance_unusual">Oggi %1$s ha svegliato il telefono molto più del solito</string>
+    <string name="glance_learning">Qui comparirà di più man mano che Activity+ impara la tua giornata: la notte scorsa, l\'app più usata e gli avvisi.</string>
+
+    <string name="glance_group_now">Adesso</string>
+    <string name="glance_group_night">La notte scorsa</string>
+    <string name="glance_group_apps">App</string>
+    <string name="glance_group_health">Ricarica e stato</string>
+    <string name="glance_group_planned">Pianificato e in background</string>
+
+    <string name="glance_card_session">Ricarica o dallo scollegamento</string>
+    <string name="glance_card_now_drawing">App sullo schermo adesso</string>
+
+    <!-- Why a card is folded into one line -->
+    <string name="glance_quiet_nothing">Ancora nulla da mostrare</string>
+    <string name="glance_quiet_days">Servono alcuni giorni di utilizzo</string>
+    <string name="glance_quiet_access">Serve l\'accesso · tocca per vedere come</string>
+    <string name="glance_quiet_plug">Collega un caricabatterie per usarla</string>
+    <string name="glance_quiet_unsupported">Non segnalato da questo telefono</string>
+    <string name="glance_expand">Mostra</string>
+    <string name="glance_collapse">Nascondi</string>
+    <string name="glance_hidden">Nascosta: %1$s</string>
+    <string name="glance_show">Mostra</string>
+    <string name="glance_background_hint">Legge il report della batteria di Android ogni poche ore. Richiede l\'autorizzazione dal computer; tocca per vedere come.</string>
+
+    <!-- Settings -->
+    <string name="glance_set_section">Schede</string>
+    <string name="glance_set_hint">Disattiva le schede che non vuoi mai vedere nella schermata Batteria. Restano elencate in fondo al loro gruppo, così puoi riattivarle.</string>
+    <string name="glance_set_show_all">Mostra di nuovo tutte</string>
+
+    <!-- Overview -->
+    <string name="glance_look_title">Da guardare</string>
+    <string name="glance_look_none">Per ora nient\'altro da guardare.</string>
+    <string name="glance_weekly_caption">La settimana scorsa rispetto a quella prima</string>
+</resources>

@@ -11,7 +11,7 @@
     <string name="storageapps_part_audio">音频</string>
     <string name="storageapps_part_other">系统和其他</string>
     <string name="storageapps_part_free">可用</string>
-    <string name="storageapps_break_note">应用中已包含其缓存。\"系统和其他\"指 Android 本身、下载内容、文档以及无法归类的所有内容。</string>
+    <string name="storageapps_break_note">应用中已包含其缓存。“系统和其他”指 Android 本身、下载内容、文档以及无法归类的所有内容。</string>
     <string name="storageapps_break_needs_access">开启使用情况访问，即可查看空间的用途：应用、图片、视频和音频。</string>
 
     <!-- Shared -->

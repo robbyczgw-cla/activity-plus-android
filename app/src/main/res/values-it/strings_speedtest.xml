@@ -3,7 +3,7 @@
     <string name="item_storage_used">Spazio occupato</string>
     <string name="speed_title">Velocità dell\'archiviazione</string>
     <string name="speed_note">Scrive un file da 256 MB nella cache dell\'app, lo rilegge e lo elimina. Android può ancora servire parte della lettura dalla memoria, quindi la velocità di lettura può risultare troppo alta.</string>
-    <string name="speed_test">Testa velocità</string>
+    <string name="speed_test">Testa la velocità</string>
     <string name="speed_cancel">Annulla</string>
     <string name="speed_phase_write">Scrittura…</string>
     <string name="speed_phase_read">Lettura…</string>

@@ -6,7 +6,7 @@
     <string name="cl_title_charging">Carregando: %1$s</string>
     <string name="cl_title_holding">Conectado a %1$s</string>
     <string name="cl_title_full">Totalmente carregado</string>
-    <string name="cl_title_warm">Esquentando ao carregar: %1$s</string>
+    <string name="cl_title_warm">Quente durante a carga: %1$s</string>
     <string name="cl_charging">Carregando</string>
     <string name="cl_not_charging">Não está carregando agora</string>
     <string name="cl_unplug">Pode desconectar agora</string>

@@ -16,7 +16,7 @@
     <string name="share_row_level">レベル</string>
     <string name="share_row_verdict">判定</string>
     <string name="share_sec_apps">今日最もバッテリーを使ったアプリ</string>
-    <string name="share_sec_wakeups">今日の起床</string>
+    <string name="share_sec_wakeups">今日のウェイクアップ</string>
 
     <string name="export_title">データを書き出す</string>
     <string name="export_hint">履歴を表計算ファイル（CSV）と短い概要（JSON）として、1 つの ZIP ファイルに保存します。保存先はあなたが選びます。何もアップロードされません。</string>
@@ -26,7 +26,7 @@
     <string name="export_failed">書き出しを保存できませんでした</string>
 
     <string name="widget_night_name">Activity+ 昨夜</string>
-    <string name="widget_night_desc">スマホは夜によく眠れた？ 判定、1 時間あたりの消費、深いスリープ、原因のアプリ</string>
+    <string name="widget_night_desc">端末は夜によく眠れた？ 判定、1 時間あたりの消費、ディープスリープ、原因のアプリ</string>
     <string name="widget_history_name">Activity+ 履歴</string>
     <string name="widget_history_desc">直近 6 時間のバッテリー残量または電力をグラフで表示</string>
     <string name="wn_blame">原因</string>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ユーザー補助（TalkBack）: グラフやバーの説明と、タップしたときの動作 -->
+    <string name="a11y_chart_generic">グラフ</string>
+    <string name="a11y_chart_empty">%1$s: まだデータがありません</string>
+    <string name="a11y_chart_flat">%1$s、%2$s で一定</string>
+    <string name="a11y_chart_range">%1$s、%2$s から %3$s、現在は %4$s</string>
+    <string name="a11y_chart_span">%1$s、%2$s から %3$s</string>
+    <string name="a11y_chart_bars">%1$s、最小 %2$s、最大 %3$s</string>
+    <string name="a11y_chart_point">選択中のポイント: %1$s、%2$s</string>
+    <string name="a11y_chart_prev">前のポイント</string>
+    <string name="a11y_chart_next">次のポイント</string>
+    <string name="a11y_series_power">直近数分間の電力</string>
+    <string name="a11y_series_memory">直近数分間のメモリ使用量</string>
+    <string name="a11y_series_download">直近数分間のダウンロード速度</string>
+    <string name="a11y_series_temperature">直近数分間のバッテリー温度</string>
+    <string name="a11y_cpu_cores">コアごとの CPU クロック</string>
+    <string name="a11y_ram_day">直近 24 時間のメモリ使用量</string>
+    <string name="a11y_history_subject">%1$s、期間: %2$s</string>
+    <string name="a11y_label_value">%1$s、%2$s</string>
+    <string name="a11y_no_value">値なし</string>
+    <string name="a11y_severity_bad">重大</string>
+    <string name="a11y_severity_warn">警告</string>
+    <string name="a11y_severity_info">お知らせ</string>
+    <string name="a11y_open_details">詳細を開く</string>
+    <string name="a11y_open_app_info">アプリ情報を開く</string>
+    <string name="a11y_open_diagnosis">診断を開く</string>
+    <string name="a11y_open_weekly">週間レポートを開く</string>
+    <string name="a11y_open_pro">正確な計測を開く</string>
+    <string name="a11y_open_file">ファイルを開く</string>
+    <string name="a11y_choose_language">言語を選ぶ</string>
+    <string name="a11y_copy_command">コマンドをコピー</string>
+    <string name="a11y_move_up">%1$s を上へ移動</string>
+    <string name="a11y_move_down">%1$s を下へ移動</string>
+    <string name="a11y_widget_ring">バッテリー残量 %1$s</string>
+</resources>

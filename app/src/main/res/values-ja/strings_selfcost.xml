@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity+ itself: what the app costs, and what it does in the background -->
+    <string name="own_title">Activity+ 自身</string>
+    <string name="own_caption">Android による集計</string>
+    <string name="own_loading">Activity+ の Android カウンターを読み取っています…</string>
+    <string name="own_unreadable">この端末は Activity+ 自身のカウンターを提供しないため、使用量を表示できません。下の一覧では、動作内容を確認できます。</string>
+    <string name="own_empty">まだ読み取りがありません。Activity+ は、このカードを開いたときと、ライブステータスがオンの間は 1 時間ごとに、Android のカウンターを読み取ります。バッテリー駆動の時間がわかる最初の読み取りのあとに、数値が表示されます。</string>
+    <string name="own_empty_today">今日はまだ読み取りがありません。ライブステータスがオンの間は、1 時間以内に次の読み取りが行われます。</string>
+
+    <string name="own_col_today">今日</string>
+    <string name="own_col_week">7 日間</string>
+    <string name="own_cpu">CPU 時間</string>
+    <string name="own_wakeups">ウェイクアップ</string>
+    <string name="own_wakelock">起動状態の維持</string>
+    <string name="own_wakelock_value">%1$s（%2$d 回）</string>
+    <string name="own_jobs">バックグラウンドジョブ</string>
+    <string name="own_data">データ通信（モバイル + Wi-Fi）</string>
+    <string name="own_service">ライブステータスの動作</string>
+    <string name="own_energy">エネルギー（推定）</string>
+    <string name="own_energy_value">%1$s · %2$s</string>
+    <string name="own_none">–</string>
+
+    <string name="own_energy_needs_grant">エネルギーは計測されていません。Android が他のアプリのエネルギーを見せるのは、プロページでのパソコンからの許可がある場合だけです。上の CPU 時間、ウェイクアップ、wakelock は、許可がなくても集計されます。</string>
+    <string name="own_energy_setting_off">エネルギーは計測されていません。下の設定で、バックグラウンドの自動計測をオンにしてください。</string>
+    <string name="own_energy_not_yet">エネルギー: Android のバッテリーレポートに、Activity+ の項目がまだありません。自動計測が、バッテリー駆動中に 3 時間ごとに読み取ります。</string>
+    <string name="own_energy_note">エネルギーは、Android のバッテリーレポートに基づく Android 自身の推定値で、レポートが対象とする日数の平均です。そのほかはすべて、Android が Activity+ について集計した値です。</string>
+    <string name="own_note">Android が集計するのは端末がバッテリーで動いている間だけで、Activity+ はカウンターを 1 時間に 1 回読み取るため、1 日の境目では少しずれることがあります。Activity+ にはインターネット権限がないので、データ通信は 0 B のままです。</string>
+
+    <string name="own_running_title">バックグラウンドで動くもの</string>
+    <string name="own_live_off">ライブステータスがオフのため、下のウィジェットを除き、Activity+ が自分で動くものはありません。アプリを開くと、その時点の表示内容を読み取ります。</string>
+    <string name="own_no_wake">Activity+ は wakelock を保持せず、アラームも設定しません。これらはすべて、ライブモニター自身のタイマーで動き、端末がスリープすると一緒に止まります。負荷の大きいレポートは、バッテリー駆動中に画面がオフの場合は画面がつくまで待ち、Doze 中には実行しません。</string>
+    <string name="own_link">Activity+ 自身はどれくらい消費しますか？</string>
+
+    <string name="own_job_monitor">ライブモニター</string>
+    <string name="own_job_monitor_when">画面オンの間は %1$d 秒ごと、画面オフの間は 1 分に 1 回、履歴は 1 分に 1 行。ディープスリープ中は止まります。</string>
+    <string name="own_job_wakeups">ウェイクアップのカウンター</string>
+    <string name="own_job_wakeups_when">バッテリー駆動中に 30 分ごと。Android への呼び出しが 1 回で、シェルは使いません。</string>
+    <string name="own_job_sensors">センサーのログ</string>
+    <string name="own_job_sensors_when">30 分ごと。Android の appops レポート（700 kB）をストリームで読み取ります。画面がオフの間は、画面がつくまで待ちます。</string>
+    <string name="own_job_rails">電源レール</string>
+    <string name="own_job_rails_when">5 分ごと。電力計の読み取りを 1 回行います。</string>
+    <string name="own_job_background">バックグラウンド計測</string>
+    <string name="own_job_background_when">バッテリー駆動中は 3 時間ごと、充電器をつないだとき、そして朝。Android のバッテリーレポートをストリームで読み取ります。画面がオフの間は、画面がつくまで待ちます。</string>
+    <string name="own_job_updates">アプリのアップデートとアプリ別データ</string>
+    <string name="own_job_updates_when">1 日 1 回と、アプリが更新された直後。</string>
+    <string name="own_job_storage">ストレージの履歴</string>
+    <string name="own_job_storage_when">1 日 1 回。画面がオフの間は、画面がつくまで待ちます。</string>
+    <string name="own_job_thermal">性能制限のログ</string>
+    <string name="own_job_thermal_when">Android の発熱状態が変わったときだけ。それ以外は動きません。</string>
+    <string name="own_job_night">夜のチェック</string>
+    <string name="own_job_night_when">画面のオンとオフ、充電器の接続の変化、Doze の変化があったときだけ。それ以外は動きません。</string>
+    <string name="own_job_self">このカードのカウンター</string>
+    <string name="own_job_self_when">バッテリー駆動中は 1 時間に 1 回と、カードを開いたとき。</string>
+    <string name="own_job_weekly">週間レポート</string>
+    <string name="own_job_weekly_when">月曜日の朝に通知を 1 回。</string>
+    <string name="own_job_widgets">ウィジェット</string>
+    <string name="own_job_widgets_when">画面オンの間は 30 秒ごと（ライブモニターによる）、Android による更新は最大でも 30 分ごと。</string>
+
+    <string name="own_need_battery_stats">動いていません: プロページの追加の許可が必要です。</string>
+    <string name="own_need_computer_grant">動いていません: パソコンからの許可が必要です（プロページ）。</string>
+    <string name="own_need_background_setting">動いていません: バックグラウンドの自動計測がオフです。</string>
+    <string name="own_need_unsupported">動いていません: この端末には電力計がありません（Android 15 以降が必要）。</string>
+    <string name="own_need_weekly_setting">動いていません: アラートまたは週間レポートがオフです。</string>
+    <string name="own_need_no_widgets">動いていません: ウィジェットが配置されていません。</string>
+</resources>

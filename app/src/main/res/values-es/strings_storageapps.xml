@@ -11,7 +11,7 @@
     <string name="storageapps_part_audio">Audio</string>
     <string name="storageapps_part_other">Sistema y otros</string>
     <string name="storageapps_part_free">Libre</string>
-    <string name="storageapps_break_note">Las apps incluyen su caché. \"Sistema y otros\" es el propio Android, las descargas, los documentos y todo lo que no se puede clasificar.</string>
+    <string name="storageapps_break_note">Las apps incluyen su caché. «Sistema y otros» es el propio Android, las descargas, los documentos y todo lo que no se puede clasificar.</string>
     <string name="storageapps_break_needs_access">Permite el acceso a datos de uso para ver en qué se usa el espacio: apps, imágenes, vídeos y audio.</string>
 
     <!-- Shared -->
@@ -44,7 +44,7 @@
     <string name="storageapps_last_none">sin uso registrado</string>
     <string name="storageapps_detail">%1$s · %2$s</string>
     <string name="storageapps_uninstall">Desinstalar</string>
-    <string name="storageapps_show_all">Mostrar las %1$d</string>
+    <string name="storageapps_show_all">Mostrar todas (%1$d)</string>
     <string name="storageapps_show_less">Mostrar menos</string>
     <string name="storageapps_unused_note">El tamaño es la app más sus datos. Android guarda solo una parte del historial de uso; una app sin registro cuenta como sin usar si se instaló antes de la fecha de corte. Desinstalar siempre te pregunta antes.</string>
 </resources>

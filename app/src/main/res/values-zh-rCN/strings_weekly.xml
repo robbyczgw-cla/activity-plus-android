@@ -24,7 +24,7 @@
     <string name="weekly_total_screen_off">熄屏耗电</string>
     <string name="weekly_per_hour">每小时 %1$s</string>
     <string name="weekly_total_charges">充电次数</string>
-    <string name="weekly_note" formatted="false">各应用的耗电在其位于屏幕上时测量。变化不到 5 % 视为无变化。上周的屏幕时间和流量可能缺失：Android 只保留几天的使用统计。</string>
+    <string name="weekly_note" formatted="false">各应用的耗电在其位于屏幕上时测量。变化不到 5% 视为无变化。上周的屏幕时间和流量可能缺失：Android 只保留几天的使用统计。</string>
 
     <string name="weekly_not_enough_title">数据还不够</string>
     <string name="weekly_not_enough_body">周报需要上一个完整周（周一至周日）内至少 %1$d 天的测量数据。请让 Activity+ 保持运行；下一份周报将在周一送达。</string>

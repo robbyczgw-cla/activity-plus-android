@@ -6,5 +6,5 @@
     <string name="grants_shizuku">Conceder con Shizuku</string>
     <string name="grants_failed">No ha funcionado. Usa en su lugar la línea para el ordenador de la guía de configuración.</string>
     <string name="grants_computer">Ejecuta la línea otra vez desde tu ordenador (toca para copiar); ahora ya los incluye.</string>
-    <string name="grants_safe">Solo permiten que Activity+ lea. Las apps de banca no se ven afectadas, y después puedes volver a desactivar las opciones de desarrollador.</string>
+    <string name="grants_safe">Solo permiten que Activity+ lea. Las apps de banca no se ven afectadas, y después puedes volver a desactivar las Opciones para desarrolladores.</string>
 </resources>

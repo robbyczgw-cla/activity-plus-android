@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Import data: the way back for Export data, for a new phone -->
+    <string name="import_title">Importa dati</string>
+    <string name="import_hint">Legge un file ZIP creato da Esporta dati, ad esempio dal tuo vecchio telefono, e aggiunge la sua cronologia a questo telefono. Qui nulla viene sostituito o eliminato; le voci già presenti vengono saltate. Contatori e valori di riferimento appartengono al telefono che li ha misurati e non vengono ripresi.</string>
+    <string name="import_action">Importa dati</string>
+    <string name="import_working">In corso…</string>
+    <string name="import_ok">OK</string>
+    <string name="import_go">Importa</string>
+
+    <string name="import_confirm_title">Importare questa cronologia?</string>
+    <string name="import_source">Da %1$s, salvato: %2$s</string>
+    <string name="import_source_unknown">un telefono sconosciuto</string>
+    <string name="import_date_unknown">data sconosciuta</string>
+    <string name="import_range">Cronologia dal %1$s al %2$s</string>
+    <string name="import_range_none">Nessuna cronologia minuto per minuto in questo file, solo le altre tabelle qui sotto.</string>
+    <string name="import_partial">È un tipo di esportazione meno recente (%1$s). Contiene solo i campioni al minuto e l\'energia per app, quindi si può importare solo questo.</string>
+    <string name="import_version_unknown">versione sconosciuta</string>
+    <string name="import_confirm_hint">Le voci già presenti vengono saltate e qui non viene eliminato nulla. Puoi ripetere l\'importazione senza rischi.</string>
+
+    <string name="import_problem_title">Questo file non può essere importato</string>
+    <string name="import_err_not_export">Questa non è un\'esportazione di Activity+. Scegli il file ZIP salvato da Esporta dati.</string>
+    <string name="import_err_newer">Questo file è stato creato da una versione più recente di Activity+ (formato %1$d). Aggiorna Activity+ su questo telefono e riprova.</string>
+    <string name="import_err_format">Questo file ha un formato che Activity+ non conosce. Scegli un file ZIP salvato da Esporta dati.</string>
+    <string name="import_err_empty">Il file è un\'esportazione di Activity+, ma non contiene alcuna cronologia importabile.</string>
+    <string name="import_err_read">Impossibile leggere il file. Controlla che sia il file ZIP completo e riprova.</string>
+
+    <string name="import_done_title">Importazione completata</string>
+    <string name="import_done_added">%1$d voci aggiunte</string>
+    <string name="import_done_nothing">Niente di nuovo: tutto ciò che c\'è nel file era già presente.</string>
+    <string name="import_done_duplicates">%1$d voci erano già presenti e sono state saltate</string>
+    <string name="import_done_invalid">%1$d righe non si sono potute leggere e sono state saltate</string>
+    <string name="import_done_unreadable">A %1$d file mancavano delle colonne e sono stati saltati</string>
+    <string name="import_row_result">%1$d nuove, %2$d già presenti</string>
+    <string name="import_failed_title">L\'importazione è stata interrotta</string>
+    <string name="import_failed">Qualcosa è andato storto durante il salvataggio. Quanto già salvato viene conservato; ripeti l\'importazione per aggiungere il resto.</string>
+
+    <!-- What the file holds, one line per table -->
+    <string name="import_t_samples">Campioni al minuto</string>
+    <string name="import_t_app_energy">Energia per app e giorno</string>
+    <string name="import_t_sessions">Sessioni di ricarica e a batteria</string>
+    <string name="import_t_pro_reports">Report della modalità pro</string>
+    <string name="import_t_charger_tests">Test del caricabatterie</string>
+    <string name="import_t_charge_capacity">Stime di capacità</string>
+    <string name="import_t_background_days">Batteria per app in background</string>
+    <string name="import_t_wakeup_days">Risvegli per app</string>
+    <string name="import_t_night_spans">Notti</string>
+    <string name="import_t_storage_device">Archiviazione per giorno</string>
+    <string name="import_t_storage_apps">Archiviazione per app</string>
+    <string name="import_t_sensor_events">Accessi ai sensori</string>
+    <string name="import_t_app_updates">Aggiornamenti delle app</string>
+    <string name="import_t_net_usage">Uso della rete per app</string>
+    <string name="import_t_thermal_events">Episodi di calore</string>
+</resources>

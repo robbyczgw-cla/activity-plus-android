@@ -2,8 +2,8 @@
 <resources>
     <string name="su_title">更新之后</string>
     <string name="su_caption">最近 3 周</string>
-    <string name="su_updated">%1$s 已更新至 %2$s</string>
-    <string name="su_updated_nov">已更新 %1$s</string>
+    <string name="su_updated">%1$s 更新至 %2$s</string>
+    <string name="su_updated_nov">%1$s 已更新</string>
     <string name="su_intro">自 %1$s（%2$s）的更新以来：</string>
     <string name="su_intro_nov">自 %1$s 的更新以来：</string>
     <plurals name="su_none">
@@ -30,8 +30,8 @@
     <string name="su_wifi_down">每周 Wi-Fi 数据用量减少了 %1$s</string>
     <string name="su_storage_up">多占用了 %1$s 存储</string>
 
-    <string name="su_detail_head">已从 %1$s 更新至 %2$s，之后：</string>
-    <string name="su_detail_head_nov">已更新 %1$s，之后：</string>
+    <string name="su_detail_head">%1$s 更新至 %2$s，此后：</string>
+    <string name="su_detail_head_nov">%1$s 已更新，此后：</string>
     <string name="su_detail_none">后台耗电、唤醒、数据和存储没有明显变化。</string>
     <string name="su_detail_early">数据还不够：需要在更新前后各至少 3 天的测量数据。</string>
 

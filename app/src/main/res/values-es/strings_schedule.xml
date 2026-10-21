@@ -2,7 +2,7 @@
 <resources>
     <string name="sc_title">Previsto para esta noche</string>
     <string name="sc_caption">Lo que han programado las apps</string>
-    <string name="sc_hint">Mira qué app despertará el teléfono a continuación y con qué frecuencia lo prevén las apps. Necesita el permiso del ordenador o Shizuku en la página pro.</string>
+    <string name="sc_hint">Mira qué app despertará el teléfono a continuación y con qué frecuencia lo prevén las apps. Necesita el permiso desde el ordenador o Shizuku en la página pro.</string>
     <string name="sc_reading">Leyendo las alarmas y tareas que han programado las apps …</string>
     <string name="sc_failed">Android no entregó su lista de alarmas. Inténtalo más tarde.</string>
     <string name="sc_shizuku">Lee las alarmas y tareas que han programado las apps, a través de Shizuku. No se lee nada en segundo plano.</string>
@@ -19,7 +19,7 @@
     <string name="sc_then_about">luego aproximadamente cada %1$s</string>
     <string name="sc_in_doze">permitida en Doze</string>
     <string name="sc_exact">exacta</string>
-    <string name="sc_alarm_clock">Alarma %1$s</string>
+    <string name="sc_alarm_clock">Despertador %1$s</string>
     <string name="sc_badge_doze">Exacta en Doze</string>
     <string name="sc_badge_jobs">Tareas frecuentes</string>
     <plurals name="sc_jobs_count">
@@ -34,7 +34,7 @@
     <string name="sc_jobs_title">Tareas en segundo plano</string>
     <string name="sc_job_every">cada %1$s</string>
     <string name="sc_job_once">una vez</string>
-    <string name="sc_job_network">necesita internet</string>
+    <string name="sc_job_network">necesita Internet</string>
     <string name="sc_job_wifi">solo Wi-Fi</string>
     <string name="sc_job_charging">solo mientras carga</string>
     <string name="sc_job_battery">también con batería</string>

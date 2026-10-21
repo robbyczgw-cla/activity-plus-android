@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- スマホを起こしたのは誰か（プロページの BATTERY_STATS 権限） -->
-    <string name="wk_title">スマホを起こしたアプリ</string>
+    <string name="wk_title">端末を起こしたアプリ</string>
     <string name="wk_caption">Android のカウンター</string>
-    <string name="wk_hint">どのアプリがスマホを起こし、夜も起きたままにしているかを確認できます。プロページで読み取り権限をもう 1 つ追加する必要があります。</string>
+    <string name="wk_hint">どのアプリが端末を起こし、夜も起きたままにしているかを確認できます。プロページで読み取り権限をもう 1 つ追加する必要があります。</string>
     <string name="wk_empty">まだ何も記録されていません。Android はバッテリー駆動中だけ数えます。次の計測は 30 分以内に行われます。</string>
     <string name="wk_night">昨夜、%1$s</string>
     <string name="wk_today">今日</string>
     <string name="wk_quiet">目立ったアプリはありません。</string>
     <string name="wk_cpu">CPU %1$s</string>
     <plurals name="wk_wakeups">
-        <item quantity="other">%d 回起床</item>
+        <item quantity="other">%d 回ウェイクアップ</item>
     </plurals>
-    <string name="wk_explain">起床とは、スマホをスリープから起こすアラームのことです。wakelock は、画面が消えている間もスマホを起きたままにします。どちらも、使っていない間のバッテリーを消費します。</string>
+    <string name="wk_explain">ウェイクアップとは、端末をスリープから起こすアラームのことです。wakelock は、画面が消えている間も端末を起きたままにします。どちらも、使っていない間のバッテリーを消費します。</string>
     <string name="wk_note">Android がバッテリー駆動中だけ数えた値です。アプリをタップすると 1 週間分が見られます。</string>
     <string name="wk_fix">アプリ情報の「バッテリー」で、バックグラウンドでの動作を制限できます。Activity+ がこれを自動で変えることはありません。</string>
-    <string name="wk_detail_title">起床と wakelock（過去 7 日間）</string>
-    <string name="wk_detail_wakeups">今日スマホを起こした回数</string>
-    <string name="wk_detail_awake">今日起きたままにした回数</string>
+    <string name="wk_detail_title">ウェイクアップと wakelock（過去 7 日間）</string>
+    <string name="wk_detail_wakeups">今日端末を起こした回数</string>
+    <string name="wk_detail_awake">今日起きたままにした時間</string>
     <string name="wk_detail_cpu">今日の CPU 時間</string>
     <string name="wk_detail_jobs">今日のバックグラウンドジョブ</string>
     <string name="wk_detail_syncs">今日の同期</string>
     <string name="wk_detail_gps">今日の位置情報</string>
     <string name="wk_detail_usual">いつもの日</string>
-    <string name="wk_detail_chart">1 日ごとの起床回数</string>
+    <string name="wk_detail_chart">1 日ごとのウェイクアップ回数</string>
     <plurals name="wk_night_line">
-        <item quantity="other">%1$s が昨夜スマホを %2$d 回起こしました</item>
+        <item quantity="other">%1$s が昨夜端末を %2$d 回起こしました</item>
     </plurals>
-    <string name="wk_night_awake">%1$s が昨夜スマホを %2$s 起きたままにしました</string>
+    <string name="wk_night_awake">%1$s が昨夜、端末を %2$s の間起きたままにしました</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <string name="tab_overview">概要</string>
     <string name="tab_apps">アプリ</string>
-    <string name="tab_battery">電池</string>
+    <string name="tab_battery">バッテリー</string>
     <string name="tab_history">履歴</string>
     <string name="settings">設定</string>
     <string name="back">戻る</string>
@@ -18,26 +18,26 @@
     <string name="channel_alerts">アラート</string>
 
     <string name="access_title">使用状況へのアクセスを許可すると、原因のアプリがわかります</string>
-    <string name="access_body">使用状況へのアクセスを許可すると、Android が Activity+ に伝えるのは、画面に表示中のアプリ、各アプリが使うデータ量と容量、バックグラウンドでの実行時間だけです。データが端末の外に出ることはありません。Activity+ にはインターネット権限がありません。</string>
+    <string name="access_body">Android は、使用状況へのアクセスを許可した場合にのみ、画面に表示中のアプリ、各アプリが使うデータ量と容量、バックグラウンドでの実行時間を Activity+ に伝えます。データが端末の外に出ることはありません。Activity+ にはインターネット権限がありません。</string>
     <string name="access_button">使用状況へのアクセスを開く</string>
 
-    <string name="overview_subtitle">%1$s · 稼働 %2$s</string>
+    <string name="overview_subtitle">%1$s · 稼働時間 %2$s</string>
     <string name="verdict_question">端末が遅いのはなぜですか？</string>
     <string name="verdict_fine">今のところ、目立った問題はありません。</string>
     <string name="verdict_fine_body">Activity+ は引き続き監視し、問題が起きたらお知らせします。</string>
-    <string name="verdict_fine_busiest">今日最も電池を使ったのは %1$s（%2$s）です。</string>
+    <string name="verdict_fine_busiest">今日最もバッテリーを使ったのは %1$s（%2$s）です。</string>
     <plurals name="verdict_more">
         <item quantity="other">ほかに %d 件の検出 ›</item>
     </plurals>
-    <string name="card_battery">電池</string>
+    <string name="card_battery">バッテリー</string>
     <string name="card_memory">メモリ</string>
     <string name="card_network">ネットワーク</string>
     <string name="card_storage">ストレージ</string>
     <string name="card_cpu">CPU</string>
     <string name="card_temperature">温度</string>
     <string name="battery_no_current">この端末は電流を報告しません</string>
-    <string name="battery_charging">電池へ流入</string>
-    <string name="battery_drawing">電池から消費</string>
+    <string name="battery_charging">バッテリーへ流入</string>
+    <string name="battery_drawing">バッテリーから消費</string>
     <string name="battery_on_adapter">充電器接続中</string>
     <string name="battery_current">電流</string>
     <string name="battery_voltage">電圧</string>
@@ -62,7 +62,7 @@
     <string name="cpu_cores">%1$d コア</string>
     <string name="cpu_clock_note">平均クロック</string>
     <string name="cpu_own">Activity+ 自身</string>
-    <string name="temp_battery">電池の温度</string>
+    <string name="temp_battery">バッテリーの温度</string>
     <string name="temp_headroom">性能制限まで</string>
     <string name="thermal_none">通常</string>
     <string name="thermal_light">温かい</string>
@@ -70,16 +70,16 @@
     <string name="thermal_severe">高温</string>
     <string name="thermal_critical">危険</string>
     <string name="busiest_title">今日最も消費したアプリ</string>
-    <string name="busiest_caption">電池に占める割合</string>
-    <string name="method_foreground">計測値です。アプリが画面に表示されている間の消費電力は、そのアプリの分として数えます。Android では、アプリ同士がバックグラウンドの電池使用量を見ることはできません。</string>
+    <string name="busiest_caption">バッテリーに占める割合</string>
+    <string name="method_foreground">計測値です。アプリが画面に表示されている間の消費電力は、そのアプリの分として数えます。Android では、アプリ同士がバックグラウンドのバッテリー使用量を見ることはできません。</string>
 
-    <string name="apps_subtitle">すべてのアプリ。電池、画面表示時間、データ通信、ストレージを表示</string>
+    <string name="apps_subtitle">すべてのアプリ。バッテリー、画面表示時間、データ通信、ストレージを表示</string>
     <string name="range_today">今日</string>
     <string name="range_12h">12 時間</string>
     <string name="range_24h">24 時間</string>
     <string name="range_7d">7 日間</string>
     <string name="range_30d">30 日間</string>
-    <string name="sort_battery">電池</string>
+    <string name="sort_battery">バッテリー</string>
     <string name="sort_screen">画面表示時間</string>
     <string name="sort_data">データ通信</string>
     <string name="sort_background">バックグラウンド</string>
@@ -91,9 +91,9 @@
     <string name="row_screen_on_other">その他（画面オン）</string>
     <string name="row_system">Android システム</string>
     <string name="unusual_badge">通常の %1$s×</string>
-    <string name="unusual_body">このアプリとしては異例です。通常の日（%2$s）の %1$s× の電池を使っています。</string>
-    <string name="method_apps">電池の使用量は、アプリが画面に表示されている間に Activity+ が計測します。画面表示時間、データ通信、ストレージは Android の値です。</string>
-    <string name="detail_battery">電池（計測値）</string>
+    <string name="unusual_body">このアプリとしては異例です。通常の日（%2$s）の %1$s× のバッテリーを使っています。</string>
+    <string name="method_apps">バッテリーの使用量は、アプリが画面に表示されている間に Activity+ が計測します。画面表示時間、データ通信、ストレージは Android の値です。</string>
+    <string name="detail_battery">バッテリー（計測値）</string>
     <string name="detail_screen">画面表示</string>
     <string name="detail_launches">起動回数</string>
     <string name="detail_service">バックグラウンドで動作中</string>
@@ -106,10 +106,10 @@
     <string name="detail_cache">キャッシュ</string>
     <string name="detail_last_used">最終使用</string>
     <string name="detail_open_app_info">アプリ情報を開く</string>
-    <string name="detail_app_info_hint">そこで、電池の使用を制限したり、バックグラウンドのデータ通信をオフにしたり、キャッシュを消去したり、アンインストールしたりできます。</string>
+    <string name="detail_app_info_hint">そこで、バッテリーの使用を制限したり、バックグラウンドのデータ通信をオフにしたり、キャッシュを消去したり、アンインストールしたりできます。</string>
 
     <string name="status_charging">充電中</string>
-    <string name="status_discharging">電池駆動</string>
+    <string name="status_discharging">バッテリー駆動</string>
     <string name="status_not_charging">接続中・充電されていません</string>
     <string name="status_full">満充電</string>
     <string name="status_unknown">不明</string>
@@ -118,15 +118,15 @@
     <string name="plug_usb">USB</string>
     <string name="plug_wireless">ワイヤレス</string>
     <string name="plug_dock">ドック</string>
-    <string name="charging_into_battery">電池へ</string>
+    <string name="charging_into_battery">バッテリーへ</string>
     <string name="charging_adapter_offers">充電器の供給能力</string>
     <string name="charging_time_to_full">満充電まで</string>
     <string name="not_charging_badge">充電されていません</string>
-    <string name="why_full">電池は満充電です。今は充電器から端末に給電されています。</string>
-    <string name="why_hot">電池が熱すぎるため、Android は冷えるまで充電を一時停止しています。</string>
-    <string name="why_cold">電池が冷たすぎるため、安全に充電できません。</string>
-    <string name="why_limit">充電上限または適応型充電により、電池を保護するためこの状態に保たれています。</string>
-    <string name="why_weak">端末の消費電力が充電器の供給電力を上回っているため、電池は減り続けます。より強力な充電器やケーブルをお試しください。</string>
+    <string name="why_full">バッテリーは満充電です。今は充電器から端末に給電されています。</string>
+    <string name="why_hot">バッテリーが熱すぎるため、Android は冷えるまで充電を一時停止しています。</string>
+    <string name="why_cold">バッテリーが冷たすぎるため、安全に充電できません。</string>
+    <string name="why_limit">充電上限または適応型充電により、バッテリーを保護するためこの状態に保たれています。</string>
+    <string name="why_weak">端末の消費電力が充電器の供給電力を上回っているため、バッテリーは減り続けます。より強力な充電器やケーブルをお試しください。</string>
     <string name="why_unknown">Android は理由を示していません。</string>
     <string name="health_title">状態</string>
     <string name="health_system">Android の判定</string>
@@ -139,11 +139,11 @@
     <string name="health_estimate">推定の状態</string>
     <string name="health_cycles">充電サイクル</string>
     <string name="health_technology">方式</string>
-    <string name="health_note" formatted="false">計測された容量は電池の残量計から得た値で、あくまで推定です。数回充電すると安定し、15 % を下回ると信頼できません。</string>
-    <string name="drain_today">今日のアプリ別電池使用量</string>
+    <string name="health_note" formatted="false">計測された容量はバッテリーの残量計から得た値で、あくまで推定です。数回充電すると安定し、15 % を下回ると信頼できません。</string>
+    <string name="drain_today">今日のアプリ別バッテリー使用量</string>
     <string name="drain_today_caption">計測値</string>
     <string name="drain_empty">今日はまだ計測値がありません。Activity+ は動作中に計測します。ライブステータスをオンにしておいてください。</string>
-    <string name="screen_off_rate">画面オフの間、電池は 1 時間あたり %1$s 減っています。</string>
+    <string name="screen_off_rate">画面オフの間、バッテリーは 1 時間あたり %1$s 減っています。</string>
 
     <string name="history_subtitle">30 日分。この端末内にのみ保存されます</string>
     <string name="history_empty">履歴がまだ十分ではありません。ライブステータスがオンの間、Activity+ は 1 分ごとに 1 件記録します。</string>
@@ -151,7 +151,7 @@
     <string name="history_peak">最大 %1$s</string>
     <string name="history_on_screen">画面表示 %1$s</string>
     <string name="history_now">現在</string>
-    <string name="history_drain_title">アプリ別の電池使用量</string>
+    <string name="history_drain_title">アプリ別のバッテリー使用量</string>
     <string name="history_note">グラフをタップまたはドラッグすると、値と、その時点で画面に表示されていたアプリがわかります。空白の部分は端末がスリープしていた時間です。</string>
     <string name="metric_level">残量</string>
     <string name="metric_power">消費電力</string>
@@ -165,7 +165,7 @@
     <string name="diag_again">再チェック</string>
     <string name="diag_checking">チェック中…</string>
     <string name="diag_fine_title">目立った問題はありません</string>
-    <string name="diag_fine_body">ストレージ、メモリ、発熱、省電力モード、バックグラウンド処理、データ通信、電池はいずれも正常に見えます。</string>
+    <string name="diag_fine_body">ストレージ、メモリ、発熱、省電力モード、バックグラウンド処理、データ通信、バッテリーはいずれも正常に見えます。</string>
     <string name="diag_note">Activity+ がアプリを強制終了したり、ファイルを削除したりすることはありません。どの対処も、判断を任せる Android の画面を開くだけです。</string>
     <string name="f_storage_title">ストレージがほぼ満杯です</string>
     <string name="f_storage_body">全 %2$s 中、空きは %1$s です。ストレージが足りなくなると、Android は動作が遅くなり、アップデートをインストールできなくなります。</string>
@@ -173,21 +173,21 @@
     <string name="f_memory_body">利用可能なのは %1$s だけです。Android はバックグラウンドのアプリを閉じるため、切り替えると再読み込みされます。</string>
     <string name="f_on_screen">%1$s が画面に表示されています。</string>
     <string name="f_hot_title">端末が熱くなっています</string>
-    <string name="f_hot_body">電池は %1$s で、Android は冷やすために速度を落としています。</string>
+    <string name="f_hot_body">バッテリーの温度は %1$s で、Android は冷やすために速度を落としています。</string>
     <string name="f_hot_app">%1$s が画面に表示されており、負荷の原因と思われます。</string>
     <string name="f_saver_title">省電力モードがオンです</string>
     <string name="f_saver_body">バックグラウンド処理と性能を制限します。</string>
-    <string name="f_drain_title">今日最も電池を使ったのは %1$s です</string>
-    <string name="f_drain_body">%1$s（画面表示 %2$s）。画面オン時に使われた電池の %3$s です。</string>
+    <string name="f_drain_title">今日最もバッテリーを使ったのは %1$s です</string>
+    <string name="f_drain_body">%1$s（画面表示 %2$s）。画面オン時に使われたバッテリーの %3$s です。</string>
     <string name="f_service_title">%1$s がバックグラウンドで動き続けています</string>
-    <string name="f_service_body">ほとんど開いていないのに、今日は %1$s バックグラウンドで動いていました。アプリ情報で電池の使用を制限できます。</string>
+    <string name="f_service_body">ほとんど開いていないのに、今日は %1$s バックグラウンドで動いていました。アプリ情報でバッテリーの使用を制限できます。</string>
     <string name="f_data_title">%1$s がバックグラウンドで大量のデータを使っています</string>
     <string name="f_data_body">今日のバックグラウンド通信は %1$s です。アプリ情報でバックグラウンドのデータ通信をオフにできます。</string>
-    <string name="f_off_title">画面オフでも電池が減っています</string>
-    <string name="f_off_body">画面オフの %2$s の間、1 時間あたり %1$s です。何かが端末を起こし続けています。Android の電池の使用状況ページで、アプリごとのバックグラウンド使用を確認できます。</string>
-    <string name="f_worn_title">電池が劣化しています</string>
-    <string name="f_worn_body">定格容量の約 %1$s を保っています。劣化した電池は、負荷がかかったときに端末を遅くすることがあります。</string>
-    <string name="f_worn_body_unknown">Android が電池の問題を報告しています。</string>
+    <string name="f_off_title">画面オフでもバッテリーが減っています</string>
+    <string name="f_off_body">画面オフの %2$s の間、1 時間あたり %1$s です。何かが端末を起こし続けています。Android のバッテリーの使用状況ページで、アプリごとのバックグラウンド使用を確認できます。</string>
+    <string name="f_worn_title">バッテリーが劣化しています</string>
+    <string name="f_worn_body">定格容量の約 %1$s を保っています。劣化したバッテリーは、負荷がかかったときに端末を遅くすることがあります。</string>
+    <string name="f_worn_body_unknown">Android がバッテリーの問題を報告しています。</string>
     <string name="f_uptime_title">再起動せず %1$s 稼働中</string>
     <string name="f_uptime_body">再起動すると、止まっているバックグラウンド処理がリセットされます。</string>
     <string name="f_anim_title">アニメーションが遅くなっています</string>
@@ -199,11 +199,11 @@
     <string name="fix_storage">ストレージを開く</string>
     <string name="fix_app_info">%1$s のアプリ情報を開く</string>
     <string name="fix_saver">省電力モードの設定</string>
-    <string name="fix_battery_usage">電池の使用状況を開く</string>
+    <string name="fix_battery_usage">バッテリーの使用状況を開く</string>
     <string name="fix_developer">開発者向けオプション</string>
 
     <string name="item_power">消費電力</string>
-    <string name="item_battery">電池</string>
+    <string name="item_battery">バッテリー</string>
     <string name="item_temperature">温度</string>
     <string name="item_memory">メモリ</string>
     <string name="item_network">ネットワーク</string>
@@ -218,11 +218,11 @@
     <string name="alert_hot_body">Android は冷えるまで端末の動作を遅くします。</string>
     <string name="alert_storage_title">ストレージがほぼ満杯です</string>
     <string name="alert_storage_body">残りは %1$s だけです。アプリやアップデートには作業用の空き容量が必要です。</string>
-    <string name="alert_plugdrain_title">接続中ですが電池が減っています</string>
-    <string name="alert_plugdrain_body">接続中でも電池から %1$s mA が流出しています。充電器またはケーブルが、端末の処理に対して弱すぎます。</string>
+    <string name="alert_plugdrain_title">接続中ですがバッテリーが減っています</string>
+    <string name="alert_plugdrain_body">接続中でもバッテリーから %1$s mA が流出しています。充電器またはケーブルが、端末の処理に対して弱すぎます。</string>
     <string name="alert_power_title">%1$s が %2$s を消費中</string>
     <string name="alert_power_body">端末としてはかなり多い消費です。</string>
-    <string name="alert_power_body_left">このペースでは、電池はあと %1$s 持ちます。</string>
+    <string name="alert_power_body_left">このペースでは、バッテリーはあと %1$s 持ちます。</string>
 
     <string name="set_statusbar">ステータスバー</string>
     <string name="set_live">ライブステータス</string>
@@ -247,7 +247,7 @@
     <string name="set_history_size">履歴: この端末に %1$s</string>
     <string name="set_history_hint">30 日分を保存し、古い日から削除されます。</string>
     <string name="set_clear_history">履歴を削除</string>
-    <string name="set_clear_confirm">この端末のすべての履歴と電池の計測値が削除されます。</string>
+    <string name="set_clear_confirm">この端末のすべての履歴とバッテリーの計測値が削除されます。</string>
     <string name="privacy_title">使用状況のデータは端末の中にとどまります</string>
     <string name="privacy_body">Activity+ にはインターネット権限、アカウント、分析機能がありません。どこにも何も送信できません。履歴はアプリ専用のデータとして保存され、アンインストールすると削除されます。</string>
     <string name="about_title">Activity+ %1$s（Android 版）</string>
@@ -255,7 +255,7 @@
 
     <string name="onb_title">どのアプリが端末を遅くしていますか？</string>
     <string name="onb_body">Activity+ は端末を計測し、原因のアプリと、その対処法を平易な言葉でお伝えします。</string>
-    <string name="onb_point_apps">アプリごとの電池、画面表示時間、データ通信、ストレージを並べて表示</string>
+    <string name="onb_point_apps">アプリごとのバッテリー、画面表示時間、データ通信、ストレージを並べて表示</string>
     <string name="onb_point_history">30 日分の履歴。各時点で画面に表示されていたアプリもわかります</string>
     <string name="onb_point_statusbar">ステータスバーに、お好みの値をリアルタイム表示</string>
     <string name="onb_point_private">インターネット権限なし、アカウントなし、広告なし</string>
@@ -276,7 +276,7 @@
     <string name="hw_build">ビルド</string>
     <string name="hw_kernel">カーネル</string>
     <string name="hw_uptime">稼働時間</string>
-    <string name="hw_deep_sleep">起動後の深いスリープ</string>
+    <string name="hw_deep_sleep">起動後のディープスリープ</string>
     <string name="hw_cpu">プロセッサ</string>
     <string name="hw_cores">コア数</string>
     <string name="hw_cluster">%1$d× コア</string>
@@ -289,7 +289,7 @@
     <string name="hw_internal">内部ストレージ</string>
     <string name="hw_display">ディスプレイ</string>
     <string name="hw_resolution">解像度</string>
-    <string name="hw_diagonal">対角線</string>
+    <string name="hw_diagonal">対角サイズ</string>
     <string name="hw_density">密度</string>
     <string name="hw_refresh_now">現在のリフレッシュレート</string>
     <string name="hw_refresh_modes">リフレッシュレート</string>
@@ -330,12 +330,12 @@
     <string name="hw_no_zones">この端末では、アプリがチップの温度を読み取れません。</string>
     <string name="hw_note">root 化せずに Android がアプリに伝えるすべての情報です。端末によっては、より多くの情報が隠されています。</string>
     <string name="set_language">言語</string>
-    <string name="set_language_hint">Activity+ はスマートフォン本体とは別の言語で表示できます。</string>
+    <string name="set_language_hint">Activity+ は端末本体とは別の言語で表示できます。</string>
     <!-- Battery detail, RAM, widgets -->
     <string name="battery_live_chart">消費電力、1秒ごとに1点</string>
     <string name="battery_power_now">現在の消費電力</string>
     <string name="battery_rate">レート</string>
-    <string name="charging_speed_note">電池への流入、30秒平均</string>
+    <string name="charging_speed_note">バッテリーへの流入、30秒平均</string>
     <string name="hw_storage">ストレージ</string>
     <string name="item_charge_rate">充電速度</string>
     <string name="item_current">電流</string>
@@ -363,8 +363,8 @@
     <string name="session_level">残量</string>
     <string name="session_screen_off">画面オフ</string>
     <string name="session_screen_on">画面オン</string>
-    <string name="session_since_plug">接続から %1$s 前</string>
-    <string name="session_since_unplug_title">取り外してから</string>
+    <string name="session_since_plug">接続から %1$s 経過</string>
+    <string name="session_since_unplug_title">充電器を外してから</string>
     <string name="sessions_title">最近の充電と放電</string>
     <string name="set_app_line">アプリ行</string>
     <string name="set_app_line_hint">値の下に、画面に表示中のアプリと端末の消費電力を表示します。</string>
@@ -380,10 +380,10 @@
     <string name="widget_config_title">ウィジェットの値</string>
     <string name="widget_full_in">%1$s で満充電</string>
     <string name="widget_left">残り %1$s</string>
-    <string name="widget_most_today">今日最も多い: %1$s %2$s</string>
+    <string name="widget_most_today">今日の最大消費: %1$s %2$s</string>
     <string name="widget_battery_desc">充電リング、消費電力、残り時間</string>
-    <string name="widget_battery_name">Activity+ 電池</string>
-    <string name="widget_panel_desc">最大6つの値と、今日最も電池を使ったアプリ</string>
+    <string name="widget_battery_name">Activity+ バッテリー</string>
+    <string name="widget_panel_desc">最大6つの値と、今日最もバッテリーを使ったアプリ</string>
     <string name="widget_panel_name">Activity+ パネル</string>
     <string name="widget_value_desc">選んだ1つの値を大きく表示</string>
     <string name="widget_value_name">Activity+ 値</string>
@@ -392,14 +392,14 @@
     <string name="pro_title">正確に計測</string>
     <string name="pro_subtitle">プロモード、必要な時だけ</string>
     <string name="pro_access_title">アクセス</string>
-    <string name="pro_via_dump">準備完了（PC 許可・電池のみ）</string>
+    <string name="pro_via_dump">準備完了（パソコン経由・バッテリーのみ）</string>
     <string name="pro_via_shizuku">準備完了（Shizuku）</string>
     <string name="pro_state_permission">許可が必要です</string>
     <string name="pro_state_not_running">Shizuku が動いていません</string>
     <string name="pro_state_off">未設定</string>
     <string name="pro_state_too_old">Shizuku が古すぎます</string>
-    <string name="pro_ready_body">Android 自身のレポートを一度だけ読み取ります。前回の充電以降のアプリ別の電池使用量（バックグラウンドを含む）、今この瞬間のアプリ別のメモリと CPU です。</string>
-    <string name="pro_ready_body_dump">Android のバッテリーレポートを一度だけ読み取ります。前回の充電以降のアプリ別の電池使用量（バックグラウンドを含む）です。アプリ別のメモリと CPU には Shizuku が必要です。Android はこれらのレポートをアプリに開放していません。</string>
+    <string name="pro_ready_body">Android 自身のレポートを一度だけ読み取ります。前回の充電以降のアプリ別のバッテリー使用量（バックグラウンドを含む）、今この瞬間のアプリ別のメモリと CPU です。</string>
+    <string name="pro_ready_body_dump">Android のバッテリーレポートを一度だけ読み取ります。前回の充電以降のアプリ別のバッテリー使用量（バックグラウンドを含む）です。アプリ別のメモリと CPU には Shizuku が必要です。Android はこれらのレポートをアプリに開放していません。</string>
     <string name="pro_measure">今すぐ計測</string>
     <string name="pro_measuring">計測中…</string>
     <string name="pro_dev_off_tip">結果は Activity+ に残ります。その後、開発者向けオプションをオフに戻せます。銀行アプリも使えるようになります。</string>
@@ -412,13 +412,13 @@
     <string name="pro_step_start">ワイヤレス デバッグを使って、Shizuku アプリから Shizuku を起動します。</string>
     <string name="pro_step_back">ここに戻って「今すぐ計測」をタップします。その後、開発者向けオプションをオフにできます。</string>
     <string name="pro_get_shizuku">Shizuku を入手</string>
-    <string name="pro_pc_title">または PC から</string>
-    <string name="pro_pc_body">USB デバッグを有効にして、次のコマンドを一度実行します（タップでコピー）。アプリ別の電池使用量が得られます。アプリ別のメモリと CPU には Shizuku が必要です。</string>
+    <string name="pro_pc_title">またはパソコンから</string>
+    <string name="pro_pc_body">USB デバッグを有効にして、次のコマンドを一度実行します（タップでコピー）。アプリ別のバッテリー使用量が得られます。アプリ別のメモリと CPU には Shizuku が必要です。</string>
     <string name="pro_pc_note">この許可は再起動後も、開発者向けオプションをオフにしても残ります（Android 15 でテスト済み）。Activity+ を再インストールした後は、もう一度実行してください。</string>
     <string name="pro_error">計測に失敗しました: %1$s</string>
-    <string name="pro_battery_title">前回の充電以降のアプリ別の電池使用量</string>
-    <string name="pro_on_battery">電池駆動 %1$s</string>
-    <string name="pro_battery_empty">Android はまだ数値を出していません。端末が電池で動いている間だけ集計されます。</string>
+    <string name="pro_battery_title">前回の充電以降のアプリ別のバッテリー使用量</string>
+    <string name="pro_on_battery">バッテリー駆動 %1$s</string>
+    <string name="pro_battery_empty">Android はまだ数値を出していません。端末がバッテリーで動いている間だけ集計されます。</string>
     <string name="pro_cpu_time">CPU %1$s</string>
     <string name="pro_awake">起動状態を維持 %1$s</string>
     <string name="pro_hardware_title">アプリに割り当てられない消費</string>
@@ -427,17 +427,17 @@
     <string name="pro_hw_idle">アイドル</string>
     <string name="pro_hw_camera">カメラ</string>
     <string name="pro_hw_flashlight">ライト</string>
-    <string name="pro_battery_note">Android 自身の推定値で、電池設定と同じものです。フォアグラウンドとバックグラウンドを、その電力モデルから算出しています。</string>
+    <string name="pro_battery_note">Android 自身の推定値で、バッテリー設定と同じものです。フォアグラウンドとバックグラウンドを、その電力モデルから算出しています。</string>
     <string name="pro_memory_title">アプリ別のメモリ（現在）</string>
     <string name="pro_memory_note">PSS: アプリが使用しているメモリ。共有メモリは、共有しているアプリの間で按分されます。</string>
     <string name="pro_cpu_title">アプリ別の CPU（直近 1.5 分）</string>
     <string name="pro_cpu_note" formatted="false">1 コア分に対する割合。100 % を超えると、アプリが複数のコアを使っています。</string>
     <string name="pro_privacy">プロモードが実行するのは、Android の読み取り専用レポートだけです（dumpsys batterystats、meminfo、cpuinfo、appops、alarm、jobscheduler、thermalservice、deviceidle）。ご希望の場合は、Activity+ 自身の読み取り権限も付与します。それ以外のコマンドは拒否され、Activity+ はインターネット権限を持ちません。</string>
     <string name="pro_entry_title">正確に計測</string>
-    <string name="pro_entry_body">アプリ別の電池・メモリ・CPU（バックグラウンドを含む）。Shizuku を使うプロモード。</string>
+    <string name="pro_entry_body">アプリ別のバッテリー・メモリ・CPU（バックグラウンドを含む）。Shizuku を使うプロモード。</string>
     <string name="pro_entry_last">前回の計測 %1$s</string>
     <string name="detail_pro_title">プロモードでの計測、%1$s</string>
-    <string name="detail_pro_battery">前回の充電以降の電池使用量</string>
+    <string name="detail_pro_battery">前回の充電以降のバッテリー使用量</string>
     <string name="detail_pro_awake">端末を起動状態に維持</string>
     <string name="detail_pro_cpu">CPU 時間</string>
     <string name="detail_pro_ram">メモリ（PSS）</string>

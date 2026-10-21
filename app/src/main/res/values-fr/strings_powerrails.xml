@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Où va la puissance (page batterie), 0.4.0 -->
-    <string name="power_title">Où va la puissance</string>
+    <string name="power_title">Où va l\'énergie</string>
     <string name="power_covered">%1$s de données</string>
     <string name="power_now">Maintenant</string>
     <string name="power_hour">Dernière heure</string>
@@ -28,5 +28,5 @@
     <string name="power_cat_audio">Audio</string>
     <string name="power_cat_other">Autre</string>
     <string name="power_unsupported">Ce téléphone ne fournit pas la puissance par composant.</string>
-    <string name="power_silent">Les compteurs d\'énergie de ce téléphone ne signalent presque rien, il est donc impossible de montrer où va l\'énergie.</string>
+    <string name="power_silent">Les capteurs d\'énergie de ce téléphone ne signalent presque rien, il est donc impossible de montrer où va l\'énergie.</string>
 </resources>

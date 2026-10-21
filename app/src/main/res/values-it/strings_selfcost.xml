@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity+ itself: what the app costs, and what it does in the background -->
+    <string name="own_title">Activity+ stesso</string>
+    <string name="own_caption">Conteggiato da Android</string>
+    <string name="own_loading">Lettura dei contatori di Android per Activity+…</string>
+    <string name="own_unreadable">Questo telefono non fornisce ad Activity+ i suoi contatori, quindi il suo consumo non può essere mostrato. L\'elenco qui sotto dice comunque cosa fa.</string>
+    <string name="own_empty">Ancora nessuna lettura. Activity+ legge i contatori di Android quando apri questa scheda e poi ogni ora finché lo stato in tempo reale è attivo; i primi valori compaiono dopo la prima lettura con un tempo a batteria noto.</string>
+    <string name="own_empty_today">Ancora nessuna lettura di oggi. La prossima arriva entro un\'ora finché lo stato in tempo reale è attivo.</string>
+
+    <string name="own_col_today">Oggi</string>
+    <string name="own_col_week">7 giorni</string>
+    <string name="own_cpu">Tempo CPU</string>
+    <string name="own_wakeups">Risvegli</string>
+    <string name="own_wakelock">Tenuto sveglio</string>
+    <string name="own_wakelock_value">%1$s (%2$d×)</string>
+    <string name="own_jobs">Job in background</string>
+    <string name="own_data">Dati (mobili + Wi-Fi)</string>
+    <string name="own_service">Stato in tempo reale attivo</string>
+    <string name="own_energy">Energia (stimata)</string>
+    <string name="own_energy_value">%1$s · %2$s</string>
+    <string name="own_none">–</string>
+
+    <string name="own_energy_needs_grant">L\'energia non viene misurata: Android mostra l\'energia delle altre app solo con l\'autorizzazione dal computer, nella pagina pro. Tempo CPU, risvegli e wakelock qui sopra vengono conteggiati anche senza.</string>
+    <string name="own_energy_setting_off">L\'energia non viene misurata: attiva la misurazione automatica in background nelle impostazioni qui sotto.</string>
+    <string name="own_energy_not_yet">Energia: il report della batteria di Android non ha ancora una voce per Activity+. La misurazione automatica lo legge ogni 3 ore a batteria.</string>
+    <string name="own_energy_note">L\'energia è la stima di Android dal suo report della batteria, una media dei giorni che copre. Tutto il resto è conteggiato da Android per Activity+.</string>
+    <string name="own_note">Android conta solo mentre il telefono funziona a batteria e Activity+ legge i contatori una volta all\'ora, quindi un giorno può essere un po\' sfasato ai margini. I dati restano a 0 B perché Activity+ non ha l\'autorizzazione Internet.</string>
+
+    <string name="own_running_title">Cosa gira in background</string>
+    <string name="own_live_off">Lo stato in tempo reale è disattivato, quindi nulla di Activity+ gira da solo tranne i widget qui sotto. Aprendo l\'app viene letto ciò che mostra in quel momento.</string>
+    <string name="own_no_wake">Activity+ non tiene alcun wakelock e non imposta alcuna sveglia. Tutto questo gira sul timer del monitor in tempo reale, che dorme quando dorme il telefono. I report pesanti aspettano che lo schermo si accenda quando è spento a batteria e non vengono eseguiti in Doze.</string>
+    <string name="own_link">Quanto costa Activity+ stesso?</string>
+
+    <string name="own_job_monitor">Monitor in tempo reale</string>
+    <string name="own_job_monitor_when">Ogni %1$d s con lo schermo acceso, una volta al minuto con lo schermo spento, e una riga di cronologia al minuto. Si ferma nel sonno profondo.</string>
+    <string name="own_job_wakeups">Contatori dei risvegli</string>
+    <string name="own_job_wakeups_when">Ogni 30 minuti a batteria: una chiamata ad Android, senza shell.</string>
+    <string name="own_job_sensors">Registro dei sensori</string>
+    <string name="own_job_sensors_when">Ogni 30 minuti: report appops di Android (700 kB), letto in streaming. Aspetta che lo schermo si accenda quando è spento.</string>
+    <string name="own_job_rails">Linee di alimentazione</string>
+    <string name="own_job_rails_when">Ogni 5 minuti: una lettura dei misuratori di potenza.</string>
+    <string name="own_job_background">Misurazione in background</string>
+    <string name="own_job_background_when">Ogni 3 ore a batteria, quando colleghi il caricabatterie e al mattino: report della batteria di Android, letto in streaming. Aspetta che lo schermo si accenda quando è spento.</string>
+    <string name="own_job_updates">Aggiornamenti delle app e dati per app</string>
+    <string name="own_job_updates_when">Una volta al giorno, e poco dopo l\'aggiornamento di un\'app.</string>
+    <string name="own_job_storage">Cronologia dell\'archiviazione</string>
+    <string name="own_job_storage_when">Una volta al giorno. Aspetta che lo schermo si accenda quando è spento.</string>
+    <string name="own_job_thermal">Registro delle limitazioni</string>
+    <string name="own_job_thermal_when">Quando cambia lo stato termico di Android; nulla nel frattempo.</string>
+    <string name="own_job_night">Controllo della notte</string>
+    <string name="own_job_night_when">Quando lo schermo si spegne o si accende, cambia il collegamento al caricabatterie o cambia Doze; nulla nel frattempo.</string>
+    <string name="own_job_self">Contatori di questa scheda</string>
+    <string name="own_job_self_when">Una volta all\'ora a batteria, e quando apri la scheda.</string>
+    <string name="own_job_weekly">Report settimanale</string>
+    <string name="own_job_weekly_when">Lunedì mattina: una notifica.</string>
+    <string name="own_job_widgets">Widget</string>
+    <string name="own_job_widgets_when">Ogni 30 secondi con lo schermo acceso (dal monitor in tempo reale), e da Android al massimo ogni 30 minuti.</string>
+
+    <string name="own_need_battery_stats">Non attivo: serve l\'autorizzazione aggiuntiva nella pagina pro.</string>
+    <string name="own_need_computer_grant">Non attivo: serve l\'autorizzazione dal computer (pagina pro).</string>
+    <string name="own_need_background_setting">Non attivo: la misurazione automatica in background è disattivata.</string>
+    <string name="own_need_unsupported">Non attivo: questo telefono non ha misuratori di potenza (Android 15 o successivo).</string>
+    <string name="own_need_weekly_setting">Non attivo: gli avvisi o il report settimanale sono disattivati.</string>
+    <string name="own_need_no_widgets">Non attivo: nessun widget è stato aggiunto.</string>
+</resources>

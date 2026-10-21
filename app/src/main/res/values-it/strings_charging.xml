@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Avvisi di ricarica -->
-    <string name="chg_limit_title">Caricata al %1$s</string>
+    <string name="chg_limit_title">Caricata a %1$s</string>
     <string name="chg_limit_body">Ora puoi scollegarlo per proteggere la batteria.</string>
     <string name="chg_full_title">Carica completa</string>
     <string name="chg_full_body">La batteria è piena. Ora puoi scollegarlo per proteggerla.</string>

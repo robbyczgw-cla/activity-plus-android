@@ -2,7 +2,7 @@
 <resources>
     <!-- Permessi di lettura aggiunti in 0.4.0 (pagina pro) -->
     <string name="grants_title">Altre letture disponibili</string>
-    <string name="grants_body">Due altri permessi di lettura sbloccano i risvegli e i wakelock per app, i dati della batteria stessa (stato, date) e il consumo esatto per componente.</string>
+    <string name="grants_body">Due altre autorizzazioni di lettura sbloccano i risvegli e i wakelock per app, i dati della batteria stessa (stato, date) e il consumo esatto per componente.</string>
     <string name="grants_shizuku">Concedi con Shizuku</string>
     <string name="grants_failed">Non ha funzionato. Usa invece la riga per il computer della guida di configurazione.</string>
     <string name="grants_computer">Esegui di nuovo la riga dal computer (tocca per copiarla); ora li include.</string>

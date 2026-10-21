@@ -38,7 +38,7 @@
     <string name="media_old_note">File da 50 MB o più non modificati da un anno.</string>
 
     <string name="media_dup_title">Duplicati</string>
-    <string name="media_dup_intro">I file dello stesso tipo e della stessa dimensione vengono confrontati leggendo l\'inizio e la fine di ciascuno. Una corrispondenza è molto probabile, ma non certa, per lo stesso file. Può richiedere un po\' di tempo.</string>
+    <string name="media_dup_intro">I file dello stesso tipo e della stessa dimensione vengono confrontati leggendo l\'inizio e la fine di ciascuno. Una corrispondenza è quasi certamente lo stesso file, ma non è una certezza. Può richiedere un po\' di tempo.</string>
     <string name="media_dup_start">Cerca duplicati</string>
     <string name="media_dup_again">Controlla di nuovo</string>
     <string name="media_dup_cancel">Annulla</string>

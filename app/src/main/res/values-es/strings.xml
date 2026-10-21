@@ -18,7 +18,7 @@
     <string name="channel_alerts">Avisos</string>
 
     <string name="access_title">Permite el acceso a datos de uso para ver qué app es la responsable</string>
-    <string name="access_body">Con el acceso a datos de uso, Android solo le dice a Activity+ qué app está en pantalla, cuántos datos y cuánto almacenamiento usa cada app y cuánto tiempo sigue activa en segundo plano. Nada sale de tu teléfono: Activity+ no tiene permiso de Internet.</string>
+    <string name="access_body">Android solo le dice a Activity+ qué app está en pantalla, cuántos datos y cuánto almacenamiento usa cada app y cuánto tiempo sigue activa en segundo plano si concedes el acceso a datos de uso. Nada sale de tu teléfono: Activity+ no tiene permiso de Internet.</string>
     <string name="access_button">Abrir acceso a datos de uso</string>
 
     <string name="overview_subtitle">%1$s · activo desde hace %2$s</string>
@@ -38,7 +38,7 @@
     <string name="card_temperature">Temperatura</string>
     <string name="battery_no_current">Este teléfono no informa de la corriente</string>
     <string name="battery_charging">Entrando en la batería</string>
-    <string name="battery_drawing">Sacado de la batería</string>
+    <string name="battery_drawing">Consumido de la batería</string>
     <string name="battery_on_adapter">En el cargador</string>
     <string name="battery_current">Corriente</string>
     <string name="battery_voltage">Voltaje</string>
@@ -96,7 +96,7 @@
     <string name="method_apps">Activity+ mide la batería mientras la app está en pantalla. El tiempo en pantalla, los datos y el almacenamiento vienen de Android.</string>
     <string name="detail_battery">Batería (medida)</string>
     <string name="detail_screen">En pantalla</string>
-    <string name="detail_launches">Abierta</string>
+    <string name="detail_launches">Aperturas</string>
     <string name="detail_service">Trabajando en segundo plano</string>
     <string name="detail_wifi">Datos Wi-Fi</string>
     <string name="detail_mobile">Datos móviles</string>
@@ -174,7 +174,7 @@
     <string name="f_memory_body">Solo quedan %1$s disponibles. Android cierra las apps en segundo plano, así que se vuelven a cargar al volver a ellas.</string>
     <string name="f_on_screen">%1$s está en pantalla.</string>
     <string name="f_hot_title">El teléfono está caliente</string>
-    <string name="f_hot_body">La batería está al %1$s, y Android reduce la velocidad para enfriarse.</string>
+    <string name="f_hot_body">La batería está a %1$s, y Android reduce la velocidad para enfriarse.</string>
     <string name="f_hot_app">%1$s está en pantalla y probablemente es la causa.</string>
     <string name="f_saver_title">El ahorro de batería está activado</string>
     <string name="f_saver_body">Limita el trabajo en segundo plano y el rendimiento.</string>
@@ -192,7 +192,7 @@
     <string name="f_uptime_title">Encendido desde hace %1$s sin reiniciar</string>
     <string name="f_uptime_body">Un reinicio limpia el trabajo en segundo plano atascado.</string>
     <string name="f_anim_title">Las animaciones van más lentas</string>
-    <string name="f_anim_body">La escala de animación es %1$s×. En las opciones para desarrolladores, 1× o 0,5× hacen que el teléfono se sienta más rápido.</string>
+    <string name="f_anim_body">La escala de animación es %1$s×. En las opciones para desarrolladores, 1× o 0,5× hacen que el teléfono parezca más rápido.</string>
     <plurals name="f_unused_title">
         <item quantity="one">%d app que no has usado en dos meses</item>
         <item quantity="other">%d apps que no has usado en dos meses</item>
@@ -234,7 +234,7 @@
     <string name="set_items">En la notificación</string>
     <string name="set_items_hint">Hasta ocho valores, en este orden; los primeros cuatro se muestran cuando la notificación está contraída.</string>
     <string name="set_colors">Colores</string>
-    <string name="color_metric">Por medida</string>
+    <string name="color_metric">Por valor medido</string>
     <string name="color_load">De verde a rojo</string>
     <string name="color_mono">Sencillo</string>
     <string name="set_tile_hint">También hay un mosaico en Ajustes rápidos: edita tus ajustes rápidos y arrastra Activity+ dentro.</string>
@@ -251,11 +251,11 @@
     <string name="set_clear_history">Borrar historial</string>
     <string name="set_clear_confirm">Esto borra todo el historial y todas las mediciones de batería de este teléfono.</string>
     <string name="privacy_title">Lo que usas se queda en tu teléfono</string>
-    <string name="privacy_body">Activity+ no tiene permiso de Internet, ni cuenta ni analítica. No puede enviar nada a ningún sitio. Su historial está en los datos propios de la app; al desinstalarla, se borra.</string>
+    <string name="privacy_body">Activity+ no tiene permiso de Internet, ni cuenta ni analíticas. No puede enviar nada a ningún sitio. Su historial está en los datos propios de la app; al desinstalarla, se borra.</string>
     <string name="about_title">Activity+ %1$s para Android</string>
-    <string name="about_body">El hermano Android de la app de Mac. activityplus.xyz ›</string>
+    <string name="about_body">La versión para Android de la app de Mac. activityplus.xyz ›</string>
 
-    <string name="onb_title">¿Qué app va lenta en tu teléfono?</string>
+    <string name="onb_title">¿Qué app ralentiza tu teléfono?</string>
     <string name="onb_body">Activity+ mide tu teléfono y te dice, con palabras sencillas, qué app es la responsable y qué hacer al respecto.</string>
     <string name="onb_point_apps">Batería, tiempo en pantalla, datos y almacenamiento por app, uno al lado de otro</string>
     <string name="onb_point_history">30 días de historial, con la app que estaba en pantalla en cada momento</string>
@@ -299,7 +299,7 @@
     <string name="hw_wifi_standard">Estándar Wi-Fi</string>
     <string name="hw_wifi_band">Banda</string>
     <string name="hw_channel">canal %1$d</string>
-    <string name="hw_link">Enlace</string>
+    <string name="hw_link">Conexión</string>
     <string name="hw_vpn">VPN activa</string>
     <string name="hw_operator">Operador</string>
     <string name="hw_sim_slots">Ranuras SIM</string>
@@ -325,7 +325,7 @@
     <string name="hw_f_wifi_aware">Wi-Fi Aware</string>
     <string name="hw_f_uwb">Banda ultraancha (UWB)</string>
     <string name="hw_sensors">Sensores</string>
-    <string name="hw_show_all">Mostrar las %1$d</string>
+    <string name="hw_show_all">Mostrar todas (%1$d)</string>
     <string name="hw_show_less">Mostrar menos</string>
     <string name="hw_yes">Sí</string>
     <string name="hw_no">No</string>
@@ -384,11 +384,11 @@
     <string name="widget_left">quedan %1$s</string>
     <string name="widget_most_today">Más hoy: %1$s %2$s</string>
     <string name="widget_battery_desc">Anillo de carga, potencia y tiempo restante</string>
-    <string name="widget_battery_name">Activity+ batería</string>
+    <string name="widget_battery_name">Batería de Activity+</string>
     <string name="widget_panel_desc">Hasta seis valores y la app que más batería gastó hoy</string>
-    <string name="widget_panel_name">Activity+ panel</string>
+    <string name="widget_panel_name">Panel de Activity+</string>
     <string name="widget_value_desc">Un valor a tu elección, grande</string>
-    <string name="widget_value_name">Activity+ valor</string>
+    <string name="widget_value_name">Valor de Activity+</string>
 
     <!-- Pro mode -->
     <string name="pro_title">Medir con precisión</string>

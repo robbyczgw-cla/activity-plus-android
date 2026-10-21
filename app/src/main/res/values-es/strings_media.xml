@@ -38,7 +38,7 @@
     <string name="media_old_note">Archivos de 50 MB o más que no se han modificado en un año.</string>
 
     <string name="media_dup_title">Duplicados</string>
-    <string name="media_dup_intro">Los archivos del mismo tipo y tamaño se comparan leyendo el inicio y el final de cada uno. Una coincidencia es muy probable, pero no segura, del mismo archivo. Puede tardar un poco.</string>
+    <string name="media_dup_intro">Los archivos del mismo tipo y tamaño se comparan leyendo el inicio y el final de cada uno. Una coincidencia casi seguro es el mismo archivo, pero no es una certeza. Puede tardar un poco.</string>
     <string name="media_dup_start">Buscar duplicados</string>
     <string name="media_dup_again">Revisar de nuevo</string>
     <string name="media_dup_cancel">Cancelar</string>

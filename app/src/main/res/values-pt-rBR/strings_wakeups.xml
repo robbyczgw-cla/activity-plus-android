@@ -5,7 +5,7 @@
     <string name="wk_caption">Contadores do Android</string>
     <string name="wk_hint">Veja quais apps acordam o celular e o mantêm acordado à noite. Precisa de mais uma permissão de leitura na página pro.</string>
     <string name="wk_empty">Nada foi contado ainda. O Android conta só com a bateria; a próxima leitura chega em meia hora.</string>
-    <string name="wk_night">Ontem à noite, %1$s</string>
+    <string name="wk_night">Noite passada, %1$s</string>
     <string name="wk_today">Hoje</string>
     <string name="wk_quiet">Nenhum app se destacou.</string>
     <string name="wk_cpu">CPU %1$s</string>
@@ -26,8 +26,8 @@
     <string name="wk_detail_usual">Dia habitual</string>
     <string name="wk_detail_chart">Despertares por dia</string>
     <plurals name="wk_night_line">
-        <item quantity="one">%1$s acordou o celular %2$d vez ontem à noite</item>
-        <item quantity="other">%1$s acordou o celular %2$d vezes ontem à noite</item>
+        <item quantity="one">%1$s acordou o celular %2$d vez na noite passada</item>
+        <item quantity="other">%1$s acordou o celular %2$d vezes na noite passada</item>
     </plurals>
-    <string name="wk_night_awake">%1$s manteve o celular acordado por %2$s ontem à noite</string>
+    <string name="wk_night_awake">%1$s manteve o celular acordado por %2$s na noite passada</string>
 </resources>

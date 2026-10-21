@@ -3,7 +3,7 @@
     <string name="sl_title">Sensores</string>
     <string name="sl_subtitle">Quem usou localização, câmera e microfone</string>
     <string name="sl_refresh">Atualizar</string>
-    <string name="sl_hint">Veja qual app usou sua localização, a câmera ou o microfone, e se foi em segundo plano. Precisa da permissão do computador na página pro.</string>
+    <string name="sl_hint">Veja qual app usou sua localização, a câmera ou o microfone, e se foi em segundo plano. Precisa da permissão pelo computador na página pro.</string>
     <string name="sl_open_log">Abrir o registro de sensores</string>
 
     <string name="sl_location">Localização</string>
@@ -37,8 +37,8 @@
     <string name="sl_part_background">%d em segundo plano</string>
     <string name="sl_part_service">%d por um serviço</string>
     <string name="sl_part_blocked">%d bloqueios</string>
-    <string name="sl_part_active">executou %s</string>
-    <string name="sl_part_last">último %s</string>
+    <string name="sl_part_active">ativo por %s</string>
+    <string name="sl_part_last">último acesso %s</string>
 
     <string name="sl_system_show">Mostrar serviços do sistema (%d)</string>
     <string name="sl_system_hide">Ocultar serviços do sistema (%d)</string>

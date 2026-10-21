@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Activity+ itself: what the app costs, and what it does in the background -->
+    <string name="own_title">Activity+ 自身</string>
+    <string name="own_caption">由 Android 统计</string>
+    <string name="own_loading">正在读取 Android 关于 Activity+ 的计数…</string>
+    <string name="own_unreadable">此手机不向 Activity+ 提供它自身的计数，因此无法显示它的耗电。下面的列表仍会说明它在做什么。</string>
+    <string name="own_empty">暂无读数。打开此卡片时，以及实时状态开启期间每隔一小时，Activity+ 都会读取 Android 的计数；在得到第一份知道电池供电时长的读数后，才会出现数值。</string>
+    <string name="own_empty_today">今天还没有读数。实时状态开启期间，下一次读数会在一小时内到来。</string>
+
+    <string name="own_col_today">今天</string>
+    <string name="own_col_week">7 天</string>
+    <string name="own_cpu">CPU 时间</string>
+    <string name="own_wakeups">唤醒次数</string>
+    <string name="own_wakelock">保持唤醒</string>
+    <string name="own_wakelock_value">%1$s（%2$d 次）</string>
+    <string name="own_jobs">后台任务</string>
+    <string name="own_data">流量（移动网络 + Wi-Fi）</string>
+    <string name="own_service">实时状态运行中</string>
+    <string name="own_energy">能耗（估算）</string>
+    <string name="own_energy_value">%1$s · %2$s</string>
+    <string name="own_none">–</string>
+
+    <string name="own_energy_needs_grant">未测量能耗：Android 只向获得电脑权限的应用提供其他应用的能耗，需在专业页面授予。上面的 CPU 时间、唤醒次数和 wakelock 无需此权限也会统计。</string>
+    <string name="own_energy_setting_off">未测量能耗：请在下方设置中开启自动后台测量。</string>
+    <string name="own_energy_not_yet">能耗：Android 的电池报告中还没有 Activity+ 的条目。自动测量会在使用电池期间每 3 小时读取一次。</string>
+    <string name="own_energy_note">能耗是 Android 根据其电池报告得出的估算值，是报告所涵盖天数的平均值。其余数据都是 Android 为 Activity+ 统计的。</string>
+    <string name="own_note">Android 只在手机使用电池时统计，而 Activity+ 每小时读取一次计数，因此每天的起止时刻可能略有偏差。流量始终为 0 B，因为 Activity+ 没有互联网权限。</string>
+
+    <string name="own_running_title">后台运行的内容</string>
+    <string name="own_live_off">实时状态已关闭，因此除下方的小组件外，Activity+ 不会自行运行任何内容。打开应用时，只会读取当时显示的内容。</string>
+    <string name="own_no_wake">Activity+ 不持有 wakelock，也不设置闹钟。以上所有内容都依赖实时监测自己的计时器运行，手机休眠时它也会休眠。较重的报告在使用电池且屏幕关闭时会等到亮屏后再读取，并且不会在 Doze 中运行。</string>
+    <string name="own_link">Activity+ 自身耗电多少？</string>
+
+    <string name="own_job_monitor">实时监测</string>
+    <string name="own_job_monitor_when">亮屏时每 %1$d 秒一次，熄屏时每分钟一次，并每分钟写入一行历史记录。深度睡眠时停止。</string>
+    <string name="own_job_wakeups">唤醒计数</string>
+    <string name="own_job_wakeups_when">使用电池时每 30 分钟一次：向 Android 发出一次调用，不使用 shell。</string>
+    <string name="own_job_sensors">传感器日志</string>
+    <string name="own_job_sensors_when">每 30 分钟一次：以流的方式读取 Android 的 appops 报告（700 kB）。屏幕关闭时等到亮屏后再读取。</string>
+    <string name="own_job_rails">供电通道</string>
+    <string name="own_job_rails_when">每 5 分钟一次：读取一次功率计。</string>
+    <string name="own_job_background">后台测量</string>
+    <string name="own_job_background_when">使用电池时每 3 小时一次，接上充电器时以及早晨各一次：以流的方式读取 Android 的电池报告。屏幕关闭时等到亮屏后再读取。</string>
+    <string name="own_job_updates">应用更新与各应用数据</string>
+    <string name="own_job_updates_when">每天一次，以及应用更新后不久。</string>
+    <string name="own_job_storage">存储历史</string>
+    <string name="own_job_storage_when">每天一次。屏幕关闭时等到亮屏后再读取。</string>
+    <string name="own_job_thermal">降频日志</string>
+    <string name="own_job_thermal_when">仅在 Android 的发热状态变化时；其余时间不运行。</string>
+    <string name="own_job_night">夜间检查</string>
+    <string name="own_job_night_when">仅在屏幕熄灭或点亮、充电器插拔或 Doze 状态变化时；其余时间不运行。</string>
+    <string name="own_job_self">此卡片的计数</string>
+    <string name="own_job_self_when">使用电池时每小时一次，以及你打开此卡片时。</string>
+    <string name="own_job_weekly">周报</string>
+    <string name="own_job_weekly_when">周一早晨：发送一条通知。</string>
+    <string name="own_job_widgets">小组件</string>
+    <string name="own_job_widgets_when">亮屏时每 30 秒一次（由实时监测触发），由 Android 触发的更新最多每 30 分钟一次。</string>
+
+    <string name="own_need_battery_stats">未运行：需要在专业页面授予额外权限。</string>
+    <string name="own_need_computer_grant">未运行：需要电脑权限（专业页面）。</string>
+    <string name="own_need_background_setting">未运行：自动后台测量已关闭。</string>
+    <string name="own_need_unsupported">未运行：此手机没有功率计（需要 Android 15 或更高版本）。</string>
+    <string name="own_need_weekly_setting">未运行：提醒或周报已关闭。</string>
+    <string name="own_need_no_widgets">未运行：尚未添加任何小组件。</string>
+</resources>

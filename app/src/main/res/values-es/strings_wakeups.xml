@@ -4,7 +4,7 @@
     <string name="wk_title">Quién despertó el teléfono</string>
     <string name="wk_caption">Contadores de Android</string>
     <string name="wk_hint">Mira qué apps despiertan el teléfono y lo mantienen despierto por la noche. Necesita un permiso de lectura más en la página pro.</string>
-    <string name="wk_empty">Todavía no hay nada contado. Android cuenta solo con la batería; la siguiente lectura llega en media hora.</string>
+    <string name="wk_empty">Todavía no hay nada contado. Android solo cuenta cuando el teléfono funciona con batería; la siguiente lectura llega en media hora.</string>
     <string name="wk_night">Anoche, %1$s</string>
     <string name="wk_today">Hoy</string>
     <string name="wk_quiet">Ninguna app destacó.</string>

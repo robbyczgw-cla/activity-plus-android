@@ -7,7 +7,7 @@
     <string name="share_failed">Non c\'è nessuna app con cui condividere</string>
     <string name="share_dialog_hint">Questo è il report completo. Modificalo come vuoi; non viene inviato nulla finché non scegli un\'app.</string>
     <string name="share_settings_title">Condividi un report</string>
-    <string name="share_settings_hint">Modello del telefono, versione di Android, batteria, ultima notte, le app che hanno consumato più batteria e lo spazio libero, come testo o come immagine, per un forum o una richiesta di supporto.</string>
+    <string name="share_settings_hint">Modello del telefono, versione di Android, batteria, notte scorsa, le app che hanno consumato più batteria e lo spazio libero, come testo o come immagine, per un forum o una richiesta di supporto.</string>
     <string name="share_sec_device">Dispositivo</string>
     <string name="share_row_model">Modello</string>
     <string name="share_row_android">Android</string>
@@ -25,11 +25,11 @@
     <string name="export_done">%1$d file salvati</string>
     <string name="export_failed">Impossibile salvare l\'esportazione</string>
 
-    <string name="widget_night_name">Activity+ ultima notte</string>
-    <string name="widget_night_desc">Il telefono ha dormito bene? Verdetto, consumo all\'ora, sonno profondo e l\'app colpevole</string>
+    <string name="widget_night_name">Activity+: notte scorsa</string>
+    <string name="widget_night_desc">Il telefono ha dormito bene? Verdetto, consumo all\'ora, sonno profondo e l\'app responsabile</string>
     <string name="widget_history_name">Cronologia di Activity+</string>
     <string name="widget_history_desc">Livello o potenza della batteria delle ultime 6 ore, in un grafico</string>
-    <string name="wn_blame">Colpa</string>
+    <string name="wn_blame">Responsabile</string>
     <string name="wn_blame_android">Android</string>
     <string name="wn_blame_none">Nessuno</string>
     <string name="wh_title_level">Batteria, ultime %1$d h</string>

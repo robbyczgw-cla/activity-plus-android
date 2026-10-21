@@ -2,32 +2,32 @@
 <resources>
     <string name="sc_title">今夜の予定</string>
     <string name="sc_caption">アプリが設定した内容</string>
-    <string name="sc_hint">次にスマホを起こすアプリと、アプリがどのくらいの頻度で予定しているかを確認できます。プロページでコンピューターの許可か Shizuku が必要です。</string>
+    <string name="sc_hint">次に端末を起こすアプリと、アプリがどのくらいの頻度で予定しているかを確認できます。プロページでパソコンからの許可か Shizuku が必要です。</string>
     <string name="sc_reading">アプリが設定したアラームとジョブを読み取っています …</string>
     <string name="sc_failed">Android からアラームの一覧を取得できませんでした。後でもう一度お試しください。</string>
     <string name="sc_shizuku">Shizuku 経由で、アプリが設定したアラームとジョブを読み取ります。バックグラウンドでは何も読み取りません。</string>
     <string name="sc_read_now">今すぐ読み取る</string>
     <string name="sc_read_again">もう一度読み取る</string>
     <string name="sc_night">今夜、%1$s</string>
-    <string name="sc_quiet">今夜スマホを起こす予定のアプリはありません。</string>
+    <string name="sc_quiet">今夜端末を起こす予定のアプリはありません。</string>
     <plurals name="sc_tonight_count">
-        <item quantity="other">今夜 %d 回起床</item>
+        <item quantity="other">今夜 %d 回ウェイクアップ</item>
     </plurals>
-    <string name="sc_next">次の起床 %1$s</string>
+    <string name="sc_next">次のウェイクアップ %1$s</string>
     <string name="sc_then_every">その後 %1$s ごと</string>
     <string name="sc_then_about">その後およそ %1$s ごと</string>
     <string name="sc_in_doze">Doze 中も許可</string>
     <string name="sc_exact">正確</string>
-    <string name="sc_alarm_clock">アラームクロック %1$s</string>
+    <string name="sc_alarm_clock">目覚まし時計 %1$s</string>
     <string name="sc_badge_doze">Doze 中も正確</string>
     <string name="sc_badge_jobs">頻繁なジョブ</string>
     <plurals name="sc_jobs_count">
         <item quantity="other">バッテリー駆動中のバックグラウンドジョブ %d 件</item>
     </plurals>
-    <string name="sc_explain">Doze 中も許可された正確なアラームは負担の大きい種類です。深いスリープ中でも時刻どおりに鳴り、そのたびにスマホを単独で起こします。通常のアラームやジョブは Doze の短いメンテナンス時間を待って、それを分け合います。</string>
+    <string name="sc_explain">Doze 中も許可された正確なアラームは負担の大きい種類です。ディープスリープ中でも時刻どおりに鳴り、そのたびに端末を単独で起こします。通常のアラームやジョブは Doze の短いメンテナンス時間を待って、それを分け合います。</string>
     <string name="sc_note">いまアプリが予定している内容です。いつでも変わる可能性があります。見ている間だけ読み取ります。アプリをタップすると詳細を表示します。</string>
-    <string name="sc_detail_title">予定された起床とジョブ</string>
-    <string name="sc_since_start">スマホの起動後の起床回数</string>
+    <string name="sc_detail_title">予定されたウェイクアップとジョブ</string>
+    <string name="sc_since_start">端末の起動後のウェイクアップ回数</string>
     <string name="sc_in">%1$s、%2$s 後</string>
     <string name="sc_jobs_title">バックグラウンドジョブ</string>
     <string name="sc_job_every">%1$s ごと</string>
@@ -36,12 +36,12 @@
     <string name="sc_job_wifi">Wi-Fi のみ</string>
     <string name="sc_job_charging">充電中のみ</string>
     <string name="sc_job_battery">バッテリー駆動中も</string>
-    <string name="sc_job_idle">スマホが待機中のとき</string>
+    <string name="sc_job_idle">端末が待機中のとき</string>
     <string name="sc_job_last">前回の実行 %1$s</string>
     <string name="sc_job_runs">最近開始されたジョブ</string>
     <string name="sc_more">ほか %1$d 件</string>
     <string name="sc_exact_alarms">アラームとリマインダー</string>
     <string name="sc_fix">アプリ情報のバッテリーで、バックグラウンドでの動作を制限できます。アラームとリマインダーで、正確なアラームを取り消せます。Activity+ がこれを自動で変更することはありません。</string>
-    <string name="f_dozealarm_title">%1$s は Doze 中でも %2$s ごとにスマホを起こします</string>
-    <string name="f_dozealarm_body">Doze 中に鳴る可能性のある正確なアラームを設定しており、およそ %1$s ごとです。そのたびに、夜通しスマホが深いスリープから起こされます。アプリ情報のバッテリーで制限できます。バッテリー画面の「今夜の予定」からも、そのアラームとリマインダーのページを開けます。</string>
+    <string name="f_dozealarm_title">%1$s は Doze 中でも %2$s ごとに端末を起こします</string>
+    <string name="f_dozealarm_body">Doze 中に鳴る可能性のある正確なアラームを設定しており、およそ %1$s ごとです。そのたびに、夜通し端末がディープスリープから起こされます。アプリ情報のバッテリーで制限できます。バッテリー画面の「今夜の予定」からも、そのアラームとリマインダーのページを開けます。</string>
 </resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
+    <string name="glance_title">今日のひとめ</string>
+    <string name="glance_label_battery">現在のバッテリー</string>
+    <string name="glance_label_top">今日最も使ったアプリ</string>
+    <string name="glance_label_heads">ご注意</string>
+    <string name="glance_full_in">満充電まで %1$s</string>
+    <string name="glance_plugged">接続中</string>
+    <string name="glance_no_estimate">まだ推定できません</string>
+    <string name="glance_unusual">今日は %1$s が、いつもよりずっと多く端末を起こしました</string>
+    <string name="glance_learning">Activity+ があなたの一日を学習するにつれて、昨夜の状況、最も使ったアプリ、ご注意の項目がここに増えていきます。</string>
+
+    <string name="glance_group_now">現在</string>
+    <string name="glance_group_night">昨夜</string>
+    <string name="glance_group_apps">アプリ</string>
+    <string name="glance_group_health">充電と状態</string>
+    <string name="glance_group_planned">予定とバックグラウンド</string>
+
+    <string name="glance_card_session">充電中、または充電器を外してから</string>
+    <string name="glance_card_now_drawing">いま画面に表示中のアプリ</string>
+
+    <!-- Why a card is folded into one line -->
+    <string name="glance_quiet_nothing">まだ表示するものがありません</string>
+    <string name="glance_quiet_days">数日分の使用が必要です</string>
+    <string name="glance_quiet_access">アクセスが必要です · タップで方法を表示</string>
+    <string name="glance_quiet_plug">充電器をつなぐと使えます</string>
+    <string name="glance_quiet_unsupported">この端末は報告しません</string>
+    <string name="glance_expand">表示</string>
+    <string name="glance_collapse">非表示</string>
+    <string name="glance_hidden">非表示: %1$s</string>
+    <string name="glance_show">表示</string>
+    <string name="glance_background_hint">数時間ごとに Android のバッテリーレポートを読み取ります。パソコンからの許可が必要です。タップで方法を表示します。</string>
+
+    <!-- Settings -->
+    <string name="glance_set_section">カード</string>
+    <string name="glance_set_hint">バッテリー画面に表示したくないカードをオフにします。カードはグループの末尾に一覧として残るので、あとから戻せます。</string>
+    <string name="glance_set_show_all">すべて再表示</string>
+
+    <!-- Overview -->
+    <string name="glance_look_title">確認したい項目</string>
+    <string name="glance_look_none">いまのところ、ほかに確認したい項目はありません。</string>
+    <string name="glance_weekly_caption">先週と、その前の週の比較</string>
+</resources>

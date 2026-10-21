@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
+    <string name="glance_title">Hoy de un vistazo</string>
+    <string name="glance_label_battery">Batería ahora</string>
+    <string name="glance_label_top">Lo que más se usó hoy</string>
+    <string name="glance_label_heads">Aviso</string>
+    <string name="glance_full_in">Llena en %1$s</string>
+    <string name="glance_plugged">Conectado</string>
+    <string name="glance_no_estimate">Todavía no hay estimación</string>
+    <string name="glance_unusual">%1$s despertó el teléfono hoy mucho más de lo habitual</string>
+    <string name="glance_learning">Aquí aparecerá más a medida que Activity+ conozca tu día: la última noche, la app que más usó y los avisos.</string>
+
+    <string name="glance_group_now">Ahora</string>
+    <string name="glance_group_night">Anoche</string>
+    <string name="glance_group_apps">Apps</string>
+    <string name="glance_group_health">Carga y estado</string>
+    <string name="glance_group_planned">Previsto y segundo plano</string>
+
+    <string name="glance_card_session">Carga o desde la desconexión</string>
+    <string name="glance_card_now_drawing">App en pantalla ahora</string>
+
+    <!-- Why a card is folded into one line -->
+    <string name="glance_quiet_nothing">Todavía no hay nada que mostrar</string>
+    <string name="glance_quiet_days">Necesita unos días de uso</string>
+    <string name="glance_quiet_access">Necesita acceso · toca para ver cómo</string>
+    <string name="glance_quiet_plug">Conecta un cargador para usarlo</string>
+    <string name="glance_quiet_unsupported">Este teléfono no lo informa</string>
+    <string name="glance_expand">Mostrar</string>
+    <string name="glance_collapse">Ocultar</string>
+    <string name="glance_hidden">Oculta: %1$s</string>
+    <string name="glance_show">Mostrar</string>
+    <string name="glance_background_hint">Lee el informe de batería de Android cada pocas horas. Necesita el permiso desde el ordenador; toca para ver cómo.</string>
+
+    <!-- Settings -->
+    <string name="glance_set_section">Tarjetas</string>
+    <string name="glance_set_hint">Desactiva las tarjetas que nunca quieras ver en la pantalla Batería. Siguen en la lista, al final de su grupo, para que puedas recuperarlas.</string>
+    <string name="glance_set_show_all">Volver a mostrar todas</string>
+
+    <!-- Overview -->
+    <string name="glance_look_title">Merece un vistazo</string>
+    <string name="glance_look_none">Ahora mismo no hay nada más que merezca un vistazo.</string>
+    <string name="glance_weekly_caption">La semana pasada frente a la anterior</string>
+</resources>

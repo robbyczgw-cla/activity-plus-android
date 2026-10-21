@@ -8,7 +8,7 @@
     </plurals>
     <string name="sgrowth_stable">El uso de almacenamiento es estable</string>
     <string name="sgrowth_freeing">El uso de almacenamiento está bajando</string>
-    <string name="sgrowth_too_few">Una previsión necesita una semana aproximada de mediciones diarias</string>
+    <string name="sgrowth_too_few">Una previsión necesita aproximadamente una semana de mediciones diarias</string>
     <string name="sgrowth_per_day">%s más ocupados al día</string>
     <string name="sgrowth_starts_today">El historial empieza hoy. Activity+ anota el almacenamiento una vez al día, así que la tendencia se verá a partir de mañana.</string>
     <string name="sgrowth_used_30">Almacenamiento usado, últimos 30 días</string>

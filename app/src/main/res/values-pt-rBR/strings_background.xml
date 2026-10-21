@@ -3,7 +3,7 @@
     <!-- Medição automática em segundo plano (somente com a permissão concedida pelo computador) -->
     <string name="bg_setting_title">Medição automática em segundo plano</string>
     <string name="bg_setting_hint">Lê o relatório de bateria do Android a cada 3 horas e quando o celular é conectado ao carregador, para 30 dias de bateria por app.</string>
-    <string name="bg_night_title">Ontem à noite</string>
+    <string name="bg_night_title">Noite passada</string>
     <string name="bg_night_lost">da bateria usada durante a noite</string>
     <string name="bg_night_quiet">Nenhum app se destacou.</string>
     <string name="bg_note_report">Do relatório de bateria do próprio Android.</string>

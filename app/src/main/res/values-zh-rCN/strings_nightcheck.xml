@@ -16,8 +16,8 @@
     <string name="nc_reason_low_deep">夜间手机仅有 %1$s 处于深度睡眠。</string>
     <string name="nc_reason_low_deep_usual">夜间手机仅有 %1$s 处于深度睡眠，通常为 %2$s。</string>
     <string name="nc_system_explain">没有应用特别突出：Android 本身没有进入深度睡眠。常见原因是更新后的系统问题，或移动信号较弱。</string>
-    <string name="nc_system_signal">没有应用特别突出，而且移动信号较弱：搜索网络会让 Android 保持清醒。</string>
-    <string name="nc_system_unknown">有东西让手机保持清醒：某个应用或 Android 本身。</string>
+    <string name="nc_system_signal">没有应用特别突出，而且移动信号较弱：搜索网络会让 Android 保持唤醒。</string>
+    <string name="nc_system_unknown">有东西让手机保持唤醒：某个应用或 Android 本身。</string>
     <string name="nc_reason_drain">屏幕关闭时耗电 %1$s，深度睡眠 %2$s。</string>
     <string name="nc_reason_drain_usual">屏幕关闭时耗电 %1$s（通常为 %2$s），深度睡眠 %3$s。</string>
     <string name="nc_drain_explain">手机在睡眠，因此没有应用让它保持唤醒。耗电来自无线电（移动网络、5G）或硬件。</string>

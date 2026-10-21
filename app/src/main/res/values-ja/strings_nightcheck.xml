@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="nc_title_well">スマホは夜によく眠れました</string>
-    <string name="nc_title_app">%1$s がスマホを起こし続けました</string>
-    <string name="nc_title_system">Android が深い眠りに入れませんでした</string>
+    <string name="nc_title_well">端末はよく眠れました</string>
+    <string name="nc_title_app">%1$s が端末を起こし続けました</string>
+    <string name="nc_title_system">Android がディープスリープに入れませんでした</string>
     <string name="nc_title_drain">寝ている間の消費が多い</string>
     <string name="nc_title_none">確認する夜がありません</string>
 
-    <string name="nc_reason_well">%1$s、うち深いスリープ %2$s</string>
-    <string name="nc_reason_app_awake">画面オフの間に %1$s の間 wakelock を保持したため、Android は深いスリープに入れませんでした。</string>
+    <string name="nc_reason_well">%1$s、うちディープスリープ %2$s</string>
+    <string name="nc_reason_app_awake">画面オフの間に %1$s の間 wakelock を保持したため、Android はディープスリープに入れませんでした。</string>
     <plurals name="nc_reason_app_wakeups">
-        <item quantity="other">夜の間に %1$d 回スマホを起こしたため、Android は深いスリープに入れませんでした。</item>
+        <item quantity="other">夜の間に %1$d 回端末を起こしたため、Android はディープスリープに入れませんでした。</item>
     </plurals>
     <string name="nc_excessive">Google Play は、画面オフで 2 時間以上続く wakelock を過剰と見なします。</string>
-    <string name="nc_reason_no_deep">Android は深い Doze に一度も到達せず、夜のうちスマホが深いスリープにあったのは %1$s だけでした。</string>
-    <string name="nc_reason_low_deep">夜のうちスマホが深いスリープにあったのは %1$s だけでした。</string>
-    <string name="nc_reason_low_deep_usual">夜のうちスマホが深いスリープにあったのは %1$s だけでした（普段は %2$s）。</string>
-    <string name="nc_system_explain">目立つアプリはありません。Android 自身が深いスリープに入れていませんでした。アップデート後のシステムの不具合や、携帯電波の弱さが原因であることが多いです。</string>
+    <string name="nc_reason_no_deep">Android は深い Doze に一度も到達せず、夜のうち端末がディープスリープにあったのは %1$s だけでした。</string>
+    <string name="nc_reason_low_deep">夜のうち端末がディープスリープにあったのは %1$s だけでした。</string>
+    <string name="nc_reason_low_deep_usual">夜のうち端末がディープスリープにあったのは %1$s だけでした（普段は %2$s）。</string>
+    <string name="nc_system_explain">目立つアプリはありません。Android 自身がディープスリープに入れていませんでした。アップデート後のシステムの不具合や、携帯電波の弱さが原因であることが多いです。</string>
     <string name="nc_system_signal">目立つアプリはありませんが、携帯電波が弱く、ネットワークを探し続けることで Android が起きたままになっていました。</string>
-    <string name="nc_system_unknown">何かがスマホを起こし続けていました。アプリか Android 自身です。</string>
-    <string name="nc_reason_drain">画面オフで %1$s、深いスリープは %2$s でした。</string>
-    <string name="nc_reason_drain_usual">画面オフで %1$s（普段は %2$s）、深いスリープは %3$s でした。</string>
-    <string name="nc_drain_explain">スマホは眠っていたので、アプリが起こしていたわけではありません。電力は無線（モバイル回線、5G）またはハードウェアに使われました。</string>
+    <string name="nc_system_unknown">何かが端末を起こし続けていました。アプリか Android 自身です。</string>
+    <string name="nc_reason_drain">画面オフで %1$s、ディープスリープは %2$s でした。</string>
+    <string name="nc_reason_drain_usual">画面オフで %1$s（普段は %2$s）、ディープスリープは %3$s でした。</string>
+    <string name="nc_drain_explain">端末は眠っていたので、アプリが起こしていたわけではありません。電力は無線（モバイル回線、5G）またはハードウェアに使われました。</string>
     <string name="nc_drain_signal">携帯電波が弱く、ネットワークを維持するために無線がはるかに多くの電力を必要としました。</string>
     <string name="nc_reason_no_record">記録された夜がありません。Activity+ は、ライブ状態がオンの間に夜を記録します。</string>
-    <string name="nc_reason_charged">夜の間スマホは充電されていました。Android は充電中は Doze に入らないため、判断する材料がありません。</string>
+    <string name="nc_reason_charged">夜の間端末は充電されていました。Android は充電中は Doze に入らないため、判断する材料がありません。</string>
     <string name="nc_reason_short">昨夜、画面が 3 時間続けて消えていたことはありませんでした。</string>
 
     <string name="nc_stat_asleep">画面オフ</string>
-    <string name="nc_stat_deep">深いスリープ</string>
+    <string name="nc_stat_deep">ディープスリープ</string>
     <string name="nc_stat_first_deep">最初の深い Doze まで</string>
     <string name="nc_never">なし</string>
     <string name="nc_light_only">なし（浅い Doze のみ）</string>
@@ -60,5 +60,5 @@
     <string name="nc_short_charged">充電中</string>
     <string name="nc_short_short">短すぎる</string>
     <string name="nc_short_no_record">未記録</string>
-    <string name="nc_explain">深いスリープとは、プロセッサーが停止している時間のことです。Doze は Android がそこに至るための仕組みで、スマホが静止するまでアプリの動作を抑えます。</string>
+    <string name="nc_explain">ディープスリープとは、プロセッサーが停止している時間のことです。Doze は Android がそこに至るための仕組みで、端末が静止するまでアプリの動作を抑えます。</string>
 </resources>

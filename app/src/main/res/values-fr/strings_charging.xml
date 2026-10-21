@@ -17,7 +17,7 @@
     <string name="chg_set_full_hint">Vous prévient une fois par charge quand la batterie est pleine.</string>
     <string name="chg_set_warm">Chaud pendant la charge</string>
     <string name="chg_set_warm_hint">Vous prévient quand la batterie reste à 40 °C ou plus pendant deux minutes en charge, au plus une fois par heure.</string>
-    <string name="chg_set_note">Ces alarmes suivent l\'interrupteur Alertes.</string>
+    <string name="chg_set_note">Ces alarmes suivent l\'option Alertes.</string>
 
     <!-- Test du chargeur -->
     <string name="chg_test_title">Test du chargeur</string>
@@ -31,7 +31,7 @@
     <string name="chg_test_name_label">Nom (facultatif)</string>
     <string name="chg_test_name_hint">ex. Anker 30 W + câble court</string>
     <string name="chg_test_save">Enregistrer</string>
-    <string name="chg_test_discard">Ignorer</string>
+    <string name="chg_test_discard">Abandonner</string>
     <string name="chg_test_past">Tests précédents, les meilleurs d\'abord</string>
     <string name="chg_test_unnamed">Test sans nom</string>
     <string name="chg_test_peak">Pic %1$s</string>

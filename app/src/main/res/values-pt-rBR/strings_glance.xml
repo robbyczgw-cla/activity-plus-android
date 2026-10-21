@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
+    <string name="glance_title">Hoje em resumo</string>
+    <string name="glance_label_battery">Bateria agora</string>
+    <string name="glance_label_top">Mais usado hoje</string>
+    <string name="glance_label_heads">Fique de olho</string>
+    <string name="glance_full_in">Cheia em %1$s</string>
+    <string name="glance_plugged">Conectado</string>
+    <string name="glance_no_estimate">Ainda sem estimativa</string>
+    <string name="glance_unusual">Hoje %1$s acordou o celular muito mais do que o normal</string>
+    <string name="glance_learning">Mais informações vão aparecer aqui conforme o Activity+ aprende o seu dia: a noite passada, o app que mais gastou e os avisos.</string>
+
+    <string name="glance_group_now">Agora</string>
+    <string name="glance_group_night">Noite passada</string>
+    <string name="glance_group_apps">Apps</string>
+    <string name="glance_group_health">Carga e saúde</string>
+    <string name="glance_group_planned">Planejado e segundo plano</string>
+
+    <string name="glance_card_session">Carregamento ou desde a desconexão</string>
+    <string name="glance_card_now_drawing">App na tela agora</string>
+
+    <!-- Why a card is folded into one line -->
+    <string name="glance_quiet_nothing">Nada para mostrar ainda</string>
+    <string name="glance_quiet_days">Precisa de alguns dias de uso</string>
+    <string name="glance_quiet_access">Precisa de acesso · toque para ver como</string>
+    <string name="glance_quiet_plug">Conecte um carregador para usar</string>
+    <string name="glance_quiet_unsupported">Não informado por este celular</string>
+    <string name="glance_expand">Mostrar</string>
+    <string name="glance_collapse">Ocultar</string>
+    <string name="glance_hidden">Oculto: %1$s</string>
+    <string name="glance_show">Mostrar</string>
+    <string name="glance_background_hint">Lê o relatório de bateria do Android a cada poucas horas. Precisa da permissão pelo computador; toque para ver como.</string>
+
+    <!-- Settings -->
+    <string name="glance_set_section">Cartões</string>
+    <string name="glance_set_hint">Desative os cartões que você nunca quer ver na tela Bateria. Eles continuam listados no fim do grupo, para você poder trazê-los de volta.</string>
+    <string name="glance_set_show_all">Mostrar todos de novo</string>
+
+    <!-- Overview -->
+    <string name="glance_look_title">Vale uma olhada</string>
+    <string name="glance_look_none">Nada mais que valha uma olhada agora.</string>
+    <string name="glance_weekly_caption">Semana passada em comparação com a anterior</string>
+</resources>

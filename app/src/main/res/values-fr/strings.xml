@@ -18,7 +18,7 @@
     <string name="channel_alerts">Alertes</string>
 
     <string name="access_title">Autorisez l\'accès aux données d\'utilisation pour voir quelle app est en cause</string>
-    <string name="access_body">Avec l\'accès aux données d\'utilisation, Android indique seulement à Activity+ quelle app est à l\'écran, combien de données et d\'espace de stockage chaque app utilise et combien de temps elle reste active en arrière-plan. Rien ne quitte votre téléphone : Activity+ n\'a pas d\'autorisation Internet.</string>
+    <string name="access_body">Android ne dit à Activity+ quelle app est à l\'écran, combien de données et d\'espace de stockage chaque app utilise et combien de temps elle reste active en arrière-plan que si l\'accès aux données d\'utilisation est autorisé. Rien ne quitte votre téléphone : Activity+ n\'a pas d\'autorisation Internet.</string>
     <string name="access_button">Ouvrir l\'accès aux données d\'utilisation</string>
 
     <string name="overview_subtitle">%1$s · actif depuis %2$s</string>
@@ -64,7 +64,7 @@
     <string name="cpu_clock_note">Fréquence moyenne</string>
     <string name="cpu_own">Activity+ lui-même</string>
     <string name="temp_battery">Température de la batterie</string>
-    <string name="temp_headroom">Avant le ralentissement</string>
+    <string name="temp_headroom">Avant le bridage</string>
     <string name="thermal_none">Normal</string>
     <string name="thermal_light">Tiède</string>
     <string name="thermal_moderate">Bridé</string>
@@ -143,7 +143,7 @@
     <string name="health_note" formatted="false">La capacité mesurée provient de la jauge de la batterie et n\'est qu\'une estimation ; elle se stabilise après quelques charges et n\'est pas fiable en dessous de 15 %.</string>
     <string name="drain_today">Batterie par app aujourd\'hui</string>
     <string name="drain_today_caption">Mesuré</string>
-    <string name="drain_empty">Aucune mesure pour l\'instant aujourd\'hui. Activity+ mesure pendant qu\'il tourne ; gardez l\'état en direct activé.</string>
+    <string name="drain_empty">Pas encore de mesure aujourd\'hui. Activity+ mesure pendant qu\'il tourne ; gardez l\'état en direct activé.</string>
     <string name="screen_off_rate">Écran éteint, la batterie se vide de %1$s par heure.</string>
 
     <string name="history_subtitle">30 jours, conservés uniquement sur ce téléphone</string>
@@ -153,7 +153,7 @@
     <string name="history_on_screen">%1$s à l\'écran</string>
     <string name="history_now">Maintenant</string>
     <string name="history_drain_title">Batterie par app</string>
-    <string name="history_note">Touchez ou faites glisser le graphique pour voir la valeur et l\'app qui était à l\'écran. Les trous correspondent aux moments où le téléphone était en veille.</string>
+    <string name="history_note">Touchez ou faites glisser le graphique pour voir la valeur et l\'app qui était à l\'écran. Les interruptions correspondent aux moments où le téléphone était en veille.</string>
     <string name="metric_level">Charge</string>
     <string name="metric_power">Puissance</string>
     <string name="metric_temperature">Température</string>
@@ -284,7 +284,7 @@
     <string name="hw_cluster">%1$d× cœurs</string>
     <string name="hw_governor">Régulateur</string>
     <string name="hw_abi">Architecture</string>
-    <string name="hw_gpu">Graphismes</string>
+    <string name="hw_gpu">Processeur graphique</string>
     <string name="hw_memory_storage">Mémoire et stockage</string>
     <string name="hw_ram">RAM</string>
     <string name="hw_zram">Compressée (zram)</string>
@@ -299,7 +299,7 @@
     <string name="hw_wifi_standard">Norme Wi-Fi</string>
     <string name="hw_wifi_band">Bande</string>
     <string name="hw_channel">canal %1$d</string>
-    <string name="hw_link">Liaison</string>
+    <string name="hw_link">Connexion</string>
     <string name="hw_vpn">VPN actif</string>
     <string name="hw_operator">Opérateur</string>
     <string name="hw_sim_slots">Emplacements SIM</string>
@@ -325,7 +325,7 @@
     <string name="hw_f_wifi_aware">Wi-Fi Aware</string>
     <string name="hw_f_uwb">Ultra-large bande (UWB)</string>
     <string name="hw_sensors">Capteurs</string>
-    <string name="hw_show_all">Afficher les %1$d</string>
+    <string name="hw_show_all">Tout afficher (%1$d)</string>
     <string name="hw_show_less">Afficher moins</string>
     <string name="hw_yes">Oui</string>
     <string name="hw_no">Non</string>
@@ -339,7 +339,7 @@
     <string name="battery_rate">Débit</string>
     <string name="charging_speed_note">Dans la batterie, moyenne sur 30 secondes</string>
     <string name="hw_storage">Stockage</string>
-    <string name="item_charge_rate">Débit charge</string>
+    <string name="item_charge_rate">Vitesse de charge</string>
     <string name="item_current">Courant</string>
     <string name="item_ram_free">RAM libre</string>
     <string name="item_time_left">Autonomie</string>
@@ -384,11 +384,11 @@
     <string name="widget_left">encore %1$s</string>
     <string name="widget_most_today">Le plus aujourd\'hui : %1$s %2$s</string>
     <string name="widget_battery_desc">Anneau de charge, puissance et autonomie</string>
-    <string name="widget_battery_name">Activity+ batterie</string>
+    <string name="widget_battery_name">Batterie Activity+</string>
     <string name="widget_panel_desc">Jusqu\'à six valeurs et l\'app qui a le plus consommé de batterie aujourd\'hui</string>
-    <string name="widget_panel_name">Activity+ panneau</string>
+    <string name="widget_panel_name">Panneau Activity+</string>
     <string name="widget_value_desc">Une valeur au choix, en grand</string>
-    <string name="widget_value_name">Activity+ valeur</string>
+    <string name="widget_value_name">Valeur Activity+</string>
 
     <!-- Pro mode -->
     <string name="pro_title">Mesurer précisément</string>
@@ -402,7 +402,7 @@
     <string name="pro_state_too_old">Shizuku est trop ancien</string>
     <string name="pro_ready_body">Lit une seule fois les rapports d\'Android : la batterie par app depuis la dernière charge (arrière-plan inclus), la mémoire par app et le CPU par app à l\'instant.</string>
     <string name="pro_ready_body_dump">Lit une seule fois le rapport d\'Android sur la batterie : la batterie par app depuis la dernière charge (arrière-plan inclus). La mémoire et le CPU par app nécessitent Shizuku ; Android garde ces rapports inaccessibles aux apps.</string>
-    <string name="pro_measure">Mesurer</string>
+    <string name="pro_measure">Mesurer maintenant</string>
     <string name="pro_measuring">Mesure en cours…</string>
     <string name="pro_dev_off_tip">Le résultat reste dans Activity+. Vous pouvez ensuite désactiver les Options pour les développeurs, pour que les apps bancaires fonctionnent à nouveau.</string>
     <string name="pro_permission_body">Shizuku est lancé. Autorisez Activity+ une fois dans la boîte de dialogue de Shizuku.</string>
@@ -412,7 +412,7 @@
     <string name="pro_step_install">Installez Shizuku (gratuit, open source).</string>
     <string name="pro_step_debugging">Activez les Options pour les développeurs et le Débogage sans fil.</string>
     <string name="pro_step_start">Lancez Shizuku dans son app via le Débogage sans fil.</string>
-    <string name="pro_step_back">Revenez ici et appuyez sur Mesurer. Vous pourrez ensuite désactiver les Options pour les développeurs.</string>
+    <string name="pro_step_back">Revenez ici et appuyez sur Mesurer maintenant. Vous pourrez ensuite désactiver les Options pour les développeurs.</string>
     <string name="pro_get_shizuku">Obtenir Shizuku</string>
     <string name="pro_pc_title">Ou depuis un ordinateur</string>
     <string name="pro_pc_body">Avec le Débogage USB, exécutez ceci une fois (appuyez pour copier). Cela donne la batterie par app ; la mémoire et le CPU par app nécessitent Shizuku.</string>
@@ -426,13 +426,13 @@
     <string name="pro_hardware_title">Non imputé à une app</string>
     <string name="pro_hw_screen">Écran</string>
     <string name="pro_hw_cell">Réseau mobile</string>
-    <string name="pro_hw_idle">Veille</string>
+    <string name="pro_hw_idle">Inactif</string>
     <string name="pro_hw_camera">Appareil photo</string>
     <string name="pro_hw_flashlight">Lampe torche</string>
-    <string name="pro_battery_note">Estimation d\'Android elle-même, identique à celle des réglages de la batterie : premier plan et arrière-plan, selon son modèle de consommation.</string>
+    <string name="pro_battery_note">L\'estimation d\'Android lui-même, la même que dans ses paramètres de la batterie : premier plan et arrière-plan, selon son modèle de consommation.</string>
     <string name="pro_memory_title">Mémoire par app maintenant</string>
     <string name="pro_memory_note">PSS : mémoire utilisée par une app, la mémoire partagée étant répartie entre les apps qui la partagent.</string>
-    <string name="pro_cpu_title">CPU par app, 1,5 dernières minutes</string>
+    <string name="pro_cpu_title">CPU par app, 90 dernières secondes</string>
     <string name="pro_cpu_note" formatted="false">Pourcentage d\'un cœur ; au-delà de 100 %, une app utilise plusieurs cœurs.</string>
     <string name="pro_privacy">Le mode pro n\'exécute que les rapports en lecture seule d\'Android (dumpsys batterystats, meminfo, cpuinfo, appops, alarm, jobscheduler, thermalservice, deviceidle) et, si vous le demandez, accorde à Activity+ ses propres autorisations de lecture. Toute autre commande est refusée, et Activity+ n\'a pas accès à Internet.</string>
     <string name="pro_entry_title">Mesurer précisément</string>
