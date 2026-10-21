@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
+    <string name="glance_title">Heute auf einen Blick</string>
+    <string name="glance_label_battery">Akku jetzt</string>
+    <string name="glance_label_top">Heute am meisten genutzt</string>
+    <string name="glance_label_heads">Hinweis</string>
+    <string name="glance_full_in">Voll in %1$s</string>
+    <string name="glance_plugged">Angesteckt</string>
+    <string name="glance_no_estimate">Noch keine Schätzung</string>
+    <string name="glance_unusual">%1$s hat das Handy heute viel öfter geweckt als sonst</string>
+    <string name="glance_learning">Hier erscheint mehr, sobald Activity+ deinen Tag kennt: die letzte Nacht, die App mit dem größten Verbrauch und Hinweise.</string>
+
+    <string name="glance_group_now">Jetzt</string>
+    <string name="glance_group_night">Letzte Nacht</string>
+    <string name="glance_group_apps">Apps</string>
+    <string name="glance_group_health">Laden und Zustand</string>
+    <string name="glance_group_planned">Geplant und im Hintergrund</string>
+
+    <string name="glance_card_session">Laden oder seit dem Abstecken</string>
+    <string name="glance_card_now_drawing">App im Vordergrund</string>
+
+    <!-- Why a card is folded into one line -->
+    <string name="glance_quiet_nothing">Noch nichts zu zeigen</string>
+    <string name="glance_quiet_days">Braucht ein paar Tage Nutzung</string>
+    <string name="glance_quiet_access">Braucht Zugriff · tippen für die Schritte</string>
+    <string name="glance_quiet_plug">Zum Nutzen ein Ladegerät anstecken</string>
+    <string name="glance_quiet_unsupported">Wird von diesem Handy nicht gemeldet</string>
+    <string name="glance_expand">Anzeigen</string>
+    <string name="glance_collapse">Ausblenden</string>
+    <string name="glance_hidden">Ausgeblendet: %1$s</string>
+    <string name="glance_show">Anzeigen</string>
+    <string name="glance_background_hint">Liest alle paar Stunden den Akkubericht von Android. Dafür brauchst du die Freigabe vom Computer; tippe, um zu sehen, wie.</string>
+
+    <!-- Settings -->
+    <string name="glance_set_section">Karten</string>
+    <string name="glance_set_hint">Schalte Karten aus, die du auf der Akku-Seite nie brauchst. Sie bleiben unten in ihrer Gruppe aufgelistet, damit du sie zurückholen kannst.</string>
+    <string name="glance_set_show_all">Alle wieder anzeigen</string>
+
+    <!-- Overview -->
+    <string name="glance_look_title">Einen Blick wert</string>
+    <string name="glance_look_none">Sonst gerade nichts, was einen Blick lohnt.</string>
+    <string name="glance_weekly_caption">Letzte Woche im Vergleich zur Woche davor</string>
+</resources>

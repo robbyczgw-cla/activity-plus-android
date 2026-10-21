@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
+    <string name="glance_title">Today at a glance</string>
+    <string name="glance_label_battery">Battery now</string>
+    <string name="glance_label_top">Used the most today</string>
+    <string name="glance_label_heads">Heads-up</string>
+    <string name="glance_full_in">Full in %1$s</string>
+    <string name="glance_plugged">Plugged in</string>
+    <string name="glance_no_estimate">No estimate yet</string>
+    <string name="glance_unusual">%1$s woke the phone far more than usual today</string>
+    <string name="glance_learning">More shows up here as Activity+ learns your day: last night, the app that used the most, and heads-ups.</string>
+
+    <string name="glance_group_now">Now</string>
+    <string name="glance_group_night">Last night</string>
+    <string name="glance_group_apps">Apps</string>
+    <string name="glance_group_health">Charging and health</string>
+    <string name="glance_group_planned">Planned and background</string>
+
+    <string name="glance_card_session">Charging or since unplugging</string>
+    <string name="glance_card_now_drawing">App on screen now</string>
+
+    <!-- Why a card is folded into one line -->
+    <string name="glance_quiet_nothing">Nothing to show yet</string>
+    <string name="glance_quiet_days">Needs a few days of use</string>
+    <string name="glance_quiet_access">Needs access · tap for how</string>
+    <string name="glance_quiet_plug">Plug in a charger to use it</string>
+    <string name="glance_quiet_unsupported">Not reported by this phone</string>
+    <string name="glance_expand">Show</string>
+    <string name="glance_collapse">Hide</string>
+    <string name="glance_hidden">Hidden: %1$s</string>
+    <string name="glance_show">Show</string>
+    <string name="glance_background_hint">Reads Android\'s battery report every few hours. Needs the computer grant; tap to see how.</string>
+
+    <!-- Settings -->
+    <string name="glance_set_section">Cards</string>
+    <string name="glance_set_hint">Switch off cards you never want on the Battery screen. They stay listed at the bottom of their group, so you can bring them back.</string>
+    <string name="glance_set_show_all">Show all again</string>
+
+    <!-- Overview -->
+    <string name="glance_look_title">Worth a look</string>
+    <string name="glance_look_none">Nothing else worth a look right now.</string>
+    <string name="glance_weekly_caption">Last week against the week before</string>
+</resources>

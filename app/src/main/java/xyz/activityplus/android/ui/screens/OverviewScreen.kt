@@ -19,12 +19,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.BatteryChargingFull
-import androidx.compose.material.icons.outlined.DeviceThermostat
+import androidx.compose.material.icons.outlined.CalendarMonth
 import androidx.compose.material.icons.outlined.Memory
 import androidx.compose.material.icons.outlined.Language
 import androidx.compose.material.icons.outlined.SdStorage
 import androidx.compose.material.icons.outlined.Settings
-import androidx.compose.material.icons.outlined.Speed
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -52,6 +51,7 @@ import xyz.activityplus.android.Tab
 import xyz.activityplus.android.core.ChargeStatus
 import xyz.activityplus.android.core.Diagnosis
 import xyz.activityplus.android.core.Format
+import xyz.activityplus.android.core.Glance
 import xyz.activityplus.android.core.SinceUpdate
 import xyz.activityplus.android.core.SensorLog
 import xyz.activityplus.android.core.Snapshot
@@ -63,14 +63,13 @@ import xyz.activityplus.android.core.WeeklyReport
 import xyz.activityplus.android.data.Monitor
 import xyz.activityplus.android.data.VpnApps
 import xyz.activityplus.android.data.WeeklyLoader
-import xyz.activityplus.android.ui.AppIcon
 import xyz.activityplus.android.ui.FindingText
+import xyz.activityplus.android.ui.WeeklyText
 import xyz.activityplus.android.ui.app
 import xyz.activityplus.android.ui.components.Badge
 import xyz.activityplus.android.ui.components.BigValue
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
-import xyz.activityplus.android.ui.components.CoreBars
 import xyz.activityplus.android.ui.components.Meter
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.Sparkline
@@ -82,7 +81,6 @@ import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.rememberUsageAccess
 import xyz.activityplus.android.ui.theme.BrandEnd
 import xyz.activityplus.android.ui.theme.BrandStart
-import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
 import kotlin.math.abs
 
@@ -100,13 +98,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
         }
     }
     val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
-    val wakeLimit = rememberLoaded(minute.intValue) { loadWakeLimit(context) }.orEmpty()
-    val sinceUpdate = rememberLoaded(minute.intValue) { loadSinceUpdate(context) }.orEmpty()
-    val throttlers = rememberLoaded(minute.intValue) { loadThrottlers(context, emptyMap()) }.orEmpty()
-    val backgroundLocation = rememberLoaded(minute.intValue) { loadBackgroundLocation(context) }.orEmpty()
-    val findings = if (s != null && data != null) {
-        diagnose(context, s, data, wakeLimit, sinceUpdate = sinceUpdate, throttlers = throttlers, backgroundLocation = backgroundLocation)
-    } else emptyList()
+    val findings = rememberFindings(s, data, minute.intValue)
     // Reloaded on every return: the user may have just allowed unrestricted battery.
     val resumes = rememberResumes()
     val interruption = rememberLoaded(resumes) { loadInterruption(context) }
@@ -116,6 +108,12 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
         if (WeeklyReport.cardDay(System.currentTimeMillis())) WeeklyLoader.load(context).takeIf { it.report.enough } else null
     }
     val night = rememberNightCheck(morningOnly = true)
+    val weeklyHeadline = weekly?.let { WeeklyText.headline(context, it) }
+    // The verdict above already says its top finding; the two items are what comes after it.
+    val worthALook = Glance.worthALook(
+        Glance.Facts(night = nightFact(night), findings = findings, morning = true),
+        skip = setOfNotNull(verdictFinding(findings)?.let(Glance::findingKey)),
+    )
 
     Screen(
         title = stringResource(R.string.app_name),
@@ -137,10 +135,9 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
                 dismissed = true
             }
         }
-        if (weekly != null) item { WeeklyCard(weekly) { onOpen(Tab.WEEKLY) } }
-        if (night != null) item { NightCheckCard(night) { onOpen(Tab.PRO) } }
-        item { SensorLogEntryCard(onOpen, hint = false) }
         if (s == null) return@Screen
+        // The four live cards. CPU clock and temperature live on the hardware page, the busiest apps
+        // on the battery page, last night on the battery page too (and in "worth a look" when it went wrong).
         item {
             CardRow(
                 { BatteryCard(s, series, settings.fahrenheit) { onOpen(Tab.BATTERY) } },
@@ -153,13 +150,15 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
                 { StorageCard(s) { onOpen(Tab.STORAGE) } },
             )
         }
+        if (data != null) item { WorthALookCard(worthALook, settings.fahrenheit) { onOpen(it.tab()) } }
+        // Entry rows to the pages that are not in the navigation bar; each says what is behind it.
         item {
-            CardRow(
-                { ClockCard(s) { onOpen(Tab.HISTORY) } },
-                { ThermalCard(s, series, settings.fahrenheit) { onOpen(Tab.HISTORY) } },
-            )
+            EntryCard(
+                Icons.Outlined.CalendarMonth, Metric.Cpu, stringResource(R.string.weekly_title),
+                weeklyHeadline ?: stringResource(R.string.glance_weekly_caption),
+            ) { onOpen(Tab.WEEKLY) }
         }
-        if (data != null && data.energy.isNotEmpty()) item { BusiestCard(data) { onOpen(Tab.APPS) } }
+        item { SensorLogEntryCard(onOpen, hint = true) }
     }
 }
 
@@ -204,11 +203,15 @@ fun diagnose(
     )
 }
 
+/** The finding the verdict card tells: the first warning, else the app that used the most. */
+private fun verdictFinding(findings: List<Diagnosis.Finding>): Diagnosis.Finding? =
+    findings.firstOrNull { it.severity >= Diagnosis.Severity.WARN }
+        ?: findings.firstOrNull { it.kind == Diagnosis.Kind.TOP_DRAIN_APP }
+
 @Composable
 private fun Verdict(findings: List<Diagnosis.Finding>, data: AppsData?, fahrenheit: Boolean, onOpen: (Tab) -> Unit) {
     val context = LocalContext.current
-    val top = findings.firstOrNull { it.severity >= Diagnosis.Severity.WARN }
-        ?: findings.firstOrNull { it.kind == Diagnosis.Kind.TOP_DRAIN_APP }
+    val top = verdictFinding(findings)
     Box(
         Modifier
             .fillMaxWidth()
@@ -362,40 +365,6 @@ private fun StorageCard(s: Snapshot, onClick: () -> Unit) {
 }
 
 @Composable
-private fun ClockCard(s: Snapshot, onClick: () -> Unit) {
-    val cpu = s.cpu
-    MetricCard(
-        stringResource(R.string.card_cpu), Metric.Cpu, Icons.Outlined.Speed,
-        stringResource(R.string.cpu_cores, cpu.cores.size), onClick,
-    ) {
-        BigValue(cpu.averageMhz?.let { Format.ghz(it) })
-        Note(stringResource(R.string.cpu_clock_note))
-        Spacer(Modifier.height(8.dp))
-        CoreBars(cpu.cores.map { c -> if (c.curMhz != null && c.maxMhz != null && c.maxMhz > 0) c.curMhz / c.maxMhz else null }, Metric.Cpu, height = 34.dp)
-        Spacer(Modifier.height(6.dp))
-        StatLine(stringResource(R.string.cpu_own), Format.percent(cpu.ownCpuFraction))
-    }
-}
-
-@Composable
-private fun ThermalCard(s: Snapshot, series: Monitor.Series, fahrenheit: Boolean, onClick: () -> Unit) {
-    val t = s.thermal
-    val color = if (t.status >= ThermalStatus.MODERATE || s.battery.temperatureC >= 42) Metric.Heat else Metric.Energy
-    MetricCard(
-        stringResource(R.string.card_temperature), Metric.Heat, Icons.Outlined.DeviceThermostat,
-        thermalLabel(t.status), onClick,
-    ) {
-        BigValue(Format.temperature(s.battery.temperatureC, fahrenheit))
-        Note(stringResource(R.string.temp_battery))
-        Spacer(Modifier.height(6.dp))
-        Sparkline(series.temperature, color, height = 36.dp, min = null)
-        Spacer(Modifier.height(6.dp))
-        t.headroom?.let { StatLine(stringResource(R.string.temp_headroom), Format.percent((1 - it).coerceIn(0.0, 1.0))) }
-        t.sensors.firstOrNull()?.let { StatLine(it.name, Format.temperature(it.celsius, fahrenheit).toString()) }
-    }
-}
-
-@Composable
 fun thermalLabel(status: ThermalStatus): String = stringResource(
     when (status) {
         ThermalStatus.NONE -> R.string.thermal_none
@@ -405,26 +374,3 @@ fun thermalLabel(status: ThermalStatus): String = stringResource(
         else -> R.string.thermal_critical
     }
 )
-
-@Composable
-private fun BusiestCard(data: AppsData, onClick: () -> Unit) {
-    val context = LocalContext.current
-    val total = data.energy.values.sumOf { it.first }.coerceAtLeast(1.0)
-    Card(onClick = onClick) {
-        CardHeader(stringResource(R.string.busiest_title), MaterialTheme.colorScheme.onSurface, caption = stringResource(R.string.busiest_caption))
-        Spacer(Modifier.height(8.dp))
-        data.energy.entries.sortedByDescending { it.value.first }.take(5).forEach { (pkg, v) ->
-            Row(Modifier.fillMaxWidth().padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
-                AppIcon(pkg, 30.dp)
-                Spacer(Modifier.width(12.dp))
-                Column(Modifier.weight(1f)) {
-                    Text(appName(context, pkg, data.labels), style = MaterialTheme.typography.bodyLarge, maxLines = 1)
-                    Note(Format.duration(v.second.toLong()))
-                }
-                Text(Format.percent(v.first / total), color = LocalSurfaces.current.muted, style = MaterialTheme.typography.bodyLarge)
-            }
-        }
-        Spacer(Modifier.height(4.dp))
-        Note(stringResource(R.string.method_foreground))
-    }
-}

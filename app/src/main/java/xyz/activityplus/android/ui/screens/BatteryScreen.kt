@@ -21,8 +21,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -31,16 +35,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import xyz.activityplus.android.R
+import xyz.activityplus.android.Tab
 import xyz.activityplus.android.core.BatteryHealth
 import xyz.activityplus.android.core.BatteryMath
 import xyz.activityplus.android.core.BatterySession
 import xyz.activityplus.android.core.BatteryState
 import xyz.activityplus.android.core.ChargeStatus
 import xyz.activityplus.android.core.DrainTracker
+import xyz.activityplus.android.core.Forecast
 import xyz.activityplus.android.core.Format
+import xyz.activityplus.android.core.Glance
 import xyz.activityplus.android.core.PlugType
 import xyz.activityplus.android.core.Snapshot
+import xyz.activityplus.android.data.ChargingStore
 import xyz.activityplus.android.data.Monitor
+import xyz.activityplus.android.pro.ProShell
+import xyz.activityplus.android.service.BackgroundSampler
 import xyz.activityplus.android.ui.AppIcon
 import xyz.activityplus.android.ui.app
 import xyz.activityplus.android.ui.components.Badge
@@ -53,14 +63,20 @@ import xyz.activityplus.android.ui.components.Sparkline
 import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLive
 import xyz.activityplus.android.ui.rememberLoaded
+import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.rememberUsageAccess
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
 import kotlin.math.abs
 
+/**
+ * Fourteen cards would be a wall, so the screen opens with "Today at a glance" and groups the rest
+ * under titles (see core/Glance). Cards with nothing to say fold into one line; cards the user hid
+ * are listed at the bottom of their group.
+ */
 @Composable
-fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}) {
+fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}, onOpen: (Tab) -> Unit = {}) {
     // One sample per second while this screen is open: charging power changes fast.
     val (s, series) = rememberLive(fastMillis = 1000L)
     val settings = rememberSettings()
@@ -78,34 +94,86 @@ fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}) {
     val powerRails = rememberPowerRailsSupport()
     val night = rememberNightCheck(morningOnly = false)
 
+    // What the structure needs to know; each is loaded once, the cards load their own details.
+    val resumes = rememberResumes()
+    val findings = rememberFindings(s, data, minute.intValue)
+    val wakeups = rememberLoaded(minute.intValue) { loadWakeups(context) }
+    val profile = rememberLoaded(Unit) { loadForecastProfile() }
+    val chargerTests = rememberLoaded(minute.intValue) { ChargingStore.get(context).tests().isNotEmpty() }
+    val wakeupAccess = remember(resumes) { ProShell.hasBatteryStats(context) }
+    val scheduleAccess = remember(resumes) {
+        ProShell.hasComputerGrant(context) || ProShell.shizukuState(context) == ProShell.Access.SHIZUKU
+    }
+    val backgroundOn = remember(resumes) { BackgroundSampler.enabled(context) }
+    // Folded cards the user opened.
+    var expanded by rememberSaveable { mutableStateOf(emptyList<String>()) }
+
     Screen(title = stringResource(R.string.tab_battery), action = { ShareReportIconButton() }) {
         if (s == null) return@Screen
         val b = s.battery
-        item { LiveCard(s, series, settings.fahrenheit) }
-        if (!b.plugged) item { ForecastCard(b) }
         val running = sessions?.firstOrNull()?.takeIf { it.charging == b.plugged }
-        if (b.plugged) item { ChargingCard(b, running) } else item { SinceUnplugCard(b, running) }
-        item { ChargerTestCard(s, settings.fahrenheit) }
-        // Which app is drawing the power right now.
-        if (!b.plugged && s.foregroundPackage != null && data != null) item { NowDrawingCard(s, data) }
-        item { ProEntryCard(onPro) }
-        if (powerRails == true) item { PowerRailCard(b, onPro) }
-        item { HealthCard(b) }
-        item { BatteryPassportCard(b, onPro) }
-        item { ChargingHabitsCard(b, settings.fahrenheit) }
-        val energy = data?.energy
-        if (energy != null && energy.isNotEmpty()) {
-            item { DrainByAppCard(b, energy, data, onSelfCost) }
-        } else if (data != null) {
-            item { Card { Note(stringResource(R.string.drain_empty)); SelfCostLink(onSelfCost) } }
-        }
-        if (night != null) item { NightCheckCard(night, onPro) }
-        item { WakeupCard(onPro) }
-        item { ScheduleCard(onPro) }
-        if (background != null) item { BackgroundTodayCard(background, onPro) }
         // Plug-in blips (a loose cable) say nothing; keep sessions that lasted and moved something.
         val past = sessions?.filter { it !== running && it.seconds >= 300 && (it.energyMwh > 0 || it.levelChange != 0.0) }
-        if (!past.isNullOrEmpty()) item { SessionsCard(past) }
+        val energy = data?.energy.orEmpty()
+        val outlook = Forecast.outcome(profile, s.timeMillis, b.levelFraction, 0.0, b.percentPerHour)
+
+        val status = Glance.statuses(
+            Glance.Inputs(
+                plugged = b.plugged, charging = b.charging,
+                forecast = if (outlook.patternReady || outlook.current != null) true else if (profile == null) null else false,
+                sessionSinceUnplug = running != null && running.seconds >= 60,
+                nowDrawing = data?.let { s.foregroundPackage != null && (b.avgPowerMw ?: 0.0) < 0 },
+                powerRails = powerRails, night = night?.result?.verdict, wakeupAccess = wakeupAccess,
+                drainApps = data?.let { energy.isNotEmpty() }, chargerTests = chargerTests, pastSessions = past?.isNotEmpty(),
+                scheduleAccess = scheduleAccess, backgroundOn = backgroundOn, backgroundLoaded = background != null,
+            )
+        )
+        val sections = Glance.layout(b.plugged, status, settings.hiddenCards)
+        val index = Glance.itemIndexes(sections, first = SCREEN_HEADER_ITEMS + 1)
+        val facts = Glance.Facts(
+            level = Glance.LevelFact(
+                b.levelFraction, b.plugged, b.charging, b.timeLeftSeconds.takeIf { b.charging }, outlook.patternReady,
+                if (outlook.patternReady) outlook.pattern else outlook.current,
+            ),
+            night = nightFact(night), topApp = topApp(context, data), findings = findings,
+            unusualPkg = wakeups?.let { w -> w.today.firstOrNull { it.pkg in w.unusual && !it.pkg.startsWith("#") }?.pkg },
+            morning = isMorning(),
+        )
+
+        item(key = "glance") {
+            val scrollTo = LocalScreenScroll.current
+            GlanceCard(Glance.glance(facts, Glance.CardId.hidden(settings.hiddenCards)), settings.fahrenheit) { target ->
+                when (target) {
+                    is Glance.Target.OnScreen -> {
+                        // A folded card opens first, so there is something to arrive at.
+                        if (status[target.card]?.open == false && target.card.key !in expanded) expanded = expanded + target.card.key
+                        index[target.card]?.let { scrollTo?.invoke(it) }
+                    }
+                    is Glance.Target.Page -> onOpen(target.page.tab())
+                }
+            }
+        }
+        glanceSections(sections, expanded, onToggle = { c -> expanded = if (c.key in expanded) expanded - c.key else expanded + c.key }) { id ->
+            when (id) {
+                Glance.CardId.LIVE -> LiveCard(s, series, settings.fahrenheit)
+                Glance.CardId.FORECAST -> ForecastCard(b)
+                Glance.CardId.SESSION -> if (b.plugged) ChargingCard(b, running) else SinceUnplugCard(b, running)
+                // Which app is drawing the power right now.
+                Glance.CardId.NOW_DRAWING -> if (data != null) NowDrawingCard(s, data)
+                Glance.CardId.POWER_RAIL -> PowerRailCard(b, onPro)
+                Glance.CardId.NIGHT -> if (night != null) NightCheckCard(night, onPro)
+                Glance.CardId.WAKEUP -> WakeupCard(onPro)
+                Glance.CardId.DRAIN -> if (data != null && energy.isNotEmpty()) DrainByAppCard(b, energy, data, onSelfCost) else Card { Note(stringResource(R.string.drain_empty)); SelfCostLink(onSelfCost) }
+                Glance.CardId.CHARGER_TEST -> ChargerTestCard(s, settings.fahrenheit)
+                Glance.CardId.HEALTH -> HealthCard(b)
+                Glance.CardId.PASSPORT -> BatteryPassportCard(b, onPro)
+                Glance.CardId.HABITS -> ChargingHabitsCard(b, settings.fahrenheit)
+                Glance.CardId.SESSIONS -> if (!past.isNullOrEmpty()) SessionsCard(past)
+                Glance.CardId.SCHEDULE -> ScheduleCard(onPro)
+                Glance.CardId.BACKGROUND -> if (background != null) BackgroundTodayCard(background, onPro) else BackgroundHintCard(onPro)
+                Glance.CardId.PRO -> ProEntryCard(onPro)
+            }
+        }
     }
 }
 

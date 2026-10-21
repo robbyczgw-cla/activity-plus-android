@@ -14,6 +14,11 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.items
@@ -99,28 +104,37 @@ fun Screen(
                 action?.invoke()
             }
         }
-        if (lanes == 1) {
+        // Lets a card on the page (the glance card) bring another one into view; item 0 is the header.
+        val scope = rememberCoroutineScope()
+        val listState = rememberLazyListState()
+        val gridState = rememberLazyStaggeredGridState()
+        val scrollTo: (Int) -> Unit = { i ->
+            scope.launch { if (lanes == 1) listState.animateScrollToItem(i) else gridState.animateScrollToItem(i) }
+        }
+        if (lanes == 1) CompositionLocalProvider(LocalScreenScroll provides scrollTo) {
             LazyColumn(
+                state = listState,
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = contentPadding,
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                val scope = ListScreenScope(this)
-                scope.item(content = header)
-                scope.content()
+                val screen = ListScreenScope(this)
+                screen.item(content = header)
+                screen.content()
             }
-        } else {
+        } else CompositionLocalProvider(LocalScreenScroll provides scrollTo) {
             // A staggered grid, not rows of two: the cards differ a lot in height and would leave gaps.
             LazyVerticalStaggeredGrid(
+                state = gridState,
                 columns = StaggeredGridCells.Fixed(lanes),
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = contentPadding,
                 verticalItemSpacing = 12.dp,
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                val scope = GridScreenScope(this)
-                scope.item(fullWidth = true, content = header)
-                scope.content()
+                val screen = GridScreenScope(this)
+                screen.item(fullWidth = true, content = header)
+                screen.content()
             }
         }
     }
