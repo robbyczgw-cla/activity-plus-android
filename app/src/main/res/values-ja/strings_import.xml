@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Import data: the way back for Export data, for a new phone -->
+    <string name="import_title">データを読み込む</string>
+    <string name="import_hint">「データを書き出す」で作成した ZIP ファイルを読み込み、以前の端末などの履歴をこの端末に追加します。ここにあるデータが置き換えられたり削除されたりすることはなく、すでにある項目はスキップされます。カウンターや基準値は計測した端末のものなので、引き継がれません。</string>
+    <string name="import_action">データを読み込む</string>
+    <string name="import_working">処理中…</string>
+    <string name="import_ok">OK</string>
+    <string name="import_go">読み込む</string>
+
+    <string name="import_confirm_title">この履歴を読み込みますか？</string>
+    <string name="import_source">%1$s から、保存日時: %2$s</string>
+    <string name="import_source_unknown">不明な端末</string>
+    <string name="import_date_unknown">不明</string>
+    <string name="import_range">履歴の期間: %1$s 〜 %2$s</string>
+    <string name="import_range_none">このファイルには分単位の履歴がありません。下のほかの表のみ読み込めます。</string>
+    <string name="import_partial">古い形式の書き出しです（%1$s）。分ごとのサンプルとアプリごとのエネルギーだけが含まれているため、読み込めるのはそれだけです。</string>
+    <string name="import_version_unknown">不明なバージョン</string>
+    <string name="import_confirm_hint">すでにある項目はスキップされ、ここにあるデータが削除されることはありません。読み込みは何度やり直しても問題ありません。</string>
+
+    <string name="import_problem_title">このファイルは読み込めません</string>
+    <string name="import_err_not_export">Activity+ の書き出しファイルではありません。「データを書き出す」で保存した ZIP ファイルを選んでください。</string>
+    <string name="import_err_newer">このファイルは、より新しいバージョンの Activity+ で作成されています（形式 %1$d）。この端末の Activity+ を更新してから、もう一度お試しください。</string>
+    <string name="import_err_format">Activity+ が対応していない形式のファイルです。「データを書き出す」で保存した ZIP ファイルを選んでください。</string>
+    <string name="import_err_empty">Activity+ の書き出しファイルですが、読み込める履歴が含まれていません。</string>
+    <string name="import_err_read">ファイルを読み取れませんでした。ZIP ファイルが完全であることを確認して、もう一度お試しください。</string>
+
+    <string name="import_done_title">読み込みが完了しました</string>
+    <string name="import_done_added">%1$d 件を追加しました</string>
+    <string name="import_done_nothing">新しいデータはありません。ファイル内のデータはすべて、すでにありました。</string>
+    <string name="import_done_duplicates">%1$d 件はすでにあったためスキップしました</string>
+    <string name="import_done_invalid">%1$d 行は読み取れなかったためスキップしました</string>
+    <string name="import_done_unreadable">%1$d 個のファイルは列が足りなかったためスキップしました</string>
+    <string name="import_row_result">新規 %1$d 件、既存 %2$d 件</string>
+    <string name="import_failed_title">読み込みが中断されました</string>
+    <string name="import_failed">保存中に問題が発生しました。それまでに保存された分は残っています。残りを追加するには、もう一度読み込みを実行してください。</string>
+
+    <!-- What the file holds, one line per table -->
+    <string name="import_t_samples">分ごとのサンプル</string>
+    <string name="import_t_app_energy">アプリ別・日別のエネルギー</string>
+    <string name="import_t_sessions">充電とバッテリー駆動のセッション</string>
+    <string name="import_t_pro_reports">プロモードのレポート</string>
+    <string name="import_t_charger_tests">充電器テスト</string>
+    <string name="import_t_charge_capacity">容量の推定</string>
+    <string name="import_t_background_days">アプリ別のバックグラウンドバッテリー</string>
+    <string name="import_t_wakeup_days">アプリ別のウェイクアップ</string>
+    <string name="import_t_night_spans">夜</string>
+    <string name="import_t_storage_device">日別のストレージ</string>
+    <string name="import_t_storage_apps">アプリ別のストレージ</string>
+    <string name="import_t_sensor_events">センサーへのアクセス</string>
+    <string name="import_t_app_updates">アプリのアップデート</string>
+    <string name="import_t_net_usage">アプリ別のネットワーク使用量</string>
+    <string name="import_t_thermal_events">発熱イベント</string>
+</resources>

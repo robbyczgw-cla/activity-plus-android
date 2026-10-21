@@ -43,5 +43,5 @@
     <plurals name="chg_trend_count">
         <item quantity="other">%d 次测量</item>
     </plurals>
-    <string name="chg_trend_note" formatted="false">根据每次充入至少 30 % 的充电估算。单次数据不够精确，但趋势有参考价值。</string>
+    <string name="chg_trend_note" formatted="false">根据每次充入至少 30% 的充电估算。单次数据不够精确，但趋势有参考价值。</string>
 </resources>

@@ -18,7 +18,7 @@
     <string name="channel_alerts">提醒</string>
 
     <string name="access_title">允许使用情况访问，以查看是哪个应用造成的</string>
-    <string name="access_body">开启使用情况访问后，Android 只会向 Activity+ 提供屏幕上的应用、各应用占用的流量和存储空间，以及其在后台运行的时长。数据不会离开手机：Activity+ 没有互联网权限。</string>
+    <string name="access_body">只有开启使用情况访问，Android 才会向 Activity+ 提供屏幕上的应用、各应用占用的流量和存储空间，以及其在后台运行的时长。数据不会离开手机：Activity+ 没有互联网权限。</string>
     <string name="access_button">打开使用情况访问</string>
 
     <string name="overview_subtitle">%1$s · 已运行 %2$s</string>
@@ -139,7 +139,7 @@
     <string name="health_estimate">估计健康度</string>
     <string name="health_cycles">充电循环次数</string>
     <string name="health_technology">技术</string>
-    <string name="health_note" formatted="false">实测容量来自电池的电量计，仅为估计值；充电几次后会趋于稳定，低于 15 % 时不可靠。</string>
+    <string name="health_note" formatted="false">实测容量来自电池的电量计，仅为估计值；充电几次后会趋于稳定，低于 15% 时不可靠。</string>
     <string name="drain_today">今日各应用耗电</string>
     <string name="drain_today_caption">实测</string>
     <string name="drain_empty">今天还没有测量数据。Activity+ 在运行时进行测量；请保持实时状态开启。</string>
@@ -173,7 +173,7 @@
     <string name="f_memory_body">仅剩 %1$s 可用。Android 会关闭后台应用，因此切换回去时需要重新加载。</string>
     <string name="f_on_screen">%1$s 位于屏幕上。</string>
     <string name="f_hot_title">手机发烫</string>
-    <string name="f_hot_body">电池电量为 %1$s，Android 会降低速度以降温。</string>
+    <string name="f_hot_body">电池温度为 %1$s，Android 会降低速度以降温。</string>
     <string name="f_hot_app">%1$s 位于屏幕上，很可能是负载来源。</string>
     <string name="f_saver_title">省电模式已开启</string>
     <string name="f_saver_body">它会限制后台工作和性能。</string>
@@ -276,20 +276,20 @@
     <string name="hw_build">版本号</string>
     <string name="hw_kernel">内核</string>
     <string name="hw_uptime">已运行</string>
-    <string name="hw_deep_sleep">自启动以来的深度睡眠</string>
+    <string name="hw_deep_sleep">开机以来的深度睡眠</string>
     <string name="hw_cpu">处理器</string>
     <string name="hw_cores">核心</string>
     <string name="hw_cluster">%1$d× 核心</string>
     <string name="hw_governor">调速器</string>
     <string name="hw_abi">架构</string>
-    <string name="hw_gpu">图形</string>
+    <string name="hw_gpu">图形处理器</string>
     <string name="hw_memory_storage">内存和存储</string>
     <string name="hw_ram">RAM</string>
     <string name="hw_zram">已压缩（zram）</string>
     <string name="hw_internal">内部存储</string>
     <string name="hw_display">显示屏</string>
     <string name="hw_resolution">分辨率</string>
-    <string name="hw_diagonal">对角线</string>
+    <string name="hw_diagonal">屏幕对角线</string>
     <string name="hw_density">像素密度</string>
     <string name="hw_refresh_now">当前刷新率</string>
     <string name="hw_refresh_modes">刷新率</string>
@@ -297,7 +297,7 @@
     <string name="hw_wifi_standard">Wi-Fi 标准</string>
     <string name="hw_wifi_band">频段</string>
     <string name="hw_channel">信道 %1$d</string>
-    <string name="hw_link">链路</string>
+    <string name="hw_link">连接</string>
     <string name="hw_vpn">VPN 已启用</string>
     <string name="hw_operator">运营商</string>
     <string name="hw_sim_slots">SIM 卡槽</string>
@@ -319,7 +319,7 @@
     <string name="hw_f_esim">eSIM</string>
     <string name="hw_f_usb_host">USB 主机（OTG）</string>
     <string name="hw_f_ir">红外遥控</string>
-    <string name="hw_f_ble">Bluetooth Low Energy</string>
+    <string name="hw_f_ble">低功耗蓝牙（BLE）</string>
     <string name="hw_f_wifi_aware">Wi-Fi Aware</string>
     <string name="hw_f_uwb">超宽带（UWB）</string>
     <string name="hw_sensors">传感器</string>
@@ -354,7 +354,7 @@
     <string name="ram_pressure_medium">中</string>
     <string name="ram_pressure_low">低</string>
     <string name="ram_threshold">Android 在低于此值时开始关闭应用</string>
-    <string name="ram_zram_ratio">压缩</string>
+    <string name="ram_zram_ratio">压缩率</string>
     <string name="session_avg_peak">平均 · 峰值</string>
     <string name="session_avg_rate">平均速率</string>
     <string name="session_energy_in">已充入</string>
@@ -363,7 +363,7 @@
     <string name="session_level">电量</string>
     <string name="session_screen_off">屏幕关闭</string>
     <string name="session_screen_on">屏幕开启</string>
-    <string name="session_since_plug">自插入充电器起，%1$s 前</string>
+    <string name="session_since_plug">接通电源已 %1$s</string>
     <string name="session_since_unplug_title">自拔出充电器起</string>
     <string name="sessions_title">最近的充电与放电</string>
     <string name="set_app_line">应用行</string>
@@ -380,7 +380,7 @@
     <string name="widget_config_title">小组件数值</string>
     <string name="widget_full_in">%1$s 后充满</string>
     <string name="widget_left">剩余 %1$s</string>
-    <string name="widget_most_today">今日最多：%1$s %2$s</string>
+    <string name="widget_most_today">今日耗电最多：%1$s %2$s</string>
     <string name="widget_battery_desc">电量环、功率和剩余时间</string>
     <string name="widget_battery_name">Activity+ 电池</string>
     <string name="widget_panel_desc">最多六个数值，以及今天耗电最多的应用</string>
@@ -417,7 +417,7 @@
     <string name="pro_pc_note">此授权在重启后以及关闭开发者选项后仍然有效（在 Android 15 上测试）。重新安装 Activity+ 后请再次运行。</string>
     <string name="pro_error">测量失败：%1$s</string>
     <string name="pro_battery_title">上次充电后各应用的耗电</string>
-    <string name="pro_on_battery">电池耗电 %1$s</string>
+    <string name="pro_on_battery">电池供电 %1$s</string>
     <string name="pro_battery_empty">Android 暂无数据；仅在手机使用电池供电时计算。</string>
     <string name="pro_cpu_time">CPU %1$s</string>
     <string name="pro_awake">保持唤醒 %1$s</string>
@@ -432,7 +432,7 @@
     <string name="pro_memory_note">PSS：应用占用的内存，共享内存在共享它的应用之间平分。</string>
     <string name="pro_cpu_title">各应用 CPU，最近 1.5 分钟</string>
     <string name="pro_cpu_note" formatted="false">占单个核心的百分比；超过 100% 表示应用使用了多个核心。</string>
-    <string name="pro_privacy">专业模式只运行 Android 的只读报告：dumpsys batterystats、meminfo、cpuinfo、appops、alarm、jobscheduler、thermalservice、deviceidle；在你需要时，还会授予 Activity+ 自身的读取权限。其他任何命令都会被拒绝，Activity+ 没有网络访问权限。</string>
+    <string name="pro_privacy">专业模式只运行 Android 的只读报告：dumpsys batterystats、meminfo、cpuinfo、appops、alarm、jobscheduler、thermalservice、deviceidle；在你需要时，还会授予 Activity+ 自身的读取权限。其他任何命令都会被拒绝，Activity+ 没有互联网权限。</string>
     <string name="pro_entry_title">精确测量</string>
     <string name="pro_entry_body">各应用的耗电、内存和 CPU，含后台。使用 Shizuku 的专业模式。</string>
     <string name="pro_entry_last">上次测量 %1$s</string>

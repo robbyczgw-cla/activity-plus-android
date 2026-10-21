@@ -12,7 +12,7 @@
     <string name="sgrowth_per_day">%s a mais ocupados por dia</string>
     <string name="sgrowth_starts_today">O histórico começa hoje. O Activity+ registra o armazenamento uma vez por dia, então a tendência aparece a partir de amanhã.</string>
     <string name="sgrowth_used_30">Armazenamento usado, últimos 30 dias</string>
-    <string name="sgrowth_top_title">Mais cresceu neste mês</string>
+    <string name="sgrowth_top_title">Os que mais cresceram neste mês</string>
     <string name="sgrowth_since">Desde %s</string>
     <string name="sgrowth_none">Nenhum app cresceu de forma relevante.</string>
     <string name="sgrowth_new">Novo</string>

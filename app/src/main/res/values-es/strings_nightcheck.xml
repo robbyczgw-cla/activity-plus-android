@@ -16,7 +16,7 @@
     <string name="nc_reason_no_deep">Android nunca llegó a Doze profundo, y el teléfono estuvo en sueño profundo solo %1$s de la noche.</string>
     <string name="nc_reason_low_deep">El teléfono estuvo en sueño profundo solo %1$s de la noche.</string>
     <string name="nc_reason_low_deep_usual">El teléfono estuvo en sueño profundo solo %1$s de la noche, normalmente %2$s.</string>
-    <string name="nc_system_explain">Ninguna app destaca: el propio Android no llegó a sueño profundo. Suele ser un fallo del sistema tras una actualización, o una señal móvil débil.</string>
+    <string name="nc_system_explain">Ninguna app destaca: el propio Android no llegó al sueño profundo. Suele ser un fallo del sistema tras una actualización, o una señal móvil débil.</string>
     <string name="nc_system_signal">Ninguna app destaca, y la señal móvil era débil: buscar la red mantiene despierto a Android.</string>
     <string name="nc_system_unknown">Algo mantuvo despierto el teléfono: una app o el propio Android.</string>
     <string name="nc_reason_drain">%1$s con la pantalla apagada, con %2$s de sueño profundo.</string>
@@ -38,7 +38,7 @@
     <string name="nc_signal_weak">débil</string>
     <string name="nc_usually">normalmente %1$s</string>
 
-    <string name="nc_apps_title">Despiertas por la noche</string>
+    <string name="nc_apps_title">Activas por la noche</string>
     <string name="nc_pro_hint">¿Qué apps estuvieron despiertas por la noche? Con un permiso de lectura en la página pro, Activity+ las nombra.</string>
 
     <string name="nc_act_update">Buscar actualizaciones del sistema</string>

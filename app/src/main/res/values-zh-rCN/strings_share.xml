@@ -26,7 +26,7 @@
     <string name="export_failed">无法保存导出的文件</string>
 
     <string name="widget_night_name">Activity+ 昨晚</string>
-    <string name="widget_night_desc">手机昨晚睡得好吗？结论、每小时耗电、深度睡眠以及该负责的应用</string>
+    <string name="widget_night_desc">手机昨晚睡得好吗？结论、每小时耗电、深度睡眠以及造成问题的应用</string>
     <string name="widget_history_name">Activity+ 历史</string>
     <string name="widget_history_desc">以图表显示最近 6 小时的电量或功耗</string>
     <string name="wn_blame">责任方</string>

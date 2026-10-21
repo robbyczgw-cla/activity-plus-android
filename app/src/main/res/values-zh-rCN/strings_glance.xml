@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
+    <string name="glance_title">今日速览</string>
+    <string name="glance_label_battery">当前电量</string>
+    <string name="glance_label_top">今天用得最多</string>
+    <string name="glance_label_heads">注意</string>
+    <string name="glance_full_in">%1$s 后充满</string>
+    <string name="glance_plugged">已接通电源</string>
+    <string name="glance_no_estimate">暂无估算</string>
+    <string name="glance_unusual">今天 %1$s 唤醒手机的次数远多于平时</string>
+    <string name="glance_learning">随着 Activity+ 逐渐了解你的一天，这里会显示更多内容：昨晚的情况、用得最多的应用，以及需要注意的事项。</string>
+
+    <string name="glance_group_now">当前</string>
+    <string name="glance_group_night">昨晚</string>
+    <string name="glance_group_apps">应用</string>
+    <string name="glance_group_health">充电与健康</string>
+    <string name="glance_group_planned">计划与后台</string>
+
+    <string name="glance_card_session">充电中，或拔掉充电器后</string>
+    <string name="glance_card_now_drawing">当前位于屏幕上的应用</string>
+
+    <!-- Why a card is folded into one line -->
+    <string name="glance_quiet_nothing">暂无可显示的内容</string>
+    <string name="glance_quiet_days">需要几天的使用数据</string>
+    <string name="glance_quiet_access">需要授权 · 点按查看方法</string>
+    <string name="glance_quiet_plug">接上充电器后才能使用</string>
+    <string name="glance_quiet_unsupported">此手机不提供</string>
+    <string name="glance_expand">显示</string>
+    <string name="glance_collapse">隐藏</string>
+    <string name="glance_hidden">已隐藏：%1$s</string>
+    <string name="glance_show">显示</string>
+    <string name="glance_background_hint">每隔几小时读取一次 Android 的电池报告。需要电脑权限；点按查看方法。</string>
+
+    <!-- Settings -->
+    <string name="glance_set_section">卡片</string>
+    <string name="glance_set_hint">关闭你不想在电池页面看到的卡片。它们仍会列在所属分组的底部，方便你重新开启。</string>
+    <string name="glance_set_show_all">全部重新显示</string>
+
+    <!-- Overview -->
+    <string name="glance_look_title">值得一看</string>
+    <string name="glance_look_none">目前没有其他值得一看的内容。</string>
+    <string name="glance_weekly_caption">上周与前一周对比</string>
+</resources>

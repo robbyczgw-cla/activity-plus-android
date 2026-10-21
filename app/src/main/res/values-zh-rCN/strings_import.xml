@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Import data: the way back for Export data, for a new phone -->
+    <string name="import_title">导入数据</string>
+    <string name="import_hint">读取由“导出数据”生成的 ZIP 文件（例如来自旧手机），并把其中的历史记录添加到这部手机。这里已有的内容不会被替换或删除；已存在的条目会被跳过。计数器和基准值属于测量它们的那部手机，不会被导入。</string>
+    <string name="import_action">导入数据</string>
+    <string name="import_working">处理中…</string>
+    <string name="import_ok">确定</string>
+    <string name="import_go">导入</string>
+
+    <string name="import_confirm_title">导入这份历史记录？</string>
+    <string name="import_source">来自 %1$s，保存时间：%2$s</string>
+    <string name="import_source_unknown">未知手机</string>
+    <string name="import_date_unknown">未知</string>
+    <string name="import_range">历史记录：%1$s 至 %2$s</string>
+    <string name="import_range_none">此文件中没有按分钟记录的历史，只有下方的其他表。</string>
+    <string name="import_partial">这是较旧格式的导出文件（%1$s）。其中只有每分钟的采样和各应用的能耗，因此只能导入这些内容。</string>
+    <string name="import_version_unknown">未知版本</string>
+    <string name="import_confirm_hint">已存在的条目会被跳过，这里的内容不会被删除。你可以放心地重复导入。</string>
+
+    <string name="import_problem_title">无法导入此文件</string>
+    <string name="import_err_not_export">这不是 Activity+ 的导出文件。请选择由“导出数据”保存的 ZIP 文件。</string>
+    <string name="import_err_newer">此文件由更新版本的 Activity+ 生成（格式 %1$d）。请先在这部手机上更新 Activity+，然后重试。</string>
+    <string name="import_err_format">此文件的格式 Activity+ 无法识别。请选择由“导出数据”保存的 ZIP 文件。</string>
+    <string name="import_err_empty">这是 Activity+ 的导出文件，但其中没有可导入的历史记录。</string>
+    <string name="import_err_read">无法读取该文件。请确认它是完整的 ZIP 文件，然后重试。</string>
+
+    <string name="import_done_title">导入完成</string>
+    <string name="import_done_added">已添加 %1$d 条</string>
+    <string name="import_done_nothing">没有新内容：文件中的所有内容都已存在。</string>
+    <string name="import_done_duplicates">%1$d 条已存在，已跳过</string>
+    <string name="import_done_invalid">%1$d 行无法读取，已跳过</string>
+    <string name="import_done_unreadable">%1$d 个文件缺少列，已跳过</string>
+    <string name="import_row_result">新增 %1$d 条，已有 %2$d 条</string>
+    <string name="import_failed_title">导入被中断</string>
+    <string name="import_failed">保存时出了问题。已保存的内容会保留；再次导入即可补上其余部分。</string>
+
+    <!-- What the file holds, one line per table -->
+    <string name="import_t_samples">每分钟采样</string>
+    <string name="import_t_app_energy">各应用每日能耗</string>
+    <string name="import_t_sessions">充电与电池使用记录</string>
+    <string name="import_t_pro_reports">专业模式报告</string>
+    <string name="import_t_charger_tests">充电器测试</string>
+    <string name="import_t_charge_capacity">容量估算</string>
+    <string name="import_t_background_days">各应用后台耗电</string>
+    <string name="import_t_wakeup_days">各应用唤醒次数</string>
+    <string name="import_t_night_spans">夜晚</string>
+    <string name="import_t_storage_device">每日存储</string>
+    <string name="import_t_storage_apps">各应用存储</string>
+    <string name="import_t_sensor_events">传感器访问</string>
+    <string name="import_t_app_updates">应用更新</string>
+    <string name="import_t_net_usage">各应用网络用量</string>
+    <string name="import_t_thermal_events">发热事件</string>
+</resources>

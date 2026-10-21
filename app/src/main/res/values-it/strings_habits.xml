@@ -15,10 +15,10 @@
     <string name="habits_range">%1$s → %2$s</string>
     <string name="habits_advice_hot">Caricare a %1$s o più è ciò che invecchia di più la batteria. Il telefono è stato così caldo per %2$s al giorno. Togli la cover o carica in un posto più fresco.</string>
     <string name="habits_advice_warm">Caricare a %1$s o più si accumula: %2$s al giorno. Il calore consuma la batteria nel tempo, quindi caricare al fresco ne conserva la capacità più a lungo.</string>
-    <string name="habits_advice_full">Il telefono è rimasto %1$s al giorno a %2$s o più mentre era collegato. Una batteria tenuta sotto il pieno invecchia più lentamente: attiva il limite al %3$s o la ricarica adattiva nelle impostazioni della batteria. Activity+ può anche avvisarti al %3$s (Impostazioni, Ricarica).</string>
-    <string name="habits_advice_deep">La batteria è scesa sotto %1$s %2$d volte in %3$d giorni. Le scariche profonde stressano le celle: collega piuttosto intorno al %4$s.</string>
+    <string name="habits_advice_full">Il telefono è rimasto %1$s al giorno a %2$s o più mentre era collegato. Una batteria tenuta sotto il pieno invecchia più lentamente: attiva il limite di carica a %3$s o la ricarica adattiva nelle impostazioni della batteria. Activity+ può anche avvisarti a %3$s (Impostazioni, Ricarica).</string>
+    <string name="habits_advice_deep">La batteria è scesa sotto %1$s %2$d volte in %3$d giorni. Le scariche profonde sollecitano le celle: collega piuttosto intorno a %4$s.</string>
     <string name="habits_open_battery">Impostazioni batteria</string>
-    <string name="habits_note">Misurato dalla cronologia al minuto degli ultimi 30 giorni. Collegato significa connesso a un caricatore.</string>
+    <string name="habits_note">Misurato dalla cronologia al minuto degli ultimi 30 giorni. Collegato significa connesso a un caricabatterie.</string>
 
     <string name="habits_age_title">Previsione di invecchiamento</string>
     <string name="habits_age_forecast">Circa %1$s in %2$s a questo ritmo</string>
@@ -29,14 +29,14 @@
     <string name="habits_age_range">Tra %1$d e %2$d mesi, a seconda di quanto variano le misure.</string>
     <string name="habits_age_now_rated">Capacità piena ora: %1$s della capacità nominale.</string>
     <string name="habits_age_now_first">Capacità piena ora: %1$s della tua prima misura.</string>
-    <string name="habits_age_reached">La capacità piena è al %1$s, cioè %2$s o meno.</string>
+    <string name="habits_age_reached">La capacità piena è a %1$s, cioè %2$s o meno.</string>
     <string name="habits_age_noclear">Nessuna perdita evidente per ora: la capacità piena misurata resta entro la propria variabilità.</string>
     <string name="habits_age_more">Servono più ricariche complete: %1$d misurate finora. La previsione ne richiede %2$d, distribuite su %3$d settimane.</string>
     <string name="habits_age_note">Calcolata sulla capacità piena delle ricariche completate. Approssimativa con poche misure, e più precisa a ogni nuova.</string>
 
     <string name="cost_title">Costo per ora di utilizzo</string>
     <string name="cost_caption" formatted="false">Ultimi 7 giorni</string>
-    <string name="cost_row_note">%1$s sullo schermo · Ø %2$s</string>
+    <string name="cost_row_note">%1$s sullo schermo · media %2$s</string>
     <string name="cost_note">Batteria consumata mentre ogni app era sullo schermo, misurata a batteria. Conta anche il lavoro in background delle altre app in quel tempo.</string>
     <string name="cost_min_note">Sono escluse le app con meno di %1$d minuti misurati negli ultimi 7 giorni.</string>
 </resources>

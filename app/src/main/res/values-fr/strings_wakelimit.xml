@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="wl_badge">Au-dessus de la limite Google</string>
-    <string name="wl_explain">Google Play signale les applis qui gardent le téléphone éveillé 2 heures ou plus, écran éteint.</string>
-    <string name="wl_days">Cette appli a atteint cette limite %1$d jours sur les %2$d derniers jours mesurés.</string>
+    <string name="wl_explain">Google Play signale les apps qui gardent le téléphone éveillé 2 heures ou plus, écran éteint.</string>
+    <string name="wl_days">Cette app a atteint cette limite %1$d jours sur les %2$d derniers jours mesurés.</string>
     <string name="f_wakelimit_title">%1$s dépasse la limite de wakelock de Google</string>
-    <string name="f_wakelimit_body">Google Play signale les applis qui gardent le téléphone éveillé 2 heures ou plus, écran éteint. Cette appli a atteint cette limite %1$d jours sur les %2$d derniers jours mesurés, jusqu\'à %3$s en une journée. Dans les infos de l\'appli, vous pouvez restreindre son utilisation de la batterie.</string>
+    <string name="f_wakelimit_body">Google Play signale les apps qui gardent le téléphone éveillé 2 heures ou plus, écran éteint. Cette app a atteint cette limite %1$d jours sur les %2$d derniers jours mesurés, jusqu\'à %3$s en une journée. Dans les infos de l\'app, vous pouvez restreindre son utilisation de la batterie.</string>
 </resources>

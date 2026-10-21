@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What a card says when its data is missing: the reason, and when it changes or what to do. -->
+<resources>
+    <string name="es_set_up">Configura</string>
+
+    <!-- Battery -->
+    <string name="es_forecast_none">Ancora nessuna stima. Il tuo schema d\'uso ha bisogno di circa un giorno di utilizzo a batteria per essere appreso.</string>
+    <string name="es_unplug_none">Inizia quando scolleghi il caricabatterie. Activity+ segue ogni periodo a batteria finché è in esecuzione.</string>
+    <string name="es_unplug_soon">Appena scollegato. I valori arrivano dopo il primo minuto.</string>
+    <string name="es_charger_test_plug">Collega un caricabatterie per provare cosa forniscono lui e il suo cavo.</string>
+    <string name="es_power_needs_android15">La potenza per componente richiede Android 15 o successivo.</string>
+    <string name="es_passport_none">Questo telefono non segnala nessuno di questi dati, nemmeno con l\'autorizzazione di lettura.</string>
+    <string name="es_trend_none" formatted="false">Compare dalla seconda ricarica che aggiunge almeno il 30 %.</string>
+    <string name="es_drain_needs_access">La batteria per app richiede l\'accesso all\'utilizzo, per sapere quale app è sullo schermo.</string>
+    <string name="es_bg_hint">Batteria per app in background, dal report di Android. Richiede l\'autorizzazione dal computer nella pagina pro.</string>
+    <string name="es_bg_off">La misurazione automatica in background è disattivata nelle impostazioni.</string>
+    <string name="es_sessions_none">Ancora nessuna. Le ricariche e i periodi a batteria compaiono qui quando uno è durato 5 minuti.</string>
+
+    <!-- Apps -->
+    <string name="es_cost_none">Nessuna app ha ancora %1$d minuti di schermo misurati negli ultimi 7 giorni.</string>
+    <string name="es_updates_none">Nessuna app è stata aggiornata negli ultimi %1$d giorni.</string>
+    <string name="es_detail_sections">Aggiornamenti, calore, background, risvegli, sensori e attività previste compaiono qui solo se riguardano questa app.</string>
+    <string name="es_detail_grant">Background, risvegli, sensori e attività previste per app richiedono un\'autorizzazione nella pagina pro.</string>
+
+    <!-- History, Hardware, Settings, widgets -->
+    <string name="es_history_drain_none">In questo periodo non è stata misurata la batteria per app. Activity+ misura mentre è in esecuzione; tieni attivo lo stato in tempo reale.</string>
+    <string name="es_hw_not_reported">Non segnalato da questo telefono: %1$s.</string>
+    <string name="es_live_needs_android16">La ricarica come aggiornamento in tempo reale richiede Android 16.</string>
+    <string name="es_lang_needs_android13">Activity+ segue la lingua del telefono. Scegliere una lingua per questa app richiede Android 13.</string>
+    <string name="es_bg_setting_grant">La misurazione automatica in background richiede l\'autorizzazione dal computer nella pagina pro.</string>
+    <string name="es_widget_nothing_today">Ancora nulla di misurato oggi</string>
+</resources>

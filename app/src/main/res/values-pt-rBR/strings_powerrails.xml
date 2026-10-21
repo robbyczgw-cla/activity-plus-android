@@ -10,9 +10,9 @@
     <string name="power_rest">Resto do celular</string>
     <string name="power_rest_note">A bateria entrega mais do que as partes acima somam: perdas do carregador e peças sem medidor.</string>
     <string name="power_wait_now">Medindo, um momento …</string>
-    <string name="power_wait">Coletando dados. O Android embaça essas leituras, então uma média útil precisa de cerca de %1$s de medição.</string>
+    <string name="power_wait">Coletando dados. O Android deixa essas leituras imprecisas de propósito, então uma média útil precisa de cerca de %1$s de medição.</string>
     <string name="power_note_exact">Leituras exatas dos medidores de energia do próprio celular, várias vezes por segundo.</string>
-    <string name="power_note_coarse">O Android só entrega leituras embaçadas: um valor novo a cada 20 segundos, com ruído aleatório por cima. Por isso o Activity+ mostra médias de minutos e horas, não o momento.</string>
+    <string name="power_note_coarse">O Android só entrega leituras imprecisas: um valor novo a cada 20 segundos, com ruído aleatório por cima. Por isso o Activity+ mostra médias de minutos e horas, não o momento.</string>
     <string name="power_get_exact">Ativar leituras exatas</string>
     <string name="power_details_show">Mostrar todos os medidores</string>
     <string name="power_details_hide">Ocultar medidores</string>
@@ -27,6 +27,6 @@
     <string name="power_cat_gnss">Localização (GNSS)</string>
     <string name="power_cat_audio">Áudio</string>
     <string name="power_cat_other">Outros</string>
-    <string name="power_unsupported">Este celular não informa a energia por componente.</string>
+    <string name="power_unsupported">Este celular não informa a potência por componente.</string>
     <string name="power_silent">Os medidores de energia deste celular quase não informam nada, então não dá para mostrar para onde vai a energia.</string>
 </resources>

@@ -20,7 +20,7 @@
     <string name="power_cat_display">Pantalla</string>
     <string name="power_cat_cpu">CPU</string>
     <string name="power_cat_gpu">GPU</string>
-    <string name="power_cat_radio">Red móvil</string>
+    <string name="power_cat_radio">Radio móvil</string>
     <string name="power_cat_wifi">Wi-Fi y Bluetooth</string>
     <string name="power_cat_camera">Cámara</string>
     <string name="power_cat_memory">Memoria</string>

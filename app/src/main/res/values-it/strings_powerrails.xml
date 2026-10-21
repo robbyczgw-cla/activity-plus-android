@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Dove va la potenza (pagina batteria), 0.4.0 -->
-    <string name="power_title">Dove va la potenza</string>
+    <string name="power_title">Dove va l\'energia</string>
     <string name="power_covered">%1$s di dati</string>
     <string name="power_now">Adesso</string>
     <string name="power_hour">Ultima ora</string>

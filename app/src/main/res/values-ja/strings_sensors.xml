@@ -3,7 +3,7 @@
     <string name="sl_title">センサー</string>
     <string name="sl_subtitle">位置情報、カメラ、マイクを使ったアプリ</string>
     <string name="sl_refresh">更新</string>
-    <string name="sl_hint">どのアプリが位置情報、カメラ、マイクを使ったか、またバックグラウンドで使ったかを確認できます。プロページでコンピューターの許可が必要です。</string>
+    <string name="sl_hint">どのアプリが位置情報、カメラ、マイクを使ったか、またバックグラウンドで使ったかを確認できます。プロページでパソコンからの許可が必要です。</string>
     <string name="sl_open_log">センサーのログを開く</string>
 
     <string name="sl_location">位置情報</string>
@@ -36,8 +36,8 @@
     <string name="sl_part_background">バックグラウンド %d 回</string>
     <string name="sl_part_service">サービス経由 %d 回</string>
     <string name="sl_part_blocked">ブロック %d 回</string>
-    <string name="sl_part_active">実行 %s</string>
-    <string name="sl_part_last">最後 %s</string>
+    <string name="sl_part_active">稼働 %s</string>
+    <string name="sl_part_last">最終 %s</string>
 
     <string name="sl_system_show">システムサービスを表示（%d）</string>
     <string name="sl_system_hide">システムサービスを非表示（%d）</string>

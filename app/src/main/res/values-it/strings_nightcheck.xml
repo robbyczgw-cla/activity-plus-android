@@ -39,7 +39,7 @@
     <string name="nc_usually">di solito %1$s</string>
 
     <string name="nc_apps_title">Svegliate di notte</string>
-    <string name="nc_pro_hint">Quali app sono rimaste sveglie di notte? Con un permesso di lettura nella pagina pro, Activity+ le elenca per nome.</string>
+    <string name="nc_pro_hint">Quali app sono rimaste sveglie di notte? Con un\'autorizzazione di lettura nella pagina pro, Activity+ le elenca per nome.</string>
 
     <string name="nc_act_update">Controlla aggiornamenti di sistema</string>
     <string name="nc_act_update_note">Un bug di un aggiornamento di solito viene corretto dal successivo. Le app autorizzate a saltare l\'ottimizzazione della batteria saltano anche Doze.</string>

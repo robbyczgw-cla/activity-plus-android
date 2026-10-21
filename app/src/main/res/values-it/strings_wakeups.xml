@@ -3,9 +3,9 @@
     <!-- Chi ha svegliato il telefono (permesso BATTERY_STATS nella pagina pro) -->
     <string name="wk_title">Chi ha svegliato il telefono</string>
     <string name="wk_caption">Contatori di Android</string>
-    <string name="wk_hint">Scopri quali app svegliano il telefono e lo tengono sveglio di notte. Nella pagina pro serve un altro permesso di lettura.</string>
+    <string name="wk_hint">Scopri quali app svegliano il telefono e lo tengono sveglio di notte. Nella pagina pro serve un\'altra autorizzazione di lettura.</string>
     <string name="wk_empty">Non è ancora stato conteggiato nulla. Android conta solo a batteria; la prossima lettura arriva entro mezz\'ora.</string>
-    <string name="wk_night">Ieri notte, %1$s</string>
+    <string name="wk_night">La notte scorsa, %1$s</string>
     <string name="wk_today">Oggi</string>
     <string name="wk_quiet">Nessuna app si è distinta.</string>
     <string name="wk_cpu">CPU %1$s</string>
@@ -20,14 +20,14 @@
     <string name="wk_detail_wakeups">Ha svegliato il telefono oggi</string>
     <string name="wk_detail_awake">Lo ha tenuto sveglio oggi</string>
     <string name="wk_detail_cpu">Tempo CPU oggi</string>
-    <string name="wk_detail_jobs">Attività in background oggi</string>
+    <string name="wk_detail_jobs">Job in background oggi</string>
     <string name="wk_detail_syncs">Sincronizzazioni oggi</string>
     <string name="wk_detail_gps">Posizione oggi</string>
     <string name="wk_detail_usual">Giorno abituale</string>
     <string name="wk_detail_chart">Risvegli al giorno</string>
     <plurals name="wk_night_line">
-        <item quantity="one">%1$s ha svegliato il telefono %2$d volta ieri notte</item>
-        <item quantity="other">%1$s ha svegliato il telefono %2$d volte ieri notte</item>
+        <item quantity="one">%1$s ha svegliato il telefono %2$d volta la notte scorsa</item>
+        <item quantity="other">%1$s ha svegliato il telefono %2$d volte la notte scorsa</item>
     </plurals>
-    <string name="wk_night_awake">%1$s ha tenuto il telefono sveglio per %2$s ieri notte</string>
+    <string name="wk_night_awake">%1$s ha tenuto il telefono sveglio per %2$s la notte scorsa</string>
 </resources>

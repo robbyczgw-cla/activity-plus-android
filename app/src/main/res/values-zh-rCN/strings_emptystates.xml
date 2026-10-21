@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What a card says when its data is missing: the reason, and when it changes or what to do. -->
+<resources>
+    <string name="es_set_up">去设置</string>
+
+    <!-- Battery -->
+    <string name="es_forecast_none">暂无估算。需要大约一天的电池使用数据，才能学习你的使用习惯。</string>
+    <string name="es_unplug_none">拔掉充电器后开始。Activity+ 运行期间会记录每一段使用电池的时间。</string>
+    <string name="es_unplug_soon">刚刚拔掉充电器。第一分钟过后会显示数值。</string>
+    <string name="es_charger_test_plug">接上充电器，即可测试它和数据线的输出功率。</string>
+    <string name="es_power_needs_android15">按组件查看功率需要 Android 15 或更高版本。</string>
+    <string name="es_passport_none">此手机不提供这些信息，即使授予读取权限也一样。</string>
+    <string name="es_trend_none" formatted="false">从第二次充入至少 30% 的充电起显示。</string>
+    <string name="es_drain_needs_access">按应用查看耗电需要使用情况访问权限，以便知道哪个应用在屏幕上。</string>
+    <string name="es_bg_hint">各应用在后台的耗电，来自 Android 自身的报告。需要在专业页面授予电脑权限。</string>
+    <string name="es_bg_off">设置中已关闭自动后台测量。</string>
+    <string name="es_sessions_none">暂无记录。充电或使用电池的时间持续满 5 分钟后，会显示在这里。</string>
+
+    <!-- Apps -->
+    <string name="es_cost_none">最近 7 天内，还没有应用累计测得 %1$d 分钟的屏幕使用时间。</string>
+    <string name="es_updates_none">最近 %1$d 天内没有应用更新。</string>
+    <string name="es_detail_sections">更新、发热、后台、唤醒、传感器和计划，只有与此应用有关时才会显示在这里。</string>
+    <string name="es_detail_grant">按应用查看后台、唤醒、传感器和计划，需要在专业页面授予权限。</string>
+
+    <!-- History, Hardware, Settings, widgets -->
+    <string name="es_history_drain_none">这段时间内没有测得各应用的耗电。Activity+ 运行期间才会测量，请保持实时状态开启。</string>
+    <string name="es_hw_not_reported">此手机不提供：%1$s。</string>
+    <string name="es_live_needs_android16">以实时动态显示充电需要 Android 16。</string>
+    <string name="es_lang_needs_android13">Activity+ 跟随手机的语言。为此应用单独选择语言需要 Android 13。</string>
+    <string name="es_bg_setting_grant">自动后台测量需要在专业页面授予电脑权限。</string>
+    <string name="es_widget_nothing_today">今天还没有测量数据</string>
+</resources>

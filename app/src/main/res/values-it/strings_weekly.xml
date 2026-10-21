@@ -13,7 +13,7 @@
     <string name="weekly_top_screen">Più tempo di utilizzo</string>
     <string name="weekly_top_data">Più dati</string>
     <string name="weekly_vs_before">Rispetto alla settimana prima</string>
-    <string name="weekly_nothing">Nulla di misurato.</string>
+    <string name="weekly_nothing">Nessuna misurazione.</string>
     <string name="weekly_change_up">+%1$s</string>
     <string name="weekly_change_down">−%1$s</string>
     <string name="weekly_change_new">Nuova questa settimana</string>

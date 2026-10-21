@@ -16,7 +16,7 @@
     <string name="habits_advice_hot">Cargar a %1$s o más es lo que más envejece la batería. Tu teléfono estuvo así de caliente %2$s al día. Quítale la funda o carga en un lugar más fresco.</string>
     <string name="habits_advice_warm">Cargar a %1$s o más se acumula: %2$s al día. El calor desgasta la batería con el tiempo, así que cargar con menos calor conserva más su capacidad.</string>
     <string name="habits_advice_full">Tu teléfono pasó %1$s al día a %2$s o más mientras estaba conectado. Una batería que no se llena del todo envejece más despacio: activa el límite del %3$s o la carga adaptativa en los ajustes de batería. Activity+ también puede avisarte al %3$s (Ajustes, Carga).</string>
-    <string name="habits_advice_deep">La batería bajó de %1$s %2$d veces en %3$d días. Las descargas profundas estresan las celdas: conecta alrededor del %4$s en su lugar.</string>
+    <string name="habits_advice_deep">La batería bajó de %1$s %2$d veces en %3$d días. Las descargas profundas desgastan las celdas: conecta alrededor del %4$s en su lugar.</string>
     <string name="habits_open_battery">Ajustes de batería</string>
     <string name="habits_note">Medido a partir del historial por minuto de los últimos 30 días. Conectado significa enchufado a un cargador.</string>
 
@@ -36,7 +36,7 @@
 
     <string name="cost_title">Coste por hora de uso</string>
     <string name="cost_caption" formatted="false">Últimos 7 días</string>
-    <string name="cost_row_note">%1$s en pantalla · Ø %2$s</string>
+    <string name="cost_row_note">%1$s en pantalla · media %2$s</string>
     <string name="cost_note">Batería consumida mientras cada app estuvo en pantalla, medida con batería. También cuenta el trabajo en segundo plano de otras apps durante ese tiempo.</string>
     <string name="cost_min_note">Se excluyen las apps con menos de %1$d minutos medidos en los últimos 7 días.</string>
 </resources>

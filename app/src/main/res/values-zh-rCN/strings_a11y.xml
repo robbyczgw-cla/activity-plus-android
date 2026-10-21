@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 无障碍（TalkBack）：图表和条形的描述，以及点按后的操作 -->
+    <string name="a11y_chart_generic">图表</string>
+    <string name="a11y_chart_empty">%1$s：暂无数据</string>
+    <string name="a11y_chart_flat">%1$s，稳定在 %2$s</string>
+    <string name="a11y_chart_range">%1$s，从 %2$s 到 %3$s，当前 %4$s</string>
+    <string name="a11y_chart_span">%1$s，从 %2$s 到 %3$s</string>
+    <string name="a11y_chart_bars">%1$s，最低 %2$s，最高 %3$s</string>
+    <string name="a11y_chart_point">已选中的点：%1$s，%2$s</string>
+    <string name="a11y_chart_prev">上一个点</string>
+    <string name="a11y_chart_next">下一个点</string>
+    <string name="a11y_series_power">最近几分钟的功率</string>
+    <string name="a11y_series_memory">最近几分钟的内存使用量</string>
+    <string name="a11y_series_download">最近几分钟的下载速度</string>
+    <string name="a11y_series_temperature">最近几分钟的电池温度</string>
+    <string name="a11y_cpu_cores">各核心的 CPU 频率</string>
+    <string name="a11y_ram_day">最近 24 小时的内存使用量</string>
+    <string name="a11y_history_subject">%1$s，时间范围：%2$s</string>
+    <string name="a11y_label_value">%1$s，%2$s</string>
+    <string name="a11y_no_value">无数值</string>
+    <string name="a11y_severity_bad">严重</string>
+    <string name="a11y_severity_warn">警告</string>
+    <string name="a11y_severity_info">提示</string>
+    <string name="a11y_open_details">打开详情</string>
+    <string name="a11y_open_app_info">打开应用信息</string>
+    <string name="a11y_open_diagnosis">打开诊断</string>
+    <string name="a11y_open_weekly">打开周报</string>
+    <string name="a11y_open_pro">打开精确测量</string>
+    <string name="a11y_open_file">打开文件</string>
+    <string name="a11y_choose_language">选择语言</string>
+    <string name="a11y_copy_command">复制命令</string>
+    <string name="a11y_move_up">将 %1$s 上移</string>
+    <string name="a11y_move_down">将 %1$s 下移</string>
+    <string name="a11y_widget_ring">电池电量 %1$s</string>
+</resources>

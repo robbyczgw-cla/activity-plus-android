@@ -18,7 +18,7 @@
     <string name="channel_alerts">Alertas</string>
 
     <string name="access_title">Permita o acesso ao uso para ver qual app é o responsável</string>
-    <string name="access_body">Com o acesso ao uso, o Android informa ao Activity+ apenas qual app está na tela, quantos dados e quanto armazenamento cada app usa e por quanto tempo ele fica em execução em segundo plano. Nada sai do seu celular: o Activity+ não tem permissão de Internet.</string>
+    <string name="access_body">O Android só informa ao Activity+ qual app está na tela, quantos dados e quanto armazenamento cada app usa e por quanto tempo ele fica em execução em segundo plano se você conceder o acesso ao uso. Nada sai do seu celular: o Activity+ não tem permissão de Internet.</string>
     <string name="access_button">Abrir acesso ao uso</string>
 
     <string name="overview_subtitle">%1$s · ativo há %2$s</string>
@@ -96,7 +96,7 @@
     <string name="method_apps">O Activity+ mede a bateria enquanto o app está na tela. Tempo de tela, dados e armazenamento vêm do Android.</string>
     <string name="detail_battery">Bateria (medida)</string>
     <string name="detail_screen">Na tela</string>
-    <string name="detail_launches">Abertos</string>
+    <string name="detail_launches">Aberturas</string>
     <string name="detail_service">Em execução em segundo plano</string>
     <string name="detail_wifi">Dados Wi-Fi</string>
     <string name="detail_mobile">Dados móveis</string>
@@ -155,7 +155,7 @@
     <string name="history_drain_title">Bateria por app</string>
     <string name="history_note">Toque ou arraste o gráfico para ver o valor e o app que estava na tela. As falhas são períodos em que o celular estava em suspensão.</string>
     <string name="metric_level">Carga</string>
-    <string name="metric_power">Energia</string>
+    <string name="metric_power">Potência</string>
     <string name="metric_temperature">Temperatura</string>
     <string name="metric_memory">Memória</string>
     <string name="metric_network">Rede</string>
@@ -192,7 +192,7 @@
     <string name="f_uptime_title">Ligado há %1$s sem reiniciar</string>
     <string name="f_uptime_body">Uma reinicialização limpa atividades em segundo plano travadas.</string>
     <string name="f_anim_title">As animações estão lentas</string>
-    <string name="f_anim_body">A escala de animação está em %1$s×. Nas opções do desenvolvedor, 1× ou 0,5× deixam o celular mais rápido.</string>
+    <string name="f_anim_body">A escala de animação está em %1$s×. Nas opções do desenvolvedor, 1× ou 0,5× fazem o celular parecer mais rápido.</string>
     <plurals name="f_unused_title">
         <item quantity="one">%d app que você não usa há dois meses</item>
         <item quantity="other">%d apps que você não usa há dois meses</item>
@@ -204,7 +204,7 @@
     <string name="fix_battery_usage">Abrir uso da bateria</string>
     <string name="fix_developer">Opções do desenvolvedor</string>
 
-    <string name="item_power">Energia</string>
+    <string name="item_power">Potência</string>
     <string name="item_battery">Bateria</string>
     <string name="item_temperature">Temperatura</string>
     <string name="item_memory">Memória</string>
@@ -253,7 +253,7 @@
     <string name="privacy_title">O que você executa fica no seu celular</string>
     <string name="privacy_body">O Activity+ não tem permissão de Internet, conta nem análise de dados. Ele não consegue enviar nada para lugar nenhum. O histórico fica nos dados do próprio app; ao desinstalar, ele é removido.</string>
     <string name="about_title">Activity+ %1$s para Android</string>
-    <string name="about_body">O irmão Android do app para Mac. activityplus.xyz ›</string>
+    <string name="about_body">A versão para Android do app para Mac. activityplus.xyz ›</string>
 
     <string name="onb_title">Qual app está deixando seu celular lento?</string>
     <string name="onb_body">O Activity+ mede seu celular e diz, em linguagem simples, qual app é o responsável e o que fazer a respeito.</string>
@@ -282,7 +282,7 @@
     <string name="hw_cpu">Processador</string>
     <string name="hw_cores">Núcleos</string>
     <string name="hw_cluster">%1$d× núcleos</string>
-    <string name="hw_governor">Governador</string>
+    <string name="hw_governor">Governor</string>
     <string name="hw_abi">Arquitetura</string>
     <string name="hw_gpu">Gráficos</string>
     <string name="hw_memory_storage">Memória e armazenamento</string>
@@ -325,7 +325,7 @@
     <string name="hw_f_wifi_aware">Wi-Fi Aware</string>
     <string name="hw_f_uwb">Ultrabanda larga (UWB)</string>
     <string name="hw_sensors">Sensores</string>
-    <string name="hw_show_all">Mostrar todos os %1$d</string>
+    <string name="hw_show_all">Mostrar todos (%1$d)</string>
     <string name="hw_show_less">Mostrar menos</string>
     <string name="hw_yes">Sim</string>
     <string name="hw_no">Não</string>
@@ -334,8 +334,8 @@
     <string name="set_language">Idioma</string>
     <string name="set_language_hint">O Activity+ pode usar um idioma diferente do resto do celular.</string>
     <!-- Battery detail, RAM, widgets -->
-    <string name="battery_live_chart">Energia, um ponto por segundo</string>
-    <string name="battery_power_now">Energia agora</string>
+    <string name="battery_live_chart">Potência, um ponto por segundo</string>
+    <string name="battery_power_now">Potência agora</string>
     <string name="battery_rate">Ritmo</string>
     <string name="charging_speed_note">Para a bateria, média de 30 segundos</string>
     <string name="hw_storage">Armazenamento</string>
@@ -369,7 +369,7 @@
     <string name="session_since_unplug_title">Desde a desconexão</string>
     <string name="sessions_title">Cargas e descargas recentes</string>
     <string name="set_app_line">Linha do app</string>
-    <string name="set_app_line_hint">Mostra o app na tela e a energia que o celular consome abaixo dos valores.</string>
+    <string name="set_app_line_hint">Mostra o app na tela e a potência que o celular consome abaixo dos valores.</string>
     <string name="speed_fast">Carga rápida</string>
     <string name="speed_normal">Normal</string>
     <string name="speed_slow">Lenta</string>
@@ -382,13 +382,13 @@
     <string name="widget_config_title">Valores do widget</string>
     <string name="widget_full_in">cheia em %1$s</string>
     <string name="widget_left">%1$s restantes</string>
-    <string name="widget_most_today">Mais hoje: %1$s %2$s</string>
-    <string name="widget_battery_desc">Anel de carga, energia e tempo restante</string>
-    <string name="widget_battery_name">Activity+ bateria</string>
+    <string name="widget_most_today">Maior consumo hoje: %1$s %2$s</string>
+    <string name="widget_battery_desc">Anel de carga, potência e tempo restante</string>
+    <string name="widget_battery_name">Bateria do Activity+</string>
     <string name="widget_panel_desc">Até seis valores e o app que mais gastou bateria hoje</string>
-    <string name="widget_panel_name">Activity+ painel</string>
+    <string name="widget_panel_name">Painel do Activity+</string>
     <string name="widget_value_desc">Um valor à sua escolha, grande</string>
-    <string name="widget_value_name">Activity+ valor</string>
+    <string name="widget_value_name">Valor do Activity+</string>
 
     <!-- Pro mode -->
     <string name="pro_title">Medir com precisão</string>
@@ -410,12 +410,12 @@
     <string name="pro_not_running_body">O Shizuku está instalado, mas não em execução. Inicie-o no app Shizuku (depois de cada reinício do celular) e volte aqui.</string>
     <string name="pro_open_shizuku">Abrir Shizuku</string>
     <string name="pro_step_install">Instale o Shizuku (gratuito, código aberto).</string>
-    <string name="pro_step_debugging">Ative as Opções do desenvolvedor e a Depuração por Wi-Fi.</string>
-    <string name="pro_step_start">Inicie o Shizuku no app dele pela Depuração por Wi-Fi.</string>
+    <string name="pro_step_debugging">Ative as Opções do desenvolvedor e a Depuração sem fio.</string>
+    <string name="pro_step_start">Inicie o Shizuku no app dele pela Depuração sem fio.</string>
     <string name="pro_step_back">Volte aqui e toque em Medir agora. Depois você pode desativar as Opções do desenvolvedor.</string>
     <string name="pro_get_shizuku">Obter Shizuku</string>
     <string name="pro_pc_title">Ou por um computador</string>
-    <string name="pro_pc_body">Com a Depuração USB, execute isto uma vez (toque para copiar). Dá a bateria por app; memória e CPU por app precisam do Shizuku.</string>
+    <string name="pro_pc_body">Com a Depuração USB, execute isto uma vez (toque para copiar). Isso mostra a bateria por app; memória e CPU por app precisam do Shizuku.</string>
     <string name="pro_pc_note">A permissão continua após reinícios e com as Opções do desenvolvedor desativadas (testado no Android 15). Execute de novo após reinstalar o Activity+.</string>
     <string name="pro_error">A medição falhou: %1$s</string>
     <string name="pro_battery_title">Bateria por app desde a última carga</string>
@@ -429,10 +429,10 @@
     <string name="pro_hw_idle">Ocioso</string>
     <string name="pro_hw_camera">Câmera</string>
     <string name="pro_hw_flashlight">Lanterna</string>
-    <string name="pro_battery_note">Estimativa do próprio Android, igual à das configurações de bateria: primeiro plano e segundo plano, pelo modelo de energia dele.</string>
+    <string name="pro_battery_note">Estimativa do próprio Android, igual à das configurações de bateria: primeiro plano e segundo plano, pelo modelo de consumo dele.</string>
     <string name="pro_memory_title">Memória por app agora</string>
     <string name="pro_memory_note">PSS: memória usada por um app; a memória compartilhada é dividida entre os apps que a compartilham.</string>
-    <string name="pro_cpu_title">CPU por app, últimos 1,5 minutos</string>
+    <string name="pro_cpu_title">CPU por app, últimos 90 segundos</string>
     <string name="pro_cpu_note" formatted="false">Porcentagem de um núcleo; acima de 100 %, um app usa vários núcleos.</string>
     <string name="pro_privacy">O modo pro executa apenas os relatórios somente leitura do Android (dumpsys batterystats, meminfo, cpuinfo, appops, alarm, jobscheduler, thermalservice, deviceidle) e, quando você pedir, concede ao Activity+ as próprias permissões de leitura. Qualquer outro comando é recusado, e o Activity+ não tem permissão de Internet.</string>
     <string name="pro_entry_title">Medir com precisão</string>

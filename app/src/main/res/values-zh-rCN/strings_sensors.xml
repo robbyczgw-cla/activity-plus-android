@@ -36,8 +36,8 @@
     <string name="sl_part_background">后台 %d 次</string>
     <string name="sl_part_service">来自服务 %d 次</string>
     <string name="sl_part_blocked">已阻止 %d 次</string>
-    <string name="sl_part_active">运行 %s</string>
-    <string name="sl_part_last">最近 %s</string>
+    <string name="sl_part_active">活跃 %s</string>
+    <string name="sl_part_last">最近一次 %s</string>
 
     <string name="sl_system_show">显示系统服务（%d）</string>
     <string name="sl_system_hide">隐藏系统服务（%d）</string>

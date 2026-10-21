@@ -28,5 +28,5 @@
     <string name="passport_agree">Entrambi indicano circa %1$s.</string>
     <string name="passport_differ">Android indica %1$s, le misurazioni indicano %2$s.</string>
     <string name="passport_differ_settling">Android indica %1$s, le misurazioni indicano %2$s; la misurazione ha bisogno di alcune ricariche complete per stabilizzarsi.</string>
-    <string name="passport_more">Altri dati (stato, date) con il permesso di lettura</string>
+    <string name="passport_more">Altri dati (stato, date) con l\'autorizzazione di lettura</string>
 </resources>

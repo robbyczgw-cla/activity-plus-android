@@ -2,8 +2,8 @@
 <resources>
     <string name="su_title">アップデート後</string>
     <string name="su_caption">直近 3 週間</string>
-    <string name="su_updated">%1$s を %2$s に更新</string>
-    <string name="su_updated_nov">%1$s を更新</string>
+    <string name="su_updated">%1$s に %2$s へ更新</string>
+    <string name="su_updated_nov">%1$s に更新</string>
     <string name="su_intro">%1$s（%2$s）のアップデート以降：</string>
     <string name="su_intro_nov">%1$s のアップデート以降：</string>
     <plurals name="su_none">
@@ -12,16 +12,16 @@
     <string name="su_waiting">直近すぎるアップデートは、判断するために少なくとも 3 日分の測定が必要です。</string>
     <string name="su_note">アップデートは最も可能性の高い理由であって、証拠ではありません。アプリの使い方が原因の場合もあります。アップデート前後の日ごとの中央値を比べ、最低限の値を超え、かつ 2 倍（または半分）以上の変化だけを数えます。</string>
 
-    <string name="su_bg_up">バックグラウンドのバッテリー消費が %1$s 増えた</string>
+    <string name="su_bg_up">バックグラウンドのバッテリー消費が %1$s に増えた</string>
     <string name="su_bg_new">今はバックグラウンドで 1 日およそ %1$s 消費する</string>
     <string name="su_bg_down">バックグラウンドのバッテリー消費が %1$s 減った</string>
-    <string name="su_wake_up">スマホを起こす回数が %1$s 増えた</string>
-    <string name="su_wake_new">今は 1 日およそ %1$s 回スマホを起こす</string>
-    <string name="su_wake_down">スマホを起こす回数が %1$s 減った</string>
-    <string name="su_lock_up">スマホを起きたままにする時間が %1$s 長くなった</string>
-    <string name="su_lock_new">今は 1 日およそ %1$s の間スマホを起きたままにする</string>
-    <string name="su_lock_down">スマホを起きたままにする時間が %1$s 短くなった</string>
-    <string name="su_energy_up">使用中の消費電力が %1$s 増えた</string>
+    <string name="su_wake_up">端末を起こす回数が %1$s に増えた</string>
+    <string name="su_wake_new">今は 1 日およそ %1$s 回端末を起こす</string>
+    <string name="su_wake_down">端末を起こす回数が %1$s 減った</string>
+    <string name="su_lock_up">端末を起きたままにする時間が %1$s に延びた</string>
+    <string name="su_lock_new">今は 1 日およそ %1$s の間端末を起きたままにする</string>
+    <string name="su_lock_down">端末を起きたままにする時間が %1$s 短くなった</string>
+    <string name="su_energy_up">使用中の消費電力が %1$s に増えた</string>
     <string name="su_energy_new">今は使用中におよそ %1$s を消費する</string>
     <string name="su_energy_down">使用中の消費電力が %1$s 減った</string>
     <string name="su_mobile_up">モバイルデータの使用量が週に %1$s 増えた</string>
@@ -30,9 +30,9 @@
     <string name="su_wifi_down">Wi-Fi データの使用量が週に %1$s 減った</string>
     <string name="su_storage_up">ストレージ使用量が %1$s 増えた</string>
 
-    <string name="su_detail_head">%1$s を %2$s に更新 — それ以降：</string>
-    <string name="su_detail_head_nov">%1$s を更新 — それ以降：</string>
-    <string name="su_detail_none">バックグラウンドのバッテリー、起床、データ、ストレージに明確な変化はありません。</string>
+    <string name="su_detail_head">%1$s に %2$s へ更新 — それ以降：</string>
+    <string name="su_detail_head_nov">%1$s に更新 — それ以降：</string>
+    <string name="su_detail_none">バックグラウンドのバッテリー、ウェイクアップ、データ、ストレージに明確な変化はありません。</string>
     <string name="su_detail_early">データがまだ不足しています。アップデートの前後それぞれ少なくとも 3 日分の測定が必要です。</string>
 
     <string name="f_since_title">%1$s はアップデート後に変化しました</string>

@@ -58,6 +58,6 @@
     <string name="media_delete">Supprimer…</string>
     <string name="media_clear">Désélectionner</string>
     <string name="media_delete_note">Android vous demande une confirmation avant toute suppression.</string>
-    <string name="media_no_delete">Activity+ ne peut pas supprimer de fichiers sous Android 10. Touchez un fichier pour l\'ouvrir et le supprimer là.</string>
+    <string name="media_no_delete">Activity+ ne peut pas supprimer de fichiers sous Android 10. Touchez un fichier pour l\'ouvrir et le supprimer depuis cette app.</string>
     <string name="media_open_failed">Aucune app ne peut ouvrir ce fichier.</string>
 </resources>

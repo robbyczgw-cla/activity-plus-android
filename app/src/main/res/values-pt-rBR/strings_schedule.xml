@@ -2,10 +2,10 @@
 <resources>
     <string name="sc_title">Planejado para hoje à noite</string>
     <string name="sc_caption">O que os apps agendaram</string>
-    <string name="sc_hint">Veja qual app vai acordar o celular em seguida e com que frequência os apps planejam isso. Precisa da permissão do computador ou do Shizuku na página pro.</string>
+    <string name="sc_hint">Veja qual app vai acordar o celular em seguida e com que frequência os apps planejam isso. Precisa da permissão pelo computador ou do Shizuku na página pro.</string>
     <string name="sc_reading">Lendo os alarmes e as tarefas que os apps agendaram …</string>
     <string name="sc_failed">O Android não entregou a lista de alarmes. Tente de novo mais tarde.</string>
-    <string name="sc_shizuku">Lê os alarmes e as tarefas que os apps agendaram, por meio do Shizuku. Nada é lido em segundo plano.</string>
+    <string name="sc_shizuku">Leia os alarmes e as tarefas que os apps agendaram, por meio do Shizuku. Nada é lido em segundo plano.</string>
     <string name="sc_read_now">Ler agora</string>
     <string name="sc_read_again">Ler de novo</string>
     <string name="sc_night">Hoje à noite, %1$s</string>
@@ -19,7 +19,7 @@
     <string name="sc_then_about">depois, a cada %1$s aproximadamente</string>
     <string name="sc_in_doze">permitido no Doze</string>
     <string name="sc_exact">exato</string>
-    <string name="sc_alarm_clock">Alarme %1$s</string>
+    <string name="sc_alarm_clock">Despertador %1$s</string>
     <string name="sc_badge_doze">Exato no Doze</string>
     <string name="sc_badge_jobs">Tarefas frequentes</string>
     <plurals name="sc_jobs_count">
@@ -34,7 +34,7 @@
     <string name="sc_jobs_title">Tarefas em segundo plano</string>
     <string name="sc_job_every">a cada %1$s</string>
     <string name="sc_job_once">uma vez</string>
-    <string name="sc_job_network">precisa de internet</string>
+    <string name="sc_job_network">precisa de Internet</string>
     <string name="sc_job_wifi">só Wi-Fi</string>
     <string name="sc_job_charging">só durante a carga</string>
     <string name="sc_job_battery">também na bateria</string>

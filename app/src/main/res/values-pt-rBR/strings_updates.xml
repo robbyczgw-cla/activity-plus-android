@@ -2,8 +2,8 @@
 <resources>
     <string name="su_title">Depois das atualizações</string>
     <string name="su_caption">últimas 3 semanas</string>
-    <string name="su_updated">%1$s atualizado para %2$s</string>
-    <string name="su_updated_nov">%1$s atualizado</string>
+    <string name="su_updated">Atualizado para %2$s em %1$s</string>
+    <string name="su_updated_nov">Atualizado em %1$s</string>
     <string name="su_intro">Desde a atualização de %1$s (%2$s):</string>
     <string name="su_intro_nov">Desde a atualização de %1$s:</string>
     <plurals name="su_none">
@@ -13,26 +13,26 @@
     <string name="su_waiting">Atualizações muito recentes precisam de pelo menos 3 dias de medições antes de serem avaliadas.</string>
     <string name="su_note">Uma atualização é só a causa mais provável, não uma prova: também pode ser o jeito como você usa o app. Comparamos as medianas dos dias antes e depois, e só conta uma mudança de pelo menos o dobro (ou a metade), com um mínimo.</string>
 
-    <string name="su_bg_up">usa %1$s a mais de bateria em segundo plano</string>
+    <string name="su_bg_up">usa %1$s mais bateria em segundo plano</string>
     <string name="su_bg_new">agora usa cerca de %1$s por dia em segundo plano</string>
-    <string name="su_bg_down">usa %1$s a menos de bateria em segundo plano</string>
-    <string name="su_wake_up">acorda o celular %1$s com mais frequência</string>
+    <string name="su_bg_down">usa %1$s menos bateria em segundo plano</string>
+    <string name="su_wake_up">acorda o celular %1$s mais vezes</string>
     <string name="su_wake_new">agora acorda o celular cerca de %1$s vezes por dia</string>
-    <string name="su_wake_down">acorda o celular %1$s com menos frequência</string>
-    <string name="su_lock_up">mantém o celular acordado %1$s por mais tempo</string>
+    <string name="su_wake_down">acorda o celular %1$s menos vezes</string>
+    <string name="su_lock_up">mantém o celular acordado %1$s mais tempo</string>
     <string name="su_lock_new">agora mantém o celular acordado cerca de %1$s por dia</string>
-    <string name="su_lock_down">mantém o celular acordado %1$s por menos tempo</string>
-    <string name="su_energy_up">consome %1$s a mais de energia enquanto você usa</string>
+    <string name="su_lock_down">mantém o celular acordado %1$s menos tempo</string>
+    <string name="su_energy_up">consome %1$s mais energia enquanto você usa</string>
     <string name="su_energy_new">agora consome cerca de %1$s enquanto você usa</string>
-    <string name="su_energy_down">consome %1$s a menos de energia enquanto você usa</string>
-    <string name="su_mobile_up">usa %1$s a mais de dados móveis por semana</string>
-    <string name="su_mobile_down">usa %1$s a menos de dados móveis por semana</string>
-    <string name="su_wifi_up">usa %1$s a mais de dados de Wi-Fi por semana</string>
-    <string name="su_wifi_down">usa %1$s a menos de dados de Wi-Fi por semana</string>
+    <string name="su_energy_down">consome %1$s menos energia enquanto você usa</string>
+    <string name="su_mobile_up">usa %1$s mais dados móveis por semana</string>
+    <string name="su_mobile_down">usa %1$s menos dados móveis por semana</string>
+    <string name="su_wifi_up">usa %1$s mais dados de Wi-Fi por semana</string>
+    <string name="su_wifi_down">usa %1$s menos dados de Wi-Fi por semana</string>
     <string name="su_storage_up">ocupa %1$s a mais</string>
 
-    <string name="su_detail_head">Atualizado de %1$s para %2$s — desde então:</string>
-    <string name="su_detail_head_nov">Atualizado %1$s — desde então:</string>
+    <string name="su_detail_head">Atualizado para %2$s em %1$s — desde então:</string>
+    <string name="su_detail_head_nov">Atualizado em %1$s — desde então:</string>
     <string name="su_detail_none">Nenhuma mudança clara na bateria em segundo plano, nos despertares, nos dados ou no armazenamento.</string>
     <string name="su_detail_early">Ainda não há dados suficientes: são necessários pelo menos 3 dias de medições antes e depois da atualização.</string>
 

@@ -28,5 +28,5 @@
     <string name="power_cat_audio">オーディオ</string>
     <string name="power_cat_other">その他</string>
     <string name="power_unsupported">この端末は部品ごとの電力を報告しません。</string>
-    <string name="power_silent">このスマートフォンの電力メーターはほとんど値を報告しないため、電力の使い道を表示できません。</string>
+    <string name="power_silent">この端末の電力計はほとんど値を報告しないため、電力の使い道を表示できません。</string>
 </resources>

@@ -20,7 +20,7 @@
     <string name="chg_set_note">Estas alarmas siguen el interruptor de Avisos.</string>
 
     <!-- Test del cargador -->
-    <string name="chg_test_title">Test del cargador</string>
+    <string name="chg_test_title">Prueba del cargador</string>
     <string name="chg_test_intro">Mide durante 30 segundos lo que este cargador y este cable entregan a la batería. Mantén esta pantalla abierta.</string>
     <string name="chg_test_button">Probar cargador</string>
     <string name="chg_test_running">Midiendo… %1$d de %2$d s</string>

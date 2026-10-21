@@ -13,7 +13,7 @@
     <string name="th_worst">Nível mais alto</string>
     <string name="th_recent">Períodos recentes</string>
     <string name="th_ongoing">Ainda ativo</string>
-    <string name="th_ep_sensor">%1$s em %2$s</string>
+    <string name="th_ep_sensor">%1$s a %2$s</string>
     <plurals name="th_ep_cooling">
         <item quantity="one">%d dispositivo de resfriamento ativo</item>
         <item quantity="other">%d dispositivos de resfriamento ativos</item>
@@ -25,18 +25,18 @@
     <string name="th_at_once">limitado desde o início</string>
     <string name="th_for">limitado por %1$s</string>
     <string name="th_apps_empty">Nenhum app ficou tempo suficiente na tela ainda. Um app precisa de 10 minutos nos últimos 7 dias.</string>
-    <string name="th_usage_hint">O calor por app precisa do acesso de uso, para saber qual app está na tela.</string>
+    <string name="th_usage_hint">O calor por app precisa do acesso ao uso, para saber qual app está na tela.</string>
     <string name="th_note">As temperaturas são as da bateria. A potência é a que a bateria entregou enquanto o app estava na tela. O Android considera o celular limitado a partir do nível “moderado”.</string>
-    <string name="th_grant_hint">Com a permissão do computador, o registro também mostra o sensor que o Android apontou e os dispositivos de resfriamento em funcionamento.</string>
+    <string name="th_grant_hint">Com a permissão pelo computador, o registro também mostra o sensor que o Android apontou e os dispositivos de resfriamento em funcionamento.</string>
     <string name="th_open_pro">Abrir modo pro</string>
     <string name="th_detail_title">Calor na tela, últimos 7 dias</string>
     <string name="th_detail_time">Medido na tela</string>
     <string name="th_detail_temp">Temperatura da bateria</string>
-    <string name="th_detail_temp_value">Ø %1$s · máx. %2$s</string>
+    <string name="th_detail_temp_value">média %1$s · máx. %2$s</string>
     <string name="th_detail_power">Potência média</string>
     <string name="th_detail_throttled">Limitado</string>
-    <string name="th_regular_badge">Muitas vezes limitado</string>
-    <string name="f_throttle_title">%1$s continua fazendo o celular ser limitado</string>
+    <string name="th_regular_badge">Limitado com frequência</string>
+    <string name="f_throttle_title">%1$s continua limitando o desempenho do celular</string>
     <string name="f_throttle_body">O celular reduziu o próprio desempenho por causa do calor %1$d vezes em %2$d dias enquanto este app estava na tela (%3$s no total, bateria até %4$s). Reduza a qualidade gráfica ou a taxa de quadros dele, ou deixe o celular esfriar primeiro.</string>
 
     <string name="fc_title">Tempo restante pelo seu padrão</string>

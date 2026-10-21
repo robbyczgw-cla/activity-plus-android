@@ -2,9 +2,9 @@
 <resources>
     <!-- Autorisations de lecture ajoutées en 0.4.0 (page pro) -->
     <string name="grants_title">Plus de mesures disponibles</string>
-    <string name="grants_body">Deux autorisations de lecture de plus débloquent les réveils et les wakelocks par appli, les données de la batterie elle-même (état, dates) et la puissance exacte par composant.</string>
+    <string name="grants_body">Deux autorisations de lecture de plus débloquent les réveils et les wakelocks par app, les données de la batterie elle-même (état, dates) et la puissance exacte par composant.</string>
     <string name="grants_shizuku">Accorder avec Shizuku</string>
     <string name="grants_failed">Ça n\'a pas marché. Utilisez plutôt la ligne pour l\'ordinateur du guide d\'installation.</string>
     <string name="grants_computer">Exécutez la ligne une nouvelle fois depuis votre ordinateur (touchez pour copier) ; elle les inclut maintenant.</string>
-    <string name="grants_safe">Elles permettent seulement à Activity+ de lire. Les applis bancaires ne sont pas concernées, et vous pourrez désactiver à nouveau les options pour développeurs ensuite.</string>
+    <string name="grants_safe">Elles permettent seulement à Activity+ de lire. Les apps bancaires ne sont pas concernées, et vous pourrez désactiver à nouveau les Options pour les développeurs ensuite.</string>
 </resources>

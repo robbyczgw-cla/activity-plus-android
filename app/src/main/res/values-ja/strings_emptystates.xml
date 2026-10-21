@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What a card says when its data is missing: the reason, and when it changes or what to do. -->
+<resources>
+    <string name="es_set_up">設定する</string>
+
+    <!-- Battery -->
+    <string name="es_forecast_none">まだ推定できません。使い方のパターンを学習するには、バッテリー駆動で約 1 日分の使用が必要です。</string>
+    <string name="es_unplug_none">充電器を外すと始まります。Activity+ は、動作中のバッテリー駆動の期間をすべて記録します。</string>
+    <string name="es_unplug_soon">充電器を外したばかりです。数値は 1 分後から表示されます。</string>
+    <string name="es_charger_test_plug">充電器をつなぐと、その充電器とケーブルが供給する電力をテストできます。</string>
+    <string name="es_power_needs_android15">部品ごとの電力を見るには Android 15 以降が必要です。</string>
+    <string name="es_passport_none">この端末は、読み取り権限があってもこれらの情報を報告しません。</string>
+    <string name="es_trend_none" formatted="false">30 % 以上充電した 2 回目の充電から表示されます。</string>
+    <string name="es_drain_needs_access">アプリごとのバッテリー使用量には、どのアプリが画面に表示されているかを知るため、使用状況へのアクセスが必要です。</string>
+    <string name="es_bg_hint">バックグラウンドでのアプリごとのバッテリー使用量です。Android 自身のレポートに基づきます。プロページでパソコンからの許可が必要です。</string>
+    <string name="es_bg_off">バックグラウンドの自動計測が設定でオフになっています。</string>
+    <string name="es_sessions_none">まだありません。充電やバッテリー駆動の期間が 5 分続くと、ここに表示されます。</string>
+
+    <!-- Apps -->
+    <string name="es_cost_none">直近 7 日間で、画面表示の計測が %1$d 分に達したアプリはまだありません。</string>
+    <string name="es_updates_none">直近 %1$d 日間にアップデートされたアプリはありません。</string>
+    <string name="es_detail_sections">アップデート、発熱、バックグラウンド、ウェイクアップ、センサー、予定は、このアプリに関係がある場合のみここに表示されます。</string>
+    <string name="es_detail_grant">アプリごとのバックグラウンド、ウェイクアップ、センサー、予定を見るには、プロページでの許可が必要です。</string>
+
+    <!-- History, Hardware, Settings, widgets -->
+    <string name="es_history_drain_none">この期間のアプリごとのバッテリー使用量は計測されていません。Activity+ は動作中に計測します。ライブステータスをオンにしておいてください。</string>
+    <string name="es_hw_not_reported">この端末は報告しません: %1$s。</string>
+    <string name="es_live_needs_android16">ライブ アップデートでの充電表示には Android 16 が必要です。</string>
+    <string name="es_lang_needs_android13">Activity+ は端末の言語に従います。このアプリだけ別の言語を選ぶには Android 13 が必要です。</string>
+    <string name="es_bg_setting_grant">バックグラウンドの自動計測には、プロページでパソコンからの許可が必要です。</string>
+    <string name="es_widget_nothing_today">今日はまだ計測されていません</string>
+</resources>

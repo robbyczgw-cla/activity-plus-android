@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Accessibilité (TalkBack) : descriptions des graphiques et des barres, et ce que fait un appui -->
+    <string name="a11y_chart_generic">Graphique</string>
+    <string name="a11y_chart_empty">%1$s : pas encore de données</string>
+    <string name="a11y_chart_flat">%1$s, stable à %2$s</string>
+    <string name="a11y_chart_range">%1$s, de %2$s à %3$s, actuellement %4$s</string>
+    <string name="a11y_chart_span">%1$s, de %2$s à %3$s</string>
+    <string name="a11y_chart_bars">%1$s, minimum %2$s, maximum %3$s</string>
+    <string name="a11y_chart_point">Point sélectionné : %1$s, %2$s</string>
+    <string name="a11y_chart_prev">Point précédent</string>
+    <string name="a11y_chart_next">Point suivant</string>
+    <string name="a11y_series_power">Puissance au cours des dernières minutes</string>
+    <string name="a11y_series_memory">Mémoire utilisée au cours des dernières minutes</string>
+    <string name="a11y_series_download">Débit de téléchargement au cours des dernières minutes</string>
+    <string name="a11y_series_temperature">Température de la batterie au cours des dernières minutes</string>
+    <string name="a11y_cpu_cores">Fréquence du CPU par cœur</string>
+    <string name="a11y_ram_day">Mémoire utilisée au cours des dernières 24 heures</string>
+    <string name="a11y_history_subject">%1$s, période : %2$s</string>
+    <string name="a11y_label_value">%1$s, %2$s</string>
+    <string name="a11y_no_value">Aucune valeur</string>
+    <string name="a11y_severity_bad">Grave</string>
+    <string name="a11y_severity_warn">Avertissement</string>
+    <string name="a11y_severity_info">Pour information</string>
+    <string name="a11y_open_details">Ouvrir les détails</string>
+    <string name="a11y_open_app_info">Ouvrir les infos de l\'app</string>
+    <string name="a11y_open_diagnosis">Ouvrir le diagnostic</string>
+    <string name="a11y_open_weekly">Ouvrir le rapport hebdomadaire</string>
+    <string name="a11y_open_pro">Ouvrir la mesure précise</string>
+    <string name="a11y_open_file">Ouvrir le fichier</string>
+    <string name="a11y_choose_language">Choisir la langue</string>
+    <string name="a11y_copy_command">Copier la commande</string>
+    <string name="a11y_move_up">Monter %1$s</string>
+    <string name="a11y_move_down">Descendre %1$s</string>
+    <string name="a11y_widget_ring">Charge de la batterie : %1$s</string>
+</resources>

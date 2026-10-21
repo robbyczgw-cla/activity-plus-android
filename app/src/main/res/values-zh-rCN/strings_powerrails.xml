@@ -6,12 +6,12 @@
     <string name="power_now">此刻</string>
     <string name="power_hour">最近一小时</string>
     <string name="power_today">今天</string>
-    <string name="power_measured">在设备内测得</string>
-    <string name="power_rest">设备其余部分</string>
+    <string name="power_measured">在手机内测得</string>
+    <string name="power_rest">手机其余部分</string>
     <string name="power_rest_note">电池输出的功率比上面各部件之和更多，差额来自充电器损耗以及没有计量器的部件。</string>
     <string name="power_wait_now">正在测量，请稍候 …</string>
     <string name="power_wait">正在收集数据。Android 会模糊这些读数，因此需要约 %1$s 的测量时间，才能得到可用的平均值。</string>
-    <string name="power_note_exact">来自设备自带功率计的精确读数，每秒多次。</string>
+    <string name="power_note_exact">来自手机自带功率计的精确读数，每秒多次。</string>
     <string name="power_note_coarse">Android 只提供模糊的读数：每 20 秒更新一次，并叠加随机噪声。因此 Activity+ 显示的是几分钟和几小时的平均值，而不是瞬时值。</string>
     <string name="power_get_exact">获取精确读数</string>
     <string name="power_details_show">显示所有计量器</string>
@@ -27,6 +27,6 @@
     <string name="power_cat_gnss">定位（GNSS）</string>
     <string name="power_cat_audio">音频</string>
     <string name="power_cat_other">其他</string>
-    <string name="power_unsupported">此设备不提供分组件的耗电数据。</string>
-    <string name="power_silent">这部手机的电量计几乎不报告数据，因此无法显示电量的去向。</string>
+    <string name="power_unsupported">此手机不提供各组件的功率数据。</string>
+    <string name="power_silent">此手机的功率计几乎不报告数据，因此无法显示电量的去向。</string>
 </resources>

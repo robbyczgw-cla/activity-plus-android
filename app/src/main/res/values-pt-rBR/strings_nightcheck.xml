@@ -39,7 +39,7 @@
     <string name="nc_usually">normalmente %1$s</string>
 
     <string name="nc_apps_title">Acordados à noite</string>
-    <string name="nc_pro_hint">Quais apps ficaram acordadas à noite? Com uma permissão de leitura na página pro, o Activity+ mostra os nomes.</string>
+    <string name="nc_pro_hint">Quais apps ficaram acordados à noite? Com uma permissão de leitura na página pro, o Activity+ mostra os nomes.</string>
 
     <string name="nc_act_update">Verificar atualizações do sistema</string>
     <string name="nc_act_update_note">Um bug de atualização costuma ser corrigido na seguinte. Apps com permissão para ignorar a otimização de bateria também ignoram o Doze.</string>

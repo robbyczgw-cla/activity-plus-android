@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Acessibilidade (TalkBack): descrições de gráficos e barras, e o que um toque faz -->
+    <string name="a11y_chart_generic">Gráfico</string>
+    <string name="a11y_chart_empty">%1$s: ainda sem dados</string>
+    <string name="a11y_chart_flat">%1$s, estável em %2$s</string>
+    <string name="a11y_chart_range">%1$s, de %2$s a %3$s, agora %4$s</string>
+    <string name="a11y_chart_span">%1$s, de %2$s a %3$s</string>
+    <string name="a11y_chart_bars">%1$s, mínimo de %2$s, máximo de %3$s</string>
+    <string name="a11y_chart_point">Ponto selecionado: %1$s, %2$s</string>
+    <string name="a11y_chart_prev">Ponto anterior</string>
+    <string name="a11y_chart_next">Próximo ponto</string>
+    <string name="a11y_series_power">Potência nos últimos minutos</string>
+    <string name="a11y_series_memory">Memória em uso nos últimos minutos</string>
+    <string name="a11y_series_download">Velocidade de download nos últimos minutos</string>
+    <string name="a11y_series_temperature">Temperatura da bateria nos últimos minutos</string>
+    <string name="a11y_cpu_cores">Frequência da CPU por núcleo</string>
+    <string name="a11y_ram_day">Memória em uso nas últimas 24 horas</string>
+    <string name="a11y_history_subject">%1$s, período: %2$s</string>
+    <string name="a11y_label_value">%1$s, %2$s</string>
+    <string name="a11y_no_value">Sem valor</string>
+    <string name="a11y_severity_bad">Grave</string>
+    <string name="a11y_severity_warn">Aviso</string>
+    <string name="a11y_severity_info">Para sua informação</string>
+    <string name="a11y_open_details">Abrir detalhes</string>
+    <string name="a11y_open_app_info">Abrir informações do app</string>
+    <string name="a11y_open_diagnosis">Abrir diagnóstico</string>
+    <string name="a11y_open_weekly">Abrir relatório semanal</string>
+    <string name="a11y_open_pro">Abrir medição precisa</string>
+    <string name="a11y_open_file">Abrir arquivo</string>
+    <string name="a11y_choose_language">Escolher idioma</string>
+    <string name="a11y_copy_command">Copiar comando</string>
+    <string name="a11y_move_up">Mover %1$s para cima</string>
+    <string name="a11y_move_down">Mover %1$s para baixo</string>
+    <string name="a11y_widget_ring">Carga da bateria: %1$s</string>
+</resources>

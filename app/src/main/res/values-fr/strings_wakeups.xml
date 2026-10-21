@@ -3,19 +3,19 @@
     <!-- Qui a réveillé le téléphone (autorisation BATTERY_STATS sur la page pro) -->
     <string name="wk_title">Qui a réveillé le téléphone</string>
     <string name="wk_caption">Compteurs d\'Android</string>
-    <string name="wk_hint">Voyez quelles applis réveillent le téléphone et le gardent éveillé la nuit. Il faut une autorisation de lecture de plus sur la page pro.</string>
+    <string name="wk_hint">Voyez quelles apps réveillent le téléphone et le gardent éveillé la nuit. Il faut une autorisation de lecture de plus sur la page pro.</string>
     <string name="wk_empty">Rien n\'a encore été compté. Android ne compte que sur batterie ; la prochaine mesure arrive dans une demi-heure.</string>
     <string name="wk_night">La nuit dernière, %1$s</string>
     <string name="wk_today">Aujourd\'hui</string>
-    <string name="wk_quiet">Aucune appli ne s\'est démarquée.</string>
+    <string name="wk_quiet">Aucune app ne s\'est démarquée.</string>
     <string name="wk_cpu">CPU %1$s</string>
     <plurals name="wk_wakeups">
         <item quantity="one">%d réveil</item>
         <item quantity="other">%d réveils</item>
     </plurals>
     <string name="wk_explain">Un réveil est une alarme qui sort le téléphone du sommeil ; un wakelock le garde éveillé écran éteint. Les deux vident la batterie pendant que vous n\'utilisez pas le téléphone.</string>
-    <string name="wk_note">Compté par Android, sur batterie seulement. Touchez une appli pour voir sa semaine.</string>
-    <string name="wk_fix">Dans les infos de l\'appli, sous Batterie, vous pouvez limiter son fonctionnement en arrière-plan. Activity+ ne change jamais cela de lui-même.</string>
+    <string name="wk_note">Compté par Android, sur batterie seulement. Touchez une app pour voir sa semaine.</string>
+    <string name="wk_fix">Dans les infos de l\'app, sous Batterie, vous pouvez limiter son fonctionnement en arrière-plan. Activity+ ne change jamais cela de lui-même.</string>
     <string name="wk_detail_title">Réveils et wakelocks, 7 derniers jours</string>
     <string name="wk_detail_wakeups">A réveillé le téléphone aujourd\'hui</string>
     <string name="wk_detail_awake">L\'a gardé éveillé aujourd\'hui</string>

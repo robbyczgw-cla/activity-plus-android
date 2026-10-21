@@ -18,26 +18,26 @@
         <item quantity="one">%d dispositif de refroidissement actif</item>
         <item quantity="other">%d dispositifs de refroidissement actifs</item>
     </plurals>
-    <string name="th_apps_title">Chaleur par appli</string>
+    <string name="th_apps_title">Chaleur par app</string>
     <string name="th_app_power">%1$s en moyenne</string>
     <string name="th_app_max">jusqu\'à %1$s</string>
     <string name="th_after">bridé après %1$s</string>
     <string name="th_at_once">bridé dès le départ</string>
     <string name="th_for">bridé pendant %1$s</string>
-    <string name="th_apps_empty">Aucune appli n\'a encore été assez longtemps à l\'écran. Une appli doit y être 10 minutes sur les 7 derniers jours.</string>
-    <string name="th_usage_hint">La chaleur par appli nécessite l\'accès à l\'utilisation, pour savoir quelle appli est à l\'écran.</string>
-    <string name="th_note">Les températures sont celles de la batterie. La puissance est celle fournie par la batterie pendant que l\'appli était à l\'écran. Android considère qu\'un téléphone est bridé à partir du niveau « modéré ».</string>
-    <string name="th_grant_hint">Avec l\'autorisation ordinateur, le journal indique aussi le capteur mis en cause par Android et les dispositifs de refroidissement en action.</string>
+    <string name="th_apps_empty">Aucune app n\'a encore été assez longtemps à l\'écran. Une app doit y être 10 minutes sur les 7 derniers jours.</string>
+    <string name="th_usage_hint">La chaleur par app nécessite l\'accès à l\'utilisation, pour savoir quelle app est à l\'écran.</string>
+    <string name="th_note">Les températures sont celles de la batterie. La puissance est celle fournie par la batterie pendant que l\'app était à l\'écran. Android considère qu\'un téléphone est bridé à partir du niveau « modéré ».</string>
+    <string name="th_grant_hint">Avec l\'autorisation depuis un ordinateur, le journal indique aussi le capteur mis en cause par Android et les dispositifs de refroidissement en action.</string>
     <string name="th_open_pro">Ouvrir le mode pro</string>
     <string name="th_detail_title">Chaleur à l\'écran, 7 derniers jours</string>
     <string name="th_detail_time">Mesuré à l\'écran</string>
     <string name="th_detail_temp">Température de la batterie</string>
-    <string name="th_detail_temp_value">Ø %1$s · max %2$s</string>
+    <string name="th_detail_temp_value">moy. %1$s · max %2$s</string>
     <string name="th_detail_power">Puissance moyenne</string>
     <string name="th_detail_throttled">Bridé</string>
     <string name="th_regular_badge">Souvent bridée</string>
     <string name="f_throttle_title">%1$s provoque régulièrement le bridage du téléphone</string>
-    <string name="f_throttle_body">Le téléphone s\'est ralenti à cause de la chaleur %1$d fois sur %2$d jours pendant que cette appli était à l\'écran (%3$s au total, batterie jusqu\'à %4$s). Baissez sa qualité graphique ou sa fréquence d\'images, ou laissez d\'abord le téléphone refroidir.</string>
+    <string name="f_throttle_body">Le téléphone s\'est ralenti à cause de la chaleur %1$d fois sur %2$d jours pendant que cette app était à l\'écran (%3$s au total, batterie jusqu\'à %4$s). Baissez sa qualité graphique ou sa fréquence d\'images, ou laissez d\'abord le téléphone refroidir.</string>
 
     <string name="fc_title">Autonomie restante selon votre usage</string>
     <string name="fc_until_pattern">Dure jusqu\'à environ %1$s avec votre usage habituel</string>
