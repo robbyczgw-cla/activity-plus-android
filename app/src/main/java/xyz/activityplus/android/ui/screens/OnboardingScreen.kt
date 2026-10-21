@@ -3,6 +3,7 @@ package xyz.activityplus.android.ui.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
@@ -89,7 +90,7 @@ fun OnboardingScreen(onRequestNotifications: () -> Unit, onDone: () -> Unit) {
                 Text(stringResource(R.string.onb_notif_button))
             }
         }
-        Button(onClick = onDone, modifier = Modifier.fillMaxWidth().height(52.dp)) {
+        Button(onClick = onDone, modifier = Modifier.fillMaxWidth().heightIn(min = 52.dp)) {
             Text(stringResource(R.string.onb_start))
         }
         Note(stringResource(R.string.onb_later), Modifier.align(Alignment.CenterHorizontally))

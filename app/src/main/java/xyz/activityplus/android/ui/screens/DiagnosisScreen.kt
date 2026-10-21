@@ -30,6 +30,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.R
 import xyz.activityplus.android.Tab
@@ -88,8 +90,16 @@ fun DiagnosisScreen(onOpen: (Tab) -> Unit = {}) {
                 val t = FindingText.of(context, f, settings.fahrenheit)
                 Card {
                     Row(verticalAlignment = Alignment.Top) {
+                        // The colour alone says how serious it is, so the dot carries the word for a screen reader.
+                        val severity = stringResource(
+                            when (f.severity) {
+                                Diagnosis.Severity.BAD -> R.string.a11y_severity_bad
+                                Diagnosis.Severity.WARN -> R.string.a11y_severity_warn
+                                Diagnosis.Severity.INFO -> R.string.a11y_severity_info
+                            }
+                        )
                         Box(
-                            Modifier.padding(top = 7.dp).size(10.dp).clip(CircleShape).background(
+                            Modifier.padding(top = 7.dp).size(10.dp).semantics { contentDescription = severity }.clip(CircleShape).background(
                                 when (f.severity) {
                                     Diagnosis.Severity.BAD -> Metric.Heat
                                     Diagnosis.Severity.WARN -> Metric.Warn

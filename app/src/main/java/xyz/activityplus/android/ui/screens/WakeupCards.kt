@@ -48,6 +48,7 @@ import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.Sparkline
 import xyz.activityplus.android.ui.components.StatLine
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.theme.LocalSurfaces
@@ -167,7 +168,7 @@ private fun SubTitle(text: String) {
 private fun WakeupRow(a: AppCounters, unusual: Boolean, overLimit: Boolean, onClick: () -> Unit) {
     val context = LocalContext.current
     Row(
-        Modifier.fillMaxWidth().clickable(onClick = onClick).padding(vertical = 5.dp),
+        Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_details), onClick).padding(vertical = 5.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AppIcon(a.pkg, 30.dp)
@@ -277,7 +278,10 @@ fun AppWakeupSection(pkg: String) {
         StatLine(stringResource(R.string.wk_detail_usual), summary(context, u).ifEmpty { "–" })
     }
     Spacer(Modifier.height(4.dp))
-    Sparkline(w.week.map { it?.wakeups?.toDouble() }, Metric.Energy, height = 36.dp)
+    Sparkline(
+        w.week.map { it?.wakeups?.toDouble() }, Metric.Energy, height = 36.dp,
+        label = stringResource(R.string.wk_detail_chart), format = { Format.number(it, 0) }, latest = false,
+    )
     Note(stringResource(R.string.wk_detail_chart))
     Spacer(Modifier.height(4.dp))
     Note(stringResource(R.string.wk_explain))

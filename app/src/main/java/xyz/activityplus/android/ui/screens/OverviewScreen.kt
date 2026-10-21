@@ -38,9 +38,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -80,8 +80,7 @@ import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.rememberUsageAccess
-import xyz.activityplus.android.ui.theme.BrandEnd
-import xyz.activityplus.android.ui.theme.BrandStart
+import xyz.activityplus.android.ui.theme.BannerBrush
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
 import kotlin.math.abs
@@ -213,14 +212,14 @@ private fun Verdict(findings: List<Diagnosis.Finding>, data: AppsData?, fahrenhe
         Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(22.dp))
-            .background(Brush.linearGradient(listOf(BrandStart.copy(alpha = 0.9f), BrandEnd.copy(alpha = 0.9f))))
-            .clickable { onOpen(Tab.DIAGNOSIS) }
+            .background(BannerBrush)
+            .clickable(onClickLabel = stringResource(R.string.a11y_open_diagnosis), role = Role.Button) { onOpen(Tab.DIAGNOSIS) }
             .padding(18.dp)
     ) {
         Column {
             Text(
                 stringResource(R.string.verdict_question),
-                color = Color.White.copy(alpha = 0.8f),
+                color = Color.White,
                 style = MaterialTheme.typography.labelLarge,
             )
             Spacer(Modifier.height(6.dp))
@@ -228,7 +227,7 @@ private fun Verdict(findings: List<Diagnosis.Finding>, data: AppsData?, fahrenhe
                 val t = FindingText.of(context, top, fahrenheit)
                 Text(t.title, color = Color.White, style = MaterialTheme.typography.titleLarge)
                 Spacer(Modifier.height(4.dp))
-                Text(t.body, color = Color.White.copy(alpha = 0.9f), style = MaterialTheme.typography.bodyMedium, maxLines = 3)
+                Text(t.body, color = Color.White, style = MaterialTheme.typography.bodyMedium, maxLines = 3)
                 if (findings.size > 1) {
                     Spacer(Modifier.height(8.dp))
                     Text(
@@ -245,7 +244,7 @@ private fun Verdict(findings: List<Diagnosis.Finding>, data: AppsData?, fahrenhe
                         R.string.verdict_fine_busiest, appName(context, busiest.key, data.labels),
                         Format.energy(busiest.value.first).toString(),
                     ) else stringResource(R.string.verdict_fine_body),
-                    color = Color.White.copy(alpha = 0.9f), style = MaterialTheme.typography.bodyMedium,
+                    color = Color.White, style = MaterialTheme.typography.bodyMedium,
                 )
             }
         }
@@ -290,7 +289,10 @@ private fun BatteryCard(s: Snapshot, series: Monitor.Series, fahrenheit: Boolean
             }
         )
         Spacer(Modifier.height(6.dp))
-        Sparkline(series.power.map { it?.let { p -> abs(p) } }, Metric.Energy, height = 36.dp)
+        Sparkline(
+            series.power.map { it?.let { p -> abs(p) } }, Metric.Energy, height = 36.dp,
+            label = stringResource(R.string.a11y_series_power), format = { Format.watts(it).toString() },
+        )
         Spacer(Modifier.height(6.dp))
         StatLine(stringResource(R.string.battery_current), b.currentMa?.let { Format.number(it, 0) + " mA" } ?: "–")
         StatLine(stringResource(R.string.battery_voltage), Format.number(b.voltageV, 2) + " V")
@@ -312,7 +314,10 @@ private fun MemoryCard(s: Snapshot, series: Monitor.Series, onClick: () -> Unit)
         }
         Note(stringResource(R.string.memory_in_use))
         Spacer(Modifier.height(6.dp))
-        Sparkline(series.memory, Metric.Memory, height = 36.dp, max = 1.0)
+        Sparkline(
+            series.memory, Metric.Memory, height = 36.dp, max = 1.0,
+            label = stringResource(R.string.a11y_series_memory), format = { Format.percent(it) },
+        )
         Spacer(Modifier.height(6.dp))
         StatLine(stringResource(R.string.memory_available), Format.bytes(m.availableBytes).toString())
         if (m.swapTotalBytes > 0) StatLine(stringResource(R.string.memory_swap), Format.bytes(m.swapUsedBytes).toString())
@@ -338,7 +343,10 @@ private fun NetworkCard(s: Snapshot, series: Monitor.Series, bits: Boolean, onCl
         BigValue(Format.rate(n.rxBytesPerSecond, bits))
         Note(stringResource(R.string.net_down))
         Spacer(Modifier.height(6.dp))
-        Sparkline(series.rx, Metric.Network, height = 36.dp)
+        Sparkline(
+            series.rx, Metric.Network, height = 36.dp,
+            label = stringResource(R.string.a11y_series_download), format = { Format.rate(it, bits).toString() },
+        )
         Spacer(Modifier.height(6.dp))
         StatLine(stringResource(R.string.net_up), Format.rate(n.txBytesPerSecond, bits).toString())
         n.wifiRssi?.let { StatLine(stringResource(R.string.net_signal), "$it dBm") }
@@ -355,7 +363,7 @@ private fun StorageCard(s: Snapshot, onClick: () -> Unit) {
         BigValue(Format.bytes(st.freeBytes))
         Note(stringResource(R.string.storage_free))
         Spacer(Modifier.height(14.dp))
-        Meter(1 - st.freeFraction, if (st.freeFraction < 0.1) Metric.Heat else Metric.Disk)
+        Meter(1 - st.freeFraction, if (st.freeFraction < 0.1) Metric.Heat else Metric.Disk, label = stringResource(R.string.item_storage_used))
         Spacer(Modifier.height(10.dp))
         StatLine(stringResource(R.string.storage_used), Format.bytes(st.usedBytes).toString())
     }
@@ -388,7 +396,10 @@ private fun ThermalCard(s: Snapshot, series: Monitor.Series, fahrenheit: Boolean
         BigValue(Format.temperature(s.battery.temperatureC, fahrenheit))
         Note(stringResource(R.string.temp_battery))
         Spacer(Modifier.height(6.dp))
-        Sparkline(series.temperature, color, height = 36.dp, min = null)
+        Sparkline(
+            series.temperature, color, height = 36.dp, min = null,
+            label = stringResource(R.string.a11y_series_temperature), format = { Format.temperature(it, fahrenheit).toString() },
+        )
         Spacer(Modifier.height(6.dp))
         t.headroom?.let { StatLine(stringResource(R.string.temp_headroom), Format.percent((1 - it).coerceIn(0.0, 1.0))) }
         t.sensors.firstOrNull()?.let { StatLine(it.name, Format.temperature(it.celsius, fahrenheit).toString()) }

@@ -34,9 +34,11 @@ import xyz.activityplus.android.ui.UpdateText
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Note
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
+import xyz.activityplus.android.ui.theme.forText
 
 /*
  * "Since the update" (core/SinceUpdate): the Apps page lists recent updates with a clear change, the
@@ -96,7 +98,7 @@ fun AfterUpdatesCard(u: AfterUpdates, onOpenApp: (String) -> Unit) {
 @Composable
 private fun UpdateRow(u: ShownUpdate, showChanges: Boolean, onClick: () -> Unit) {
     val context = LocalContext.current
-    Row(Modifier.fillMaxWidth().clickable(onClick = onClick).padding(vertical = 6.dp)) {
+    Row(Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_app_info), onClick).padding(vertical = 6.dp)) {
         AppIcon(u.pkg, 36.dp)
         Spacer(Modifier.width(12.dp))
         Column(Modifier.weight(1f)) {
@@ -114,7 +116,7 @@ private fun ChangeLine(c: SinceUpdate.Change) {
     Text(
         "· " + UpdateText.effect(context, c).replaceFirstChar { it.uppercase() },
         style = MaterialTheme.typography.bodyMedium,
-        color = if (c.direction == SinceUpdate.Direction.UP) Metric.Warn else Metric.Energy,
+        color = (if (c.direction == SinceUpdate.Direction.UP) Metric.Warn else Metric.Energy).forText(),
         modifier = Modifier.padding(top = 2.dp),
     )
 }

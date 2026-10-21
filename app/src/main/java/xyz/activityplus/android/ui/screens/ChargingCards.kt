@@ -51,6 +51,8 @@ import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.Sparkline
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.theme.Metric
+import xyz.activityplus.android.ui.theme.forGraphic
+import xyz.activityplus.android.ui.theme.forText
 
 /**
  * Measures what the charger and cable deliver for 30 seconds from the live snapshots, saves the
@@ -103,7 +105,7 @@ fun ChargerTestCard(s: Snapshot, fahrenheit: Boolean) {
                 style = MaterialTheme.typography.bodyLarge,
             )
             Spacer(Modifier.height(6.dp))
-            LinearProgressIndicator(progress = { elapsed.toFloat() / active.durationSeconds }, modifier = Modifier.fillMaxWidth(), color = Metric.Energy)
+            LinearProgressIndicator(progress = { elapsed.toFloat() / active.durationSeconds }, modifier = Modifier.fillMaxWidth(), color = Metric.Energy.forGraphic())
             TextButton(onClick = { run = null }) { Text(stringResource(R.string.cancel)) }
         } else {
             if (b.charging) {
@@ -117,7 +119,7 @@ fun ChargerTestCard(s: Snapshot, fahrenheit: Boolean) {
             }
             message?.let {
                 Spacer(Modifier.height(6.dp))
-                Text(stringResource(it), style = MaterialTheme.typography.bodyMedium, color = Metric.Warn)
+                Text(stringResource(it), style = MaterialTheme.typography.bodyMedium, color = Metric.Warn.forText())
             }
         }
         if (list.isNotEmpty()) {
@@ -187,7 +189,10 @@ fun ChargingHealthTrend() {
     Spacer(Modifier.height(10.dp))
     Text(stringResource(R.string.chg_trend_title), style = MaterialTheme.typography.titleSmall)
     Spacer(Modifier.height(4.dp))
-    Sparkline(estimates.map { it.mah }, Metric.Energy, height = 48.dp, min = null)
+    Sparkline(
+        estimates.map { it.mah }, Metric.Energy, height = 48.dp, min = null,
+        label = stringResource(R.string.chg_trend_title), format = { Format.number(it, 0) + " mAh" },
+    )
     Spacer(Modifier.height(4.dp))
     Row(verticalAlignment = Alignment.CenterVertically) {
         // No day, so it reads "July", or "July 2025" when that is not this year.

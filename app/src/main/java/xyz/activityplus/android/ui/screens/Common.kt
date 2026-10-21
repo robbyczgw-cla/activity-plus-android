@@ -25,7 +25,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.ActivityPlusApp
 import xyz.activityplus.android.R
@@ -54,7 +57,7 @@ fun Screen(
         item {
             Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)) {
                 Column(Modifier.weight(1f)) {
-                    Text(title, style = MaterialTheme.typography.headlineMedium)
+                    Text(title, style = MaterialTheme.typography.headlineMedium, modifier = Modifier.semantics { heading() })
                     if (subtitle != null) {
                         Text(subtitle, style = MaterialTheme.typography.bodyMedium, color = LocalSurfaces.current.muted)
                     }
@@ -89,7 +92,7 @@ fun <T> Chips(options: List<T>, selected: T, label: @Composable (T) -> String, o
             FilterChip(
                 selected = o == selected,
                 onClick = { onSelect(o) },
-                label = { Text(label(o), maxLines = 1) },
+                label = { Text(label(o), maxLines = 2, overflow = TextOverflow.Ellipsis) },
                 colors = FilterChipDefaults.filterChipColors(
                     selectedContainerColor = LocalSurfaces.current.cardRaised,
                     selectedLabelColor = MaterialTheme.colorScheme.onSurface,

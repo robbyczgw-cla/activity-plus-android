@@ -86,7 +86,11 @@ fun ForecastCard(b: BatteryState) {
         if (profile != null && profile.ready) {
             val weekend = isWeekend(now)
             Spacer(Modifier.height(8.dp))
-            Sparkline(profile.day(weekend), Metric.Energy, height = 36.dp)
+            Sparkline(
+                profile.day(weekend), Metric.Energy, height = 36.dp,
+                label = stringResource(if (weekend) R.string.fc_chart_weekend else R.string.fc_chart_weekday),
+                format = { Format.number(it, 1) + " %/h" }, latest = false,
+            )
             Note(stringResource(if (weekend) R.string.fc_chart_weekend else R.string.fc_chart_weekday))
         } else if (profile != null) {
             Note(stringResource(R.string.fc_not_enough))

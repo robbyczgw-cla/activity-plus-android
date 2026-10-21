@@ -35,6 +35,7 @@ import xyz.activityplus.android.ui.components.Badge
 import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.StatLine
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.app
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberUsageAccess
@@ -134,7 +135,7 @@ private fun AppRowView(row: AppRow, sort: AppSort, onClick: () -> Unit) {
         u.storageBytes.takeIf { it > 0 && sort == AppSort.BATTERY }?.let { context.getString(R.string.row_storage, Format.bytes(it).toString()) },
     ).joinToString(" · ")
     Row(
-        Modifier.fillMaxWidth().clickable(onClick = onClick).padding(vertical = 4.dp),
+        Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_details), onClick).padding(vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AppIcon(u.pkg, 40.dp)

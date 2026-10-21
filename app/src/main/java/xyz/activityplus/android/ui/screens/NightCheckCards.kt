@@ -53,10 +53,12 @@ import xyz.activityplus.android.ui.components.Card
 import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.StatLine
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
+import xyz.activityplus.android.ui.theme.forText
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -163,7 +165,7 @@ fun NightCheckCard(report: NightReport, onPro: () -> Unit) {
             m?.let { clock(context, it.fromMillis) + " – " + clock(context, it.toMillis) },
         )
         Spacer(Modifier.height(8.dp))
-        Text(title(context, r), style = MaterialTheme.typography.titleLarge, color = verdictColor(r.verdict))
+        Text(title(context, r), style = MaterialTheme.typography.titleLarge, color = verdictColor(r.verdict).forText())
         Spacer(Modifier.height(4.dp))
         reasonLines(context, r).forEach { Text(it, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.padding(bottom = 4.dp)) }
         if (m != null) {
@@ -298,7 +300,7 @@ private fun suspectSummary(context: Context, s: NightCheck.Suspect): String = li
 @Composable
 private fun ProHint(onPro: () -> Unit) {
     Spacer(Modifier.height(6.dp))
-    Row(Modifier.fillMaxWidth().clickable(onClick = onPro).padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+    Row(Modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_open_pro), onPro).padding(vertical = 4.dp), verticalAlignment = Alignment.CenterVertically) {
         Note(stringResource(R.string.nc_pro_hint), Modifier.weight(1f))
         Text("›", style = MaterialTheme.typography.titleLarge, color = LocalSurfaces.current.muted)
     }
@@ -357,7 +359,7 @@ private fun NightsSheet(report: NightReport) {
                         DateUtils.formatDateTime(context, noon, DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_WEEKDAY or DateUtils.FORMAT_ABBREV_ALL),
                         style = MaterialTheme.typography.bodyLarge,
                     )
-                    Text(shortLabel(context, r), style = MaterialTheme.typography.bodyMedium, color = verdictColor(r.verdict), maxLines = 1)
+                    Text(shortLabel(context, r), style = MaterialTheme.typography.bodyMedium, color = verdictColor(r.verdict).forText(), maxLines = 1)
                 }
                 val m = r.measured?.takeIf { r.verdict != Verdict.NOT_ENOUGH_DATA }
                 if (m != null) {

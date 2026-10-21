@@ -1,13 +1,14 @@
 package xyz.activityplus.android.ui.screens
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.KeyboardArrowDown
@@ -30,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.BuildConfig
 import xyz.activityplus.android.R
@@ -48,11 +50,13 @@ import xyz.activityplus.android.ui.Actions
 import xyz.activityplus.android.ui.StatusText
 import xyz.activityplus.android.ui.app
 import xyz.activityplus.android.ui.components.Card
+import xyz.activityplus.android.ui.components.MinTouch
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.SectionTitle
 import xyz.activityplus.android.ui.rememberLive
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberSettings
+import xyz.activityplus.android.ui.theme.forText
 
 @Composable
 fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
@@ -92,25 +96,30 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
                 ordered.forEach { item ->
                     val index = settings.items.indexOf(item)
                     val on = index >= 0
+                    val enabled = on || settings.items.size < MAX_STATUS_ITEMS
+                    val label = StatusText.label(context, item)
                     Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
-                        Checkbox(
-                            checked = on,
-                            enabled = on || settings.items.size < MAX_STATUS_ITEMS,
-                            onCheckedChange = { checked ->
+                        // Box, label and current value are one checkbox; the move buttons stay outside it.
+                        Row(
+                            Modifier.weight(1f).heightIn(min = MinTouch).toggleable(value = on, enabled = enabled, role = Role.Checkbox) { checked ->
                                 app.prefs.update { st -> st.copy(items = if (checked) st.items + item else st.items - item) }
                             },
-                        )
-                        Text(StatusText.label(context, item), color = Color(StatusText.metricColor(item)), modifier = Modifier.weight(1f))
-                        Text(
-                            s?.let { StatusText.value(item, it, settings)?.toString() } ?: "",
-                            style = MaterialTheme.typography.bodyMedium,
-                        )
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Checkbox(checked = on, onCheckedChange = null, enabled = enabled)
+                            Spacer(Modifier.width(8.dp))
+                            Text(label, color = Color(StatusText.metricColor(item)).forText(), modifier = Modifier.weight(1f))
+                            Text(
+                                s?.let { StatusText.value(item, it, settings)?.toString() } ?: "",
+                                style = MaterialTheme.typography.bodyMedium,
+                            )
+                        }
                         if (on) {
                             IconButton(enabled = index > 0, onClick = { app.prefs.update { st -> st.copy(items = st.items.swap(index, index - 1)) } }) {
-                                Icon(Icons.Outlined.KeyboardArrowUp, stringResource(R.string.move_up))
+                                Icon(Icons.Outlined.KeyboardArrowUp, stringResource(R.string.a11y_move_up, label))
                             }
                             IconButton(enabled = index < settings.items.lastIndex, onClick = { app.prefs.update { st -> st.copy(items = st.items.swap(index, index + 1)) } }) {
-                                Icon(Icons.Outlined.KeyboardArrowDown, stringResource(R.string.move_down))
+                                Icon(Icons.Outlined.KeyboardArrowDown, stringResource(R.string.a11y_move_down, label))
                             }
                         }
                     }
@@ -228,8 +237,11 @@ fun SettingsScreen(onBack: () -> Unit, onWeekly: () -> Unit) {
 
 @Composable
 internal fun Toggle(title: String, hint: String?, value: Boolean, onChange: (Boolean) -> Unit) {
+    // The row is the switch for a screen reader (title, hint and state in one), and the Switch itself
+    // only draws: two separate targets for one setting were announced twice.
     Row(
-        Modifier.fillMaxWidth().clickable { onChange(!value) }.padding(vertical = 6.dp),
+        Modifier.fillMaxWidth().heightIn(min = MinTouch).toggleable(value = value, role = Role.Switch, onValueChange = onChange)
+            .padding(vertical = 6.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
@@ -237,7 +249,7 @@ internal fun Toggle(title: String, hint: String?, value: Boolean, onChange: (Boo
             if (hint != null) Note(hint)
         }
         Spacer(Modifier.width(12.dp))
-        Switch(checked = value, onCheckedChange = onChange)
+        Switch(checked = value, onCheckedChange = null)
     }
 }
 

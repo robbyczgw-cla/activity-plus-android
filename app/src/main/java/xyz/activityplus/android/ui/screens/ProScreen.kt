@@ -11,8 +11,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.BatteryChargingFull
 import androidx.compose.material.icons.outlined.Memory
@@ -55,9 +57,11 @@ import xyz.activityplus.android.ui.components.CardHeader
 import xyz.activityplus.android.ui.components.Meter
 import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.StatLine
+import xyz.activityplus.android.ui.components.tapRow
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
+import xyz.activityplus.android.ui.theme.forText
 
 @Composable
 fun ProScreen() {
@@ -105,7 +109,7 @@ fun ProScreen() {
         if (access.ready && missingGrants.isNotEmpty()) {
             item { ExtraGrantsCard(access) { checks++ } }
         }
-        error?.let { e -> item { Card { Text(stringResource(R.string.pro_error, e), color = Metric.Heat) } } }
+        error?.let { e -> item { Card { Text(stringResource(R.string.pro_error, e), color = Metric.Heat.forText()) } } }
         val report = reports?.getOrNull(selected)
         if (report != null) {
             if (reports.size > 1) {
@@ -133,7 +137,7 @@ private fun AccessCard(access: ProShell.Access, running: Boolean, onMeasure: () 
             ProShell.Access.DUMP, ProShell.Access.SHIZUKU -> {
                 Note(stringResource(if (access == ProShell.Access.SHIZUKU) R.string.pro_ready_body else R.string.pro_ready_body_dump))
                 Spacer(Modifier.height(10.dp))
-                Button(onClick = onMeasure, enabled = !running, modifier = Modifier.fillMaxWidth().height(50.dp)) {
+                Button(onClick = onMeasure, enabled = !running, modifier = Modifier.fillMaxWidth().heightIn(min = 50.dp)) {
                     if (running) {
                         CircularProgressIndicator(Modifier.width(20.dp).height(20.dp), strokeWidth = 2.dp)
                         Spacer(Modifier.width(10.dp))
@@ -180,7 +184,7 @@ private fun AccessCard(access: ProShell.Access, running: Boolean, onMeasure: () 
                     command,
                     fontFamily = FontFamily.Monospace,
                     style = MaterialTheme.typography.bodySmall,
-                    modifier = Modifier.padding(vertical = 6.dp).clickable {
+                    modifier = Modifier.tapRow(stringResource(R.string.a11y_copy_command)) {
                         context.getSystemService(ClipboardManager::class.java)
                             .setPrimaryClip(ClipData.newPlainText("adb", command))
                     },
@@ -194,7 +198,7 @@ private fun AccessCard(access: ProShell.Access, running: Boolean, onMeasure: () 
 @Composable
 private fun Step(n: Int, text: String) {
     Row(Modifier.padding(vertical = 3.dp)) {
-        Text("$n.", color = Metric.Cpu, fontWeight = FontWeight.SemiBold, modifier = Modifier.width(22.dp))
+        Text("$n.", color = Metric.Cpu.forText(), fontWeight = FontWeight.SemiBold, modifier = Modifier.widthIn(min = 22.dp))
         Text(text, style = MaterialTheme.typography.bodyMedium)
     }
 }

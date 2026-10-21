@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Accessibility (TalkBack): descriptions of charts and bars, and what a tap does -->
+    <string name="a11y_chart_generic">Chart</string>
+    <string name="a11y_chart_empty">%1$s: no data yet</string>
+    <string name="a11y_chart_flat">%1$s, steady at %2$s</string>
+    <string name="a11y_chart_range">%1$s, %2$s to %3$s, now %4$s</string>
+    <string name="a11y_chart_span">%1$s, %2$s to %3$s</string>
+    <string name="a11y_chart_bars">%1$s, lowest %2$s, highest %3$s</string>
+    <string name="a11y_chart_point">Selected point: %1$s, %2$s</string>
+    <string name="a11y_chart_prev">Previous point</string>
+    <string name="a11y_chart_next">Next point</string>
+    <string name="a11y_series_power">Power over the last few minutes</string>
+    <string name="a11y_series_memory">Memory in use over the last few minutes</string>
+    <string name="a11y_series_download">Download speed over the last few minutes</string>
+    <string name="a11y_series_temperature">Battery temperature over the last few minutes</string>
+    <string name="a11y_cpu_cores">CPU clock per core</string>
+    <string name="a11y_ram_day">Memory in use over the last 24 hours</string>
+    <string name="a11y_history_subject">%1$s, last %2$s</string>
+    <string name="a11y_label_value">%1$s, %2$s</string>
+    <string name="a11y_no_value">No value</string>
+    <string name="a11y_severity_bad">Serious</string>
+    <string name="a11y_severity_warn">Warning</string>
+    <string name="a11y_severity_info">For your information</string>
+    <string name="a11y_open_details">Open details</string>
+    <string name="a11y_open_app_info">Open app info</string>
+    <string name="a11y_open_diagnosis">Open diagnosis</string>
+    <string name="a11y_open_weekly">Open weekly report</string>
+    <string name="a11y_open_pro">Open precise measuring</string>
+    <string name="a11y_open_file">Open file</string>
+    <string name="a11y_choose_language">Choose language</string>
+    <string name="a11y_copy_command">Copy command</string>
+    <string name="a11y_move_up">Move %1$s up</string>
+    <string name="a11y_move_down">Move %1$s down</string>
+    <string name="a11y_widget_ring">Battery charge %1$s</string>
+</resources>

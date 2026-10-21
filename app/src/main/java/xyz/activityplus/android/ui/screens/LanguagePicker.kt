@@ -4,11 +4,12 @@ import android.app.LocaleManager
 import android.content.Context
 import android.os.Build
 import android.os.LocaleList
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
@@ -23,10 +24,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import xyz.activityplus.android.R
+import xyz.activityplus.android.ui.components.MinTouch
 import xyz.activityplus.android.ui.components.Note
 import java.util.Locale
+import xyz.activityplus.android.ui.components.tapRow
 
 /**
  * In-app language choice (Android 13+, through the system's per-app language). Names are shown in
@@ -80,7 +84,7 @@ fun LanguageRow(modifier: Modifier = Modifier) {
     val context = LocalContext.current
     var open by remember { mutableStateOf(false) }
     val current = remember { AppLanguage.current(context) }
-    Column(modifier.fillMaxWidth().clickable { open = true }.padding(vertical = 6.dp)) {
+    Column(modifier.fillMaxWidth().tapRow(stringResource(R.string.a11y_choose_language)) { open = true }.padding(vertical = 6.dp)) {
         Text(
             stringResource(R.string.set_language) + ": " + AppLanguage.label(context, current) + "  ▾",
             style = MaterialTheme.typography.bodyLarge,
@@ -94,13 +98,13 @@ fun LanguageRow(modifier: Modifier = Modifier) {
             text = {
                 Column {
                     AppLanguage.options.forEach { (tag, name) ->
+                        val chosen = AppLanguage.label(context, current) == AppLanguage.label(context, tag)
                         Row(
-                            Modifier.fillMaxWidth().clickable { open = false; AppLanguage.set(context, tag) },
+                            Modifier.fillMaxWidth().heightIn(min = MinTouch)
+                                .selectable(selected = chosen, role = Role.RadioButton) { open = false; AppLanguage.set(context, tag) },
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
-                            RadioButton(selected = AppLanguage.label(context, current) == AppLanguage.label(context, tag), onClick = {
-                                open = false; AppLanguage.set(context, tag)
-                            })
+                            RadioButton(selected = chosen, onClick = null)
                             Text(name ?: stringResource(R.string.lang_system, AppLanguage.systemName()))
                         }
                     }
