@@ -118,6 +118,21 @@ class BackgroundDeltaTest {
         assertNull(BackgroundDelta.startClock(""))
     }
 
+    @Test fun startClockOfOneLine() {
+        assertEquals(1_791_528_581_269L, BackgroundDelta.startClockOf("9,0,l,bt,3,7200000,3600000,7200000,3600000,1791528581269,0,0"))
+        assertNull(BackgroundDelta.startClockOf("9,0,l,bt,3,7200000,3600000,7200000,3600000,0,0,0"))
+        assertNull(BackgroundDelta.startClockOf("9,10100,l,cpu,10,20,0"))
+        assertNull(BackgroundDelta.startClockOf(""))
+    }
+
+    @Test fun streamedReportGivesTheSameAnswerAsTheTextAndTheClockFromTheSamePass() {
+        val text = javaClass.classLoader!!.getResource("dumpsys/batterystats-checkin.txt")!!.readText()
+        var clock: Long? = null
+        val streamed = ProParser.batteryCheckin(text.lineSequence().onEach { if (clock == null) clock = BackgroundDelta.startClockOf(it) })
+        assertEquals(ProParser.batteryCheckin(text), streamed)
+        assertEquals(BackgroundDelta.startClock(text), clock)
+    }
+
     @Test fun snapshotFromReport() {
         val r = ProParser.BatteryReport(mapOf(10_100 to u(1.0)), pkgs, 5000L, mapOf("scrn" to 2.0, "cell" to 1.5))
         val s = BackgroundDelta.snapshot(7L, r, 3L)

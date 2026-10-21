@@ -166,15 +166,23 @@ class SystemSampler(private val context: Context) {
     /** /sys/block/zram0/mm_stat: original and compressed size; often closed to apps. */
     private val zram: Pair<Long, Long>?
         get() = runCatching {
-            val f = File("/sys/block/zram0/mm_stat").readText().trim().split(Regex("\\s+"))
+            val f = File("/sys/block/zram0/mm_stat").readText().trim().split(whitespace)
             f[0].toLong() to f[1].toLong()
         }.getOrNull()
 
+    /** Only the lines [memory] uses, read as they come: this runs at every tick, a regex built per line was most of its cost. */
     private fun readMeminfo(): Map<String, Long> = try {
-        File("/proc/meminfo").readLines().mapNotNull { line ->
-            val parts = line.split(Regex("\\s+"))
-            if (parts.size >= 2) parts[0].trimEnd(':') to (parts[1].toLongOrNull() ?: return@mapNotNull null) else null
-        }.toMap()
+        val out = HashMap<String, Long>()
+        File("/proc/meminfo").bufferedReader().useLines { lines ->
+            for (line in lines) {
+                val colon = line.indexOf(':')
+                if (colon <= 0) continue
+                val key = line.substring(0, colon)
+                if (key !in MEMINFO_KEYS) continue
+                line.substring(colon + 1).trim().substringBefore(' ').toLongOrNull()?.let { out[key] = it }
+            }
+        }
+        out
     } catch (_: Exception) {
         emptyMap()
     }
@@ -282,7 +290,8 @@ class SystemSampler(private val context: Context) {
         val headroom = if (Build.VERSION.SDK_INT >= 30) {
             powerManager.getThermalHeadroom(10).toDouble().takeIf { !it.isNaN() && it > 0 }
         } else null
-        if (sensorTick++ % 15 == 0) sensorCache = readThermalZones()
+        // The sensor list is for the screens; with the screen off the minute samples keep the last one.
+        if (powerManager.isInteractive && sensorTick++ % 15 == 0) sensorCache = readThermalZones()
         return ThermalState(status, headroom, sensorCache)
     }
 
@@ -298,6 +307,9 @@ class SystemSampler(private val context: Context) {
     }
 
     private companion object {
+        val whitespace = Regex("\\s+")
+        val MEMINFO_KEYS = setOf("SwapTotal", "SwapFree", "Cached", "MemFree", "Buffers")
+
         /** Real CPU clocks are at least 100 MHz; emulators report placeholders of 1 or 2 kHz. */
         const val MIN_KHZ = 100_000L
     }

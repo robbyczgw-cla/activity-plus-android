@@ -13,6 +13,7 @@ import xyz.activityplus.android.pro.BackgroundSchedule
 import xyz.activityplus.android.pro.BackgroundSchedule.Trigger
 import xyz.activityplus.android.pro.ProParser
 import xyz.activityplus.android.pro.ProShell
+import xyz.activityplus.android.pro.ShellService
 import java.time.ZoneId
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -56,6 +57,9 @@ class BackgroundSampler(private val context: Context, private val scope: Corouti
         val last = lastRun
         if (loaded && last != null && nowMillis - last < BackgroundSchedule.PERIOD_MS) return
         if (nowMillis - lastCheck < CHECK_MS || nowMillis < retryAfter) return
+        // The report is megabytes of text: not in Doze, and with the screen off only when long overdue.
+        // lastCheck stays, so the first tick after the screen comes on tries again.
+        if (!HeavyWork.mayRun(context, last?.let { nowMillis - it }, BackgroundSchedule.PERIOD_MS)) return
         lastCheck = nowMillis
         launch(Trigger.PERIODIC, nowMillis, plugged = false)
     }
@@ -100,11 +104,14 @@ class BackgroundSampler(private val context: Context, private val scope: Corouti
             }
         } else if (!BackgroundSchedule.due(trigger, nowMillis, lastRun, plugged)) return
 
-        val text = ProShell.batteryWithGrant(context)
+        // Streamed: the report is megabytes, and the start clock is picked from the same pass.
+        var startClock: Long? = null
+        val report = ProShell.streamWithGrant(context, ShellService.BATTERY) { lines ->
+            ProParser.batteryCheckin(lines.onEach { if (startClock == null) startClock = BackgroundDelta.startClockOf(it) })
+        }
         val time = System.currentTimeMillis()
-        val report = ProParser.batteryCheckin(text)
         check(report.byUid.isNotEmpty()) { "empty report" }
-        val next = BackgroundDelta.snapshot(time, report, BackgroundDelta.startClock(text))
+        val next = BackgroundDelta.snapshot(time, report, startClock)
         val prev = store.lastSnapshot()
         val unplugged = store.meta(BackgroundStore.META_UNPLUGGED)?.toLongOrNull() ?: 0L
         val charged = prev != null && unplugged > prev.timeMillis

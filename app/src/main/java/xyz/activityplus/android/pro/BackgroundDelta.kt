@@ -38,12 +38,14 @@ object BackgroundDelta {
     }
 
     /** The start clock lives in the "bt" line: 9,0,l,bt,<starts>,<battery ms>,<battery up>,<total>,<total up>,<start clock>,... */
-    fun startClock(checkin: String): Long? {
-        for (line in checkin.lineSequence()) {
-            val f = line.split(',')
-            if (f.size >= 10 && f[2] == "l" && f[3] == "bt") return f[9].toLongOrNull()?.takeIf { it > 0 }
-        }
-        return null
+    fun startClock(checkin: String): Long? = checkin.lineSequence().firstNotNullOfOrNull(::startClockOf)
+
+    /** The same for one line, so a streamed report can be searched while it is parsed. Null for any other line. */
+    fun startClockOf(line: String): Long? {
+        // Cheap test first: this runs on every line of a report of tens of thousands.
+        if (!line.contains(",l,bt,")) return null
+        val f = line.split(',')
+        return if (f.size >= 10 && f[2] == "l" && f[3] == "bt") f[9].toLongOrNull()?.takeIf { it > 0 } else null
     }
 
     fun snapshot(timeMillis: Long, report: ProParser.BatteryReport, startClockMillis: Long?) =

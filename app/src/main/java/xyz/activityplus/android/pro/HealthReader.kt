@@ -40,20 +40,36 @@ object HealthReader {
     /**
      * Apps only (uids from 10000 on): the system's own uids are nothing the user can act on.
      * Packages without a launcher icon are mostly invisible to Activity+ anyway (no QUERY_ALL_PACKAGES).
+     * Listing every installed app is the costly part of a reading, so the answer is kept until Android
+     * says a package changed (getChangedPackages, no permission), and in any case for a day at most.
      */
     private fun packagesByUid(context: Context): Map<Int, String> {
         val pm = context.packageManager
-        val groups = pm.getInstalledApplications(0)
-            .filter { it.uid >= Process.FIRST_APPLICATION_UID }
-            .groupBy({ it.uid }, { it.packageName })
-        return groups.mapNotNull { (uid, pkgs) ->
-            // Only shared uids need the launcher check; it costs a query per package.
-            val launchable = if (pkgs.size > 1) pkgs.filter { pm.getLaunchIntentForPackage(it) != null }.toSet() else emptySet()
-            Wakeups.pickPackage(pkgs, launchable)?.let { uid to it }
-        }.toMap()
+        val now = System.currentTimeMillis()
+        synchronized(this) {
+            val known = cached
+            if (known != null && now - cachedAt < CACHE_MS && pm.getChangedPackages(cachedSequence) == null) return known
+            // The sequence first: a package that changes while the list is built shows up as changed next time.
+            val sequence = pm.getChangedPackages(0)?.sequenceNumber ?: 0
+            val groups = pm.getInstalledApplications(0)
+                .filter { it.uid >= Process.FIRST_APPLICATION_UID }
+                .groupBy({ it.uid }, { it.packageName })
+            val built = groups.mapNotNull { (uid, pkgs) ->
+                // Only shared uids need the launcher check; it costs a query per package.
+                val launchable = if (pkgs.size > 1) pkgs.filter { pm.getLaunchIntentForPackage(it) != null }.toSet() else emptySet()
+                Wakeups.pickPackage(pkgs, launchable)?.let { uid to it }
+            }.toMap()
+            cached = built; cachedSequence = sequence; cachedAt = now
+            return built
+        }
     }
 
-    private fun counters(s: HealthStats): Wakeups.Counters {
+    private var cached: Map<Int, String>? = null
+    private var cachedSequence = 0
+    private var cachedAt = 0L
+    private const val CACHE_MS = 24 * 3_600_000L
+
+    internal fun counters(s: HealthStats): Wakeups.Counters {
         val partial = s.timers(UidHealthStats.TIMERS_WAKELOCKS_PARTIAL)
         val jobs = s.timers(UidHealthStats.TIMERS_JOBS)
         val syncs = s.timers(UidHealthStats.TIMERS_SYNCS)
@@ -79,7 +95,7 @@ object HealthReader {
     }
 
     // HealthStats throws for keys a snapshot does not have, so every read checks first.
-    private fun HealthStats.measurement(key: Int): Long? = if (hasMeasurement(key)) getMeasurement(key) else null
+    internal fun HealthStats.measurement(key: Int): Long? = if (hasMeasurement(key)) getMeasurement(key) else null
 
-    private fun HealthStats.timers(key: Int) = if (hasTimers(key)) getTimers(key).values else emptyList()
+    internal fun HealthStats.timers(key: Int) = if (hasTimers(key)) getTimers(key).values else emptyList()
 }

@@ -48,6 +48,7 @@ class MonitorService : Service() {
     private var lastPrune = 0L
     private var lastWidgets = 0L
     private var screenOn = true
+    @Volatile private var lastShown: String? = null
 
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -62,6 +63,7 @@ class MonitorService : Service() {
                 Intent.ACTION_SCREEN_ON -> {
                     screenOn = true
                     lastWidgets = 0L
+                    lastShown = null
                     // A fresh reading: the last one is from before the phone slept.
                     scope.launch {
                         val fresh = runCatching { app.monitor.batteryNow() }.getOrNull()
@@ -131,8 +133,13 @@ class MonitorService : Service() {
         val settings = app.prefs.current
         val fgLabel = s.foregroundPackage?.let { label(it) }
         if (s.screenOn) {
-            getSystemService(android.app.NotificationManager::class.java)
-                .notify(StatusNotification.ID, StatusNotification.build(this, s, settings, fgLabel))
+            // Only when something on it changed; the screen coming on posts again (the text may have moved on meanwhile).
+            val shown = StatusNotification.signature(s, settings, fgLabel)
+            if (shown != lastShown) {
+                lastShown = shown
+                getSystemService(android.app.NotificationManager::class.java)
+                    .notify(StatusNotification.ID, StatusNotification.build(this, s, settings, fgLabel))
+            }
         }
         drain.onTick(s.timeMillis, s.screenOn, !s.battery.plugged, s.battery.powerMw, s.foregroundPackage)
         chargeHealth.onSample(s)
@@ -148,6 +155,7 @@ class MonitorService : Service() {
         background.onTick(s.timeMillis, s.battery.plugged)
         StorageGrowthRecorder.onTick(this, scope, s.timeMillis)
         WakeupSampler.onTick(this, scope, s.timeMillis, s.battery.plugged)
+        SelfCostSampler.onTick(this, scope, s.timeMillis, s.battery.plugged)
         PowerRailSampler.onTick(this, scope, s.timeMillis)
         updates.onTick(s.timeMillis)
         thermal.onSample(s)
