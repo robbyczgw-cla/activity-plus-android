@@ -188,12 +188,21 @@ object WidgetUpdater {
         return bmp
     }
 
-    /** Refresh from existing readings without starting a sampler. */
+    /**
+     * Refresh with the monitor's reading when it is recent; otherwise (live status off, after a restart)
+     * take one reading here, so the widgets never sit empty. Called off the main thread (BaseWidget).
+     * It never starts the background samplers.
+     */
     fun refreshFromScratch(context: Context, allowed: () -> Boolean = { true }) {
-        val s = ActivityPlusApp.instance.monitor.latest.value
+        val now = System.currentTimeMillis()
+        val s = ActivityPlusApp.instance.monitor.latest.value?.takeIf { now - it.timeMillis < FRESH_MS }
+            ?: runCatching { xyz.activityplus.android.core.SystemSampler(context.applicationContext).sample() }.getOrNull()
         if (s != null) updateAll(context, s, allowed)
-        else SlowWidgets.updateAll(context, AppWidgetManager.getInstance(context), System.currentTimeMillis(), allowed)
+        else SlowWidgets.updateAll(context, AppWidgetManager.getInstance(context), now, allowed)
     }
+
+    /** A monitor reading this old is still good enough for a widget refresh. */
+    private const val FRESH_MS = 2 * 60_000L
 }
 
 abstract class BaseWidget : AppWidgetProvider() {
