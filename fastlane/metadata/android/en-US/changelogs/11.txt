@@ -1,0 +1,1 @@
+Fixes from two code reviews: units decided once per phone (no 1000x currents, no guessed battery-report units), import crash fixed, no hangs, more honest wording.

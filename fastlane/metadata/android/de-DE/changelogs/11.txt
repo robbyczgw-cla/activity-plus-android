@@ -1,0 +1,1 @@
+Korrekturen aus zwei Code-Reviews: Einheiten einmal pro Handy festgelegt (keine 1000-fachen Ströme, keine geratenen Akkubericht-Einheiten), Import-Absturz behoben, keine Hänger, ehrlichere Formulierungen.

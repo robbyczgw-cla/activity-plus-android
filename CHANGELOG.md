@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.3
+
+Fixes from two independent code reviews:
+- Units decided once per phone: the fuel gauge's current and charge counter (small µA currents were read 1000× too big, e.g. 4 mA as 4 A), and the battery report's unit (confirmed only when two reports agree, never guessed; stored history converted exactly once). Until confirmed, the cards show each app's share instead of wrong mAh
+- Import no longer crashes when the phone already has data; imports are size-limited and absurd values are skipped
+- No more hangs: widgets refresh off the main thread, the live service starts in time, every system report has a deadline
+- Honest wording: Android's per-app figure is total use (on screen and in the background); "most battery was used while X was on screen"; wakelock time is a sum; "Long wakelocks" instead of a verdict on Google's limit; an unreadable alarm report says so instead of "nothing planned"; cards that fail to load say so
+- Night check: background intervals are clipped to the night, and an app is blamed only with wakeups too
+- A shared report image is a new file each time
+
 ## 0.6.2
 
 - Battery per app shows real mAh on phones whose battery report uses another unit: a vivo X300 on Android 16 reported "285078419 mAh" for YouTube, apparently microcoulombs (3.6 million per mAh). Activity+ now reads the unit from the report itself (its computed total against the charge the battery really lost, or its stated capacity), remembers it for the phone, and converts once the history already stored in the wrong unit
