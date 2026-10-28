@@ -3,13 +3,13 @@
     <string name="weekly_title">周报</string>
     <string name="weekly_open">打开周报</string>
     <string name="weekly_notification_title">你的 Activity+ 一周</string>
-    <string name="weekly_headline">你的一周：%1$s 耗电最多，%2$s</string>
-    <string name="weekly_headline_up">你的一周：%1$s 耗电最多，%2$s，增加 %3$s</string>
-    <string name="weekly_headline_down">你的一周：%1$s 耗电最多，%2$s，减少 %3$s</string>
-    <string name="weekly_headline_new">你的一周：%1$s 耗电最多，%2$s，本周新出现</string>
+    <string name="weekly_headline">你的一周：%1$s 在屏幕上时耗电最多，%2$s</string>
+    <string name="weekly_headline_up">你的一周：%1$s 在屏幕上时耗电最多，%2$s，增加 %3$s</string>
+    <string name="weekly_headline_down">你的一周：%1$s 在屏幕上时耗电最多，%2$s，减少 %3$s</string>
+    <string name="weekly_headline_new">你的一周：%1$s 在屏幕上时耗电最多，%2$s，本周新出现</string>
     <string name="weekly_headline_screen">你的一周：%1$s 屏幕使用时间最长，%2$s</string>
 
-    <string name="weekly_top_battery">耗电最多</string>
+    <string name="weekly_top_battery">屏幕上时耗电最多</string>
     <string name="weekly_top_screen">屏幕使用时间最长</string>
     <string name="weekly_top_data">流量最多</string>
     <string name="weekly_vs_before">与上周相比</string>

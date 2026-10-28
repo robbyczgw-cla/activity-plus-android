@@ -12,12 +12,12 @@
     <plurals name="wk_wakeups">
         <item quantity="other">%d 回ウェイクアップ</item>
     </plurals>
-    <string name="wk_explain">ウェイクアップとは、端末をスリープから起こすアラームのことです。wakelock は、画面が消えている間も端末を起きたままにします。どちらも、使っていない間のバッテリーを消費します。</string>
+    <string name="wk_explain">ウェイクアップとは、端末をスリープから起こすアラームのことです。wakelock 時間は、そのアプリの wakelock の合計で、間隔ごとに上限があります。重なった wakelock は複数回カウントされることがあります。</string>
     <string name="wk_note">Android がバッテリー駆動中だけ数えた値です。アプリをタップすると 1 週間分が見られます。</string>
     <string name="wk_fix">アプリ情報の「バッテリー」で、バックグラウンドでの動作を制限できます。Activity+ がこれを自動で変えることはありません。</string>
     <string name="wk_detail_title">ウェイクアップと wakelock（過去 7 日間）</string>
     <string name="wk_detail_wakeups">今日端末を起こした回数</string>
-    <string name="wk_detail_awake">今日起きたままにした時間</string>
+    <string name="wk_detail_awake">今日の wakelock 時間</string>
     <string name="wk_detail_cpu">今日の CPU 時間</string>
     <string name="wk_detail_jobs">今日のバックグラウンドジョブ</string>
     <string name="wk_detail_syncs">今日の同期</string>
@@ -27,5 +27,5 @@
     <plurals name="wk_night_line">
         <item quantity="other">%1$s が昨夜端末を %2$d 回起こしました</item>
     </plurals>
-    <string name="wk_night_awake">%1$s が昨夜、端末を %2$s の間起きたままにしました</string>
+    <string name="wk_night_awake">%1$s の昨夜の wakelock 時間は %2$s でした（上限付き合計）</string>
 </resources>

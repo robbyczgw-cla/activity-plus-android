@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unit_pending">El informe de batería de Android en este teléfono no usa mAh. Activity+ aún está averiguando su unidad (necesita dos informes que coincidan, leídos cada 3 horas y al conectar el cargador), así que por ahora solo muestra la parte de cada app.</string>
+</resources>

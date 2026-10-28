@@ -3,13 +3,13 @@
     <string name="weekly_title">週間レポート</string>
     <string name="weekly_open">週間レポートを開く</string>
     <string name="weekly_notification_title">Activity+ の今週のまとめ</string>
-    <string name="weekly_headline">今週: 最もバッテリーを使ったのは %1$s、%2$s</string>
-    <string name="weekly_headline_up">今週: 最もバッテリーを使ったのは %1$s、%2$s、%3$s 増加</string>
-    <string name="weekly_headline_down">今週: 最もバッテリーを使ったのは %1$s、%2$s、%3$s 減少</string>
-    <string name="weekly_headline_new">今週: 最もバッテリーを使ったのは %1$s、%2$s、今週新たに登場</string>
+    <string name="weekly_headline">今週: 最も多くバッテリーが使われたのは %1$s が画面に表示されていた間、%2$s</string>
+    <string name="weekly_headline_up">今週: 最も多くバッテリーが使われたのは %1$s が画面に表示されていた間、%2$s、%3$s 増加</string>
+    <string name="weekly_headline_down">今週: 最も多くバッテリーが使われたのは %1$s が画面に表示されていた間、%2$s、%3$s 減少</string>
+    <string name="weekly_headline_new">今週: 最も多くバッテリーが使われたのは %1$s が画面に表示されていた間、%2$s、今週新たに登場</string>
     <string name="weekly_headline_screen">今週: 画面表示時間が最も長かったのは %1$s、%2$s</string>
 
-    <string name="weekly_top_battery">バッテリーの使用が最多</string>
+    <string name="weekly_top_battery">画面表示中のバッテリー使用が最多</string>
     <string name="weekly_top_screen">画面表示時間が最長</string>
     <string name="weekly_top_data">データ通信が最多</string>
     <string name="weekly_vs_before">前週との比較</string>

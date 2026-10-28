@@ -3,13 +3,13 @@
     <string name="weekly_title">Relatório semanal</string>
     <string name="weekly_open">Abrir o relatório semanal</string>
     <string name="weekly_notification_title">Sua semana com o Activity+</string>
-    <string name="weekly_headline">Sua semana: %1$s consumiu mais bateria, %2$s</string>
-    <string name="weekly_headline_up">Sua semana: %1$s consumiu mais bateria, %2$s, subiu %3$s</string>
-    <string name="weekly_headline_down">Sua semana: %1$s consumiu mais bateria, %2$s, caiu %3$s</string>
-    <string name="weekly_headline_new">Sua semana: %1$s consumiu mais bateria, %2$s, novo nesta semana</string>
+    <string name="weekly_headline">Sua semana: o maior consumo de bateria ocorreu enquanto %1$s estava na tela, %2$s</string>
+    <string name="weekly_headline_up">Sua semana: o maior consumo de bateria ocorreu enquanto %1$s estava na tela, %2$s, subiu %3$s</string>
+    <string name="weekly_headline_down">Sua semana: o maior consumo de bateria ocorreu enquanto %1$s estava na tela, %2$s, caiu %3$s</string>
+    <string name="weekly_headline_new">Sua semana: o maior consumo de bateria ocorreu enquanto %1$s estava na tela, %2$s, novo nesta semana</string>
     <string name="weekly_headline_screen">Sua semana: %1$s teve mais tempo de tela, %2$s</string>
 
-    <string name="weekly_top_battery">Mais bateria</string>
+    <string name="weekly_top_battery">Mais bateria na tela</string>
     <string name="weekly_top_screen">Mais tempo de tela</string>
     <string name="weekly_top_data">Mais dados</string>
     <string name="weekly_vs_before">Em relação à semana anterior</string>

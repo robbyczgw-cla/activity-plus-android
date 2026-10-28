@@ -7,12 +7,12 @@
     <string name="nc_title_none">Aucune nuit à vérifier</string>
 
     <string name="nc_reason_well">%1$s, %2$s de veille profonde</string>
-    <string name="nc_reason_app_awake">Elle a maintenu un wakelock pendant %1$s, écran éteint, donc Android n\'a pas pu rester en veille profonde.</string>
+    <string name="nc_reason_app_awake">Sa somme plafonnée de temps de wakelock était de %1$s ; des wakelocks qui se chevauchent peuvent être comptés plusieurs fois.</string>
     <plurals name="nc_reason_app_wakeups">
         <item quantity="one">Elle a réveillé le téléphone %1$d fois dans la nuit, donc Android n\'a pas pu rester en veille profonde.</item>
         <item quantity="other">Elle a réveillé le téléphone %1$d fois dans la nuit, donc Android n\'a pas pu rester en veille profonde.</item>
     </plurals>
-    <string name="nc_excessive">Google Play considère comme excessif un wakelock de 2 heures ou plus, écran éteint.</string>
+    <string name="nc_excessive">Google Play signale les wakelocks longs écran éteint ; Android n\'indique ni l\'état de l\'écran ni les exemptions pour ces compteurs.</string>
     <string name="nc_reason_no_deep">Android n\'a jamais atteint le Doze profond, et le téléphone n\'a été en veille profonde que %1$s de la nuit.</string>
     <string name="nc_reason_low_deep">Le téléphone n\'a été en veille profonde que %1$s de la nuit.</string>
     <string name="nc_reason_low_deep_usual">Le téléphone n\'a été en veille profonde que %1$s de la nuit, d\'habitude %2$s.</string>

@@ -12,7 +12,7 @@
     <string name="es_passport_none">Este celular não informa nenhum desses dados, nem mesmo com a permissão de leitura.</string>
     <string name="es_trend_none" formatted="false">Aparece a partir da segunda carga que somar pelo menos 30 %.</string>
     <string name="es_drain_needs_access">A bateria por app precisa do acesso ao uso, para saber qual app está na tela.</string>
-    <string name="es_bg_hint">Bateria por app em segundo plano, a partir do relatório do próprio Android. Precisa da permissão pelo computador, na página pro.</string>
+    <string name="es_bg_hint">Uso de bateria por app (estimativa do Android, na tela e em segundo plano). Precisa da permissão pelo computador, na página pro.</string>
     <string name="es_bg_off">A medição automática em segundo plano está desativada nas configurações.</string>
     <string name="es_sessions_none">Nenhuma ainda. As cargas e os períodos na bateria aparecem aqui assim que um durar 5 minutos.</string>
 

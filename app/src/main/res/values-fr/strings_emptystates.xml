@@ -12,7 +12,7 @@
     <string name="es_passport_none">Ce téléphone ne signale aucun de ces détails, même avec l\'autorisation de lecture.</string>
     <string name="es_trend_none" formatted="false">Apparaît dès la deuxième charge qui ajoute au moins 30 %.</string>
     <string name="es_drain_needs_access">La batterie par app demande l\'accès aux données d\'utilisation, pour savoir quelle app est à l\'écran.</string>
-    <string name="es_bg_hint">Batterie par app en arrière-plan, d\'après le rapport d\'Android. Nécessite l\'autorisation depuis un ordinateur, sur la page pro.</string>
+    <string name="es_bg_hint">Consommation de batterie par app (estimation d\'Android, à l\'écran et en arrière-plan). Nécessite l\'autorisation depuis un ordinateur, sur la page pro.</string>
     <string name="es_bg_off">La mesure automatique en arrière-plan est désactivée dans les paramètres.</string>
     <string name="es_sessions_none">Aucune pour l\'instant. Les charges et les périodes sur batterie apparaissent ici dès que l\'une a duré 5 minutes.</string>
 

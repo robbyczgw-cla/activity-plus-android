@@ -13,18 +13,18 @@
     <string name="su_waiting">Las actualizaciones muy recientes necesitan al menos 3 días de mediciones antes de poder evaluarse.</string>
     <string name="su_note">Una actualización es solo la causa más probable, no una prueba: también puede deberse a cómo usas la app. Se comparan las medianas de los días antes y después, y solo cuenta un cambio de al menos el doble (o la mitad), con una cantidad mínima.</string>
 
-    <string name="su_bg_up">consume %1$s más batería en segundo plano</string>
-    <string name="su_bg_new">ahora consume unos %1$s al día en segundo plano</string>
-    <string name="su_bg_down">consume %1$s menos de batería en segundo plano</string>
+    <string name="su_bg_up">consume %1$s más batería en total</string>
+    <string name="su_bg_new">ahora consume unos %1$s de batería al día en total</string>
+    <string name="su_bg_down">consume %1$s menos de batería en total</string>
     <string name="su_wake_up">despierta el teléfono %1$s más a menudo</string>
     <string name="su_wake_new">ahora despierta el teléfono unas %1$s veces al día</string>
     <string name="su_wake_down">despierta el teléfono %1$s menos a menudo</string>
-    <string name="su_lock_up">mantiene despierto el teléfono %1$s más tiempo</string>
-    <string name="su_lock_new">ahora mantiene despierto el teléfono unos %1$s al día</string>
-    <string name="su_lock_down">mantiene despierto el teléfono %1$s menos</string>
-    <string name="su_energy_up">consume %1$s más energía mientras la usas</string>
-    <string name="su_energy_new">ahora consume unos %1$s mientras la usas</string>
-    <string name="su_energy_down">consume %1$s menos energía mientras la usas</string>
+    <string name="su_lock_up">tiene %1$s más tiempo de wakelock</string>
+    <string name="su_lock_new">ahora tiene unos %1$s de tiempo de wakelock al día</string>
+    <string name="su_lock_down">tiene %1$s menos de tiempo de wakelock</string>
+    <string name="su_energy_up">el teléfono consume %1$s más energía mientras la app está en pantalla</string>
+    <string name="su_energy_new">el teléfono ahora consume unos %1$s mientras la app está en pantalla</string>
+    <string name="su_energy_down">el teléfono consume %1$s menos energía mientras la app está en pantalla</string>
     <string name="su_mobile_up">usa %1$s más datos móviles por semana</string>
     <string name="su_mobile_down">usa %1$s menos datos móviles por semana</string>
     <string name="su_wifi_up">usa %1$s más datos de Wi-Fi por semana</string>
@@ -33,7 +33,7 @@
 
     <string name="su_detail_head">Actualizada a %2$s el %1$s; desde entonces:</string>
     <string name="su_detail_head_nov">Actualizada el %1$s; desde entonces:</string>
-    <string name="su_detail_none">Sin cambios claros en la batería en segundo plano, los despertares, los datos ni el almacenamiento.</string>
+    <string name="su_detail_none">Sin cambios claros en el consumo total de batería, los despertares, los datos ni el almacenamiento.</string>
     <string name="su_detail_early">Todavía no hay datos suficientes: se necesitan al menos 3 días de mediciones antes y después de la actualización.</string>
 
     <string name="f_since_title">%1$s cambió después de su actualización</string>

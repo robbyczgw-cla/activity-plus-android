@@ -25,7 +25,7 @@
     <string name="verdict_question">Pourquoi mon téléphone est-il lent ?</string>
     <string name="verdict_fine">Rien d\'anormal pour le moment.</string>
     <string name="verdict_fine_body">Activity+ continue de surveiller et vous prévient dès que quelque chose change.</string>
-    <string name="verdict_fine_busiest">%1$s a consommé le plus de batterie aujourd\'hui : %2$s.</string>
+    <string name="verdict_fine_busiest">Aujourd\'hui, c\'est pendant que %1$s était à l\'écran que le plus de batterie a été consommé : %2$s.</string>
     <plurals name="verdict_more">
         <item quantity="one">Et %d autre constat ›</item>
         <item quantity="other">Et %d autres constats ›</item>
@@ -92,7 +92,7 @@
     <string name="row_screen_on_other">Autre (écran allumé)</string>
     <string name="row_system">Système Android</string>
     <string name="unusual_badge">%1$s× la normale</string>
-    <string name="unusual_body">Inhabituel pour cette app : %1$s× la batterie d\'une journée normale (%2$s).</string>
+    <string name="unusual_body">Inhabituel pendant que cette app était à l\'écran : %1$s× la batterie consommée un jour normal (%2$s).</string>
     <string name="method_apps">La batterie est mesurée par Activity+ pendant que l\'app est à l\'écran. Le temps d\'écran, les données et le stockage viennent d\'Android.</string>
     <string name="detail_battery">Batterie (mesurée)</string>
     <string name="detail_screen">À l\'écran</string>
@@ -141,7 +141,7 @@
     <string name="health_cycles">Cycles de charge</string>
     <string name="health_technology">Technologie</string>
     <string name="health_note" formatted="false">La capacité mesurée provient de la jauge de la batterie et n\'est qu\'une estimation ; elle se stabilise après quelques charges et n\'est pas fiable en dessous de 15 %.</string>
-    <string name="drain_today">Batterie par app aujourd\'hui</string>
+    <string name="drain_today">Batterie consommée aujourd\'hui pendant que des apps étaient à l\'écran</string>
     <string name="drain_today_caption">Mesuré</string>
     <string name="drain_empty">Pas encore de mesure aujourd\'hui. Activity+ mesure pendant qu\'il tourne ; gardez l\'état en direct activé.</string>
     <string name="screen_off_rate">Écran éteint, la batterie se vide de %1$s par heure.</string>
@@ -178,7 +178,7 @@
     <string name="f_hot_app">%1$s est à l\'écran et en est probablement la cause.</string>
     <string name="f_saver_title">L\'économiseur de batterie est activé</string>
     <string name="f_saver_body">Il limite le travail en arrière-plan et les performances.</string>
-    <string name="f_drain_title">%1$s a consommé le plus de batterie aujourd\'hui</string>
+    <string name="f_drain_title">Aujourd\'hui, le plus de batterie a été consommé pendant que %1$s était à l\'écran</string>
     <string name="f_drain_body">%1$s en %2$s à l\'écran, %3$s de la batterie utilisée écran allumé.</string>
     <string name="f_service_title">%1$s continue de tourner en arrière-plan</string>
     <string name="f_service_body">Elle a tourné en arrière-plan pendant %1$s aujourd\'hui, alors que vous l\'avez à peine ouverte. Dans les infos de l\'app, vous pouvez limiter sa consommation de batterie.</string>
@@ -422,7 +422,7 @@
     <string name="pro_on_battery">%1$s sur batterie</string>
     <string name="pro_battery_empty">Android n\'a pas encore de chiffres ; il ne compte que lorsque le téléphone fonctionne sur batterie.</string>
     <string name="pro_cpu_time">CPU %1$s</string>
-    <string name="pro_awake">maintenu éveillé %1$s</string>
+    <string name="pro_awake">temps de wakelock %1$s</string>
     <string name="pro_hardware_title">Non imputé à une app</string>
     <string name="pro_hw_screen">Écran</string>
     <string name="pro_hw_cell">Réseau mobile</string>
@@ -440,7 +440,7 @@
     <string name="pro_entry_last">Dernière mesure %1$s</string>
     <string name="detail_pro_title">Mesure précise, %1$s</string>
     <string name="detail_pro_battery">Batterie depuis la dernière charge</string>
-    <string name="detail_pro_awake">A maintenu le téléphone éveillé</string>
+    <string name="detail_pro_awake">Temps de wakelock (somme des wakelocks)</string>
     <string name="detail_pro_cpu">Temps CPU</string>
     <string name="detail_pro_ram">Mémoire (PSS)</string>
     <string name="lang_system">Langue du système (%1$s)</string>

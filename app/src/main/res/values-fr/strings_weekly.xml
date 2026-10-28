@@ -3,13 +3,13 @@
     <string name="weekly_title">Rapport hebdomadaire</string>
     <string name="weekly_open">Ouvrir le rapport hebdomadaire</string>
     <string name="weekly_notification_title">Votre semaine avec Activity+</string>
-    <string name="weekly_headline">Votre semaine : %1$s a consommé le plus de batterie, %2$s</string>
-    <string name="weekly_headline_up">Votre semaine : %1$s a consommé le plus de batterie, %2$s, en hausse de %3$s</string>
-    <string name="weekly_headline_down">Votre semaine : %1$s a consommé le plus de batterie, %2$s, en baisse de %3$s</string>
-    <string name="weekly_headline_new">Votre semaine : %1$s a consommé le plus de batterie, %2$s, nouveau cette semaine</string>
+    <string name="weekly_headline">Votre semaine : le plus de batterie a été consommé pendant que %1$s était à l\'écran, %2$s</string>
+    <string name="weekly_headline_up">Votre semaine : le plus de batterie a été consommé pendant que %1$s était à l\'écran, %2$s, en hausse de %3$s</string>
+    <string name="weekly_headline_down">Votre semaine : le plus de batterie a été consommé pendant que %1$s était à l\'écran, %2$s, en baisse de %3$s</string>
+    <string name="weekly_headline_new">Votre semaine : le plus de batterie a été consommé pendant que %1$s était à l\'écran, %2$s, nouveau cette semaine</string>
     <string name="weekly_headline_screen">Votre semaine : %1$s a eu le plus de temps d\'écran, %2$s</string>
 
-    <string name="weekly_top_battery">Le plus de batterie</string>
+    <string name="weekly_top_battery">Le plus de batterie à l\'écran</string>
     <string name="weekly_top_screen">Le plus de temps d\'écran</string>
     <string name="weekly_top_data">Le plus de données</string>
     <string name="weekly_vs_before">Par rapport à la semaine précédente</string>

@@ -7,11 +7,11 @@
     <string name="nc_title_none">確認する夜がありません</string>
 
     <string name="nc_reason_well">%1$s、うちディープスリープ %2$s</string>
-    <string name="nc_reason_app_awake">画面オフの間に %1$s の間 wakelock を保持したため、Android はディープスリープに入れませんでした。</string>
+    <string name="nc_reason_app_awake">wakelock 時間の上限付き合計は %1$s でした。重なった wakelock は複数回カウントされることがあります。</string>
     <plurals name="nc_reason_app_wakeups">
         <item quantity="other">夜の間に %1$d 回端末を起こしたため、Android はディープスリープに入れませんでした。</item>
     </plurals>
-    <string name="nc_excessive">Google Play は、画面オフで 2 時間以上続く wakelock を過剰と見なします。</string>
+    <string name="nc_excessive">Google Play は、画面オフ時の長い wakelock について警告します。Android はこれらのカウンターについて、画面の状態や除外条件を示しません。</string>
     <string name="nc_reason_no_deep">Android は深い Doze に一度も到達せず、夜のうち端末がディープスリープにあったのは %1$s だけでした。</string>
     <string name="nc_reason_low_deep">夜のうち端末がディープスリープにあったのは %1$s だけでした。</string>
     <string name="nc_reason_low_deep_usual">夜のうち端末がディープスリープにあったのは %1$s だけでした（普段は %2$s）。</string>

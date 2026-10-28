@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="wl_badge">Por encima del límite de Google</string>
-    <string name="wl_explain">Google Play avisa de las apps que mantienen despierto el teléfono 2 horas o más con la pantalla apagada.</string>
-    <string name="wl_days">Esta app llegó a ese límite en %1$d de los últimos %2$d días medidos.</string>
-    <string name="f_wakelimit_title">%1$s supera el límite de wakelock de Google</string>
-    <string name="f_wakelimit_body">Google Play avisa de las apps que mantienen despierto el teléfono 2 horas o más con la pantalla apagada. Esta app llegó a ese límite en %1$d de los últimos %2$d días medidos, hasta %3$s en un día. En la información de la app puedes restringir su uso de batería.</string>
+    <string name="wl_badge">Wakelocks largos</string>
+    <string name="wl_explain">Google Play avisa de las apps que mantienen wakelocks durante 2 horas o más con la pantalla apagada. Android no muestra si ese tiempo fue con la pantalla apagada ni si estaba exento (música, navegación).</string>
+    <string name="wl_days">El tiempo de wakelock llegó a 2 horas en %1$d de los %2$d días medidos. Los tiempos son sumas limitadas de wakelocks, que pueden solaparse.</string>
+    <string name="f_wakelimit_title">%1$s tiene wakelocks largos</string>
+    <string name="f_wakelimit_body">El tiempo de wakelock llegó a 2 horas en %1$d de los %2$d días medidos, hasta %3$s en un día. Los tiempos son sumas limitadas de wakelocks, que pueden solaparse. Google Play avisa de las apps que hacen esto con la pantalla apagada; Android no muestra si ese tiempo fue con la pantalla apagada ni si estaba exento (música, navegación).</string>
 </resources>

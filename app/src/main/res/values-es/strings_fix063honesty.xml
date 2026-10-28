@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fix063_read_failed">No se pudo leer.</string>
+    <string name="fix063_schedule_failed">No se pudo leer el informe de alarmas o tareas de Android en este teléfono.</string>
+</resources>

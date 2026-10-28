@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unit_pending">この端末の Android のバッテリーレポートは mAh を使っていません。Activity+ はまだその単位を調べています（一致する 2 回のレポートが必要で、3 時間ごとと充電器を接続したときに読み取ります）。そのため今のところは、各アプリの割合だけを表示します。</string>
+</resources>

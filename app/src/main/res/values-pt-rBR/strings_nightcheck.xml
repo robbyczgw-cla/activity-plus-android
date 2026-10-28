@@ -7,12 +7,12 @@
     <string name="nc_title_none">Nenhuma noite para verificar</string>
 
     <string name="nc_reason_well">%1$s, %2$s de sono profundo</string>
-    <string name="nc_reason_app_awake">Manteve um wakelock por %1$s com a tela desligada, então o Android não conseguiu ficar em sono profundo.</string>
+    <string name="nc_reason_app_awake">A soma limitada do tempo de wakelock dele foi de %1$s; wakelocks sobrepostos podem ser contados mais de uma vez.</string>
     <plurals name="nc_reason_app_wakeups">
         <item quantity="one">Acordou o celular %1$d vez durante a noite, então o Android não conseguiu ficar em sono profundo.</item>
         <item quantity="other">Acordou o celular %1$d vezes durante a noite, então o Android não conseguiu ficar em sono profundo.</item>
     </plurals>
-    <string name="nc_excessive">O Google Play considera excessivo um wakelock de 2 horas ou mais com a tela desligada.</string>
+    <string name="nc_excessive">O Google Play avisa sobre wakelocks longos com a tela desligada; o Android não mostra o estado da tela nem as isenções para esses contadores.</string>
     <string name="nc_reason_no_deep">O Android nunca chegou ao Doze profundo, e o celular ficou em sono profundo só %1$s da noite.</string>
     <string name="nc_reason_low_deep">O celular ficou em sono profundo só %1$s da noite.</string>
     <string name="nc_reason_low_deep_usual">O celular ficou em sono profundo só %1$s da noite, normalmente %2$s.</string>

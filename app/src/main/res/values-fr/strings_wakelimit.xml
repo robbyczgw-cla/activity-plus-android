@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="wl_badge">Au-dessus de la limite Google</string>
-    <string name="wl_explain">Google Play signale les apps qui gardent le téléphone éveillé 2 heures ou plus, écran éteint.</string>
-    <string name="wl_days">Cette app a atteint cette limite %1$d jours sur les %2$d derniers jours mesurés.</string>
-    <string name="f_wakelimit_title">%1$s dépasse la limite de wakelock de Google</string>
-    <string name="f_wakelimit_body">Google Play signale les apps qui gardent le téléphone éveillé 2 heures ou plus, écran éteint. Cette app a atteint cette limite %1$d jours sur les %2$d derniers jours mesurés, jusqu\'à %3$s en une journée. Dans les infos de l\'app, vous pouvez restreindre son utilisation de la batterie.</string>
+    <string name="wl_badge">Wakelocks longs</string>
+    <string name="wl_explain">Google Play signale les apps qui maintiennent des wakelocks 2 heures ou plus, écran éteint. Android n\'indique pas si l\'écran était éteint pendant ce temps ni s\'il s\'agissait d\'une exemption (musique, navigation).</string>
+    <string name="wl_days">Le temps de wakelock a atteint 2 heures sur %1$d des %2$d jours mesurés. Ces durées sont des sommes plafonnées de wakelocks, qui peuvent se chevaucher.</string>
+    <string name="f_wakelimit_title">%1$s a des wakelocks longs</string>
+    <string name="f_wakelimit_body">Le temps de wakelock a atteint 2 heures sur %1$d des %2$d jours mesurés, jusqu\'à %3$s en une journée. Ces durées sont des sommes plafonnées de wakelocks, qui peuvent se chevaucher. Google Play signale les apps qui font cela écran éteint ; Android n\'indique pas si l\'écran était éteint pendant ce temps ni s\'il s\'agissait d\'une exemption (musique, navigation).</string>
 </resources>

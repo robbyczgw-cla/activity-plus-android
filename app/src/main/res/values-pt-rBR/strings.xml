@@ -25,7 +25,7 @@
     <string name="verdict_question">Por que meu celular está lento?</string>
     <string name="verdict_fine">Nada se destaca no momento.</string>
     <string name="verdict_fine_body">O Activity+ continua monitorando e avisa quando algo muda.</string>
-    <string name="verdict_fine_busiest">%1$s consumiu mais bateria hoje: %2$s.</string>
+    <string name="verdict_fine_busiest">Hoje, o maior consumo de bateria ocorreu enquanto %1$s estava na tela: %2$s.</string>
     <plurals name="verdict_more">
         <item quantity="one">E mais %d achado ›</item>
         <item quantity="other">E mais %d achados ›</item>
@@ -92,7 +92,7 @@
     <string name="row_screen_on_other">Outros (tela ligada)</string>
     <string name="row_system">Sistema Android</string>
     <string name="unusual_badge">%1$s× o normal</string>
-    <string name="unusual_body">Fora do normal para este app: %1$s× a bateria que ele usa em um dia comum (%2$s).</string>
+    <string name="unusual_body">Fora do normal enquanto este app estava na tela: %1$s× a bateria usada em um dia comum (%2$s).</string>
     <string name="method_apps">O Activity+ mede a bateria enquanto o app está na tela. Tempo de tela, dados e armazenamento vêm do Android.</string>
     <string name="detail_battery">Bateria (medida)</string>
     <string name="detail_screen">Na tela</string>
@@ -141,7 +141,7 @@
     <string name="health_cycles">Ciclos de carga</string>
     <string name="health_technology">Tecnologia</string>
     <string name="health_note" formatted="false">A capacidade medida vem do medidor de carga da bateria e é apenas uma estimativa; ela se estabiliza após algumas cargas e não é confiável abaixo de 15 %.</string>
-    <string name="drain_today">Bateria por app hoje</string>
+    <string name="drain_today">Bateria usada hoje enquanto os apps estavam na tela</string>
     <string name="drain_today_caption">Medido</string>
     <string name="drain_empty">Ainda não há medições hoje. O Activity+ mede enquanto está em execução; mantenha o status ao vivo ativado.</string>
     <string name="screen_off_rate">Com a tela desligada, a bateria descarrega %1$s por hora.</string>
@@ -178,7 +178,7 @@
     <string name="f_hot_app">%1$s está na tela e provavelmente é a causa.</string>
     <string name="f_saver_title">A economia de bateria está ativada</string>
     <string name="f_saver_body">Ela limita as atividades em segundo plano e o desempenho.</string>
-    <string name="f_drain_title">%1$s consumiu mais bateria hoje</string>
+    <string name="f_drain_title">Hoje, o maior consumo de bateria ocorreu enquanto %1$s estava na tela</string>
     <string name="f_drain_body">%1$s em %2$s na tela, %3$s da bateria usada com a tela ligada.</string>
     <string name="f_service_title">%1$s continua funcionando em segundo plano</string>
     <string name="f_service_body">Hoje ele ficou em segundo plano por %1$s, mesmo quase sem ser aberto. Nas informações do app, você pode limitar o uso de bateria.</string>
@@ -422,7 +422,7 @@
     <string name="pro_on_battery">%1$s com bateria</string>
     <string name="pro_battery_empty">O Android ainda não tem números; ele só conta enquanto o celular funciona na bateria.</string>
     <string name="pro_cpu_time">CPU %1$s</string>
-    <string name="pro_awake">manteve acordado %1$s</string>
+    <string name="pro_awake">tempo de wakelock %1$s</string>
     <string name="pro_hardware_title">Não atribuído a um app</string>
     <string name="pro_hw_screen">Tela</string>
     <string name="pro_hw_cell">Rádio celular</string>
@@ -440,7 +440,7 @@
     <string name="pro_entry_last">Última medição %1$s</string>
     <string name="detail_pro_title">Medição precisa, %1$s</string>
     <string name="detail_pro_battery">Bateria desde a última carga</string>
-    <string name="detail_pro_awake">Manteve o celular acordado</string>
+    <string name="detail_pro_awake">Tempo de wakelock (soma dos wakelocks)</string>
     <string name="detail_pro_cpu">Tempo de CPU</string>
     <string name="detail_pro_ram">Memória (PSS)</string>
     <string name="lang_system">Idioma do sistema (%1$s)</string>

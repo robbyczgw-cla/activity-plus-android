@@ -25,7 +25,7 @@
     <string name="verdict_question">Perché il telefono è lento?</string>
     <string name="verdict_fine">Al momento non c\'è nulla di strano.</string>
     <string name="verdict_fine_body">Activity+ continua a controllare e ti avvisa quando qualcosa cambia.</string>
-    <string name="verdict_fine_busiest">%1$s ha consumato più batteria oggi: %2$s.</string>
+    <string name="verdict_fine_busiest">Oggi si è consumata più batteria mentre %1$s era sullo schermo: %2$s.</string>
     <plurals name="verdict_more">
         <item quantity="one">E %d altro risultato ›</item>
         <item quantity="other">E altri %d risultati ›</item>
@@ -92,7 +92,7 @@
     <string name="row_screen_on_other">Altro (schermo acceso)</string>
     <string name="row_system">Sistema Android</string>
     <string name="unusual_badge">%1$s× il solito</string>
-    <string name="unusual_body">Insolito per questa app: %1$s× la batteria che usa in una giornata normale (%2$s).</string>
+    <string name="unusual_body">Insolito mentre questa app era sullo schermo: %1$s× la batteria consumata in una giornata normale (%2$s).</string>
     <string name="method_apps">Activity+ misura la batteria mentre l\'app è sullo schermo. Tempo di utilizzo, dati e archiviazione arrivano da Android.</string>
     <string name="detail_battery">Batteria (misurata)</string>
     <string name="detail_screen">Sullo schermo</string>
@@ -141,7 +141,7 @@
     <string name="health_cycles">Cicli di carica</string>
     <string name="health_technology">Tecnologia</string>
     <string name="health_note" formatted="false">La capacità misurata viene dal misuratore di carica della batteria ed è solo una stima; si stabilizza dopo alcune ricariche e non è affidabile sotto il 15 %.</string>
-    <string name="drain_today">Batteria per app oggi</string>
+    <string name="drain_today">Batteria consumata oggi mentre le app erano sullo schermo</string>
     <string name="drain_today_caption">Misurato</string>
     <string name="drain_empty">Ancora nessuna misurazione per oggi. Activity+ misura mentre è in esecuzione; tieni attivo lo stato in tempo reale.</string>
     <string name="screen_off_rate">Con lo schermo spento la batteria cala di %1$s all\'ora.</string>
@@ -178,7 +178,7 @@
     <string name="f_hot_app">%1$s è sullo schermo ed è probabilmente la causa.</string>
     <string name="f_saver_title">Il risparmio energetico è attivo</string>
     <string name="f_saver_body">Limita l\'attività in background e le prestazioni.</string>
-    <string name="f_drain_title">%1$s ha consumato più batteria oggi</string>
+    <string name="f_drain_title">Oggi si è consumata più batteria mentre %1$s era sullo schermo</string>
     <string name="f_drain_body">%1$s in %2$s sullo schermo, %3$s della batteria usata con lo schermo acceso.</string>
     <string name="f_service_title">%1$s continua a funzionare in background</string>
     <string name="f_service_body">Oggi è rimasta attiva in background per %1$s, anche se l\'hai aperta a malapena. Nelle info app puoi limitarne il consumo di batteria.</string>
@@ -422,7 +422,7 @@
     <string name="pro_on_battery">%1$s a batteria</string>
     <string name="pro_battery_empty">Android non ha ancora dati; conteggia solo mentre il telefono funziona a batteria.</string>
     <string name="pro_cpu_time">CPU %1$s</string>
-    <string name="pro_awake">tenuto sveglio %1$s</string>
+    <string name="pro_awake">tempo di wakelock %1$s</string>
     <string name="pro_hardware_title">Non attribuito a un\'app</string>
     <string name="pro_hw_screen">Schermo</string>
     <string name="pro_hw_cell">Rete mobile</string>
@@ -440,7 +440,7 @@
     <string name="pro_entry_last">Ultima misurazione %1$s</string>
     <string name="detail_pro_title">Misurazione precisa, %1$s</string>
     <string name="detail_pro_battery">Batteria dall\'ultima ricarica</string>
-    <string name="detail_pro_awake">Ha tenuto sveglio il telefono</string>
+    <string name="detail_pro_awake">Tempo di wakelock (somma dei wakelock)</string>
     <string name="detail_pro_cpu">Tempo CPU</string>
     <string name="detail_pro_ram">Memoria (PSS)</string>
     <string name="lang_system">Lingua di sistema (%1$s)</string>

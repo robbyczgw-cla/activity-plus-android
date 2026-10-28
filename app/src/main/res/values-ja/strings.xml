@@ -25,7 +25,7 @@
     <string name="verdict_question">端末が遅いのはなぜですか？</string>
     <string name="verdict_fine">今のところ、目立った問題はありません。</string>
     <string name="verdict_fine_body">Activity+ は引き続き監視し、問題が起きたらお知らせします。</string>
-    <string name="verdict_fine_busiest">今日最もバッテリーを使ったのは %1$s（%2$s）です。</string>
+    <string name="verdict_fine_busiest">今日、最も多くバッテリーが使われたのは %1$s が画面に表示されていた間です（%2$s）。</string>
     <plurals name="verdict_more">
         <item quantity="other">ほかに %d 件の検出 ›</item>
     </plurals>
@@ -91,7 +91,7 @@
     <string name="row_screen_on_other">その他（画面オン）</string>
     <string name="row_system">Android システム</string>
     <string name="unusual_badge">通常の %1$s×</string>
-    <string name="unusual_body">このアプリとしては異例です。通常の日（%2$s）の %1$s× のバッテリーを使っています。</string>
+    <string name="unusual_body">このアプリが画面に表示されている間としては異例です。通常の日（%2$s）の %1$s× のバッテリーが使われています。</string>
     <string name="method_apps">バッテリーの使用量は、アプリが画面に表示されている間に Activity+ が計測します。画面表示時間、データ通信、ストレージは Android の値です。</string>
     <string name="detail_battery">バッテリー（計測値）</string>
     <string name="detail_screen">画面表示</string>
@@ -140,7 +140,7 @@
     <string name="health_cycles">充電サイクル</string>
     <string name="health_technology">方式</string>
     <string name="health_note" formatted="false">計測された容量はバッテリーの残量計から得た値で、あくまで推定です。数回充電すると安定し、15 % を下回ると信頼できません。</string>
-    <string name="drain_today">今日のアプリ別バッテリー使用量</string>
+    <string name="drain_today">今日、アプリが画面に表示されている間に使われたバッテリー</string>
     <string name="drain_today_caption">計測値</string>
     <string name="drain_empty">今日はまだ計測値がありません。Activity+ は動作中に計測します。ライブステータスをオンにしておいてください。</string>
     <string name="screen_off_rate">画面オフの間、バッテリーは 1 時間あたり %1$s 減っています。</string>
@@ -177,7 +177,7 @@
     <string name="f_hot_app">%1$s が画面に表示されており、負荷の原因と思われます。</string>
     <string name="f_saver_title">省電力モードがオンです</string>
     <string name="f_saver_body">バックグラウンド処理と性能を制限します。</string>
-    <string name="f_drain_title">今日最もバッテリーを使ったのは %1$s です</string>
+    <string name="f_drain_title">今日、最も多くバッテリーが使われたのは %1$s が画面に表示されていた間です</string>
     <string name="f_drain_body">%1$s（画面表示 %2$s）。画面オン時に使われたバッテリーの %3$s です。</string>
     <string name="f_service_title">%1$s がバックグラウンドで動き続けています</string>
     <string name="f_service_body">ほとんど開いていないのに、今日は %1$s バックグラウンドで動いていました。アプリ情報でバッテリーの使用を制限できます。</string>
@@ -420,7 +420,7 @@
     <string name="pro_on_battery">バッテリー駆動 %1$s</string>
     <string name="pro_battery_empty">Android はまだ数値を出していません。端末がバッテリーで動いている間だけ集計されます。</string>
     <string name="pro_cpu_time">CPU %1$s</string>
-    <string name="pro_awake">起動状態を維持 %1$s</string>
+    <string name="pro_awake">wakelock 時間 %1$s</string>
     <string name="pro_hardware_title">アプリに割り当てられない消費</string>
     <string name="pro_hw_screen">画面</string>
     <string name="pro_hw_cell">モバイル通信</string>
@@ -438,7 +438,7 @@
     <string name="pro_entry_last">前回の計測 %1$s</string>
     <string name="detail_pro_title">プロモードでの計測、%1$s</string>
     <string name="detail_pro_battery">前回の充電以降のバッテリー使用量</string>
-    <string name="detail_pro_awake">端末を起動状態に維持</string>
+    <string name="detail_pro_awake">wakelock 時間（wakelock の合計）</string>
     <string name="detail_pro_cpu">CPU 時間</string>
     <string name="detail_pro_ram">メモリ（PSS）</string>
     <string name="lang_system">システムの言語（%1$s）</string>

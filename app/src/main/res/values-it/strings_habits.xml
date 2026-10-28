@@ -34,7 +34,7 @@
     <string name="habits_age_more">Servono più ricariche complete: %1$d misurate finora. La previsione ne richiede %2$d, distribuite su %3$d settimane.</string>
     <string name="habits_age_note">Calcolata sulla capacità piena delle ricariche completate. Approssimativa con poche misure, e più precisa a ogni nuova.</string>
 
-    <string name="cost_title">Costo per ora di utilizzo</string>
+    <string name="cost_title">Consumo elettrico con app sullo schermo</string>
     <string name="cost_caption" formatted="false">Ultimi 7 giorni</string>
     <string name="cost_row_note">%1$s sullo schermo · media %2$s</string>
     <string name="cost_note">Batteria consumata mentre ogni app era sullo schermo, misurata a batteria. Conta anche il lavoro in background delle altre app in quel tempo.</string>

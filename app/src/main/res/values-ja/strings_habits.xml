@@ -32,7 +32,7 @@
     <string name="habits_age_more">満充電の回数が不足しています：これまでに %1$d 回測定。予測には %3$d 週間にわたる %2$d 回の測定が必要です。</string>
     <string name="habits_age_note">完了した充電の満充電容量に基づいて算出しています。データが少ないうちは大まかですが、新しいデータが増えるほど精度が上がります。</string>
 
-    <string name="cost_title">使用 1 時間あたりのコスト</string>
+    <string name="cost_title">アプリが画面に表示されている間の消費電力</string>
     <string name="cost_caption" formatted="false">直近 7 日間</string>
     <string name="cost_row_note">画面表示 %1$s · 平均 %2$s</string>
     <string name="cost_note">各アプリが画面に表示されていた間のバッテリー消費を、バッテリー駆動時に計測しています。その間の他のアプリのバックグラウンド処理も含まれます。</string>

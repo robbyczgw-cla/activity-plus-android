@@ -13,12 +13,12 @@
         <item quantity="one">%d despertar</item>
         <item quantity="other">%d despertares</item>
     </plurals>
-    <string name="wk_explain">Um despertar é um alarme que tira o celular do modo de espera; um wakelock o mantém acordado com a tela desligada. Os dois gastam bateria enquanto você não usa o celular.</string>
+    <string name="wk_explain">Um despertar é um alarme que tira o celular do modo de espera. O tempo de wakelock é a soma dos wakelocks do app, limitada por intervalo; wakelocks sobrepostos podem ser contados mais de uma vez.</string>
     <string name="wk_note">Contado pelo Android, só com a bateria. Toque em um app para ver a semana dele.</string>
     <string name="wk_fix">Em Informações do app, em Bateria, você pode restringir o uso em segundo plano. O Activity+ nunca muda isso sozinho.</string>
     <string name="wk_detail_title">Despertares e wakelocks, últimos 7 dias</string>
     <string name="wk_detail_wakeups">Acordou o celular hoje</string>
-    <string name="wk_detail_awake">Manteve acordado hoje</string>
+    <string name="wk_detail_awake">Tempo de wakelock hoje</string>
     <string name="wk_detail_cpu">Tempo de CPU hoje</string>
     <string name="wk_detail_jobs">Tarefas em segundo plano hoje</string>
     <string name="wk_detail_syncs">Sincronizações hoje</string>
@@ -29,5 +29,5 @@
         <item quantity="one">%1$s acordou o celular %2$d vez na noite passada</item>
         <item quantity="other">%1$s acordou o celular %2$d vezes na noite passada</item>
     </plurals>
-    <string name="wk_night_awake">%1$s manteve o celular acordado por %2$s na noite passada</string>
+    <string name="wk_night_awake">%1$s teve %2$s de tempo de wakelock na noite passada (soma limitada)</string>
 </resources>

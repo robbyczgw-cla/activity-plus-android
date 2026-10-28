@@ -34,7 +34,7 @@
     <string name="habits_age_more">Il faut davantage de charges complètes : %1$d mesurées jusqu\'ici. La prévision en demande %2$d, réparties sur %3$d semaines.</string>
     <string name="habits_age_note">Ajusté sur la capacité pleine de vos charges terminées. Approximatif avec peu de mesures, et plus précis à chaque nouvelle charge.</string>
 
-    <string name="cost_title">Coût par heure d\'utilisation</string>
+    <string name="cost_title">Consommation électrique avec des apps à l\'écran</string>
     <string name="cost_caption" formatted="false">7 derniers jours</string>
     <string name="cost_row_note">%1$s à l\'écran · moy. %2$s</string>
     <string name="cost_note">Batterie consommée pendant que chaque app était à l\'écran, mesurée sur batterie. Le travail en arrière-plan des autres apps pendant ce temps compte aussi.</string>

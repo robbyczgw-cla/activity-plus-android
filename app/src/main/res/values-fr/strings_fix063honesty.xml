@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fix063_read_failed">Lecture impossible.</string>
+    <string name="fix063_schedule_failed">Le rapport d\'Android sur les alarmes et les tâches n\'a pas pu être lu sur ce téléphone.</string>
+</resources>

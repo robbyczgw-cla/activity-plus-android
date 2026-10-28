@@ -12,7 +12,7 @@
     <string name="es_passport_none">此手机不提供这些信息，即使授予读取权限也一样。</string>
     <string name="es_trend_none" formatted="false">从第二次充入至少 30% 的充电起显示。</string>
     <string name="es_drain_needs_access">按应用查看耗电需要使用情况访问权限，以便知道哪个应用在屏幕上。</string>
-    <string name="es_bg_hint">各应用在后台的耗电，来自 Android 自身的报告。需要在专业页面授予电脑权限。</string>
+    <string name="es_bg_hint">各应用的耗电（Android 的估算，包括在屏幕上和在后台）。需要在专业页面授予电脑权限。</string>
     <string name="es_bg_off">设置中已关闭自动后台测量。</string>
     <string name="es_sessions_none">暂无记录。充电或使用电池的时间持续满 5 分钟后，会显示在这里。</string>
 

@@ -12,12 +12,12 @@
     <plurals name="wk_wakeups">
         <item quantity="other">唤醒 %d 次</item>
     </plurals>
-    <string name="wk_explain">唤醒是把手机从睡眠中叫醒的闹钟；唤醒锁则会在屏幕关闭时让手机保持唤醒。两者都会在你不用手机时消耗电量。</string>
+    <string name="wk_explain">唤醒是把手机从睡眠中叫醒的闹钟。wakelock 时间是该应用各 wakelock 的总和，按间隔设有上限；重叠的 wakelock 可能被重复计算。</string>
     <string name="wk_note">由 Android 在电池供电时统计。点按应用可查看一周的情况。</string>
     <string name="wk_fix">在应用信息的“电池”中，可以限制其后台运行。Activity+ 从不自行更改此设置。</string>
     <string name="wk_detail_title">唤醒与唤醒锁，最近 7 天</string>
     <string name="wk_detail_wakeups">今天唤醒手机</string>
-    <string name="wk_detail_awake">今天保持唤醒</string>
+    <string name="wk_detail_awake">今天的 wakelock 时间</string>
     <string name="wk_detail_cpu">今天的 CPU 时间</string>
     <string name="wk_detail_jobs">今天的后台任务</string>
     <string name="wk_detail_syncs">今天的同步</string>
@@ -27,5 +27,5 @@
     <plurals name="wk_night_line">
         <item quantity="other">%1$s 昨晚唤醒手机 %2$d 次</item>
     </plurals>
-    <string name="wk_night_awake">%1$s 昨晚让手机保持唤醒 %2$s</string>
+    <string name="wk_night_awake">%1$s 昨晚的 wakelock 时间为 %2$s（上限总和）</string>
 </resources>

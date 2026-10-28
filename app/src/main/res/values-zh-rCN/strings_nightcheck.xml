@@ -7,11 +7,11 @@
     <string name="nc_title_none">没有可检查的夜晚</string>
 
     <string name="nc_reason_well">%1$s，深度睡眠 %2$s</string>
-    <string name="nc_reason_app_awake">屏幕关闭时，它持有 wakelock 达 %1$s，因此 Android 无法保持深度睡眠。</string>
+    <string name="nc_reason_app_awake">其 wakelock 时间的上限总和为 %1$s；重叠的 wakelock 可能被重复计算。</string>
     <plurals name="nc_reason_app_wakeups">
         <item quantity="other">夜间唤醒手机 %1$d 次，因此 Android 无法保持深度睡眠。</item>
     </plurals>
-    <string name="nc_excessive">Google Play 认为屏幕关闭时持有 2 小时或以上的 wakelock 属于过度使用。</string>
+    <string name="nc_excessive">Google Play 会对屏幕关闭时的长时间 wakelock 发出警告；Android 不显示这些计数器对应的屏幕状态或豁免情况。</string>
     <string name="nc_reason_no_deep">Android 从未进入深度 Doze，夜间手机仅有 %1$s 处于深度睡眠。</string>
     <string name="nc_reason_low_deep">夜间手机仅有 %1$s 处于深度睡眠。</string>
     <string name="nc_reason_low_deep_usual">夜间手机仅有 %1$s 处于深度睡眠，通常为 %2$s。</string>

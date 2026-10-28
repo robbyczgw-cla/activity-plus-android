@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fix063_read_failed">読み取れませんでした。</string>
+    <string name="fix063_schedule_failed">この端末では、Android のアラームまたはジョブのレポートを読み取れませんでした。</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fix063_read_failed">Impossibile leggere.</string>
+    <string name="fix063_schedule_failed">Su questo telefono non è stato possibile leggere il report di Android su sveglie o attività.</string>
+</resources>

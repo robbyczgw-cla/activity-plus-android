@@ -12,7 +12,7 @@
     <string name="es_passport_none">この端末は、読み取り権限があってもこれらの情報を報告しません。</string>
     <string name="es_trend_none" formatted="false">30 % 以上充電した 2 回目の充電から表示されます。</string>
     <string name="es_drain_needs_access">アプリごとのバッテリー使用量には、どのアプリが画面に表示されているかを知るため、使用状況へのアクセスが必要です。</string>
-    <string name="es_bg_hint">バックグラウンドでのアプリごとのバッテリー使用量です。Android 自身のレポートに基づきます。プロページでパソコンからの許可が必要です。</string>
+    <string name="es_bg_hint">アプリごとのバッテリー使用量です（Android の推定値で、画面表示中とバックグラウンドの合計）。プロページでパソコンからの許可が必要です。</string>
     <string name="es_bg_off">バックグラウンドの自動計測が設定でオフになっています。</string>
     <string name="es_sessions_none">まだありません。充電やバッテリー駆動の期間が 5 分続くと、ここに表示されます。</string>
 

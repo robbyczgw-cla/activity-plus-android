@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unit_pending">这部手机上 Android 的电池报告不使用 mAh。Activity+ 仍在确定其单位（需要两份一致的报告，每 3 小时以及插上电源时读取一次），因此目前只显示各应用的占比。</string>
+</resources>

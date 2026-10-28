@@ -13,12 +13,12 @@
         <item quantity="one">%d risveglio</item>
         <item quantity="other">%d risvegli</item>
     </plurals>
-    <string name="wk_explain">Un risveglio è una sveglia che fa uscire il telefono dal sonno; un wakelock lo tiene sveglio con lo schermo spento. Entrambi consumano batteria mentre non usi il telefono.</string>
+    <string name="wk_explain">Un risveglio è una sveglia che fa uscire il telefono dal sonno. Il tempo di wakelock è la somma dei suoi wakelock, limitata per intervallo; i wakelock sovrapposti possono essere contati più volte.</string>
     <string name="wk_note">Conteggiato da Android, solo a batteria. Tocca un\'app per vedere la sua settimana.</string>
     <string name="wk_fix">In Info app, alla voce Batteria, puoi limitarne l\'uso in background. Activity+ non cambia mai questa impostazione da solo.</string>
     <string name="wk_detail_title">Risvegli e wakelock, ultimi 7 giorni</string>
     <string name="wk_detail_wakeups">Ha svegliato il telefono oggi</string>
-    <string name="wk_detail_awake">Lo ha tenuto sveglio oggi</string>
+    <string name="wk_detail_awake">Tempo di wakelock oggi</string>
     <string name="wk_detail_cpu">Tempo CPU oggi</string>
     <string name="wk_detail_jobs">Job in background oggi</string>
     <string name="wk_detail_syncs">Sincronizzazioni oggi</string>
@@ -29,5 +29,5 @@
         <item quantity="one">%1$s ha svegliato il telefono %2$d volta la notte scorsa</item>
         <item quantity="other">%1$s ha svegliato il telefono %2$d volte la notte scorsa</item>
     </plurals>
-    <string name="wk_night_awake">%1$s ha tenuto il telefono sveglio per %2$s la notte scorsa</string>
+    <string name="wk_night_awake">%1$s ha avuto %2$s di tempo di wakelock la notte scorsa (somma limitata)</string>
 </resources>

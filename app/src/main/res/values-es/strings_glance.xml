@@ -3,13 +3,13 @@
     <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
     <string name="glance_title">Hoy de un vistazo</string>
     <string name="glance_label_battery">Batería ahora</string>
-    <string name="glance_label_top">Lo que más se usó hoy</string>
+    <string name="glance_label_top">Más batería en pantalla</string>
     <string name="glance_label_heads">Aviso</string>
     <string name="glance_full_in">Llena en %1$s</string>
     <string name="glance_plugged">Conectado</string>
     <string name="glance_no_estimate">Todavía no hay estimación</string>
     <string name="glance_unusual">%1$s despertó el teléfono hoy mucho más de lo habitual</string>
-    <string name="glance_learning">Aquí aparecerá más a medida que Activity+ conozca tu día: la última noche, la app que más usó y los avisos.</string>
+    <string name="glance_learning">Aquí aparecerá más a medida que Activity+ conozca tu día: la última noche, cuándo se gastó más batería en pantalla y los avisos.</string>
 
     <string name="glance_group_now">Ahora</string>
     <string name="glance_group_night">Anoche</string>

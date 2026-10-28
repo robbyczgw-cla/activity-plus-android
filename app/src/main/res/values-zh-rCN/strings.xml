@@ -25,7 +25,7 @@
     <string name="verdict_question">手机为什么变慢了？</string>
     <string name="verdict_fine">目前没有异常。</string>
     <string name="verdict_fine_body">Activity+ 会持续监测，发现问题时会通知你。</string>
-    <string name="verdict_fine_busiest">今天耗电最多的是 %1$s：%2$s。</string>
+    <string name="verdict_fine_busiest">今天，%1$s 在屏幕上时耗电最多：%2$s。</string>
     <plurals name="verdict_more">
         <item quantity="other">还有 %d 项发现 ›</item>
     </plurals>
@@ -91,7 +91,7 @@
     <string name="row_screen_on_other">其他（屏幕开启）</string>
     <string name="row_system">Android 系统</string>
     <string name="unusual_badge">是平时的 %1$s×</string>
-    <string name="unusual_body">对此应用来说不寻常：耗电是平常一天（%2$s）的 %1$s×。</string>
+    <string name="unusual_body">该应用在屏幕上时不寻常：耗电是平常一天（%2$s）的 %1$s×。</string>
     <string name="method_apps">电池用量由 Activity+ 在应用位于屏幕上时测量。屏幕时间、流量和存储来自 Android。</string>
     <string name="detail_battery">电池（实测）</string>
     <string name="detail_screen">屏幕上</string>
@@ -140,7 +140,7 @@
     <string name="health_cycles">充电循环次数</string>
     <string name="health_technology">技术</string>
     <string name="health_note" formatted="false">实测容量来自电池的电量计，仅为估计值；充电几次后会趋于稳定，低于 15% 时不可靠。</string>
-    <string name="drain_today">今日各应用耗电</string>
+    <string name="drain_today">今天各应用在屏幕上时的耗电</string>
     <string name="drain_today_caption">实测</string>
     <string name="drain_empty">今天还没有测量数据。Activity+ 在运行时进行测量；请保持实时状态开启。</string>
     <string name="screen_off_rate">屏幕关闭时，电池每小时消耗 %1$s。</string>
@@ -177,7 +177,7 @@
     <string name="f_hot_app">%1$s 位于屏幕上，很可能是负载来源。</string>
     <string name="f_saver_title">省电模式已开启</string>
     <string name="f_saver_body">它会限制后台工作和性能。</string>
-    <string name="f_drain_title">今天耗电最多的是 %1$s</string>
+    <string name="f_drain_title">今天，%1$s 在屏幕上时耗电最多</string>
     <string name="f_drain_body">%1$s（%2$s 在屏幕上），亮屏时耗用了 %3$s 的电池。</string>
     <string name="f_service_title">%1$s 仍在后台运行</string>
     <string name="f_service_body">尽管你几乎没有打开它，今天它在后台运行了 %1$s。在应用信息中，你可以限制其耗电。</string>
@@ -420,7 +420,7 @@
     <string name="pro_on_battery">电池供电 %1$s</string>
     <string name="pro_battery_empty">Android 暂无数据；仅在手机使用电池供电时计算。</string>
     <string name="pro_cpu_time">CPU %1$s</string>
-    <string name="pro_awake">保持唤醒 %1$s</string>
+    <string name="pro_awake">wakelock 时间 %1$s</string>
     <string name="pro_hardware_title">未归属于应用</string>
     <string name="pro_hw_screen">屏幕</string>
     <string name="pro_hw_cell">移动网络</string>
@@ -438,7 +438,7 @@
     <string name="pro_entry_last">上次测量 %1$s</string>
     <string name="detail_pro_title">专业测量，%1$s</string>
     <string name="detail_pro_battery">上次充电后的耗电</string>
-    <string name="detail_pro_awake">保持手机唤醒</string>
+    <string name="detail_pro_awake">wakelock 时间（各 wakelock 之和）</string>
     <string name="detail_pro_cpu">CPU 时间</string>
     <string name="detail_pro_ram">内存（PSS）</string>
     <string name="lang_system">跟随系统（%1$s）</string>

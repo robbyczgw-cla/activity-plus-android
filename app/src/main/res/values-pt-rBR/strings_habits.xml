@@ -34,7 +34,7 @@
     <string name="habits_age_more">Faltam mais cargas completas: %1$d medidas até agora. A previsão precisa de %2$d, distribuídas em %3$d semanas.</string>
     <string name="habits_age_note">Ajustado à capacidade total das suas cargas completas. Aproximado com poucas, e mais preciso a cada nova.</string>
 
-    <string name="cost_title">Custo por hora de uso</string>
+    <string name="cost_title">Consumo de energia com apps na tela</string>
     <string name="cost_caption" formatted="false">Últimos 7 dias</string>
     <string name="cost_row_note">%1$s na tela · média %2$s</string>
     <string name="cost_note">Bateria gasta enquanto cada app estava na tela, medida com o celular na bateria. O trabalho em segundo plano de outros apps nesse período também conta.</string>

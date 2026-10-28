@@ -32,7 +32,7 @@
     <string name="habits_age_more">需要更多次完整充电：目前测得 %1$d 次。预测需要 %2$d 次，并分布在 %3$d 周内。</string>
     <string name="habits_age_note">依据你已完成充电的满充容量拟合。数据少时较粗略，每新增一次都会更精确。</string>
 
-    <string name="cost_title">每小时使用成本</string>
+    <string name="cost_title">应用在屏幕上时的功耗</string>
     <string name="cost_caption" formatted="false">最近 7 天</string>
     <string name="cost_row_note">屏幕使用 %1$s · 平均 %2$s</string>
     <string name="cost_note">各应用位于屏幕上时的电池消耗，以使用电池时的测量为准。这段时间内其他应用的后台工作也计算在内。</string>

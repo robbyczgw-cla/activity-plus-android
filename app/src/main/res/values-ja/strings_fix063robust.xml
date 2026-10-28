@@ -1,0 +1,3 @@
+<resources>
+    <string name="import_limit_exceeded">インポートファイルがサイズまたは行数の上限を超えています。インポートを中止しました。すでにインポートされたテーブルは保持されます。</string>
+</resources>

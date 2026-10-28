@@ -12,18 +12,18 @@
     <string name="su_waiting">刚更新的应用需要至少 3 天的测量数据，才能进行判断。</string>
     <string name="su_note">更新只是最可能的原因，而不是证据：使用方式同样可能是原因。系统会比较更新前后各日的中位数，只有变化至少达到两倍（或减半）且超过最小值时才算数。</string>
 
-    <string name="su_bg_up">后台耗电是之前的 %1$s</string>
-    <string name="su_bg_new">现在每天后台耗电约 %1$s</string>
-    <string name="su_bg_down">后台耗电减少了 %1$s</string>
+    <string name="su_bg_up">总耗电是之前的 %1$s</string>
+    <string name="su_bg_new">现在每天总耗电约 %1$s</string>
+    <string name="su_bg_down">总耗电减少了 %1$s</string>
     <string name="su_wake_up">唤醒手机的次数是之前的 %1$s</string>
     <string name="su_wake_new">现在每天约唤醒手机 %1$s 次</string>
     <string name="su_wake_down">唤醒手机的次数减少了 %1$s</string>
-    <string name="su_lock_up">保持手机唤醒的时间是之前的 %1$s</string>
-    <string name="su_lock_new">现在每天约让手机保持唤醒 %1$s</string>
-    <string name="su_lock_down">保持手机唤醒的时间减少了 %1$s</string>
-    <string name="su_energy_up">使用时的耗电是之前的 %1$s</string>
-    <string name="su_energy_new">现在使用时约耗电 %1$s</string>
-    <string name="su_energy_down">使用时的耗电减少了 %1$s</string>
+    <string name="su_lock_up">wakelock 时间是之前的 %1$s</string>
+    <string name="su_lock_new">现在每天的 wakelock 时间约 %1$s</string>
+    <string name="su_lock_down">wakelock 时间减少了 %1$s</string>
+    <string name="su_energy_up">应用在屏幕上时，手机的耗电是之前的 %1$s</string>
+    <string name="su_energy_new">应用在屏幕上时，手机现在约耗电 %1$s</string>
+    <string name="su_energy_down">应用在屏幕上时，手机的耗电减少了 %1$s</string>
     <string name="su_mobile_up">每周移动数据用量增加了 %1$s</string>
     <string name="su_mobile_down">每周移动数据用量减少了 %1$s</string>
     <string name="su_wifi_up">每周 Wi-Fi 数据用量增加了 %1$s</string>
@@ -32,7 +32,7 @@
 
     <string name="su_detail_head">%1$s 更新至 %2$s，此后：</string>
     <string name="su_detail_head_nov">%1$s 已更新，此后：</string>
-    <string name="su_detail_none">后台耗电、唤醒、数据和存储没有明显变化。</string>
+    <string name="su_detail_none">总耗电、唤醒、数据和存储没有明显变化。</string>
     <string name="su_detail_early">数据还不够：需要在更新前后各至少 3 天的测量数据。</string>
 
     <string name="f_since_title">%1$s 在更新后发生了变化</string>
