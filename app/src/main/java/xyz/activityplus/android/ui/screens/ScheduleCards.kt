@@ -81,9 +81,13 @@ suspend fun readSchedule(context: Context, viaShizuku: Boolean): Schedule.Plan {
     val read: suspend (String) -> String =
         if (viaShizuku) { c -> ProShell.run(context, c) } else { c -> ProShell.readWithGrant(context, c) }
     val zone = ZoneId.systemDefault()
-    val alarms = AlarmParser.parse(read(ShellService.ALARMS))
+    val alarmText = read(ShellService.ALARMS)
+    check(AlarmParser.recognised(alarmText)) { "Alarm report not recognised" }
+    val alarms = AlarmParser.parse(alarmText)
     // The alarms alone still make the card; the job list is a bonus.
-    val jobs = runCatching { JobParser.parse(read(ShellService.JOBS), zone) }.getOrNull()
+    val jobText = read(ShellService.JOBS)
+    check(JobParser.recognised(jobText)) { "Job report not recognised" }
+    val jobs = JobParser.parse(jobText, zone)
     val now = System.currentTimeMillis()
     val plan = Schedule.plan(alarms, jobs, now, zone, ignore = setOf("android", context.packageName))
     PlanCache.last = now to plan
@@ -94,7 +98,7 @@ suspend fun readSchedule(context: Context, viaShizuku: Boolean): Schedule.Plan {
 suspend fun loadSchedule(context: Context): Schedule.Plan? {
     PlanCache.get(FRESH_MS)?.let { return it }
     if (!ProShell.hasComputerGrant(context)) return PlanCache.get(STALE_MS)
-    return runCatching { readSchedule(context, viaShizuku = false) }.getOrNull() ?: PlanCache.get(STALE_MS)
+    return runCatching { readSchedule(context, viaShizuku = false) }.getOrNull()
 }
 
 /** For the Diagnosis: the costly apps of the last reading. Never reads itself, so it is fine on the main thread. */
@@ -161,7 +165,7 @@ internal fun ScheduleContent(
         Spacer(Modifier.height(8.dp))
         when {
             reading -> Note(stringResource(R.string.sc_reading))
-            plan == null -> Note(stringResource(if (failed) R.string.sc_failed else R.string.sc_shizuku))
+            plan == null -> Note(stringResource(if (failed) R.string.fix063_schedule_failed else R.string.sc_shizuku))
             else -> PlanBody(plan, onSelect)
         }
         if (canRead) {

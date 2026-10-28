@@ -299,7 +299,7 @@ object NightCheck {
         )
 
     /** Enough to blame: the same bar as the wakeup card's night line, a hundred wakeups or a quarter hour awake. */
-    fun standsOut(s: Suspect) = Wakeups.standsOut(Wakeups.Counters(wakelockMs = s.wakelockMs, wakeups = s.wakeups))
+    fun standsOut(s: Suspect) = s.wakeups > 0 && Wakeups.standsOut(Wakeups.Counters(wakelockMs = s.wakelockMs, wakeups = s.wakeups))
 
     /** Google Play flags a partial wakelock of two hours with the screen off as excessive. */
     const val EXCESSIVE_WAKELOCK_MS = 2 * 3_600_000L
@@ -336,7 +336,7 @@ object NightCheck {
         val ranked = suspects?.let(::rank)
         val bad = sleptBadly(m, usual)
         val high = drainHigh(m, usual)
-        val culprit = ranked?.firstOrNull()?.takeIf { standsOut(it) }
+        val culprit = ranked?.firstOrNull { standsOut(it) }
         return when {
             (bad || high) && culprit != null -> Result(
                 Verdict.APP_KEPT_AWAKE,

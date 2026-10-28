@@ -120,14 +120,33 @@ fun AppIcon(pkg: String, size: Dp = 36.dp) {
     }
 }
 
-/** Runs [block] on IO whenever [keys] change; null while loading. */
+sealed interface Loaded<out T> {
+    data object Loading : Loaded<Nothing>
+    data class Value<T>(val value: T) : Loaded<T>
+    data object Failed : Loaded<Nothing>
+}
+
 @Composable
-fun <T> rememberLoaded(vararg keys: Any?, block: suspend () -> T): T? {
-    val state = remember(*keys) { mutableStateOf<T?>(null) }
+fun <T> rememberLoadedResult(vararg keys: Any?, block: suspend () -> T): Loaded<T> {
+    val state = remember(*keys) { mutableStateOf<Loaded<T>>(Loaded.Loading) }
     LaunchedEffect(*keys) {
-        state.value = withContext(Dispatchers.IO) { runCatching { block() }.getOrNull() }
+        state.value = try {
+            Loaded.Value(withContext(Dispatchers.IO) { block() })
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            android.util.Log.w("ActivityPlus", "Could not load data", e)
+            Loaded.Failed
+        }
     }
     return state.value
+}
+
+/** Runs [block] on IO whenever [keys] change; null while loading or on failure. */
+@Composable
+fun <T> rememberLoaded(vararg keys: Any?, block: suspend () -> T): T? {
+    val result = rememberLoadedResult(*keys, block = block)
+    return if (result is Loaded.Value) result.value else null
 }
 
 /** Counts returns to the screen, as a key for data the user may have just changed in system settings. */

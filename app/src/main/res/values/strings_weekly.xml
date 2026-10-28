@@ -3,13 +3,13 @@
     <string name="weekly_title">Weekly report</string>
     <string name="weekly_open">Open the weekly report</string>
     <string name="weekly_notification_title">Your week with Activity+</string>
-    <string name="weekly_headline">Your week: %1$s used the most battery, %2$s</string>
-    <string name="weekly_headline_up">Your week: %1$s used the most battery, %2$s, up %3$s</string>
-    <string name="weekly_headline_down">Your week: %1$s used the most battery, %2$s, down %3$s</string>
-    <string name="weekly_headline_new">Your week: %1$s used the most battery, %2$s, new this week</string>
+    <string name="weekly_headline">Your week: most battery was used while %1$s was on screen, %2$s</string>
+    <string name="weekly_headline_up">Your week: most battery was used while %1$s was on screen, %2$s, up %3$s</string>
+    <string name="weekly_headline_down">Your week: most battery was used while %1$s was on screen, %2$s, down %3$s</string>
+    <string name="weekly_headline_new">Your week: most battery was used while %1$s was on screen, %2$s, new this week</string>
     <string name="weekly_headline_screen">Your week: %1$s had the most screen time, %2$s</string>
 
-    <string name="weekly_top_battery">Most battery</string>
+    <string name="weekly_top_battery">Most battery while on screen</string>
     <string name="weekly_top_screen">Most screen time</string>
     <string name="weekly_top_data">Most data</string>
     <string name="weekly_vs_before">Against the week before</string>

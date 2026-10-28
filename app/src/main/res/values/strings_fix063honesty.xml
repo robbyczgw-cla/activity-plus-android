@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fix063_read_failed">Could not be read.</string>
+    <string name="fix063_schedule_failed">Android\'s alarm or job report could not be read on this phone.</string>
+</resources>

@@ -7,6 +7,8 @@ package xyz.activityplus.android.pro
  * section gives an empty result: phone makers add their own lines here.
  */
 object AlarmParser {
+    fun recognised(text: String): Boolean = !text.contains("permission denial", ignoreCase = true) && !text.contains("permission denied", ignoreCase = true) && text.lines().any { it.contains("Pending alarm") || it.contains("nowRTC=") }
+
     enum class Type(val wakeup: Boolean) { RTC_WAKEUP(true), RTC(false), ELAPSED_WAKEUP(true), ELAPSED(false) }
 
     // AlarmManager's flags as dumped in "flags=0x..". Only the ones that change when an alarm goes off.

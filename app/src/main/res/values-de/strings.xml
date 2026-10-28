@@ -25,7 +25,7 @@
     <string name="verdict_question">Warum ist mein Handy langsam?</string>
     <string name="verdict_fine">Gerade fällt nichts auf.</string>
     <string name="verdict_fine_body">Activity+ schaut weiter hin und sagt dir Bescheid, wenn sich etwas ändert.</string>
-    <string name="verdict_fine_busiest">%1$s hat heute den meisten Akku verbraucht: %2$s.</string>
+    <string name="verdict_fine_busiest">Heute wurde am meisten Akku verbraucht, während %1$s auf dem Bildschirm war: %2$s.</string>
     <plurals name="verdict_more">
         <item quantity="one">Und %d weiterer Befund ›</item>
         <item quantity="other">Und %d weitere Befunde ›</item>
@@ -92,7 +92,7 @@
     <string name="row_screen_on_other">Sonstiges (Bildschirm an)</string>
     <string name="row_system">Android-System</string>
     <string name="unusual_badge">%1$s× üblich</string>
-    <string name="unusual_body">Ungewöhnlich für diese App: %1$s× so viel Akku wie an einem normalen Tag (%2$s).</string>
+    <string name="unusual_body">Ungewöhnlich, während diese App auf dem Bildschirm war: %1$s× der Akkuverbrauch eines normalen Tages (%2$s).</string>
     <string name="method_apps">Den Akku misst Activity+, während die App auf dem Bildschirm ist. Bildschirmzeit, Daten und Speicher kommen von Android.</string>
     <string name="detail_battery">Akku (gemessen)</string>
     <string name="detail_screen">Auf dem Bildschirm</string>
@@ -141,7 +141,7 @@
     <string name="health_cycles">Ladezyklen</string>
     <string name="health_technology">Technik</string>
     <string name="health_note" formatted="false">Die gemessene Kapazität kommt vom Ladezähler des Akkus und ist nur eine Schätzung; sie pendelt sich nach ein paar Ladungen ein und ist unter 15 % unzuverlässig.</string>
-    <string name="drain_today">Akku pro App heute</string>
+    <string name="drain_today">Akkuverbrauch bei Apps auf dem Bildschirm heute</string>
     <string name="drain_today_caption">Gemessen</string>
     <string name="drain_empty">Heute noch keine Messungen. Activity+ misst, solange es läuft; lass den Live-Status an.</string>
     <string name="screen_off_rate">Bei ausgeschaltetem Bildschirm verliert der Akku %1$s pro Stunde.</string>
@@ -178,7 +178,7 @@
     <string name="f_hot_app">%1$s ist auf dem Bildschirm und vermutlich die Last.</string>
     <string name="f_saver_title">Der Energiesparmodus ist an</string>
     <string name="f_saver_body">Er bremst Hintergrundarbeit und Leistung.</string>
-    <string name="f_drain_title">%1$s hat heute den meisten Akku verbraucht</string>
+    <string name="f_drain_title">Heute wurde am meisten Akku verbraucht, während %1$s auf dem Bildschirm war</string>
     <string name="f_drain_body">%1$s in %2$s auf dem Bildschirm, %3$s des Akkus bei eingeschaltetem Bildschirm.</string>
     <string name="f_service_title">%1$s arbeitet ständig im Hintergrund</string>
     <string name="f_service_body">Sie lief heute %1$s im Hintergrund, obwohl du sie kaum geöffnet hast. In der App-Info kannst du ihren Akkuverbrauch einschränken.</string>
@@ -423,7 +423,7 @@
     <string name="pro_on_battery">%1$s im Akkubetrieb</string>
     <string name="pro_battery_empty">Android hat noch keine Zahlen; es zählt nur, solange das Handy im Akkubetrieb läuft.</string>
     <string name="pro_cpu_time">CPU %1$s</string>
-    <string name="pro_awake">wach gehalten %1$s</string>
+    <string name="pro_awake">Wakelock-Zeit %1$s</string>
     <string name="pro_hardware_title">Keiner App zugeordnet</string>
     <string name="pro_hw_screen">Bildschirm</string>
     <string name="pro_hw_cell">Mobilfunk</string>
@@ -441,7 +441,7 @@
     <string name="pro_entry_last">Letzte Messung %1$s</string>
     <string name="detail_pro_title">Profi-Messung, %1$s</string>
     <string name="detail_pro_battery">Akku seit der letzten Ladung</string>
-    <string name="detail_pro_awake">Hielt das Handy wach</string>
+    <string name="detail_pro_awake">Wakelock-Zeit (Summe der Wakelocks)</string>
     <string name="detail_pro_cpu">CPU-Zeit</string>
     <string name="detail_pro_ram">Arbeitsspeicher (PSS)</string>
     <string name="pro_ready_body_dump">Liest einmal den Akkubericht von Android: Akku pro App seit der letzten Ladung, mit Hintergrund. Arbeitsspeicher und CPU pro App gehen nur mit Shizuku; diese Berichte hält Android für Apps verschlossen.</string>

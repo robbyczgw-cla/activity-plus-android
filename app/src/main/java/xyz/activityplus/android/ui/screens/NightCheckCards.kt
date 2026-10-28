@@ -123,7 +123,7 @@ fun rememberNightCheck(morningOnly: Boolean): NightReport? {
 
 /**
  * The apps of one night: Android's counters (BATTERY_STATS) cut to the night, else the background
- * report's intervals that ended in it (computer grant; they may reach back into the evening). With
+ * report's intervals apportioned to it (computer grant). With
  * both, the counters lead and the report adds mAh. Null when neither was read that night.
  */
 private fun nightSuspects(context: Context, m: NightCheck.Measured, wakeups: Boolean, background: Boolean): List<NightCheck.Suspect>? {
@@ -135,7 +135,7 @@ private fun nightSuspects(context: Context, m: NightCheck.Measured, wakeups: Boo
     } else null
     // The morning reading runs at the screen-on that ends the night, a few seconds after it.
     val reported = if (background && BackgroundStore.exists(context)) {
-        BackgroundStore.get(context).span(window.first, window.last + 5 * 60_000L)?.apps
+        BackgroundStore.get(context).span(window.first, window.last)?.apps
             ?.filter { it.pkg != ProReport.SYSTEM }
             ?.map { NightCheck.Suspect(it.pkg, it.wakelockMs, 0, it.mah) }
     } else null

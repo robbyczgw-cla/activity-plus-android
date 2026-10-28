@@ -3,13 +3,13 @@
     <!-- Today at a glance, card groups, folded and hidden cards (0.6.0) -->
     <string name="glance_title">Heute auf einen Blick</string>
     <string name="glance_label_battery">Akku jetzt</string>
-    <string name="glance_label_top">Heute am meisten genutzt</string>
+    <string name="glance_label_top">Meister Akkuverbrauch bei Bildschirmnutzung</string>
     <string name="glance_label_heads">Hinweis</string>
     <string name="glance_full_in">Voll in %1$s</string>
     <string name="glance_plugged">Angesteckt</string>
     <string name="glance_no_estimate">Noch keine Schätzung</string>
     <string name="glance_unusual">%1$s hat das Handy heute viel öfter geweckt als sonst</string>
-    <string name="glance_learning">Hier erscheint mehr, sobald Activity+ deinen Tag kennt: die letzte Nacht, die App mit dem größten Verbrauch und Hinweise.</string>
+    <string name="glance_learning">Hier erscheint mehr, sobald Activity+ deinen Tag kennt: die letzte Nacht, wann auf dem Bildschirm am meisten Akku verbraucht wurde, und Hinweise.</string>
 
     <string name="glance_group_now">Jetzt</string>
     <string name="glance_group_night">Letzte Nacht</string>

@@ -75,6 +75,8 @@ import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.Sparkline
 import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLive
+import xyz.activityplus.android.ui.Loaded
+import xyz.activityplus.android.ui.rememberLoadedResult
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.rememberSettings
@@ -97,7 +99,8 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
             delay(60_000); minute.intValue++
         }
     }
-    val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
+    val dataResult = rememberLoadedResult(access, minute.intValue) { loadApps(1, withStorage = false) }
+    val data = if (dataResult is Loaded.Value) dataResult.value else null
     val findings = rememberFindings(s, data, minute.intValue)
     // Reloaded on every return: the user may have just allowed unrestricted battery.
     val resumes = rememberResumes()
@@ -153,6 +156,7 @@ fun OverviewScreen(onOpen: (Tab) -> Unit, onSettings: () -> Unit) {
                 { StorageCard(s) { onOpen(Tab.STORAGE) } },
             )
         }
+        if (dataResult is Loaded.Failed) item { Note(stringResource(R.string.fix063_read_failed)) }
         if (data != null) item { WorthALookCard(worthALook, settings.fahrenheit) { onOpen(it.tab()) } }
         // Entry rows to the pages that are not in the navigation bar; each says what is behind it.
         item {

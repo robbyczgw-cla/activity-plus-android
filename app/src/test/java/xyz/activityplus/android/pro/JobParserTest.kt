@@ -13,6 +13,12 @@ class JobParserTest {
 
     private val utc = ZoneOffset.UTC
 
+    @Test fun recognisesReportsButNotGarbageOrPermissionDenial() {
+        assertFalse(JobParser.recognised("garbage"))
+        assertFalse(JobParser.recognised("Registered 0 jobs:\nPermission Denial"))
+        assertTrue(JobParser.recognised("Registered 0 jobs:"))
+    }
+
     @Test fun registeredJobsFromEmulator() {
         val r = JobParser.parse(fixture("jobscheduler.txt"), utc)
         // The finished job under "Recently completed jobs" is no registered one.

@@ -142,22 +142,36 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
         return out
     }
 
-    /** The intervals that ended in ([afterMillis], [toMillis]], summed; null if there are none. */
+    /** Intervals overlapping the window, apportioned uniformly because their timing is unknown. */
     fun span(afterMillis: Long, toMillis: Long): Span? {
+        if (toMillis <= afterMillis) return null
         val args = arrayOf(afterMillis.toString(), toMillis.toString())
         val db = readableDatabase
-        val (from, to, hw) = db.rawQuery(
-            "SELECT MIN(from_ts), MAX(to_ts), SUM(hw_mah), COUNT(*) FROM intervals WHERE to_ts > ? AND to_ts <= ?", args,
-        ).use { c ->
-            if (!c.moveToFirst() || c.getLong(3) == 0L) return null
-            Triple(c.getLong(0), c.getLong(1), c.getDouble(2))
+        val shares = HashMap<Long, Double>()
+        var from = Long.MAX_VALUE
+        var to = Long.MIN_VALUE
+        var hw = 0.0
+        db.rawQuery("SELECT from_ts, to_ts, hw_mah FROM intervals WHERE to_ts > ? AND from_ts < ?", args).use { c ->
+            while (c.moveToNext()) {
+                val start = c.getLong(0); val end = c.getLong(1)
+                val share = overlapShare(start, end, afterMillis, toMillis)
+                if (share <= 0) continue
+                shares[end] = share
+                from = minOf(from, maxOf(start, afterMillis)); to = maxOf(to, minOf(end, toMillis))
+                hw += c.getDouble(2) * share
+            }
         }
-        val apps = ArrayList<AppDay>()
-        db.rawQuery(
-            "SELECT pkg, SUM(mah), SUM(cpu_ms), SUM(wakelock_ms) FROM interval_apps WHERE to_ts > ? AND to_ts <= ? GROUP BY pkg ORDER BY SUM(mah) DESC",
-            args,
-        ).use { c -> while (c.moveToNext()) apps += AppDay(c.getString(0), c.getDouble(1), c.getLong(2), c.getLong(3)) }
-        return Span(from, to, apps, hw)
+        if (shares.isEmpty()) return null
+        val apps = LinkedHashMap<String, AppDay>()
+        db.rawQuery("SELECT a.to_ts, a.pkg, a.mah, a.cpu_ms, a.wakelock_ms FROM interval_apps a JOIN intervals i ON a.to_ts = i.to_ts WHERE i.to_ts > ? AND i.from_ts < ?", args).use { c ->
+            while (c.moveToNext()) {
+                val share = shares[c.getLong(0)] ?: continue
+                val pkg = c.getString(1); val old = apps[pkg] ?: AppDay(pkg, 0.0, 0, 0)
+                apps[pkg] = AppDay(pkg, old.mah + c.getDouble(2) * share,
+                    old.cpuMs + (c.getLong(3) * share).toLong(), old.wakelockMs + (c.getLong(4) * share).toLong())
+            }
+        }
+        return Span(from, to, apps.values.sortedByDescending { it.mah }, hw)
     }
 
     fun meta(key: String): String? =
@@ -204,6 +218,9 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
     }
 
     companion object {
+        internal fun overlapShare(start: Long, end: Long, from: Long, to: Long): Double =
+            if (end <= start) 0.0 else (minOf(end, to) - maxOf(start, from)).coerceAtLeast(0).toDouble() / (end - start)
+
         const val FILE = "background.db"
         const val META_MORNING_DAY = "morning_day"
         const val META_MORNING_TS = "morning_ts"

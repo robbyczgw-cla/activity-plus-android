@@ -62,6 +62,8 @@ import xyz.activityplus.android.ui.components.Note
 import xyz.activityplus.android.ui.components.Sparkline
 import xyz.activityplus.android.ui.components.StatLine
 import xyz.activityplus.android.ui.rememberLive
+import xyz.activityplus.android.ui.Loaded
+import xyz.activityplus.android.ui.rememberLoadedResult
 import xyz.activityplus.android.ui.rememberLoaded
 import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.rememberSettings
@@ -87,7 +89,8 @@ fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}, onOpen: (
             delay(60_000); minute.intValue++
         }
     }
-    val data = rememberLoaded(access, minute.intValue) { loadApps(1, withStorage = false) }
+    val dataResult = rememberLoadedResult(access, minute.intValue) { loadApps(1, withStorage = false) }
+    val data = if (dataResult is Loaded.Value) dataResult.value else null
     val sessions = rememberLoaded(minute.intValue) { app.history.sessions(12) }
     val context = LocalContext.current
     val background = rememberLoaded(minute.intValue) { loadBackgroundToday(context) }
@@ -162,11 +165,11 @@ fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}, onOpen: (
                 Glance.CardId.FORECAST -> ForecastCard(b)
                 Glance.CardId.SESSION -> if (b.plugged) ChargingCard(b, running) else SinceUnplugCard(running, loaded = sessions != null)
                 // Which app is drawing the power right now.
-                Glance.CardId.NOW_DRAWING -> if (data != null) NowDrawingCard(s, data)
+                Glance.CardId.NOW_DRAWING -> if (data != null) NowDrawingCard(s, data) else if (dataResult is Loaded.Failed) Note(stringResource(R.string.fix063_read_failed))
                 Glance.CardId.POWER_RAIL -> if (powerRails == false) PowerRailUnavailable() else PowerRailCard(b, onPro)
                 Glance.CardId.NIGHT -> if (night != null) NightCheckCard(night, onPro)
                 Glance.CardId.WAKEUP -> WakeupCard(onPro)
-                Glance.CardId.DRAIN -> if (data != null && energy.isNotEmpty()) DrainByAppCard(b, energy, data, onSelfCost) else Column { DrainEmptyCard(stringResource(R.string.drain_today), access); SelfCostLink(onSelfCost) }
+                Glance.CardId.DRAIN -> if (dataResult is Loaded.Loading) Unit else if (dataResult is Loaded.Failed) Note(stringResource(R.string.fix063_read_failed)) else if (data != null && energy.isNotEmpty()) DrainByAppCard(b, energy, data, onSelfCost) else Column { DrainEmptyCard(stringResource(R.string.drain_today), access); SelfCostLink(onSelfCost) }
                 Glance.CardId.CHARGER_TEST -> ChargerTestCard(s, settings.fahrenheit)
                 Glance.CardId.HEALTH -> HealthCard(b)
                 Glance.CardId.PASSPORT -> BatteryPassportCard(b, onPro)
