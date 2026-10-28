@@ -8,12 +8,12 @@
     <string name="nc_title_none">No night to check</string>
 
     <string name="nc_reason_well">%1$s, %2$s deep sleep</string>
-    <string name="nc_reason_app_awake">It held a wakelock for %1$s with the screen off, so Android could not stay in deep sleep.</string>
+    <string name="nc_reason_app_awake">Its capped sum of wakelock time was %1$s; overlapping wakelocks can count more than once.</string>
     <plurals name="nc_reason_app_wakeups">
         <item quantity="one">It woke the phone %1$d time in the night, so Android could not stay in deep sleep.</item>
         <item quantity="other">It woke the phone %1$d times in the night, so Android could not stay in deep sleep.</item>
     </plurals>
-    <string name="nc_excessive">Google Play calls a wakelock of 2 hours or more with the screen off excessive.</string>
+    <string name="nc_excessive">Google Play warns about long wakelocks with the screen off; Android does not show screen state or exemptions for these counters.</string>
     <string name="nc_reason_no_deep">Android never reached deep Doze, and the phone was in deep sleep only %1$s of the night.</string>
     <string name="nc_reason_low_deep">The phone was in deep sleep only %1$s of the night.</string>
     <string name="nc_reason_low_deep_usual">The phone was in deep sleep only %1$s of the night, usually %2$s.</string>

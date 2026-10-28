@@ -3,13 +3,13 @@
     <string name="weekly_title">Wochenbericht</string>
     <string name="weekly_open">Wochenbericht öffnen</string>
     <string name="weekly_notification_title">Deine Woche mit Activity+</string>
-    <string name="weekly_headline">Deine Woche: %1$s hat am meisten Akku verbraucht, %2$s</string>
-    <string name="weekly_headline_up">Deine Woche: %1$s hat am meisten Akku verbraucht, %2$s, %3$s mehr</string>
-    <string name="weekly_headline_down">Deine Woche: %1$s hat am meisten Akku verbraucht, %2$s, %3$s weniger</string>
-    <string name="weekly_headline_new">Deine Woche: %1$s hat am meisten Akku verbraucht, %2$s, neu in dieser Woche</string>
+    <string name="weekly_headline">Deine Woche: Am meisten Akku wurde verbraucht, während %1$s auf dem Bildschirm war, %2$s</string>
+    <string name="weekly_headline_up">Deine Woche: Am meisten Akku wurde verbraucht, während %1$s auf dem Bildschirm war, %2$s, %3$s mehr</string>
+    <string name="weekly_headline_down">Deine Woche: Am meisten Akku wurde verbraucht, während %1$s auf dem Bildschirm war, %2$s, %3$s weniger</string>
+    <string name="weekly_headline_new">Deine Woche: Am meisten Akku wurde verbraucht, während %1$s auf dem Bildschirm war, %2$s, neu in dieser Woche</string>
     <string name="weekly_headline_screen">Deine Woche: %1$s hatte die meiste Bildschirmzeit, %2$s</string>
 
-    <string name="weekly_top_battery">Meiste Akkunutzung</string>
+    <string name="weekly_top_battery">Meister Akkuverbrauch bei Bildschirmnutzung</string>
     <string name="weekly_top_screen">Meiste Bildschirmzeit</string>
     <string name="weekly_top_data">Meiste Daten</string>
     <string name="weekly_vs_before">Gegenüber der Vorwoche</string>

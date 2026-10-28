@@ -11,7 +11,7 @@
     <string name="es_passport_none">Dieses Gerät meldet keine dieser Angaben, auch nicht mit der Leseberechtigung.</string>
     <string name="es_trend_none" formatted="false">Erscheint ab der zweiten Ladung, die mindestens 30 % nachlädt.</string>
     <string name="es_drain_needs_access">Akku pro App braucht den Nutzungszugriff, um zu wissen, welche App im Vordergrund ist.</string>
-    <string name="es_bg_hint">Akku pro App im Hintergrund, aus dem eigenen Bericht von Android. Braucht die Computer-Freigabe auf der Pro-Seite.</string>
+    <string name="es_bg_hint">Akkuverbrauch pro App (Androids Schätzung, auf dem Bildschirm und im Hintergrund). Benötigt die Computer-Freigabe auf der Pro-Seite.</string>
     <string name="es_bg_off">Die automatische Hintergrundmessung ist in den Einstellungen aus.</string>
     <string name="es_sessions_none">Noch keine. Ladungen und Akkuphasen erscheinen hier, sobald eine 5 Minuten gedauert hat.</string>
 

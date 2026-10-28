@@ -13,7 +13,7 @@ import xyz.activityplus.android.core.Wakeups.Counters
  * also covers minutes with the screen on, and the exemptions are not visible. A day is the finest
  * split the counters allow honestly (an interval spans hours and carries no screen state), so a day
  * stands for a session. A flag here means "worth Google's attention", not "Google flags it".
- * The stored values are already capped per interval, so overlapping wakelocks do not count twice.
+ * The stored sums are capped per interval, but overlapping wakelocks can still count more than once.
  */
 object WakeLimit {
     /** A day at or above this counts as above the limit. */
@@ -63,7 +63,7 @@ object WakeLimit {
         return out
     }
 
-    /** The apps Google would look at, worst first: most days above the limit, then the longest day. */
+    /** Apps with long reported wakelock time, worst first. */
     fun flagged(all: Map<String, Map<String, Counters>>, days: List<String>): List<Verdict> =
         verdicts(all, days).values.filter { it.regularly }
             .sortedWith(compareByDescending<Verdict> { it.exceededDays }.thenByDescending { it.worstMs }.thenBy { it.pkg })

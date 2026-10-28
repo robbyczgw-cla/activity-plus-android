@@ -12,6 +12,12 @@ class AlarmParserTest {
 
     private val nowRtc = 1_792_360_188_304L
 
+    @Test fun recognisesReportsButNotGarbageOrPermissionDenial() {
+        assertFalse(AlarmParser.recognised("garbage"))
+        assertFalse(AlarmParser.recognised("Pending alarm batches: 0\nPermission Denial"))
+        assertTrue(AlarmParser.recognised("Pending alarm batches: 0"))
+    }
+
     @Test fun pendingAlarmsFromEmulator() {
         val r = AlarmParser.parse(fixture("alarm.txt"))
         assertEquals(nowRtc, r.nowMillis)

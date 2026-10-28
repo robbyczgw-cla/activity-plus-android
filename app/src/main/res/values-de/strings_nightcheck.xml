@@ -8,12 +8,12 @@
     <string name="nc_title_none">Keine Nacht zum Prüfen</string>
 
     <string name="nc_reason_well">%1$s, %2$s Tiefschlaf</string>
-    <string name="nc_reason_app_awake">Die App hielt %1$s lang einen Wakelock bei ausgeschaltetem Bildschirm, darum konnte Android nicht im Tiefschlaf bleiben.</string>
+    <string name="nc_reason_app_awake">Die begrenzte Summe seiner Wakelock-Zeit betrug %1$s; Überlappungen können mehrfach zählen.</string>
     <plurals name="nc_reason_app_wakeups">
         <item quantity="one">Die App weckte das Handy in der Nacht %1$d Mal, darum konnte Android nicht im Tiefschlaf bleiben.</item>
         <item quantity="other">Die App weckte das Handy in der Nacht %1$d Mal, darum konnte Android nicht im Tiefschlaf bleiben.</item>
     </plurals>
-    <string name="nc_excessive">Google Play nennt einen Wakelock von 2 Stunden oder mehr bei ausgeschaltetem Bildschirm übermäßig.</string>
+    <string name="nc_excessive">Google Play warnt vor langen Wakelocks bei ausgeschaltetem Bildschirm; Android zeigt dafür weder Bildschirmzustand noch Ausnahmen.</string>
     <string name="nc_reason_no_deep">Android kam nie in den tiefen Doze, und das Handy war nur %1$s der Nacht im Tiefschlaf.</string>
     <string name="nc_reason_low_deep">Das Handy war nur %1$s der Nacht im Tiefschlaf.</string>
     <string name="nc_reason_low_deep_usual">Das Handy war nur %1$s der Nacht im Tiefschlaf, sonst %2$s.</string>

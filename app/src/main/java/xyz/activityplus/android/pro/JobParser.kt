@@ -11,6 +11,8 @@ import java.time.format.DateTimeFormatter
  * an empty result.
  */
 object JobParser {
+    fun recognised(text: String): Boolean = !text.contains("permission denial", ignoreCase = true) && !text.contains("permission denied", ignoreCase = true) && text.lines().any { it.trim().matches(Regex("Registered [0-9]+ jobs?:")) }
+
     data class Job(
         /** "u0a134" or "1000", as Android prints it. */
         val uid: String,

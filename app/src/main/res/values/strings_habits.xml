@@ -36,7 +36,7 @@
     <string name="habits_age_note">Fitted to the full capacity of your finished charges. Rough with only a few, and it sharpens with every new one.</string>
 
     <!-- Cost per hour of use, Apps screen -->
-    <string name="cost_title">Cost per hour of use</string>
+    <string name="cost_title">Power while apps are on screen</string>
     <string name="cost_caption" formatted="false">Last 7 days</string>
     <string name="cost_row_note">%1$s on screen · Ø %2$s</string>
     <string name="cost_note">Battery drawn while each app was on screen, measured on battery. Background work of other apps in that time counts too.</string>

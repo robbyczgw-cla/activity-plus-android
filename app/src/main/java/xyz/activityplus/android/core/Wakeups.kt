@@ -85,7 +85,7 @@ object Wakeups {
     /**
      * Per app between two readings, or null without a previous one. [packageOf] maps a uid to the app
      * it is shown as; null drops it (system uids, uninstalled apps). Wakelock and location time are
-     * capped at the interval: an app holding two wakelocks at once does not keep the phone awake twice.
+     * capped at the interval; overlapping wakelocks may still count more than once.
      */
     fun interval(prev: Snapshot?, next: Snapshot, packageOf: (Int) -> String?): Interval? {
         if (prev == null || next.timeMillis <= prev.timeMillis) return null

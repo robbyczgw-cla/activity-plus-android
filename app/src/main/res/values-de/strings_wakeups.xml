@@ -13,12 +13,12 @@
         <item quantity="one">%d-mal geweckt</item>
         <item quantity="other">%d-mal geweckt</item>
     </plurals>
-    <string name="wk_explain">Beim Wecken holt ein Alarm das Handy aus dem Ruhezustand; ein Wakelock hält es bei ausgeschaltetem Bildschirm wach. Beides kostet Akku, während du das Handy gar nicht benutzt.</string>
+    <string name="wk_explain">Eine Weckung holt das Handy aus dem Schlaf. Die Wakelock-Zeit ist die pro Intervall begrenzte Summe aller Wakelocks; Überlappungen können mehrfach zählen.</string>
     <string name="wk_note">Von Android gezählt, nur im Akkubetrieb. Tippe auf eine App für ihre Woche.</string>
     <string name="wk_fix">In der App-Info kannst du unter Akku die Hintergrundnutzung einschränken. Activity+ ändert das nie selbst.</string>
     <string name="wk_detail_title">Wecken und Wakelocks, letzte 7 Tage</string>
     <string name="wk_detail_wakeups">Heute geweckt</string>
-    <string name="wk_detail_awake">Heute wach gehalten</string>
+    <string name="wk_detail_awake">Wakelock-Zeit heute</string>
     <string name="wk_detail_cpu">CPU-Zeit heute</string>
     <string name="wk_detail_jobs">Hintergrundjobs heute</string>
     <string name="wk_detail_syncs">Synchronisierungen heute</string>
@@ -29,5 +29,5 @@
         <item quantity="one">%1$s hat das Handy letzte Nacht %2$d-mal geweckt</item>
         <item quantity="other">%1$s hat das Handy letzte Nacht %2$d-mal geweckt</item>
     </plurals>
-    <string name="wk_night_awake">%1$s hat das Handy letzte Nacht %2$s wach gehalten</string>
+    <string name="wk_night_awake">%1$s hatte letzte Nacht %2$s Wakelock-Zeit (begrenzte Summe)</string>
 </resources>

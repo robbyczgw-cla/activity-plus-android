@@ -36,7 +36,7 @@
     <string name="habits_age_note">Angepasst an die volle Kapazität deiner abgeschlossenen Ladungen. Mit wenigen grob, und mit jeder neuen wird sie genauer.</string>
 
     <!-- Kosten pro Stunde Nutzung, Apps-Seite -->
-    <string name="cost_title">Kosten pro Stunde Nutzung</string>
+    <string name="cost_title">Strom bei Apps auf dem Bildschirm</string>
     <string name="cost_caption" formatted="false">Letzte 7 Tage</string>
     <string name="cost_row_note">%1$s am Bildschirm · Ø %2$s</string>
     <string name="cost_note">Der Akkuverbrauch, während jede App auf dem Bildschirm war, im Akkubetrieb gemessen. Hintergrundarbeit anderer Apps in dieser Zeit zählt mit.</string>

@@ -245,7 +245,7 @@ class NightCheckTest {
             )
         )
         assertEquals(listOf("com.example.chat", "com.example.mail"), ranked.map { it.pkg })
-        assertTrue(NightCheck.standsOut(ranked[0]))
+        assertFalse(NightCheck.standsOut(ranked[0]))
         assertFalse(NightCheck.standsOut(Suspect("x", 5 * min, 20)))
         assertTrue(NightCheck.standsOut(Suspect("x", 0, 150)))
     }
@@ -279,6 +279,13 @@ class NightCheckTest {
         assertEquals("com.example.chat", awake.suspect!!.pkg)
         val woke = NightCheck.judge(bad, true, 0, null, null, listOf(Suspect("com.example.mail", 2 * min, 400)))
         assertEquals(Reason.APP_WAKEUPS, woke.reason)
+    }
+
+    @Test fun overlappingWakelocksAloneDoNotBlameAnApp() {
+        val bad = listOf(span(evening(23), morning(7), deep = 0.5, from = 0.80, to = 0.70))
+        val result = NightCheck.judge(bad, true, 0, null, null, listOf(Suspect("com.example.app", 3 * h, 0)))
+        assertEquals(Verdict.SYSTEM_DID_NOT_SLEEP, result.verdict)
+        assertNull(result.suspect)
     }
 
     @Test fun androidIsBlamedWhenNoAppStandsOut() {

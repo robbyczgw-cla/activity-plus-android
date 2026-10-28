@@ -12,7 +12,7 @@
     <string name="es_passport_none">This phone reports none of these details, not even with the read permission.</string>
     <string name="es_trend_none" formatted="false">Shows from the second charge that adds at least 30 %.</string>
     <string name="es_drain_needs_access">Battery per app needs usage access, to know which app is on screen.</string>
-    <string name="es_bg_hint">Battery per app in the background, from Android\'s own report. Needs the computer grant on the pro page.</string>
+    <string name="es_bg_hint">Battery use per app (Android\'s estimate, on screen and in the background). Needs the computer grant on the pro page.</string>
     <string name="es_bg_off">Automatic background measurement is off in the settings.</string>
     <string name="es_sessions_none">None yet. Charges and stretches on battery show here once one has lasted 5 minutes.</string>
 

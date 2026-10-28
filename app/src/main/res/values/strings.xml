@@ -31,7 +31,7 @@
     <string name="verdict_question">Why is my phone slow?</string>
     <string name="verdict_fine">Nothing stands out right now.</string>
     <string name="verdict_fine_body">Activity+ keeps watching and tells you when something does.</string>
-    <string name="verdict_fine_busiest">%1$s used the most battery today: %2$s.</string>
+    <string name="verdict_fine_busiest">Most battery was used today while %1$s was on screen: %2$s.</string>
     <plurals name="verdict_more">
         <item quantity="one">And %d more finding ›</item>
         <item quantity="other">And %d more findings ›</item>
@@ -99,7 +99,7 @@
     <string name="row_screen_on_other">Other (screen on)</string>
     <string name="row_system">Android system</string>
     <string name="unusual_badge">%1$s× usual</string>
-    <string name="unusual_body">Unusual for this app: %1$s× the battery it uses on a normal day (%2$s).</string>
+    <string name="unusual_body">Unusual while this app was on screen: %1$s× the battery used on a normal day (%2$s).</string>
     <string name="method_apps">Battery is measured by Activity+ while the app is on screen. Screen time, data and storage come from Android.</string>
     <string name="detail_battery">Battery (measured)</string>
     <string name="detail_screen">On screen</string>
@@ -149,7 +149,7 @@
     <string name="health_cycles">Charge cycles</string>
     <string name="health_technology">Technology</string>
     <string name="health_note" formatted="false">The measured capacity comes from the battery\'s fuel gauge and is only an estimate; it settles after a few charges and is unreliable below 15 %.</string>
-    <string name="drain_today">Battery by app today</string>
+    <string name="drain_today">Battery used while apps were on screen today</string>
     <string name="drain_today_caption">Measured</string>
     <string name="drain_empty">No measurements yet today. Activity+ measures while it runs; keep the live status on.</string>
     <string name="screen_off_rate">With the screen off the battery drains %1$s per hour.</string>
@@ -188,7 +188,7 @@
     <string name="f_hot_app">%1$s is on screen and probably the load.</string>
     <string name="f_saver_title">Battery saver is on</string>
     <string name="f_saver_body">It limits background work and performance.</string>
-    <string name="f_drain_title">%1$s used the most battery today</string>
+    <string name="f_drain_title">Most battery was used today while %1$s was on screen</string>
     <string name="f_drain_body">%1$s in %2$s on screen, %3$s of the battery used with the screen on.</string>
     <string name="f_service_title">%1$s keeps working in the background</string>
     <string name="f_service_body">It ran in the background for %1$s today, though you hardly opened it. In app info you can restrict its battery use.</string>
@@ -437,7 +437,7 @@
     <string name="pro_on_battery">%1$s on battery</string>
     <string name="pro_battery_empty">Android has no figures yet; it counts only while the phone runs on battery.</string>
     <string name="pro_cpu_time">CPU %1$s</string>
-    <string name="pro_awake">kept awake %1$s</string>
+    <string name="pro_awake">wakelock time %1$s</string>
     <string name="pro_hardware_title">Not charged to an app</string>
     <string name="pro_hw_screen">Screen</string>
     <string name="pro_hw_cell">Mobile radio</string>
@@ -455,7 +455,7 @@
     <string name="pro_entry_last">Last measurement %1$s</string>
     <string name="detail_pro_title">Pro measurement, %1$s</string>
     <string name="detail_pro_battery">Battery since the last charge</string>
-    <string name="detail_pro_awake">Kept the phone awake</string>
+    <string name="detail_pro_awake">Wakelock time (sum of wakelocks)</string>
     <string name="detail_pro_cpu">CPU time</string>
     <string name="detail_pro_ram">Memory (PSS)</string>
     <string name="pro_ready_body_dump">Reads Android\'s battery report once: battery per app since the last charge, background included. Memory and CPU per app need Shizuku; Android keeps those reports closed to apps.</string>
