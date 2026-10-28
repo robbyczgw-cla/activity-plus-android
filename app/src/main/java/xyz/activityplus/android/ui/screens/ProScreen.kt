@@ -89,17 +89,19 @@ fun ProScreen() {
         error = null
         scope.launch {
             runCatching {
-                // One report after the other through the same service; any one may fail on a given
-                // phone, the others still count.
-                val battery = runCatching {
-                    ProParser.batteryCheckin(ProShell.run(context, ShellService.BATTERY), knownUnitScale(context), app.monitor.batteryNow().designMah)
-                }.getOrNull()
-                val full = access == ProShell.Access.SHIZUKU
-                val memory = if (full) runCatching { ProParser.meminfoPss(ProShell.run(context, ShellService.MEMORY)) }.getOrNull() else null
-                val cpu = if (full) runCatching { ProParser.cpuinfo(ProShell.run(context, ShellService.CPU)) }.getOrNull() else null
-                val report = ProReport.build(System.currentTimeMillis(), battery, memory, cpu)
-                check(report.apps.isNotEmpty()) { "empty" }
-                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { app.history.savePro(report) }
+                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+                    // One report after the other through the same service; any one may fail on a given
+                    // phone, the others still count.
+                    val battery = runCatching {
+                        ProParser.batteryCheckin(ProShell.run(context, ShellService.BATTERY), knownUnitScale(context), app.monitor.batteryNow().designMah)
+                    }.getOrNull()
+                    val full = access == ProShell.Access.SHIZUKU
+                    val memory = if (full) runCatching { ProParser.meminfoPss(ProShell.run(context, ShellService.MEMORY)) }.getOrNull() else null
+                    val cpu = if (full) runCatching { ProParser.cpuinfo(ProShell.run(context, ShellService.CPU)) }.getOrNull() else null
+                    val report = ProReport.build(System.currentTimeMillis(), battery, memory, cpu)
+                    check(report.apps.isNotEmpty()) { "empty" }
+                    kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { app.history.savePro(report) }
+                }
             }.onFailure { error = it.message ?: it.javaClass.simpleName }
             selected = 0
             saved++

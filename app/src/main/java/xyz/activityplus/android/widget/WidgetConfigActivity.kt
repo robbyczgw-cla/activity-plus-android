@@ -1,5 +1,8 @@
 package xyz.activityplus.android.widget
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
@@ -32,7 +35,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
-import xyz.activityplus.android.ActivityPlusApp
 import xyz.activityplus.android.R
 import xyz.activityplus.android.data.StatusItem
 import xyz.activityplus.android.ui.StatusText
@@ -111,8 +113,8 @@ class WidgetConfigActivity : ComponentActivity() {
 
     private fun save(id: Int, items: List<StatusItem>) {
         WidgetPrefs.setItems(this, id, items)
-        val latest = ActivityPlusApp.instance.monitor.latest.value
-        if (latest != null) WidgetUpdater.updateAll(this, latest) else WidgetUpdater.refreshFromScratch(this)
+        val context = applicationContext
+        CoroutineScope(Dispatchers.IO).launch { WidgetUpdater.refreshFromScratch(context) }
         setResult(RESULT_OK, Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id))
         finish()
     }

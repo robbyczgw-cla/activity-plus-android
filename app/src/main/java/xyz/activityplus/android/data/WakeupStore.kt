@@ -69,7 +69,7 @@ class WakeupStore private constructor(context: Context) : SQLiteOpenHelper(conte
             "UPDATE days SET " + COLUMNS.joinToString { "$it = $it + ?" } + " WHERE day = ? AND pkg = ?",
             arrayOf<Any>(*a.counters.toArray().toTypedArray(), day, a.pkg),
         )
-        if (db.compileStatement("SELECT changes()").simpleQueryForLong() == 0L) {
+        if (db.compileStatement("SELECT changes()").use { it.simpleQueryForLong() } == 0L) {
             db.insert("days", null, values(a.counters).apply { put("day", day); put("pkg", a.pkg) })
         }
     }

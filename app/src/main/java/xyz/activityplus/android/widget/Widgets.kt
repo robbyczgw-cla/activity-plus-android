@@ -13,6 +13,12 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.view.View
 import android.widget.RemoteViews
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
+import java.util.concurrent.atomic.AtomicBoolean
 import xyz.activityplus.android.ActivityPlusApp
 import xyz.activityplus.android.MainActivity
 import xyz.activityplus.android.R
@@ -45,14 +51,14 @@ object WidgetPrefs {
 
 /** Draws all widgets from one snapshot. Called by the service every 30 s while the screen is on. */
 object WidgetUpdater {
-    fun updateAll(context: Context, s: Snapshot) {
+    fun updateAll(context: Context, s: Snapshot, allowed: () -> Boolean = { true }) {
         val awm = AppWidgetManager.getInstance(context)
         val settings = ActivityPlusApp.instance.prefs.current
-        awm.getAppWidgetIds(ComponentName(context, ValueWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.VALUE) }
-        awm.getAppWidgetIds(ComponentName(context, PanelWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.PANEL) }
-        awm.getAppWidgetIds(ComponentName(context, BatteryWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.BATTERY) }
+        awm.getAppWidgetIds(ComponentName(context, ValueWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.VALUE, allowed) }
+        awm.getAppWidgetIds(ComponentName(context, PanelWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.PANEL, allowed) }
+        awm.getAppWidgetIds(ComponentName(context, BatteryWidget::class.java)).forEach { update(context, awm, it, s, settings, Kind.BATTERY, allowed) }
         // Night check and history graph change slowly: redrawn every five minutes at most.
-        SlowWidgets.updateAll(context, awm, s.timeMillis)
+        SlowWidgets.updateAll(context, awm, s.timeMillis, allowed)
     }
 
     fun hasWidgets(context: Context): Boolean {
@@ -63,7 +69,7 @@ object WidgetUpdater {
 
     enum class Kind { VALUE, PANEL, BATTERY }
 
-    fun update(context: Context, awm: AppWidgetManager, id: Int, s: Snapshot, settings: Settings, kind: Kind) {
+    fun update(context: Context, awm: AppWidgetManager, id: Int, s: Snapshot, settings: Settings, kind: Kind, allowed: () -> Boolean = { true }) {
         val views = when (kind) {
             Kind.VALUE -> value(context, id, s, settings)
             Kind.PANEL -> panel(context, id, s, settings)
@@ -73,7 +79,7 @@ object WidgetUpdater {
             context, 100, Intent(context, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
         views.setOnClickPendingIntent(R.id.root, open)
-        awm.updateAppWidget(id, views)
+        if (allowed()) awm.updateAppWidget(id, views)
     }
 
     private fun value(c: Context, id: Int, s: Snapshot, settings: Settings): RemoteViews {
@@ -182,18 +188,32 @@ object WidgetUpdater {
         return bmp
     }
 
-    /** Without the service: one fresh reading per Android's widget schedule (every 30 min). */
-    fun refreshFromScratch(context: Context) {
-        val s = runCatching { xyz.activityplus.android.core.SystemSampler(context.applicationContext).sample() }.getOrNull() ?: return
-        updateAll(context, s)
+    /** Refresh from existing readings without starting a sampler. */
+    fun refreshFromScratch(context: Context, allowed: () -> Boolean = { true }) {
+        val s = ActivityPlusApp.instance.monitor.latest.value
+        if (s != null) updateAll(context, s, allowed)
+        else SlowWidgets.updateAll(context, AppWidgetManager.getInstance(context), System.currentTimeMillis(), allowed)
     }
 }
 
 abstract class BaseWidget : AppWidgetProvider() {
     override fun onUpdate(context: Context, manager: AppWidgetManager, ids: IntArray) {
-        val latest = ActivityPlusApp.instance.monitor.latest.value
-        if (latest != null && System.currentTimeMillis() - latest.timeMillis < 120_000) WidgetUpdater.updateAll(context, latest)
-        else WidgetUpdater.refreshFromScratch(context)
+        asyncRefresh { allowed -> WidgetUpdater.refreshFromScratch(context.applicationContext, allowed) }
+    }
+
+    protected fun asyncRefresh(block: (() -> Boolean) -> Unit) {
+        val pending = goAsync()
+        val finished = AtomicBoolean(false)
+        val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+        fun finish() { if (finished.compareAndSet(false, true)) pending.finish() }
+        val worker = scope.launch {
+            try { runCatching { block { !finished.get() } } } finally { finish() }
+        }
+        scope.launch {
+            delay(8_000)
+            worker.cancel()
+            finish()
+        }
     }
 
     override fun onDeleted(context: Context, ids: IntArray) = WidgetPrefs.remove(context, ids)
@@ -207,7 +227,7 @@ class NightWidget : BaseWidget()
 class HistoryWidget : BaseWidget() {
     /** The graph is drawn for the widget's size, so a resize draws it again. */
     override fun onAppWidgetOptionsChanged(context: Context, manager: AppWidgetManager, id: Int, newOptions: android.os.Bundle) {
-        SlowWidgets.redrawHistory(context, id)
+        asyncRefresh { allowed -> SlowWidgets.redrawHistory(context.applicationContext, id, allowed) }
     }
 
     override fun onDeleted(context: Context, ids: IntArray) {

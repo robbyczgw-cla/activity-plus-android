@@ -50,7 +50,7 @@ class SelfCostStore private constructor(context: Context) : SQLiteOpenHelper(con
             "UPDATE days SET " + COLUMNS.joinToString { "$it = $it + ?" } + " WHERE day = ?",
             arrayOf<Any>(*c.toArray().toTypedArray(), day),
         )
-        if (db.compileStatement("SELECT changes()").simpleQueryForLong() == 0L) {
+        if (db.compileStatement("SELECT changes()").use { it.simpleQueryForLong() } == 0L) {
             db.insert("days", null, values(c).apply { put("day", day) })
         }
     }
