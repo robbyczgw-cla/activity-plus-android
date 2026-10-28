@@ -257,7 +257,7 @@ class BatteryCardsTest : CardTest() {
 
     @Test fun scheduleReadingFailed() {
         show { ScheduleContent(null, reading = false, failed = true, canRead = false, onRead = {}, onSelect = {}) }
-        shown(str(R.string.sc_failed))
+        shown(str(R.string.fix063_schedule_failed))
     }
 
     @Test fun scheduleWithShizukuWaitsForTheTap() {
