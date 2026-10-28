@@ -98,7 +98,7 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
             "UPDATE days SET mah = mah + ?, cpu_ms = cpu_ms + ?, wakelock_ms = wakelock_ms + ? WHERE day = ? AND pkg = ?",
             arrayOf<Any>(a.mah, a.cpuMs, a.wakelockMs, day, a.pkg),
         )
-        if (db.compileStatement("SELECT changes()").simpleQueryForLong() == 0L) {
+        if (db.compileStatement("SELECT changes()").use { it.simpleQueryForLong() } == 0L) {
             db.insert("days", null, ContentValues().apply {
                 put("day", day); put("pkg", a.pkg); put("mah", a.mah); put("cpu_ms", a.cpuMs); put("wakelock_ms", a.wakelockMs)
             })

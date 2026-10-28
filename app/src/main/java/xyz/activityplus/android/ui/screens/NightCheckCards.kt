@@ -83,17 +83,17 @@ private const val SHOWN = NightCheck.USUAL_NIGHTS
 private const val DAYS = 2 * SHOWN
 
 /** Blocking (store reads); call off the main thread. */
-fun loadNightCheck(context: Context, nowMillis: Long = System.currentTimeMillis()): NightReport {
+fun loadNightCheck(context: Context, nowMillis: Long = System.currentTimeMillis(), storedOnly: Boolean = false): NightReport {
     val zone = ZoneId.systemDefault()
     val date = NightCheck.nightDate(nowMillis, zone)
     val dates = (DAYS - 1 downTo 0).map { date.minusDays(it.toLong()) }
     val spans = if (NightStore.exists(context)) {
         NightStore.get(context).spans(NightCheck.window(dates.first(), zone).first - NightCheck.MAX_GAP_MS, nowMillis)
     } else emptyList()
-    val capacity = runCatching { app.monitor.batteryNow().capacityMah }.getOrNull()
+    val capacity = if (storedOnly) app.monitor.latest.value?.battery?.capacityMah else runCatching { app.monitor.batteryNow().capacityMah }.getOrNull()
     val wakeups = ProShell.hasBatteryStats(context)
     // The last half hour of the night is counted at the next reading; take it now if it is due.
-    if (wakeups) WakeupSampler.recordIfDue(context, WakeupSchedule.Trigger.SCREEN)
+    if (wakeups && !storedOnly) WakeupSampler.recordIfDue(context, WakeupSchedule.Trigger.SCREEN)
     val background = BackgroundSampler.enabled(context)
     val entries = NightCheck.history(spans, dates, zone, capacity, SHOWN) { m -> nightSuspects(context, m, wakeups, background) }
     return NightReport(date, entries.last().result, entries.reversed(), wakeups || background)

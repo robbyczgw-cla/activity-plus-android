@@ -18,12 +18,29 @@ class ShellService : IShellService.Stub() {
     override fun run(command: String): ParcelFileDescriptor {
         require(command in ALLOWED) { "not allowed: $command" }
         // A pipe instead of a String: batterystats can be larger than one binder transaction.
-        val (read, write) = ParcelFileDescriptor.createPipe()
+        val (read, write) = ParcelFileDescriptor.createReliablePipe()
         thread(name = "shell-report") {
-            ParcelFileDescriptor.AutoCloseOutputStream(write).use { out ->
-                val p = ProcessBuilder("sh", "-c", command).redirectErrorStream(true).start()
-                p.inputStream.use { it.copyTo(out) }
-                p.waitFor()
+            val watchdog = java.util.concurrent.Executors.newSingleThreadScheduledExecutor()
+            var process: Process? = null
+            try {
+                val p = ProcessBuilder(command.split(' ')).redirectErrorStream(true).start()
+                process = p
+                val timeout = watchdog.schedule({
+                    runCatching { write.closeWithError("Command timed out after 60 seconds") }
+                    p.destroyForcibly()
+                }, CommandDeadline.SECONDS, java.util.concurrent.TimeUnit.SECONDS)
+                try {
+                    val out = ParcelFileDescriptor.AutoCloseOutputStream(write)
+                    p.inputStream.use { it.copyTo(out) }
+                    p.waitFor()
+                    out.close()
+                } finally { timeout.cancel(false) }
+            } catch (e: Exception) {
+                runCatching { write.closeWithError(e.message ?: "Command failed") }
+            } finally {
+                watchdog.shutdownNow()
+                process?.destroyForcibly()
+                runCatching { write.close() }
             }
         }
         return read

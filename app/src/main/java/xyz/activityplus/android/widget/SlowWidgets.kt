@@ -68,25 +68,32 @@ object SlowWidgets {
         return listOf(NightWidget::class.java, HistoryWidget::class.java).any { awm.getAppWidgetIds(ComponentName(context, it)).isNotEmpty() }
     }
 
-    fun updateAll(context: Context, awm: AppWidgetManager, now: Long) {
+    fun updateAll(context: Context, awm: AppWidgetManager, now: Long, allowed: () -> Boolean = { true }) {
         // A night saved since the last look (the screen-on that ends it) is shown without waiting.
         val saved = NightStore.saved.value
         val newNight = saved != lastNightSaved
         lastNightSaved = saved
         awm.getAppWidgetIds(ComponentName(context, NightWidget::class.java)).forEach { id ->
-            if (due(id, now, newNight)) awm.updateAppWidget(id, night(context))
+            if (due(id, now, newNight)) {
+                val views = night(context)
+                if (allowed()) awm.updateAppWidget(id, views)
+            }
         }
         awm.getAppWidgetIds(ComponentName(context, HistoryWidget::class.java)).forEach { id ->
-            if (due(id, now)) awm.updateAppWidget(id, history(context, awm, id, now))
+            if (due(id, now)) {
+                val views = history(context, awm, id, now)
+                if (allowed()) awm.updateAppWidget(id, views)
+            }
         }
     }
 
     /** Draws one history widget right now: after it was configured or resized. */
-    fun redrawHistory(context: Context, id: Int) {
+    fun redrawHistory(context: Context, id: Int, allowed: () -> Boolean = { true }) {
         val awm = AppWidgetManager.getInstance(context)
         val now = System.currentTimeMillis()
         due(id, now, force = true)
-        awm.updateAppWidget(id, history(context, awm, id, now))
+        val views = history(context, awm, id, now)
+        if (allowed()) awm.updateAppWidget(id, views)
     }
 
     private fun open(context: Context, code: Int, tab: Tab) = PendingIntent.getActivity(
@@ -104,7 +111,7 @@ object SlowWidgets {
     private fun night(c: Context): RemoteViews {
         val v = RemoteViews(c.packageName, R.layout.widget_night)
         v.setOnClickPendingIntent(R.id.root, open(c, 101, Tab.BATTERY))
-        val result = runCatching { loadNightCheck(c).result }.getOrNull()
+        val result = runCatching { loadNightCheck(c, storedOnly = true).result }.getOrNull()
         val m = result?.takeIf { it.verdict != Verdict.NOT_ENOUGH_DATA }?.measured
         v.setTextViewText(R.id.label, c.getString(R.string.bg_night_title))
         v.setTextViewText(

@@ -89,24 +89,26 @@ fun ProScreen() {
         error = null
         scope.launch {
             runCatching {
-                // One report after the other through the same service; any one may fail on a given
-                // phone, the others still count.
-                val battery = runCatching {
-                    val raw = ProParser.batteryCheckin(ProShell.run(context, ShellService.BATTERY), app.monitor.batteryNow().designMah)
-                    // This report counts towards confirming the phone's unit (see ChargeUnit); a confirmed one
-                    // also brings the stored background history into it, once (BackgroundStore.applyUnit).
-                    val confirmed = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
-                        if (!BackgroundStore.exists(context)) null
-                        else BackgroundStore.get(context).let { store -> store.noteUnit(raw.detectedUnit)?.also { store.applyUnit(it) } }
-                    }
-                    raw.inUnit(confirmed ?: raw.detectedUnit ?: 1.0)
-                }.getOrNull()
-                val full = access == ProShell.Access.SHIZUKU
-                val memory = if (full) runCatching { ProParser.meminfoPss(ProShell.run(context, ShellService.MEMORY)) }.getOrNull() else null
-                val cpu = if (full) runCatching { ProParser.cpuinfo(ProShell.run(context, ShellService.CPU)) }.getOrNull() else null
-                val report = ProReport.build(System.currentTimeMillis(), battery, memory, cpu)
-                check(report.apps.isNotEmpty()) { "empty" }
-                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { app.history.savePro(report) }
+                kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+                    // One report after the other through the same service; any one may fail on a given
+                    // phone, the others still count.
+                    val battery = runCatching {
+                        val raw = ProParser.batteryCheckin(ProShell.run(context, ShellService.BATTERY), app.monitor.batteryNow().designMah)
+                        // This report counts towards confirming the phone's unit (see ChargeUnit); a confirmed one
+                        // also brings the stored background history into it, once (BackgroundStore.applyUnit).
+                        val confirmed = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                            if (!BackgroundStore.exists(context)) null
+                            else BackgroundStore.get(context).let { store -> store.noteUnit(raw.detectedUnit)?.also { store.applyUnit(it) } }
+                        }
+                        raw.inUnit(confirmed ?: raw.detectedUnit ?: 1.0)
+                    }.getOrNull()
+                    val full = access == ProShell.Access.SHIZUKU
+                    val memory = if (full) runCatching { ProParser.meminfoPss(ProShell.run(context, ShellService.MEMORY)) }.getOrNull() else null
+                    val cpu = if (full) runCatching { ProParser.cpuinfo(ProShell.run(context, ShellService.CPU)) }.getOrNull() else null
+                    val report = ProReport.build(System.currentTimeMillis(), battery, memory, cpu)
+                    check(report.apps.isNotEmpty()) { "empty" }
+                    kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { app.history.savePro(report) }
+                }
             }.onFailure { error = it.message ?: it.javaClass.simpleName }
             selected = 0
             saved++

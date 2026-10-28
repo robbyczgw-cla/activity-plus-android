@@ -7,9 +7,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.IBinder
 import android.os.ParcelFileDescriptor
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import rikka.shizuku.Shizuku
 import xyz.activityplus.android.BuildConfig
@@ -79,12 +77,8 @@ object ProShell {
      */
     suspend fun grantExtrasWithShizuku(context: Context): Boolean {
         if (shizukuState(context) != Access.SHIZUKU) return false
-        val service = service(context)
-        withContext(Dispatchers.IO) {
-            for (permission in missingExtraGrants(context)) {
-                val command = ShellService.grantCommand(permission)
-                ParcelFileDescriptor.AutoCloseInputStream(service.run(command)).bufferedReader().use { it.readText() }
-            }
+        for (permission in missingExtraGrants(context)) {
+            runShizuku(context, ShellService.grantCommand(permission))
         }
         return missingExtraGrants(context).isEmpty()
     }
@@ -112,37 +106,39 @@ object ProShell {
     fun hasComputerGrant(context: Context): Boolean =
         COMPUTER_GRANTS.all { context.checkSelfPermission(it) == PackageManager.PERMISSION_GRANTED }
 
-    /** The battery report through the computer grant only; never starts or binds Shizuku. */
-    suspend fun batteryWithGrant(context: Context): String = readWithGrant(context, ShellService.BATTERY)
+    /** One of the reports available through the computer grant. */
+    suspend fun readWithGrant(context: Context, command: String): String =
+        withGrant(context, command) { it.readText() }
 
-    /**
-     * One of [ShellService.OPEN_WITH_DUMP] through the computer grant only, for unattended readings;
-     * never starts or binds Shizuku.
-     */
-    suspend fun readWithGrant(context: Context, command: String): String = withContext(Dispatchers.IO) {
-        val p = startWithGrant(context, command)
-        p.inputStream.bufferedReader().use { it.readText() }.also { p.waitFor() }
-    }
-
-    /**
-     * Like [readWithGrant], but hands the report line by line to [block], so a report of
-     * several hundred kB (app ops) is never held as one string.
-     */
+    /** Read a report line by line without retaining it all in memory. */
     suspend fun <T> streamWithGrant(context: Context, command: String, block: (Sequence<String>) -> T): T =
-        withContext(Dispatchers.IO) {
-            val p = startWithGrant(context, command)
-            p.inputStream.bufferedReader().use { r -> block(r.lineSequence()) }.also { p.waitFor() }
-        }
+        withGrant(context, command) { block(it.lineSequence()) }
 
-    private fun startWithGrant(context: Context, command: String): Process {
+    private suspend fun <T> withGrant(context: Context, command: String, block: (java.io.BufferedReader) -> T): T {
         require(command in ShellService.OPEN_WITH_DUMP) { "not open to apps: $command" }
         check(hasComputerGrant(context)) { "no computer grant" }
-        val p = ProcessBuilder(command.split(' ')).redirectErrorStream(true).start()
-        // Unattended, so a hanging dumpsys must not block the next readings.
-        kotlin.concurrent.thread(isDaemon = true, name = "report-timeout") {
-            if (!p.waitFor(60, java.util.concurrent.TimeUnit.SECONDS)) p.destroy()
+        return CommandDeadline.run { resources ->
+            val p = ProcessBuilder(command.split(' ')).redirectErrorStream(true).start()
+            resources.add(java.io.Closeable {
+                p.destroyForcibly()
+                runCatching { p.inputStream.close() }
+                runCatching { p.errorStream.close() }
+                runCatching { p.outputStream.close() }
+            })
+            val input = p.inputStream
+            input.bufferedReader().use(block).also { p.waitFor() }
         }
-        return p
+    }
+
+    private suspend fun runShizuku(context: Context, command: String): String {
+        val service = service(context)
+        return CommandDeadline.run { resources ->
+            val pipe = service.run(command)
+            resources.add(pipe)
+            val input = ParcelFileDescriptor.AutoCloseInputStream(pipe)
+            resources.add(input)
+            input.bufferedReader().readText().also { pipe.checkError() }
+        }
     }
 
     /** Shows Shizuku's own dialog; [onResult] gets true when the user allows Activity+. */
@@ -163,17 +159,8 @@ object ProShell {
         require(command in ShellService.ALLOWED)
         return when (access(context)) {
             // With the DUMP grant the app itself may read the reports.
-            Access.DUMP -> withContext(Dispatchers.IO) {
-                require(command in ShellService.OPEN_WITH_DUMP) { "not open to apps: $command" }
-                val p = ProcessBuilder(command.split(' ')).redirectErrorStream(true).start()
-                p.inputStream.bufferedReader().use { it.readText() }.also { p.waitFor() }
-            }
-            Access.SHIZUKU -> {
-                val service = service(context)
-                withContext(Dispatchers.IO) {
-                    ParcelFileDescriptor.AutoCloseInputStream(service.run(command)).bufferedReader().use { it.readText() }
-                }
-            }
+            Access.DUMP -> readWithGrant(context, command)
+            Access.SHIZUKU -> runShizuku(context, command)
             else -> error("pro mode not available")
         }
     }

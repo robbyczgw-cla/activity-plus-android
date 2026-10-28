@@ -131,7 +131,7 @@ class HistoryStore(context: Context) : SQLiteOpenHelper(context, "history.db", n
                     "UPDATE app_energy SET mwh = mwh + ?, seconds = seconds + ? WHERE day = ? AND pkg = ?",
                     arrayOf<Any>(mwh, seconds, day, pkg)
                 )
-                val changed = db.compileStatement("SELECT changes()").simpleQueryForLong()
+                val changed = db.compileStatement("SELECT changes()").use { it.simpleQueryForLong() }
                 if (changed == 0L) {
                     db.insert("app_energy", null, ContentValues().apply {
                         put("day", day); put("pkg", pkg); put("mwh", mwh); put("seconds", seconds)

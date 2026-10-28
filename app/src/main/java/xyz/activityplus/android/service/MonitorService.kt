@@ -91,22 +91,17 @@ class MonitorService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        alerts = AlertEngine(this, app.prefs)
-        weekly = WeeklyNotifier(this, app.prefs, scope)
-        chargeAlarm = ChargeAlarm(this, alerts)
-        chargeHealth = ChargeHealthRecorder(ChargingStore.get(this))
-        chargeLive = ChargeLiveUpdate(this)
-        // Continue the session that was running when the service stopped, if the plug state still matches.
-        runCatching { app.history.sessions(1).firstOrNull() }.getOrNull()?.let { last ->
-            val plugged = app.monitor.batteryNow().plugged
-            if (last.charging == plugged && System.currentTimeMillis() - last.endMillis < 6 * 3_600_000L) sessions.resume(last)
-        }
-        val n = StatusNotification.build(this, app.monitor.latest.value, app.prefs.current, null)
+        val n = StatusNotification.build(this, null, app.prefs.current, null)
         if (Build.VERSION.SDK_INT >= 34) {
             startForeground(StatusNotification.ID, n, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
         } else {
             startForeground(StatusNotification.ID, n)
         }
+        alerts = AlertEngine(this, app.prefs)
+        weekly = WeeklyNotifier(this, app.prefs, scope)
+        chargeAlarm = ChargeAlarm(this, alerts)
+        chargeHealth = ChargeHealthRecorder(ChargingStore.get(this))
+        chargeLive = ChargeLiveUpdate(this)
         registerReceiver(receiver, IntentFilter().apply {
             addAction(Intent.ACTION_SCREEN_ON)
             addAction(Intent.ACTION_SCREEN_OFF)
@@ -120,7 +115,16 @@ class MonitorService : Service() {
         updates.start()
         thermal.start() // throttling log: Android's thermal status changes with the app on screen
         register()
-        scope.launch { app.monitor.latest.filterNotNull().collect { onSample(it) } }
+        scope.launch {
+            // Resume before processing samples so the tracker cannot race its initialization.
+            runCatching {
+                app.history.sessions(1).firstOrNull()?.let { last ->
+                    val plugged = app.monitor.batteryNow().plugged
+                    if (last.charging == plugged && System.currentTimeMillis() - last.endMillis < 6 * 3_600_000L) sessions.resume(last)
+                }
+            }
+            app.monitor.latest.filterNotNull().collect { onSample(it) }
+        }
         scope.launch { app.prefs.settings.collect { register() } }
     }
 
@@ -200,9 +204,11 @@ class MonitorService : Service() {
         app.monitor.unregister(CLIENT)
         chargeLive.cancel()
         // Keep what was measured since the last full minute.
-        runCatching {
-            val measured = drain.drain()
-            if (measured.isNotEmpty()) app.history.addEnergy(ActivityPlusApp.dayKey(System.currentTimeMillis()), measured)
+        val measured = drain.drain()
+        val day = ActivityPlusApp.dayKey(System.currentTimeMillis())
+        // This final write must survive cancellation of the service scope.
+        if (measured.isNotEmpty()) CoroutineScope(Dispatchers.IO).launch {
+            runCatching { app.history.addEnergy(day, measured) }
         }
         scope.cancel()
         super.onDestroy()
