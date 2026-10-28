@@ -176,23 +176,64 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
     }
 
     /**
-     * Divides every stored charge by [scale] and drops the last snapshot, once: rows written before
-     * Activity+ knew that this phone's reports are not in mAh (see ChargeUnit). The snapshot goes, so
-     * the next reading starts a fresh baseline instead of a difference across two units.
+     * The battery report's unit on this phone (units per mAh, see ChargeUnit), once confirmed; null
+     * while unknown. 0.6.2 wrote the same key after a single report.
      */
-    fun rescale(scale: Double) {
+    fun confirmedUnit(): Double? = meta(META_UNIT_SCALE)?.toDoubleOrNull()?.takeIf { it > 0 }
+
+    /**
+     * One report's own reading of its unit. Two reports in a row that agree confirm it; a single
+     * one never does, so one coarse report cannot rewrite the history. Returns the confirmed unit.
+     */
+    @Synchronized
+    fun noteUnit(detected: Double?): Double? {
+        val confirmed = confirmedUnit()
+        if (detected == null) return confirmed
+        if (detected == confirmed) {
+            setMeta(META_UNIT_VOTES, "0")
+            return confirmed
+        }
+        val candidate = meta(META_UNIT_CANDIDATE)?.toDoubleOrNull()
+        val votes = if (candidate == detected) (meta(META_UNIT_VOTES)?.toIntOrNull() ?: 0) + 1 else 1
+        setMeta(META_UNIT_CANDIDATE, detected.toString())
+        setMeta(META_UNIT_VOTES, votes.toString())
+        if (votes < 2) return confirmed
+        setMeta(META_UNIT_SCALE, detected.toString())
+        return detected
+    }
+
+    /**
+     * Brings the stored history into [unit] (units per mAh) and records that it is in it, in one
+     * transaction: calling it again, or from two readings at once, changes nothing. Rows are only ever
+     * converted by the ratio to the unit they are already in. The last snapshot is dropped on a change,
+     * so the next reading starts a fresh baseline instead of a difference across two units.
+     */
+    @Synchronized
+    fun applyUnit(unit: Double) {
         val db = writableDatabase
         db.beginTransaction()
         try {
-            db.execSQL("UPDATE days SET mah = mah / ?", arrayOf(scale))
-            db.execSQL("UPDATE interval_apps SET mah = mah / ?", arrayOf(scale))
-            db.execSQL("UPDATE intervals SET hw_mah = hw_mah / ?", arrayOf(scale))
-            db.delete("last", null, null)
+            val applied = appliedUnit()
+            if (unit != applied) {
+                val factor = unit / applied
+                db.execSQL("UPDATE days SET mah = mah / ?", arrayOf(factor))
+                db.execSQL("UPDATE interval_apps SET mah = mah / ?", arrayOf(factor))
+                db.execSQL("UPDATE intervals SET hw_mah = hw_mah / ?", arrayOf(factor))
+                db.delete("last", null, null)
+                setMeta(META_UNIT_APPLIED, unit.toString())
+            }
             db.setTransactionSuccessful()
         } finally {
             db.endTransaction()
         }
     }
+
+    /**
+     * The unit the stored rows are in. Before 0.6.3 there was no record of it: 0.6.2 converted the rows
+     * when it saved its unit, so that unit is the one they are in; without it they are as reported.
+     */
+    private fun appliedUnit(): Double =
+        meta(META_UNIT_APPLIED)?.toDoubleOrNull() ?: confirmedUnit() ?: 1.0
 
     /** The biggest single charge stored for an app and day: tells whether old rows are in a wrong unit. */
     fun maxDayMah(): Double =
@@ -209,8 +250,12 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
         const val META_MORNING_TS = "morning_ts"
         const val META_UNPLUGGED = "unplugged_ts"
         const val META_PRUNED = "pruned_ts"
-        /** Units per mAh of this phone's battery report, once detected (see ChargeUnit). */
+        /** Units per mAh of this phone's battery report, once confirmed (see ChargeUnit, [noteUnit]). */
         const val META_UNIT_SCALE = "unit_scale"
+        /** The unit the stored rows are in (see [applyUnit]). */
+        const val META_UNIT_APPLIED = "unit_applied"
+        const val META_UNIT_CANDIDATE = "unit_candidate"
+        const val META_UNIT_VOTES = "unit_votes"
 
         @Volatile private var instance: BackgroundStore? = null
 

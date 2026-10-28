@@ -1,14 +1,15 @@
 package xyz.activityplus.android.data
 
 import android.content.Context
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
 import xyz.activityplus.android.ActivityPlusApp
+import xyz.activityplus.android.core.ChargeUnit
 import xyz.activityplus.android.core.SinceUpdate
 import xyz.activityplus.android.core.SinceUpdate.Metric
 import xyz.activityplus.android.core.SinceUpdate.StorageAt
 import xyz.activityplus.android.core.WakeLimit
-import java.time.Instant
-import java.time.LocalDate
-import java.time.ZoneId
 
 /**
  * Reads what Activity+ already keeps per app and day (background battery, wakeups and wakelocks,
@@ -65,7 +66,8 @@ object UpdateLoader {
             val (previous, next) = SinceUpdate.neighbours(times[e.pkg].orEmpty(), e.timeMillis)
             val w = SinceUpdate.windows(day(e.timeMillis), today, previous?.let(::day), next?.let(::day))
             val daily = HashMap<Metric, Map<String, Double>>()
-            background?.let { (measured, store) ->
+            // Not while the stored rows are in an unconfirmed unit: millions of "mAh" would compare as huge jumps.
+            background?.takeIf { !ChargeUnit.implausible(it.second.maxDayMah(), null) }?.let { (measured, store) ->
                 val mah = store.series(e.pkg, from, to)
                 daily[Metric.BACKGROUND] = series(measured) { mah[it] }
             }

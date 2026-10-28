@@ -7,7 +7,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import xyz.activityplus.android.ActivityPlusApp
-import xyz.activityplus.android.core.ChargeUnit
 import xyz.activityplus.android.data.BackgroundStore
 import xyz.activityplus.android.pro.BackgroundDelta
 import xyz.activityplus.android.pro.BackgroundSchedule
@@ -107,17 +106,15 @@ class BackgroundSampler(private val context: Context, private val scope: Corouti
 
         // Streamed: the report is megabytes, and the start clock is picked from the same pass.
         var startClock: Long? = null
-        val known = store.meta(BackgroundStore.META_UNIT_SCALE)?.toDoubleOrNull()
         val capacity = runCatching { ActivityPlusApp.instance.monitor.batteryNow().designMah }.getOrNull()
-        val report = ProShell.streamWithGrant(context, ShellService.BATTERY) { lines ->
-            ProParser.batteryCheckin(lines.onEach { if (startClock == null) startClock = BackgroundDelta.startClockOf(it) }, known, capacity)
+        val raw = ProShell.streamWithGrant(context, ShellService.BATTERY) { lines ->
+            ProParser.batteryCheckin(lines.onEach { if (startClock == null) startClock = BackgroundDelta.startClockOf(it) }, capacity)
         }
-        if (report.unitDetected && report.unitScale != known) store.setMeta(BackgroundStore.META_UNIT_SCALE, report.unitScale.toString())
-        // Rows from before the unit was known are millions of times too big: fix them once.
-        if (report.unitScale > 1 && ChargeUnit.implausible(store.maxDayMah(), capacity)) {
-            store.rescale(report.unitScale)
-            Log.i(TAG, "battery report unit: ${report.unitScale} per mAh, stored days rescaled")
-        }
+        // Most phones write mAh; some do not (see ChargeUnit). Until two reports agree on the unit the
+        // rows stay as reported, and the screens say so instead of showing them as mAh.
+        val unit = store.noteUnit(raw.detectedUnit) ?: 1.0
+        store.applyUnit(unit)
+        val report = raw.inUnit(unit)
         val time = System.currentTimeMillis()
         check(report.byUid.isNotEmpty()) { "empty report" }
         val next = BackgroundDelta.snapshot(time, report, startClock)

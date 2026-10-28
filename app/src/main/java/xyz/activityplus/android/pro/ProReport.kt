@@ -16,15 +16,16 @@ data class ProReport(
 
     fun forPackage(pkg: String) = apps.find { it.pkg == pkg }
 
+    /** False when the numbers cannot be mAh: saved before this phone's report unit was known (ChargeUnit). */
+    val plausible: Boolean get() = !ChargeUnit.implausible((apps.map { it.mah } + hardware.values).maxOrNull() ?: 0.0, null)
+
     /**
-     * In mAh, also when saved before Activity+ knew this phone's reports use another unit (ChargeUnit):
-     * values no phone can reach are divided by that unit ([knownScale], or the likeliest).
+     * In mAh when saved before Activity+ knew this phone's reports use another unit: such a report is
+     * converted with the confirmed unit ([knownScale]); without one it stays as it is (see [plausible]).
      */
     fun inMah(knownScale: Double?): ProReport {
-        val biggest = (apps.map { it.mah } + hardware.values).maxOrNull() ?: return this
-        if (!ChargeUnit.implausible(biggest, null)) return this
-        val scale = knownScale?.takeIf { it > 1 } ?: ChargeUnit.CANDIDATES.last()
-        return copy(apps = apps.map { it.copy(mah = it.mah / scale) }, hardware = hardware.mapValues { it.value / scale })
+        if (plausible || knownScale == null || knownScale <= 1) return this
+        return copy(apps = apps.map { it.copy(mah = it.mah / knownScale) }, hardware = hardware.mapValues { it.value / knownScale })
     }
 
     fun toJson(): String = JSONObject().apply {

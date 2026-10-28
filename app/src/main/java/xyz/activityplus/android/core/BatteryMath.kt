@@ -4,7 +4,10 @@ import kotlin.math.abs
 
 /** Vendor quirks of the fuel gauge, kept apart from Android so they can be tested. */
 object BatteryMath {
-    /** Values below this magnitude are taken as mA: some vendors ignore the µA unit in the docs. */
+    /**
+     * Until [GaugeUnits] knows the phone's unit: values below this magnitude are taken as mA (some
+     * vendors ignore the µA unit in the docs). Only a first guess; small µA currents are misread by it.
+     */
     private const val MILLIAMP_CUTOFF = 10_000
 
     /** Above this the reading is nonsense (no phone draws 15 A). */
@@ -15,10 +18,11 @@ object BatteryMath {
      * (positive into the battery). Vendors disagree on both unit and sign, so the sign is taken
      * from the status instead of the raw value.
      */
-    fun currentMa(raw: Long?, status: ChargeStatus, plugged: Boolean): Double? {
+    fun currentMa(raw: Long?, status: ChargeStatus, plugged: Boolean, micro: Boolean? = null): Double? {
         if (raw == null || raw == 0L || raw == Long.MIN_VALUE || raw == Int.MIN_VALUE.toLong()) return null
         val magnitude = abs(raw).toDouble()
-        val ma = if (magnitude < MILLIAMP_CUTOFF) magnitude else magnitude / 1000.0
+        val inMicro = micro ?: (magnitude >= MILLIAMP_CUTOFF)
+        val ma = if (inMicro) magnitude / 1000.0 else magnitude
         if (ma > MAX_PLAUSIBLE_MA) return null
         return when (status) {
             ChargeStatus.CHARGING -> ma
@@ -29,9 +33,10 @@ object BatteryMath {
     }
 
     /** BATTERY_PROPERTY_CHARGE_COUNTER is µAh by spec; some gauges report mAh. */
-    fun chargeMah(rawCounter: Long?, designMah: Double?): Double? {
+    fun chargeMah(rawCounter: Long?, designMah: Double?, micro: Boolean? = null): Double? {
         if (rawCounter == null || rawCounter <= 0 || rawCounter == Int.MIN_VALUE.toLong()) return null
         val asMah = rawCounter / 1000.0
+        if (micro != null) return if (micro) asMah else rawCounter.toDouble()
         // A µAh reading of a 4000 mAh battery is ~4,000,000. If it is in mAh already it is below the design capacity.
         if (designMah != null && rawCounter < designMah * 2) return rawCounter.toDouble()
         return asMah

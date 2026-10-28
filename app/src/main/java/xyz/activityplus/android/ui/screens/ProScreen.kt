@@ -92,7 +92,14 @@ fun ProScreen() {
                 // One report after the other through the same service; any one may fail on a given
                 // phone, the others still count.
                 val battery = runCatching {
-                    ProParser.batteryCheckin(ProShell.run(context, ShellService.BATTERY), knownUnitScale(context), app.monitor.batteryNow().designMah)
+                    val raw = ProParser.batteryCheckin(ProShell.run(context, ShellService.BATTERY), app.monitor.batteryNow().designMah)
+                    // This report counts towards confirming the phone's unit (see ChargeUnit); a confirmed one
+                    // also brings the stored background history into it, once (BackgroundStore.applyUnit).
+                    val confirmed = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                        if (!BackgroundStore.exists(context)) null
+                        else BackgroundStore.get(context).let { store -> store.noteUnit(raw.detectedUnit)?.also { store.applyUnit(it) } }
+                    }
+                    raw.inUnit(confirmed ?: raw.detectedUnit ?: 1.0)
                 }.getOrNull()
                 val full = access == ProShell.Access.SHIZUKU
                 val memory = if (full) runCatching { ProParser.meminfoPss(ProShell.run(context, ShellService.MEMORY)) }.getOrNull() else null
@@ -253,6 +260,9 @@ private fun BatteryReportCard(r: ProReport) {
         if (apps.isEmpty()) {
             Note(stringResource(R.string.pro_battery_empty))
         }
+        // Not mAh yet on this phone (see ChargeUnit): the shares are right, the numbers are not shown.
+        val mah = r.plausible
+        if (!mah) Note(stringResource(R.string.unit_pending))
         val total = r.totalMah.coerceAtLeast(1e-9)
         apps.take(15).forEach { a ->
             val detail = listOfNotNull(
@@ -260,9 +270,10 @@ private fun BatteryReportCard(r: ProReport) {
                 a.cpuMs.takeIf { it >= 60_000 }?.let { context.getString(R.string.pro_cpu_time, Format.duration(it / 1000)) },
                 a.wakelockMs.takeIf { it >= 60_000 }?.let { context.getString(R.string.pro_awake, Format.duration(it / 1000)) },
             ).joinToString(" · ")
-            ReportRow(a.pkg, Format.number(a.mah, if (a.mah < 1) 2 else if (a.mah < 10) 1 else 0) + " mAh", detail, a.mah / total, Metric.Energy)
+            val value = if (mah) Format.number(a.mah, if (a.mah < 1) 2 else if (a.mah < 10) 1 else 0) + " mAh" else Format.percent(a.mah / total).toString()
+            ReportRow(a.pkg, value, detail, a.mah / total, Metric.Energy)
         }
-        if (r.hardware.isNotEmpty()) {
+        if (mah && r.hardware.isNotEmpty()) {
             Spacer(Modifier.height(8.dp))
             Text(stringResource(R.string.pro_hardware_title), style = MaterialTheme.typography.titleSmall, color = LocalSurfaces.current.muted)
             r.hardware.entries.filter { it.value >= 0.005 }.sortedByDescending { it.value }.forEach { (k, v) ->
@@ -340,4 +351,4 @@ fun ProEntryCard(onOpen: () -> Unit) {
 
 /** Units per mAh of this phone's battery report, as the background measurement found out (see ChargeUnit). */
 internal fun knownUnitScale(context: android.content.Context): Double? =
-    if (BackgroundStore.exists(context)) BackgroundStore.get(context).meta(BackgroundStore.META_UNIT_SCALE)?.toDoubleOrNull() else null
+    if (BackgroundStore.exists(context)) BackgroundStore.get(context).confirmedUnit() else null

@@ -80,18 +80,33 @@ object BackgroundDelta {
         for ((uid, n) in next.byUid) {
             // Uids that vanished (uninstalled apps) have nothing new to count.
             val p = if (reset) null else prev.byUid[uid]
-            val mah = (n.mah - (p?.mah ?: 0.0)).coerceAtLeast(0.0)
-            val cpu = (n.cpuMs - (p?.cpuMs ?: 0)).coerceAtLeast(0)
-            val wake = (n.wakelockMs - (p?.wakelockMs ?: 0)).coerceAtLeast(0)
+            val mah = growth(n.mah, p?.mah)
+            val cpu = growth(n.cpuMs.toDouble(), p?.cpuMs?.toDouble()).toLong()
+            val wake = growth(n.wakelockMs.toDouble(), p?.wakelockMs?.toDouble()).toLong()
             if (mah <= 0 && cpu == 0L && wake == 0L) continue
             val pkg = packageFor(uid, packages)
             val r = rows[pkg]
             rows[pkg] = if (r == null) Usage(pkg, mah, cpu, wake) else Usage(pkg, r.mah + mah, r.cpuMs + cpu, r.wakelockMs + wake)
         }
-        val hardware = if (reset) next.hardwareMah else (next.hardwareMah - prev.hardwareMah).coerceAtLeast(0.0)
+        val hardware = when {
+            reset || next.hardwareMah < prev.hardwareMah -> next.hardwareMah
+            else -> next.hardwareMah - prev.hardwareMah
+        }
         // After a reset the counted time starts at the reset, not at the last reading.
         val from = if (reset) next.startClockMillis?.coerceIn(prev.timeMillis, next.timeMillis) ?: prev.timeMillis else prev.timeMillis
         return Interval(from, next.timeMillis, reset, rows.values.sortedByDescending { it.mah }, hardware)
+    }
+
+    /**
+     * What a counter added since [prev]. Android's power model sometimes revises a value slightly
+     * downwards (10.0 → 9.5 mAh): nothing new. A counter that fell below half restarted on its own
+     * (a reset the totals did not reveal, e.g. the app was reinstalled): what it shows now is new.
+     */
+    internal fun growth(now: Double, prev: Double?): Double = when {
+        prev == null -> now
+        now >= prev -> now - prev
+        now < prev * 0.5 -> now
+        else -> 0.0
     }
 
     fun packageFor(uid: Int, packages: Map<Int, List<String>>): String {

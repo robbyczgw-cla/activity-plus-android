@@ -173,6 +173,19 @@ class BackgroundDeltaTest {
         assertFalse(BackgroundDelta.unusual(15.0, listOf(1.0, 1.0, 1.0))) // under 20 mAh
         assertFalse(BackgroundDelta.unusual(100.0, listOf(1.0, 1.0))) // too few days
     }
+
+    // An app's counter can restart on its own while the totals and the start clock do not show a
+    // reset (e.g. the app was reinstalled): what it counted since is its use, not zero.
+    @Test fun aCounterThatWentDownCountsWhatItShowsNow() {
+        val prev = snap(0, 3_600_000, 1_000, 10_100 to u(50.0, 60_000, 30_000), 10_200 to u(10.0))
+        val next = snap(3_600_000, 7_200_000, 1_000, 10_100 to u(4.0, 5_000, 2_000), 10_200 to u(15.0))
+        val i = BackgroundDelta.interval(prev, next, mapOf(10_100 to listOf("a.app"), 10_200 to listOf("b.app")), false)!!
+        val a = i.apps.single { it.pkg == "a.app" }
+        assertEquals(4.0, a.mah, 1e-9)
+        assertEquals(5_000L, a.cpuMs)
+        assertEquals(2_000L, a.wakelockMs)
+        assertEquals(5.0, i.apps.single { it.pkg == "b.app" }.mah, 1e-9)
+    }
 }
 
 class BackgroundScheduleTest {

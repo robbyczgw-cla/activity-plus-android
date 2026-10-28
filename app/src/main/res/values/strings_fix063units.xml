@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Battery report in another unit than mAh on this phone, not confirmed yet (see ChargeUnit) -->
+    <string name="unit_pending">Android\'s battery report on this phone does not use mAh. Activity+ is still working out its unit (it needs two reports that agree, read every 3 hours and when you plug in), so for now it shows each app\'s share only.</string>
+</resources>

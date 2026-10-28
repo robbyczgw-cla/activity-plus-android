@@ -38,6 +38,11 @@ class SystemSampler(private val context: Context) {
     private var lastOwnCpuMs = Process.getElapsedCpuTime()
     private var lastOwnWall = SystemClock.elapsedRealtime()
     private val designMah: Double? by lazy { readDesignCapacity() }
+    private val unitPrefs by lazy { context.getSharedPreferences("gauge_units", Context.MODE_PRIVATE) }
+    private val units: GaugeUnits by lazy {
+        fun read(key: String) = if (unitPrefs.contains(key)) unitPrefs.getBoolean(key, true) else null
+        GaugeUnits(read(KEY_CURRENT_MICRO), read(KEY_COUNTER_MICRO))
+    }
     private val cpuCount: Int by lazy { readPossibleCpus() }
     private val maxFreq = HashMap<Int, Double?>()
 
@@ -104,8 +109,15 @@ class SystemSampler(private val context: Context) {
         }
         val rawCurrent = batteryManager.getLongProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW)
         val rawCounter = batteryManager.getLongProperty(BatteryManager.BATTERY_PROPERTY_CHARGE_COUNTER)
+        // The phone's units, learned once (see GaugeUnits); saved the moment one is decided.
+        if (units.observe(rawCurrent, rawCounter, powerManager.isInteractive, levelFraction, designMah)) {
+            unitPrefs.edit().apply {
+                units.currentMicro?.let { putBoolean(KEY_CURRENT_MICRO, it) }
+                units.counterMicro?.let { putBoolean(KEY_COUNTER_MICRO, it) }
+            }.apply()
+        }
         // A gauge whose charge implies a battery under 500 mAh reports a placeholder (emulators do).
-        val chargeMah = BatteryMath.chargeMah(rawCounter, designMah)?.takeIf { it / maxOf(levelFraction, 0.05) >= 500 }
+        val chargeMah = BatteryMath.chargeMah(rawCounter, designMah, units.counterMicro)?.takeIf { it / maxOf(levelFraction, 0.05) >= 500 }
         val cycles = if (Build.VERSION.SDK_INT >= 34) {
             intent?.getIntExtra(BatteryManager.EXTRA_CYCLE_COUNT, -1)?.takeIf { it >= 0 }
         } else null
@@ -122,7 +134,7 @@ class SystemSampler(private val context: Context) {
             health = health,
             temperatureC = (intent?.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, 0) ?: 0) / 10.0,
             voltageV = voltage,
-            currentMa = BatteryMath.currentMa(rawCurrent, status, plug != PlugType.NONE),
+            currentMa = BatteryMath.currentMa(rawCurrent, status, plug != PlugType.NONE, units.currentMicro),
             chargeMah = chargeMah,
             estimatedFullMah = BatteryMath.estimatedFullMah(chargeMah, levelFraction, designMah),
             designMah = designMah,
@@ -307,6 +319,8 @@ class SystemSampler(private val context: Context) {
     }
 
     private companion object {
+        const val KEY_CURRENT_MICRO = "current_micro"
+        const val KEY_COUNTER_MICRO = "counter_micro"
         val whitespace = Regex("\\s+")
         val MEMINFO_KEYS = setOf("SwapTotal", "SwapFree", "Cached", "MemFree", "Buffers")
 

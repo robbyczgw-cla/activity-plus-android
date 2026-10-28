@@ -21,7 +21,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import java.time.LocalDate
+import java.time.ZoneId
 import xyz.activityplus.android.R
+import xyz.activityplus.android.core.ChargeUnit
 import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.data.BackgroundStore
 import xyz.activityplus.android.pro.BackgroundDelta
@@ -41,8 +44,6 @@ import xyz.activityplus.android.ui.rememberResumes
 import xyz.activityplus.android.ui.rememberSettings
 import xyz.activityplus.android.ui.theme.LocalSurfaces
 import xyz.activityplus.android.ui.theme.Metric
-import java.time.LocalDate
-import java.time.ZoneId
 
 /*
  * The cards of the automatic background measurement (BackgroundSampler). Each loader returns null
@@ -73,7 +74,11 @@ fun BackgroundTodayCard(apps: List<BackgroundStore.AppDay>, onPro: () -> Unit) {
         Spacer(Modifier.height(8.dp))
         if (apps.isEmpty()) Note(stringResource(R.string.bg_today_empty))
         val max = apps.firstOrNull()?.mah?.coerceAtLeast(1e-9) ?: 1.0
-        apps.take(8).forEach { AppDayRow(it, it.mah / max) }
+        // Rows from before this phone's report unit was confirmed are not mAh (see ChargeUnit): shares only.
+        val inMah = !ChargeUnit.implausible(max, null)
+        if (!inMah) Note(stringResource(R.string.unit_pending))
+        val total = apps.sumOf { it.mah }.coerceAtLeast(1e-9)
+        apps.take(8).forEach { AppDayRow(it, it.mah / max, if (inMah) null else Format.percent(it.mah / total).toString()) }
         Spacer(Modifier.height(6.dp))
         Note(stringResource(R.string.bg_today_note))
         TextButton(onClick = onPro, contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp)) {
@@ -110,7 +115,7 @@ fun BackgroundUnavailableContent(grant: Boolean, onPro: () -> Unit) {
 }
 
 @Composable
-private fun AppDayRow(a: BackgroundStore.AppDay, fraction: Double?) {
+private fun AppDayRow(a: BackgroundStore.AppDay, fraction: Double?, valueText: String? = null) {
     val context = LocalContext.current
     Row(Modifier.fillMaxWidth().padding(vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {
         AppIcon(a.pkg, 30.dp)
@@ -124,7 +129,7 @@ private fun AppDayRow(a: BackgroundStore.AppDay, fraction: Double?) {
             }
         }
         Spacer(Modifier.width(10.dp))
-        Text(mah(a.mah), style = MaterialTheme.typography.bodyLarge)
+        Text(valueText ?: mah(a.mah), style = MaterialTheme.typography.bodyLarge)
     }
 }
 

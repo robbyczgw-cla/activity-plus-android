@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Akkubericht in einer anderen Einheit als mAh, noch nicht bestätigt (siehe ChargeUnit) -->
+    <string name="unit_pending">Der Akkubericht von Android nutzt auf diesem Handy keine mAh. Activity+ ermittelt die Einheit noch (dafür braucht es zwei übereinstimmende Berichte, gelesen alle 3 Stunden und beim Anstecken), deshalb zeigt es vorerst nur den Anteil jeder App.</string>
+</resources>

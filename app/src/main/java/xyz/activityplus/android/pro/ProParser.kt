@@ -18,17 +18,35 @@ object ProParser {
         val onBatteryMs: Long?,
         /** Hardware not tied to an app: screen, cell radio, Wi-Fi, idle ... in mAh. */
         val system: Map<String, Double>,
-        /** What the report's raw numbers were divided by to get mAh (1 on most phones, see [ChargeUnit]). */
+        /** What the numbers have been divided by so far: 1 as parsed, see [inUnit]. */
         val unitScale: Double = 1.0,
-        /** Whether [unitScale] came from the report itself, not from an earlier report or a guess. */
-        val unitDetected: Boolean = false,
-    )
+        /** Units per mAh this report itself shows clearly, or null (see [ChargeUnit.detect]). */
+        val detectedUnit: Double? = null,
+    ) {
+        /** The biggest single value: tells whether the numbers can be mAh at all. */
+        val biggest: Double get() = (byUid.values.map { it.mah } + system.values).maxOrNull() ?: 0.0
 
-    fun batteryCheckin(text: String, knownScale: Double? = null, capacityHint: Double? = null): BatteryReport =
-        batteryCheckin(text.lineSequence(), knownScale, capacityHint)
+        /** Converted from the parsed numbers into mAh, given this phone's unit ([scale] per mAh). */
+        fun inUnit(scale: Double): BatteryReport {
+            val factor = scale / unitScale
+            if (factor == 1.0) return this
+            return copy(
+                byUid = byUid.mapValues { it.value.copy(mah = it.value.mah / factor) },
+                system = system.mapValues { it.value / factor },
+                unitScale = scale,
+            )
+        }
+    }
+
+    /**
+     * The numbers come back as the report wrote them; a phone that does not write mAh (see ChargeUnit)
+     * is converted by the caller with [BatteryReport.inUnit] once the unit is known.
+     */
+    fun batteryCheckin(text: String, capacityHint: Double? = null): BatteryReport =
+        batteryCheckin(text.lineSequence(), capacityHint)
 
     /** Line by line, so the unattended reading never holds the whole report (megabytes) as one string. */
-    fun batteryCheckin(lines: Sequence<String>, knownScale: Double? = null, capacityHint: Double? = null): BatteryReport {
+    fun batteryCheckin(lines: Sequence<String>, capacityHint: Double? = null): BatteryReport {
         val mah = HashMap<Int, Double>()
         val cpu = HashMap<Int, Long>()
         val wake = HashMap<Int, Long>()
@@ -66,16 +84,12 @@ object ProParser {
             }
         }
         val uids = mah.keys + cpu.keys + wake.keys
-        val detected = summary?.let { ChargeUnit.detect(it[1], it[2], it[3], it[0], capacityHint) }
-        val biggest = (mah.values + system.values).maxOrNull() ?: 0.0
-        val scale = ChargeUnit.choose(detected, knownScale, biggest, capacityHint)
         return BatteryReport(
-            byUid = uids.associateWith { UidBattery((mah[it] ?: 0.0) / scale, cpu[it] ?: 0, wake[it] ?: 0) },
+            byUid = uids.associateWith { UidBattery(mah[it] ?: 0.0, cpu[it] ?: 0, wake[it] ?: 0) },
             packages = packages,
             onBatteryMs = onBattery,
-            system = system.mapValues { it.value / scale },
-            unitScale = scale,
-            unitDetected = detected != null && detected == scale,
+            system = system,
+            detectedUnit = summary?.let { ChargeUnit.detect(it[1], it[2], it[3], it[0], capacityHint) },
         )
     }
 
