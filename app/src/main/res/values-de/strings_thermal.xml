@@ -38,7 +38,7 @@
     <string name="th_detail_throttled">Gedrosselt</string>
     <string name="th_regular_badge">Oft gedrosselt</string>
     <string name="f_throttle_title">%1$s drosselt das Handy immer wieder</string>
-    <string name="f_throttle_body">Das Handy hat sich wegen Hitze %1$d Mal an %2$d Tagen gedrosselt, während diese App im Vordergrund war (insgesamt %3$s, Akku bis zu %4$s). Senke ihre Grafikqualität oder Bildrate oder lass das Handy erst abkühlen.</string>
+    <string name="f_throttle_body">Das Handy hat sich wegen Hitze %1$d Mal an %2$d Tagen gedrosselt, während diese App im Vordergrund war (insgesamt %3$s, Akku bis zu %4$s). Bei einem Spiel: Grafikqualität oder Bildrate senken. Sonst die App schließen, wenn du sie nicht brauchst, und das Handy abkühlen lassen.</string>
 
     <!-- Restzeit nach deinem Muster (Akku-Seite) -->
     <string name="fc_title">Restzeit nach deinem Muster</string>

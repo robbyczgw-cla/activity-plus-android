@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.1
+
+- "Since the update" no longer shows absurd factors ("8066270× as much") when an app used next to nothing before: Android reports idle apps with crumbs of a milliamp hour, and the finding now names the new amount instead ("now uses about 20 mAh a day in the background"); increases beyond 20× are told the same way
+- The throttling finding gives advice that fits any app, not only games
+
 ## 0.6.0
 
 - Today at a glance: the Battery screen opens with what matters now, then its cards in groups (Now, Last night, Apps, Charging and health, Planned and background); cards with nothing to say fold into one line with the reason; any card can be hidden in Settings. The Overview is shorter

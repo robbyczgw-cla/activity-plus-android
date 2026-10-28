@@ -37,7 +37,7 @@
     <string name="th_detail_throttled">Bridé</string>
     <string name="th_regular_badge">Souvent bridée</string>
     <string name="f_throttle_title">%1$s provoque régulièrement le bridage du téléphone</string>
-    <string name="f_throttle_body">Le téléphone s\'est ralenti à cause de la chaleur %1$d fois sur %2$d jours pendant que cette app était à l\'écran (%3$s au total, batterie jusqu\'à %4$s). Baissez sa qualité graphique ou sa fréquence d\'images, ou laissez d\'abord le téléphone refroidir.</string>
+    <string name="f_throttle_body">Le téléphone s\'est ralenti à cause de la chaleur %1$d fois sur %2$d jours pendant que cette app était à l\'écran (%3$s au total, batterie jusqu\'à %4$s). Dans un jeu, baissez la qualité graphique ou la fréquence d\'images ; sinon, fermez l\'app quand vous n\'en avez pas besoin et laissez le téléphone refroidir.</string>
 
     <string name="fc_title">Autonomie restante selon votre usage</string>
     <string name="fc_until_pattern">Dure jusqu\'à environ %1$s avec votre usage habituel</string>

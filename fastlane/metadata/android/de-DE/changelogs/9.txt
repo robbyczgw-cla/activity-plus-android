@@ -1,0 +1,1 @@
+Behebt absurde Faktoren bei „Seit dem Update“, wenn eine App vorher fast nichts verbraucht hat; Rat bei Drosselung, der zu jeder App passt.

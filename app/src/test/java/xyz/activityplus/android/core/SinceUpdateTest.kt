@@ -140,6 +140,24 @@ class SinceUpdateTest {
         assertTrue(c.strong)
     }
 
+    // A real case from a phone: Android reported crumbs before the update, and the finding said
+    // "uses 8066270× as much battery in the background".
+    @Test fun crumbsBeforeAnUpdateCountAsNothingNotAsAFactor() {
+        val s = series(List(7) { 0.0000025 }, listOf(18.0, 20.0, 22.0, 21.0))
+        val c = changed(SinceUpdate.compareDaily(Metric.BACKGROUND, s, w))
+        assertEquals(Direction.UP, c.direction)
+        assertNull(c.ratio)
+        assertTrue(c.strong)
+    }
+
+    @Test fun aHugeIncreaseIsToldAsTheNewAmount() {
+        // 1 mAh before is measurable, but 40× is no number anyone can picture.
+        assertNull(SinceUpdate.Change(Metric.BACKGROUND, Direction.UP, 1.0, 40.0).ratio)
+        assertEquals(8.0, SinceUpdate.Change(Metric.BACKGROUND, Direction.UP, 1.0, 8.0).ratio!!, 1e-9)
+        // A drop keeps its ratio: "uses 95 % less" stays meaningful.
+        assertEquals(0.025, SinceUpdate.Change(Metric.BACKGROUND, Direction.DOWN, 40.0, 1.0).ratio!!, 1e-9)
+    }
+
     @Test fun backgroundBatteryNeedsFiveMilliampHoursADay() {
         assertEquals(Verdict.NoChange, SinceUpdate.compareDaily(Metric.BACKGROUND, series(List(7) { 1.0 }, List(4) { 4.0 }), w))
         assertEquals(Direction.UP, changed(SinceUpdate.compareDaily(Metric.BACKGROUND, series(List(7) { 1.0 }, List(4) { 8.0 }), w)).direction)

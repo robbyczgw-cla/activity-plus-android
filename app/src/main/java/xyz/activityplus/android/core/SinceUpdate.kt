@@ -56,12 +56,27 @@ object SinceUpdate {
     /** A change counts as "strong" (diagnosis) from this factor, or when there was almost nothing before. */
     const val STRONG_FACTOR = 3.0
 
+    /** A "before" below this share of the metric's minimum change counts as nothing (see [Change.ratio]). */
+    const val NOISE_SHARE = 0.1
+
+    /** Increases beyond this are told as the new amount, not as a factor nobody can picture. */
+    const val MAX_FACTOR = 20.0
+
     private const val DAY_MS = 86_400_000L
 
     /** [before] and [after] are in the metric's unit: a median per day, or per hour for [Metric.SCREEN_ENERGY]. */
     data class Change(val metric: Metric, val direction: Direction, val before: Double, val after: Double) {
-        /** After over before; null when there was nothing before, i.e. the app is new at this. */
-        val ratio: Double? get() = if (before > 0) after / before else null
+        /**
+         * After over before; null when there was next to nothing before, i.e. the app is new at this.
+         * Android reports idle apps with crumbs like 0.000002 mAh a day; a factor over such a crumb
+         * ("8066270× as much") is true arithmetic and no use to anyone, so below [NOISE_SHARE] of the
+         * metric's minimum, and for increases beyond [MAX_FACTOR], the text names the amount instead.
+         */
+        val ratio: Double? get() {
+            if (before < metric.minDelta * NOISE_SHARE) return null
+            val r = after / before
+            return if (direction == Direction.UP && r > MAX_FACTOR) null else r
+        }
 
         val strong get() = direction == Direction.UP && (ratio?.let { it >= STRONG_FACTOR } ?: true)
 

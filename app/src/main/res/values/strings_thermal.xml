@@ -38,7 +38,7 @@
     <string name="th_detail_throttled">Throttled</string>
     <string name="th_regular_badge">Often throttled</string>
     <string name="f_throttle_title">%1$s keeps making the phone throttle</string>
-    <string name="f_throttle_body">The phone slowed itself down because of heat %1$d times on %2$d days while this app was on screen (%3$s in total, battery up to %4$s). Lower its graphics quality or frame rate, or let the phone cool down first.</string>
+    <string name="f_throttle_body">The phone slowed itself down because of heat %1$d times on %2$d days while this app was on screen (%3$s in total, battery up to %4$s). In a game, lower the graphics quality or frame rate; otherwise close the app when you do not need it, and let the phone cool down.</string>
 
     <!-- Remaining time by your pattern (Battery page) -->
     <string name="fc_title">Remaining time by your pattern</string>

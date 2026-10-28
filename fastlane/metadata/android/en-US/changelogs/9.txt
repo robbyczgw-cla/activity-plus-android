@@ -1,0 +1,1 @@
+Fixes absurd factors in "Since the update" when an app used next to nothing before; throttling advice that fits any app.

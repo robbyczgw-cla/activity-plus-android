@@ -35,7 +35,7 @@
     <string name="th_detail_throttled">性能制限</string>
     <string name="th_regular_badge">性能制限が頻発</string>
     <string name="f_throttle_title">%1$s で発熱による性能制限が繰り返し起きています</string>
-    <string name="f_throttle_body">このアプリが画面に表示されている間に、%2$d 日間で %1$d 回、発熱のため端末が動作を抑えました（合計 %3$s、バッテリー最大 %4$s）。グラフィック品質やフレームレートを下げるか、先に端末を冷ましてください。</string>
+    <string name="f_throttle_body">このアプリが画面に表示されている間に、%2$d 日間で %1$d 回、発熱のため端末が動作を抑えました（合計 %3$s、バッテリー最大 %4$s）。ゲームならグラフィック品質やフレームレートを下げてください。それ以外は使わないときにアプリを閉じ、端末を冷ましてください。</string>
 
     <string name="fc_title">パターンに基づく残り時間</string>
     <string name="fc_until_pattern">いつもの使い方だと約 %1$s まで持ちます</string>

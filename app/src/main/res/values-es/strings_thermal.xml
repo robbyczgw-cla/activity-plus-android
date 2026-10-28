@@ -37,7 +37,7 @@
     <string name="th_detail_throttled">Limitado</string>
     <string name="th_regular_badge">Limitada a menudo</string>
     <string name="f_throttle_title">%1$s hace que el teléfono limite su rendimiento una y otra vez</string>
-    <string name="f_throttle_body">El teléfono se ralentizó por calor %1$d veces en %2$d días mientras esta app estaba en pantalla (%3$s en total, batería hasta %4$s). Baja su calidad gráfica o su tasa de fotogramas, o deja que el teléfono se enfríe primero.</string>
+    <string name="f_throttle_body">El teléfono se ralentizó por calor %1$d veces en %2$d días mientras esta app estaba en pantalla (%3$s en total, batería hasta %4$s). En un juego, baja la calidad gráfica o la tasa de fotogramas; si no, cierra la app cuando no la necesites y deja que el teléfono se enfríe.</string>
 
     <string name="fc_title">Tiempo restante según tu patrón</string>
     <string name="fc_until_pattern">Dura hasta unos %1$s con tu uso habitual</string>

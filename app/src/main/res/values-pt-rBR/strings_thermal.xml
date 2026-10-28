@@ -37,7 +37,7 @@
     <string name="th_detail_throttled">Limitado</string>
     <string name="th_regular_badge">Limitado com frequência</string>
     <string name="f_throttle_title">%1$s continua limitando o desempenho do celular</string>
-    <string name="f_throttle_body">O celular reduziu o próprio desempenho por causa do calor %1$d vezes em %2$d dias enquanto este app estava na tela (%3$s no total, bateria até %4$s). Reduza a qualidade gráfica ou a taxa de quadros dele, ou deixe o celular esfriar primeiro.</string>
+    <string name="f_throttle_body">O celular reduziu o próprio desempenho por causa do calor %1$d vezes em %2$d dias enquanto este app estava na tela (%3$s no total, bateria até %4$s). Em um jogo, reduza a qualidade gráfica ou a taxa de quadros; caso contrário, feche o app quando não precisar dele e deixe o celular esfriar.</string>
 
     <string name="fc_title">Tempo restante pelo seu padrão</string>
     <string name="fc_until_pattern">Dura até cerca de %1$s no seu uso habitual</string>

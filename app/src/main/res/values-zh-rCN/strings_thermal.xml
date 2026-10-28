@@ -35,7 +35,7 @@
     <string name="th_detail_throttled">已降频</string>
     <string name="th_regular_badge">经常降频</string>
     <string name="f_throttle_title">%1$s 持续导致手机降频</string>
-    <string name="f_throttle_body">在该应用位于屏幕上期间，手机因发热自行降速，%2$d 天内共 %1$d 次（合计 %3$s，电池最高 %4$s）。请降低其画质或帧率，或先让手机降温。</string>
+    <string name="f_throttle_body">在该应用位于屏幕上期间，手机因发热自行降速，%2$d 天内共 %1$d 次（合计 %3$s，电池最高 %4$s）。如果是游戏，请降低画质或帧率；否则不用时关闭该应用，并让手机降温。</string>
 
     <string name="fc_title">按你的使用习惯估算的剩余时间</string>
     <string name="fc_until_pattern">按你平常的使用，约可用到 %1$s</string>
