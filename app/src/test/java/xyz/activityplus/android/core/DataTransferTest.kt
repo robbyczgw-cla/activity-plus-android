@@ -31,7 +31,9 @@ class DataTransferTest {
 
         fun of(table: Table): List<List<Any?>> = rows[table].orEmpty()
 
-        override fun existingKeys(table: Table) = of(table).map { table.keyOf(it) }.toMutableSet()
+        override fun existingKeys(table: Table) = of(table).map { row ->
+            table.keyOfKeyValues(table.key.map { key -> row[table.stored.indexOfFirst { it.name == key }] })
+        }.toMutableSet()
 
         override fun transaction(table: Table, block: () -> Unit) {
             val before = rows[table]?.toMutableList()
@@ -241,6 +243,48 @@ class DataTransferTest {
         val samplesReport = report.tables.first { it.table === Tables.SAMPLES }
         assertEquals(2, samplesReport.added)
         assertEquals(1, samplesReport.duplicates)
+    }
+
+    @Test fun populatedDestinationDeduplicatesEveryImportedTable() {
+        val sink = FakeSink()
+        for ((table, rows) in everything().filterKeys { it.importable }) {
+            sink.rows[table] = mutableListOf(expected(table, rows.first()))
+        }
+        val report = import(export(), sink)
+        assertEquals(everything().count { it.key.importable }, report.duplicates)
+        for ((table, rows) in everything().filterKeys { it.importable }) assertEquals(table.file, rows.size, sink.of(table).size)
+    }
+
+    @Test fun oversizedCsvIsRejectedDuringInspectionAndImport() {
+        val zip = zipOf("samples.csv" to samplesCsv("x".repeat(65537)), "summary.json" to summary())
+        assertEquals(DataTransfer.Problem.LIMIT_EXCEEDED, inspect(zip).rejected!!.problem)
+        try {
+            import(zip, FakeSink())
+            throw AssertionError("expected limit")
+        } catch (_: DataTransfer.LimitExceeded) { }
+        val columns = zipOf("samples.csv" to ((0..128).joinToString(",") + "\n"), "summary.json" to summary())
+        assertEquals(DataTransfer.Problem.LIMIT_EXCEEDED, inspect(columns).rejected!!.problem)
+    }
+
+    @Test fun excessiveRowsStopBothPasses() {
+        val csv = "day\n" + "2026-10-17\n".repeat(DataTransfer.maxRows(Tables.NET_DAYS) + 1)
+        val zip = zipOf("net_days.csv" to csv, "summary.json" to summary())
+        assertEquals(DataTransfer.Problem.LIMIT_EXCEEDED, inspect(zip).rejected!!.problem)
+        try {
+            import(zip, FakeSink())
+            throw AssertionError("expected limit")
+        } catch (_: DataTransfer.LimitExceeded) { }
+    }
+
+    @Test fun absurdMeasurementsAreSkipped() {
+        val csv = samplesCsv(goodSample,
+            "x,${now - 500_000},101,0,30,1,0,0,0,,0,0,",
+            "x,${now - 400_000},50,0,250,1,0,0,0,,0,0,",
+            "x,${now - 300_000},50,0,30,1,0,-1,0,,0,0,",
+            "x,${now - 200_000},50,0,30,1,0,1e30,0,,0,0,")
+        val r = import(zipOf("samples.csv" to csv, "summary.json" to summary()), FakeSink())
+        assertEquals(1, r.added)
+        assertEquals(4, r.invalid)
     }
 
     @Test fun mergingTwoPhonesKeepsBothSetsOfDays() {

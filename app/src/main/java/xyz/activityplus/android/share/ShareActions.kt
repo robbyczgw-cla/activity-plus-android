@@ -40,8 +40,10 @@ object ShareActions {
      */
     fun imageIntent(context: Context, report: ReportBuilder.Report): Intent {
         val dir = File(context.cacheDir, SHARE_DIR).apply { mkdirs() }
-        // One file that is overwritten: the cache never fills with old reports.
-        val file = File(dir, "activityplus-report.png")
+        // Keep recent grants valid while clearing old reports.
+        val cutoff = System.currentTimeMillis() - 60 * 60 * 1000L
+        dir.listFiles()?.filter { it.name.startsWith("activityplus-report") && it.lastModified() < cutoff }?.forEach { it.delete() }
+        val file = File.createTempFile("activityplus-report-", ".png", dir)
         val bitmap = renderCard(context, report)
         file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         bitmap.recycle()

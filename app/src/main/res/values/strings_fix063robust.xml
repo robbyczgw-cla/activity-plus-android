@@ -1,0 +1,3 @@
+<resources>
+    <string name="import_limit_exceeded">The import file exceeds the size or row limits. Import stopped; any tables already imported were kept.</string>
+</resources>

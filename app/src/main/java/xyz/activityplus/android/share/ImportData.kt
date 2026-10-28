@@ -49,12 +49,17 @@ object ImportData {
 
         override fun existingKeys(table: Table): MutableSet<String> {
             val keys = HashSet<String>()
+            var keyChars = 0L
             val types = table.key.map { name -> table.stored.first { it.name == name }.type }
             open(table).rawQuery("SELECT ${table.keyDb.joinToString()} FROM ${table.dbTable}", null).use { c ->
                 while (c.moveToNext()) {
-                    keys.add(table.keyOf(types.mapIndexed { i, type ->
+                    if (keys.size >= DataTransfer.maxRows(table)) throw DataTransfer.LimitExceeded()
+                    val key = table.keyOfKeyValues(types.mapIndexed { i, type ->
                         if (type == Column.Type.TEXT || type == Column.Type.DAY) c.getString(i) else c.getLong(i)
-                    }))
+                    })
+                    keyChars += key.length
+                    if (keyChars > DataTransfer.MAX_KEY_CHARS) throw DataTransfer.LimitExceeded()
+                    keys.add(key)
                 }
             }
             return keys

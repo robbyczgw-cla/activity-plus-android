@@ -123,6 +123,7 @@ object DataTransfer {
         UNKNOWN_FORMAT,
         /** An export, but with nothing this version can import. */
         NOTHING_TO_IMPORT,
+        LIMIT_EXCEEDED,
     }
 
     class Rejected(val problem: Problem, val format: Int? = null)
@@ -158,7 +159,11 @@ object DataTransfer {
      * Reads the whole ZIP once for the summary and the rows per file (the summary is the last entry, and a ZIP
      * can only be read forward). Counts the rows in the files themselves instead of trusting the summary.
      */
-    fun inspect(zip: InputStream): Inspection {
+    fun inspect(zip: InputStream): Inspection = try { inspectContents(zip) } catch (_: LimitExceeded) {
+        Inspection.rejected(Problem.LIMIT_EXCEEDED)
+    }
+
+    private fun inspectContents(zip: InputStream): Inspection {
         var summary: JSONObject? = null
         val counts = HashMap<Table, Int>()
         forEachEntry(zip) { name, stream ->
@@ -168,8 +173,11 @@ object DataTransfer {
                 val table = Tables.byFile(name)
                 if (table != null && table.importable) {
                     var records = 0
-                    Csv.forEachRecord(InputStreamReader(stream, Charsets.UTF_8)) { records++ }
-                    counts[table] = (records - 1).coerceAtLeast(0) // the header is no row
+                    Csv.forEachRecord(InputStreamReader(stream, Charsets.UTF_8), limited = true) {
+                        records++
+                        if (records - 1 + (counts[table] ?: 0) > maxRows(table)) throw LimitExceeded()
+                    }
+                    counts[table] = (counts[table] ?: 0) + (records - 1).coerceAtLeast(0) // the header is no row
                 }
             }
         }
@@ -214,12 +222,47 @@ object DataTransfer {
     private fun millis(iso: String?): Long? =
         iso?.takeIf { it.isNotEmpty() }?.let { runCatching { OffsetDateTime.parse(it).toInstant().toEpochMilli() }.getOrNull() }
 
-    /** Entries one after the other; a name inside a folder counts by its last part. The stream is not closed. */
+    class LimitExceeded : Exception()
+
+    // Retained minute history needs 43,200 rows; per-app/event tables can grow larger.
+    fun maxRows(table: Table): Int = when (table) {
+        Tables.SAMPLES -> 100_000
+        Tables.NET_DAYS, Tables.STORAGE_DEVICE -> 10_000
+        else -> 200_000
+    }
+
+    const val MAX_KEY_CHARS = 32 * 1024 * 1024
+    private const val MAX_ENTRY_BYTES = 100L * 1024 * 1024
+    private const val MAX_TOTAL_BYTES = 200L * 1024 * 1024
+    private const val MAX_ENTRIES = 256
+
+    /** Count expanded bytes even in entries that are not used. */
     private fun forEachEntry(zip: InputStream, block: (name: String, stream: InputStream) -> Unit) {
         val z = ZipInputStream(zip)
+        var total = 0L
+        var entries = 0
         while (true) {
             val entry = z.nextEntry ?: break
-            if (!entry.isDirectory) block(entry.name.substringAfterLast('/'), z)
+            if (++entries > MAX_ENTRIES) throw LimitExceeded()
+            var size = 0L
+            val bounded = object : InputStream() {
+                override fun read(): Int {
+                    val bytes = ByteArray(1)
+                    return if (read(bytes, 0, 1) < 0) -1 else bytes[0].toInt() and 255
+                }
+                override fun read(bytes: ByteArray, offset: Int, length: Int): Int {
+                    val n = z.read(bytes, offset, length)
+                    if (n > 0) {
+                        size += n
+                        total += n
+                        if (size > MAX_ENTRY_BYTES || total > MAX_TOTAL_BYTES) throw LimitExceeded()
+                    }
+                    return n
+                }
+            }
+            if (!entry.isDirectory) block(entry.name.substringAfterLast('/'), bounded)
+            val buffer = ByteArray(8192)
+            while (bounded.read(buffer) != -1) { }
             z.closeEntry()
         }
     }
@@ -234,6 +277,8 @@ object DataTransfer {
      * come out as stored values. Created with the file's header record.
      */
     class Merger(val table: Table, header: List<String>, private val existing: MutableSet<String>, private val nowMillis: Long) {
+        private var keyChars = existing.sumOf { it.length.toLong() }
+        init { if (existing.size > maxRows(table) || keyChars > MAX_KEY_CHARS) throw LimitExceeded() }
         private val index = header.withIndex().associate { (i, name) -> name.trim() to i }
 
         /** Columns the file lacks; then none of its rows can be read. Derived columns are not needed. */
@@ -247,10 +292,12 @@ object DataTransfer {
 
         fun accept(record: List<String>, onNew: (List<Any?>) -> Unit): Verdict {
             val values = decode(record)
+            val key = values?.let { table.keyOf(it) }
             val verdict = when {
-                values == null -> Verdict.INVALID
-                !existing.add(table.keyOf(values)) -> Verdict.DUPLICATE
-                else -> { onNew(values); Verdict.ADDED }
+                values == null || key == null -> Verdict.INVALID
+                key in existing -> Verdict.DUPLICATE
+                existing.size >= maxRows(table) * 2 || keyChars + key.length > MAX_KEY_CHARS -> throw LimitExceeded()
+                else -> { existing.add(key); keyChars += key.length; onNew(values); Verdict.ADDED }
             }
             when (verdict) {
                 Verdict.ADDED -> added++
@@ -266,7 +313,11 @@ object DataTransfer {
             for ((c, i) in table.stored.zip(at)) {
                 val raw = record.getOrNull(i) ?: return null
                 when {
-                    raw.isNotEmpty() -> out.add(value(c, raw) ?: return null)
+                    raw.isNotEmpty() -> {
+                        val v = value(c, raw) ?: return null
+                        if (!validValue(c, v)) return null
+                        out.add(v)
+                    }
                     c.nullable -> out.add(null)
                     c.type == Column.Type.TEXT -> out.add("")
                     else -> return null
@@ -290,6 +341,26 @@ object DataTransfer {
                 Column.Type.DAY -> raw.takeIf { validDay(it) }
                 Column.Type.TIME -> raw.toLongOrNull()?.takeIf { it in MIN_TIME_MS..nowMillis + DAY_MS }
             }
+    }
+
+    /** Bounds apply to stored units; signed power and signal values remain signed. */
+    private fun validValue(c: Column, value: Any): Boolean {
+        val n = (value as? Number)?.toDouble() ?: return true
+        val name = c.name
+        return when {
+            c.scale == 100.0 || name in setOf("start_level", "level_from", "level_to") -> n in 0.0..1.0
+            name.contains("temperature") || name == "sensor_c" -> n in -100.0..200.0
+            name == "power_mw" || name == "peak_mw" || name == "avg_mw" || name == "avg_current_ma" -> n in -1e9..1e9
+            c.type == Column.Type.INT || c.type == Column.Type.REAL -> when (name) {
+                "thermal_status", "start_signal", "end_signal", "headroom" -> n in -1e9..1e9
+                else -> when {
+                    name.contains("bytes") -> n in 0.0..1e16
+                    name.contains("energy") || name.contains("mah") -> n in 0.0..1e9
+                    else -> n in 0.0..1e12
+                }
+            }
+            else -> true
+        }
     }
 
     /** 2000-01-01: no phone with this app has older history, and a zero here means an unset clock. */
@@ -326,7 +397,9 @@ object DataTransfer {
         val batch = ArrayList<List<Any?>>(BATCH)
         sink.transaction(table) {
             val existing = sink.existingKeys(table)
-            Csv.forEachRecord(reader) { record ->
+            var records = 0
+            Csv.forEachRecord(reader, limited = true) { record ->
+                if (++records > maxRows(table) + 1) throw LimitExceeded()
                 val m = merger
                 if (m == null) merger = Merger(table, record, existing, nowMillis)
                 else if (m.missing.isEmpty()) {
