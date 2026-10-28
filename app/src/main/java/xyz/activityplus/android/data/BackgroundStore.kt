@@ -175,6 +175,29 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
         db.delete("interval_apps", "to_ts < ?", arrayOf(cutoff.toString()))
     }
 
+    /**
+     * Divides every stored charge by [scale] and drops the last snapshot, once: rows written before
+     * Activity+ knew that this phone's reports are not in mAh (see ChargeUnit). The snapshot goes, so
+     * the next reading starts a fresh baseline instead of a difference across two units.
+     */
+    fun rescale(scale: Double) {
+        val db = writableDatabase
+        db.beginTransaction()
+        try {
+            db.execSQL("UPDATE days SET mah = mah / ?", arrayOf(scale))
+            db.execSQL("UPDATE interval_apps SET mah = mah / ?", arrayOf(scale))
+            db.execSQL("UPDATE intervals SET hw_mah = hw_mah / ?", arrayOf(scale))
+            db.delete("last", null, null)
+            db.setTransactionSuccessful()
+        } finally {
+            db.endTransaction()
+        }
+    }
+
+    /** The biggest single charge stored for an app and day: tells whether old rows are in a wrong unit. */
+    fun maxDayMah(): Double =
+        readableDatabase.rawQuery("SELECT MAX(mah) FROM days", null).use { c -> if (c.moveToFirst() && !c.isNull(0)) c.getDouble(0) else 0.0 }
+
     fun clear() {
         val db = writableDatabase
         for (t in listOf("last", "days", "intervals", "interval_apps", "meta")) db.delete(t, null, null)
@@ -186,6 +209,8 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
         const val META_MORNING_TS = "morning_ts"
         const val META_UNPLUGGED = "unplugged_ts"
         const val META_PRUNED = "pruned_ts"
+        /** Units per mAh of this phone's battery report, once detected (see ChargeUnit). */
+        const val META_UNIT_SCALE = "unit_scale"
 
         @Volatile private var instance: BackgroundStore? = null
 

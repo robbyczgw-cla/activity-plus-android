@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.2
+
+- Battery per app shows real mAh on phones whose battery report uses another unit: a vivo X300 on Android 16 reported "285078419 mAh" for YouTube, apparently microcoulombs (3.6 million per mAh). Activity+ now reads the unit from the report itself (its computed total against the charge the battery really lost, or its stated capacity), remembers it for the phone, and converts once the history already stored in the wrong unit
+
 ## 0.6.1
 
 - "Since the update" no longer shows absurd factors ("8066270× as much") when an app used next to nothing before: Android reports idle apps with crumbs of a milliamp hour, and the finding now names the new amount instead ("now uses about 20 mAh a day in the background"); increases beyond 20× are told the same way

@@ -2,6 +2,7 @@ package xyz.activityplus.android.pro
 
 import org.json.JSONArray
 import org.json.JSONObject
+import xyz.activityplus.android.core.ChargeUnit
 
 /** One "Measure now": per-app battery since the last charge, memory and CPU right now. */
 data class ProReport(
@@ -14,6 +15,17 @@ data class ProReport(
     val totalMah get() = apps.sumOf { it.mah } + hardware.values.sum()
 
     fun forPackage(pkg: String) = apps.find { it.pkg == pkg }
+
+    /**
+     * In mAh, also when saved before Activity+ knew this phone's reports use another unit (ChargeUnit):
+     * values no phone can reach are divided by that unit ([knownScale], or the likeliest).
+     */
+    fun inMah(knownScale: Double?): ProReport {
+        val biggest = (apps.map { it.mah } + hardware.values).maxOrNull() ?: return this
+        if (!ChargeUnit.implausible(biggest, null)) return this
+        val scale = knownScale?.takeIf { it > 1 } ?: ChargeUnit.CANDIDATES.last()
+        return copy(apps = apps.map { it.copy(mah = it.mah / scale) }, hardware = hardware.mapValues { it.value / scale })
+    }
 
     fun toJson(): String = JSONObject().apply {
         put("t", timeMillis)

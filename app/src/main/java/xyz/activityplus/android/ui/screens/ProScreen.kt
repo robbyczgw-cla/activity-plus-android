@@ -44,6 +44,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlinx.coroutines.launch
 import xyz.activityplus.android.R
+import xyz.activityplus.android.data.BackgroundStore
 import xyz.activityplus.android.core.Format
 import xyz.activityplus.android.pro.ProParser
 import xyz.activityplus.android.pro.ProReport
@@ -78,7 +79,7 @@ fun ProScreen() {
     val access = remember(checks) { ProShell.access(context) }
     val missingGrants = remember(checks) { ProShell.missingExtraGrants(context) }
     var saved by remember { mutableIntStateOf(0) }
-    val reports = rememberLoaded(saved) { app.history.proReports(10) }
+    val reports = rememberLoaded(saved) { app.history.proReports(10, knownUnitScale(context)) }
     var selected by remember { mutableIntStateOf(0) }
     var running by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
@@ -90,7 +91,9 @@ fun ProScreen() {
             runCatching {
                 // One report after the other through the same service; any one may fail on a given
                 // phone, the others still count.
-                val battery = runCatching { ProParser.batteryCheckin(ProShell.run(context, ShellService.BATTERY)) }.getOrNull()
+                val battery = runCatching {
+                    ProParser.batteryCheckin(ProShell.run(context, ShellService.BATTERY), knownUnitScale(context), app.monitor.batteryNow().designMah)
+                }.getOrNull()
                 val full = access == ProShell.Access.SHIZUKU
                 val memory = if (full) runCatching { ProParser.meminfoPss(ProShell.run(context, ShellService.MEMORY)) }.getOrNull() else null
                 val cpu = if (full) runCatching { ProParser.cpuinfo(ProShell.run(context, ShellService.CPU)) }.getOrNull() else null
@@ -317,7 +320,8 @@ private fun CpuReportCard(r: ProReport) {
 /** Entry card on the apps and battery screens. */
 @Composable
 fun ProEntryCard(onOpen: () -> Unit) {
-    val latest = rememberLoaded(Unit) { app.history.proReports(1).firstOrNull() }
+    val context = LocalContext.current
+    val latest = rememberLoaded(Unit) { app.history.proReports(1, knownUnitScale(context)).firstOrNull() }
     Card(onClick = onOpen) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             androidx.compose.material3.Icon(Icons.Outlined.Science, null, tint = Metric.Cpu)
@@ -333,3 +337,7 @@ fun ProEntryCard(onOpen: () -> Unit) {
         }
     }
 }
+
+/** Units per mAh of this phone's battery report, as the background measurement found out (see ChargeUnit). */
+internal fun knownUnitScale(context: android.content.Context): Double? =
+    if (BackgroundStore.exists(context)) BackgroundStore.get(context).meta(BackgroundStore.META_UNIT_SCALE)?.toDoubleOrNull() else null

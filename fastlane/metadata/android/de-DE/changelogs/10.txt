@@ -1,0 +1,1 @@
+Akku pro App in echten mAh auf Handys, deren Akkubericht eine andere Einheit nutzt (z. B. vivo mit Android 16); der gespeicherte Verlauf wird einmal umgerechnet.

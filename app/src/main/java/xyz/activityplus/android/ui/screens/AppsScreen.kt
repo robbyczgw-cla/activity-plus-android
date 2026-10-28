@@ -199,7 +199,7 @@ private fun AppDetail(row: AppRow, days: Int, onPro: () -> Unit) {
                 android.text.format.DateUtils.getRelativeTimeSpanString(u.lastUsedMillis).toString(),
             )
         }
-        val pro = rememberLoaded(u.pkg) { app.history.proReports(1).firstOrNull() }
+        val pro = rememberLoaded(u.pkg) { app.history.proReports(1, knownUnitScale(context)).firstOrNull() }
         pro?.forPackage(u.pkg)?.let { p ->
             Spacer(Modifier.height(10.dp))
             Text(

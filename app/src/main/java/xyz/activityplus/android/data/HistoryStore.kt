@@ -53,10 +53,11 @@ class HistoryStore(context: Context) : SQLiteOpenHelper(context, "history.db", n
         )
     }
 
-    fun proReports(limit: Int = 10): List<ProReport> {
+    /** Saved reports, newest first; [knownScale] fixes ones saved in another unit (ProReport.inMah). */
+    fun proReports(limit: Int = 10, knownScale: Double? = null): List<ProReport> {
         val out = ArrayList<ProReport>()
         readableDatabase.rawQuery("SELECT json FROM pro ORDER BY ts DESC LIMIT $limit", null).use { c ->
-            while (c.moveToNext()) runCatching { ProReport.fromJson(c.getString(0)) }.getOrNull()?.let { out += it }
+            while (c.moveToNext()) runCatching { ProReport.fromJson(c.getString(0)).inMah(knownScale) }.getOrNull()?.let { out += it }
         }
         return out
     }

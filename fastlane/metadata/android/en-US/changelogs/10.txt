@@ -1,0 +1,1 @@
+Battery per app in real mAh on phones whose battery report uses another unit (e.g. vivo on Android 16); stored history is converted once.

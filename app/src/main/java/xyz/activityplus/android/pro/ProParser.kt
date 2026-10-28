@@ -1,5 +1,7 @@
 package xyz.activityplus.android.pro
 
+import xyz.activityplus.android.core.ChargeUnit
+
 /**
  * Reads the three system reports of the pro mode. Pure text parsing, tested against real
  * output in src/test/resources/dumpsys (Android 15 emulator).
@@ -16,18 +18,24 @@ object ProParser {
         val onBatteryMs: Long?,
         /** Hardware not tied to an app: screen, cell radio, Wi-Fi, idle ... in mAh. */
         val system: Map<String, Double>,
+        /** What the report's raw numbers were divided by to get mAh (1 on most phones, see [ChargeUnit]). */
+        val unitScale: Double = 1.0,
+        /** Whether [unitScale] came from the report itself, not from an earlier report or a guess. */
+        val unitDetected: Boolean = false,
     )
 
-    fun batteryCheckin(text: String): BatteryReport = batteryCheckin(text.lineSequence())
+    fun batteryCheckin(text: String, knownScale: Double? = null, capacityHint: Double? = null): BatteryReport =
+        batteryCheckin(text.lineSequence(), knownScale, capacityHint)
 
     /** Line by line, so the unattended reading never holds the whole report (megabytes) as one string. */
-    fun batteryCheckin(lines: Sequence<String>): BatteryReport {
+    fun batteryCheckin(lines: Sequence<String>, knownScale: Double? = null, capacityHint: Double? = null): BatteryReport {
         val mah = HashMap<Int, Double>()
         val cpu = HashMap<Int, Long>()
         val wake = HashMap<Int, Long>()
         val packages = HashMap<Int, MutableList<String>>()
         val system = HashMap<String, Double>()
         var onBattery: Long? = null
+        var summary: List<Double?>? = null
         for (line in lines) {
             val f = line.split(',')
             if (f.size < 5) continue
@@ -51,16 +59,23 @@ object ProParser {
                     val p = f.indexOf("p")
                     if (p > 5) wake[uid] = (wake[uid] ?: 0) + (f[p - 1].toLongOrNull() ?: 0)
                 }
+                // 9,0,l,pws,<capacity>,<computed>,<drained low>,<drained high>: the report's own check on its unit.
+                f[3] == "pws" && f.size >= 8 -> summary = (4..7).map { f[it].toDoubleOrNull() }
                 // 9,0,l,bt,<start count>,<battery realtime ms>,...
                 f[3] == "bt" && f.size >= 6 -> onBattery = f[5].toLongOrNull()
             }
         }
         val uids = mah.keys + cpu.keys + wake.keys
+        val detected = summary?.let { ChargeUnit.detect(it[1], it[2], it[3], it[0], capacityHint) }
+        val biggest = (mah.values + system.values).maxOrNull() ?: 0.0
+        val scale = ChargeUnit.choose(detected, knownScale, biggest, capacityHint)
         return BatteryReport(
-            byUid = uids.associateWith { UidBattery(mah[it] ?: 0.0, cpu[it] ?: 0, wake[it] ?: 0) },
+            byUid = uids.associateWith { UidBattery((mah[it] ?: 0.0) / scale, cpu[it] ?: 0, wake[it] ?: 0) },
             packages = packages,
             onBatteryMs = onBattery,
-            system = system,
+            system = system.mapValues { it.value / scale },
+            unitScale = scale,
+            unitDetected = detected != null && detected == scale,
         )
     }
 
