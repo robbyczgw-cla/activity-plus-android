@@ -49,15 +49,17 @@ object Csv {
      * a big file never sits in memory. Lenient on purpose: a quote in the middle of a plain field is text,
      * a quote left open at the end of the file closes there, and empty lines are skipped. Does not close [reader].
      */
-    fun forEachRecord(reader: Reader, block: (List<String>) -> Unit) {
+    fun forEachRecord(reader: Reader, limited: Boolean = false, block: (List<String>) -> Unit) {
         val input = reader as? BufferedReader ?: BufferedReader(reader, 16 * 1024)
         var fields = ArrayList<String>()
         val field = StringBuilder()
+        var recordLength = 0
         var inQuotes = false
         var fieldQuoted = false   // this field began with a quote
         var recordQuoted = false  // some field of this record did, so a lone empty one is a value and not an empty line
 
         fun endField() {
+            if (limited && fields.size >= 128) throw DataTransfer.LimitExceeded()
             fields.add(field.toString())
             field.setLength(0)
             fieldQuoted = false
@@ -67,6 +69,7 @@ object Csv {
             if (!(fields.size == 1 && fields[0].isEmpty() && !recordQuoted)) block(fields)
             fields = ArrayList()
             recordQuoted = false
+            recordLength = 0
         }
 
         var first = true
@@ -74,6 +77,7 @@ object Csv {
         var c = input.read()
         while (c != -1) {
             val ch = c.toChar()
+            if (limited && ++recordLength > 65536) throw DataTransfer.LimitExceeded()
             val afterCr = skipLf
             skipLf = false
             when {
@@ -83,7 +87,7 @@ object Csv {
                     // A doubled quote is a quote; a single one closes the field.
                     input.mark(1)
                     val next = input.read()
-                    if (next == '"'.code) field.append('"') else { inQuotes = false; if (next != -1) input.reset() }
+                    if (next == '"'.code) { if (limited && ++recordLength > 65536) throw DataTransfer.LimitExceeded(); field.append('"') } else { inQuotes = false; if (next != -1) input.reset() }
                 }
                 ch == '"' && field.isEmpty() && !fieldQuoted -> { inQuotes = true; fieldQuoted = true; recordQuoted = true }
                 ch == ',' -> endField()
@@ -91,6 +95,7 @@ object Csv {
                 ch == '\r' -> { endRecord(); skipLf = true }
                 else -> field.append(ch)
             }
+            if (limited && field.length > 65536) throw DataTransfer.LimitExceeded()
             first = false
             c = input.read()
         }

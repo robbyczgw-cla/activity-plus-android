@@ -86,9 +86,12 @@ fun ImportDataSection() {
                 TextButton(onClick = {
                     stage = ImportStage.Working
                     scope.launch {
-                        val report = withContext(Dispatchers.IO) { runCatching { ImportData.run(context, s.uri, s.preview.format) }.getOrNull() }
+                        val result = withContext(Dispatchers.IO) { runCatching { ImportData.run(context, s.uri, s.preview.format) } }
+                        val report = result.getOrNull()
                         stage = if (report != null) ImportStage.Done(report)
-                        else ImportStage.Message(R.string.import_failed_title, context.getString(R.string.import_failed))
+                        else ImportStage.Message(R.string.import_failed_title, context.getString(
+                            if (result.exceptionOrNull() is DataTransfer.LimitExceeded) R.string.import_limit_exceeded else R.string.import_failed
+                        ))
                     }
                 }) { Text(stringResource(R.string.import_go)) }
             },
@@ -115,6 +118,7 @@ private fun problemText(context: android.content.Context, r: DataTransfer.Reject
     DataTransfer.Problem.NEWER_FORMAT -> context.getString(R.string.import_err_newer, r.format ?: 0)
     DataTransfer.Problem.UNKNOWN_FORMAT -> context.getString(R.string.import_err_format)
     DataTransfer.Problem.NOTHING_TO_IMPORT -> context.getString(R.string.import_err_empty)
+    DataTransfer.Problem.LIMIT_EXCEEDED -> context.getString(R.string.import_limit_exceeded)
 }
 
 private val DATE = DateUtils.FORMAT_SHOW_DATE or DateUtils.FORMAT_SHOW_YEAR or DateUtils.FORMAT_ABBREV_MONTH

@@ -86,7 +86,12 @@ class Table(
     }
 
     /** What makes the row the same row on any phone; [values] are in [stored] order, as a [Sink] has them. */
-    fun keyOf(values: List<Any?>): String = keyIndex.joinToString("\u001F") { values[it].toString() }
+    fun keyOf(values: List<Any?>): String = keyOfKeyValues(keyIndex.map { values[it] })
+
+    fun keyOfKeyValues(values: List<Any?>): String {
+        require(values.size == key.size)
+        return values.joinToString("\u001F") { it.toString() }
+    }
 
     /** The names of the key columns in the database, for reading what a phone already has. */
     val keyDb get() = key.map { name -> columns.first { it.name == name }.db }

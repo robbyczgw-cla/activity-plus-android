@@ -1,0 +1,3 @@
+<resources>
+    <string name="import_limit_exceeded">Die Importdatei überschreitet die Größen- oder Zeilengrenzen. Der Import wurde gestoppt; bereits importierte Tabellen bleiben erhalten.</string>
+</resources>
