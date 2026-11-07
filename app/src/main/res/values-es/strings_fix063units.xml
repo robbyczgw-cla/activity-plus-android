@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unit_pending">El informe de batería de Android en este teléfono no usa mAh. Activity+ aún está averiguando su unidad (necesita dos informes que coincidan, leídos cada 3 horas y al conectar el cargador), así que por ahora solo muestra la parte de cada app.</string>
+    <plurals name="bg_left_out">
+        <item quantity="one">El informe de batería de Android en este teléfono da ahora un valor imposible para %d app, más de lo que la batería ha dado en total desde la última carga. Se omite hasta la próxima carga.</item>
+        <item quantity="other">El informe de batería de Android en este teléfono da ahora valores imposibles para %d apps, más de lo que la batería ha dado en total desde la última carga. Se omiten hasta la próxima carga.</item>
+    </plurals>
 </resources>

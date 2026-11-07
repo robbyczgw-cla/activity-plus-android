@@ -91,4 +91,28 @@ class ProReportTest {
         val r = ProReport(5L, 7L, listOf(ProApp("a.b", 1.5, 2, 3, 4, 5.5), ProApp("c.d", 0.0, 0, 0, null, null)), mapOf("scrn" to 9.0))
         assertEquals(r, ProReport.fromJson(r.toJson()))
     }
+
+    @Test fun `rows above the report's own total are left out, the rest stays`() {
+        val text = """
+            9,0,l,pws,4545,5551,5551,5551
+            9,0,l,pwi,scrn,793,1,0,0
+            9,0,l,pwi,wifi,43711627788,0,0,0
+            9,10294,l,pwi,uid,15822289008,1,0,0
+            9,10302,l,pwi,uid,305,0,218,385
+            9,10294,l,cpu,1000,500,0
+        """.trimIndent()
+        val r = ProParser.batteryCheckin(text)
+        assertEquals(setOf(10294), r.broken)
+        assertEquals(setOf("wifi"), r.brokenSystem)
+        assertEquals(0.0, r.byUid.getValue(10294).mah, 0.0)
+        assertEquals(1500L, r.byUid.getValue(10294).cpuMs)
+        assertEquals(305.0, r.byUid.getValue(10302).mah, 0.0)
+        assertEquals(mapOf("scrn" to 793.0), r.system)
+        assertEquals(793.0, r.biggest, 0.0)
+    }
+
+    @Test fun `without a total nothing is left out`() {
+        val r = ProParser.batteryCheckin("9,10294,l,pwi,uid,15822289008,1,0,0")
+        assertEquals(emptySet<Int>(), r.broken)
+    }
 }

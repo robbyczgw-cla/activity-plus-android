@@ -10,6 +10,7 @@
     <string name="sc_read_now">Jetzt lesen</string>
     <string name="sc_read_again">Neu lesen</string>
     <string name="sc_night">Heute Nacht, %1$s</string>
+    <string name="sc_alarms_hidden">Dieses Handy gibt seine Alarmliste nicht an Apps heraus. Alarme fehlen hier deshalb, und es stehen nur Hintergrund-Jobs da.</string>
     <string name="sc_quiet">Keine App hat vor, das Handy heute Nacht zu wecken.</string>
     <plurals name="sc_tonight_count">
         <item quantity="one">heute Nacht %d-mal</item>

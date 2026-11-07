@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="unit_pending">Il report della batteria di Android su questo telefono non usa i mAh. Activity+ sta ancora determinandone l\'unità (servono due report concordi, letti ogni 3 ore e quando colleghi il caricatore), quindi per ora mostra solo la quota di ogni app.</string>
+    <plurals name="bg_left_out">
+        <item quantity="one">Il rapporto batteria di Android su questo telefono indica ora un valore impossibile per %d app, più di quanto la batteria abbia fornito in totale dall\'ultima ricarica. Viene esclusa fino alla prossima ricarica.</item>
+        <item quantity="other">Il rapporto batteria di Android su questo telefono indica ora valori impossibili per %d app, più di quanto la batteria abbia fornito in totale dall\'ultima ricarica. Vengono escluse fino alla prossima ricarica.</item>
+    </plurals>
 </resources>

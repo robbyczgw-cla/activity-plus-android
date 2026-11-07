@@ -143,10 +143,6 @@ class WakeupsTest {
         val busy = AppCounters("busy", Counters(cpuMs = 20 * min))
         val idle = AppCounters("idle", Counters(cpuMs = 10_000))
         assertEquals(listOf("chatty", "busy"), Wakeups.rank(listOf(busy, idle, chatty), night = true).map { it.pkg })
-        // By day the same CPU weighs more against fewer wakeups.
-        val few = AppCounters("few", Counters(wakeups = 60))
-        assertEquals("few", Wakeups.rank(listOf(busy, few), night = true).first().pkg)
-        assertEquals("busy", Wakeups.rank(listOf(busy, few), night = false).first().pkg)
     }
 
     @Test fun worthShowingNeedsSomethingReal() {
@@ -218,5 +214,12 @@ class WakeupsTest {
         assertTrue(WakeupSchedule.due(Trigger.MORNING, now, now - 5 * min, plugged = false))
         assertTrue(WakeupSchedule.due(Trigger.SCREEN, now, now - 31 * min, plugged = true))
         assertFalse(WakeupSchedule.due(Trigger.SCREEN, now, now - 10 * min, plugged = false))
+    }
+
+    @Test
+    fun `an app in use with much CPU does not lead the list above real wakeups`() {
+        val inUse = AppCounters("in.use", Counters(cpuMs = 35 * 60_000L))
+        val waker = AppCounters("waker", Counters(wakeups = 43, wakelockMs = 4 * 60_000L, cpuMs = 3 * 60_000L))
+        assertEquals(listOf("waker", "in.use"), Wakeups.rank(listOf(inUse, waker), night = false).map { it.pkg })
     }
 }

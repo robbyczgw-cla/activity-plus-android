@@ -1,5 +1,7 @@
 package xyz.activityplus.android.ui
 
+import androidx.compose.ui.test.onAllNodesWithText
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import xyz.activityplus.android.R
 import xyz.activityplus.android.core.BatteryPassport
@@ -270,6 +272,13 @@ class BatteryCardsTest : CardTest() {
         val plan = Schedule.Plan(NOW, NOW until NOW + 8 * 3_600_000L, null, null, emptyList())
         show { ScheduleContent(plan, reading = false, failed = false, canRead = false, onRead = {}, onSelect = {}) }
         shown(str(R.string.sc_quiet))
+    }
+
+    @Test fun scheduleWithoutTheAlarmListDoesNotClaimAQuietNight() {
+        val plan = Schedule.Plan(NOW, NOW until NOW + 8 * 3_600_000L, null, null, emptyList(), alarmsHidden = true)
+        show { ScheduleContent(plan, reading = false, failed = false, canRead = false, onRead = {}, onSelect = {}) }
+        shown(str(R.string.sc_alarms_hidden))
+        assertTrue(rule.onAllNodesWithText(str(R.string.sc_quiet)).fetchSemanticsNodes().isEmpty())
     }
 
     // Last night

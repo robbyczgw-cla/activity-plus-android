@@ -187,9 +187,15 @@ object Wakeups {
     private const val NIGHT_WAKEUP_S = 5.0
     private const val DAY_WAKEUP_S = 2.0
 
-    /** Worst first; apps that did nothing worth a line are dropped. */
+    /**
+     * Worst first; apps that did nothing worth a line are dropped. Apps that really woke or held the phone
+     * lead: a phone's top row was an app in use with 35 minutes of CPU and no wakeup, above 43 wakeups.
+     */
     fun rank(apps: List<AppCounters>, night: Boolean): List<AppCounters> =
-        apps.filter { worthShowing(it.counters) }.sortedByDescending { score(it.counters, night) }
+        apps.filter { worthShowing(it.counters) }.sortedWith(
+            compareByDescending<AppCounters> { it.counters.wakeups > 0 || it.counters.wakelockMs >= 30_000 }
+                .thenByDescending { score(it.counters, night) },
+        )
 
     /** At least one wakeup, half a minute awake or a minute of CPU. */
     fun worthShowing(c: Counters) = c.wakeups > 0 || c.wakelockMs >= 30_000 || c.cpuMs >= 60_000

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.4
+
+Fixes found by testing on a real phone:
+- "Who woke the phone" works on phones with many apps: Android's counters were read for all apps at once, which failed on a phone with over 300 apps, so the card stayed empty. They are now read in portions.
+- Apps that really woke or held the phone lead that list, not an app in use with a lot of CPU and no wakeup
+- Background battery: some phones write impossible values into Android's battery report (a vivo X300 wrote tens of billions of mAh for Wi-Fi and for every app using it, next to a normal total). Those rows are left out and the card says how many apps are missing, instead of treating the whole report as being in an unknown unit. The "other unit" of 0.6.2 was most likely the same fault.
+- Planned for tonight: on phones that hand out no alarm list, the card shows the background jobs and says that alarms are missing, instead of only an error; it never claims a quiet night then
+
 ## 0.6.3
 
 Fixes from two independent code reviews:

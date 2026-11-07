@@ -19,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import java.time.LocalDate
@@ -67,8 +68,11 @@ fun loadBackgroundToday(context: Context): List<BackgroundStore.AppDay>? {
     return store.day(BackgroundSchedule.dayKey(System.currentTimeMillis(), ZoneId.systemDefault())).filter { it.visible() }
 }
 
+/** Apps the last reading had to leave out, see ProParser.BROKEN_FACTOR. */
+fun loadBackgroundLeftOut(context: Context): Int = storeIfOn(context)?.meta(BackgroundStore.META_LEFT_OUT)?.toIntOrNull() ?: 0
+
 @Composable
-fun BackgroundTodayCard(apps: List<BackgroundStore.AppDay>, onPro: () -> Unit) {
+fun BackgroundTodayCard(apps: List<BackgroundStore.AppDay>, onPro: () -> Unit, leftOut: Int = 0) {
     Card {
         CardHeader(stringResource(R.string.bg_today_title), Metric.Energy, Icons.Outlined.History, stringResource(R.string.bg_today_caption))
         Spacer(Modifier.height(8.dp))
@@ -77,6 +81,7 @@ fun BackgroundTodayCard(apps: List<BackgroundStore.AppDay>, onPro: () -> Unit) {
         // Rows from before this phone's report unit was confirmed are not mAh (see ChargeUnit): shares only.
         val inMah = !ChargeUnit.implausible(max, null)
         if (!inMah) Note(stringResource(R.string.unit_pending))
+        if (leftOut > 0) Note(pluralStringResource(R.plurals.bg_left_out, leftOut, leftOut))
         val total = apps.sumOf { it.mah }.coerceAtLeast(1e-9)
         apps.take(8).forEach { AppDayRow(it, it.mah / max, if (inMah) null else Format.percent(it.mah / total).toString()) }
         Spacer(Modifier.height(6.dp))

@@ -1,0 +1,1 @@
+Fixes from real-phone tests: "Who woke the phone" now works on phones with many apps (counters read in portions), real wakers lead the list, impossible values in Android's battery report (broken Wi-Fi figures on some phones) are left out instead of the whole report, and "Planned for tonight" shows jobs when a phone hides its alarm list.

@@ -1,0 +1,1 @@
+Korrekturen aus Tests auf echten Handys: „Wer hat das Handy geweckt“ funktioniert jetzt auch mit vielen Apps (Zähler in Portionen gelesen), echte Wecker stehen oben, unmögliche Werte im Akkubericht von Android (kaputte WLAN-Zahlen auf manchen Handys) werden weggelassen statt des ganzen Berichts, und „Geplant für heute Nacht“ zeigt Jobs, wenn ein Handy seine Alarmliste verbirgt.

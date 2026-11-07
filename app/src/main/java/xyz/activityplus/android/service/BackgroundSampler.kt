@@ -117,8 +117,14 @@ class BackgroundSampler(private val context: Context, private val scope: Corouti
         val report = raw.inUnit(unit)
         val time = System.currentTimeMillis()
         check(report.byUid.isNotEmpty()) { "empty report" }
-        val next = BackgroundDelta.snapshot(time, report, startClock)
         val prev = store.lastSnapshot()
+        val fresh = BackgroundDelta.snapshot(time, report, startClock)
+        // Kept values first: the zeros of broken rows would otherwise look like counters that started again.
+        val kept = BackgroundDelta.keepBroken(fresh, prev, report)
+        val next = if (prev != null && BackgroundDelta.isReset(prev, kept, false)) fresh else kept
+        store.setMeta(BackgroundStore.META_LEFT_OUT, report.broken.size.toString())
+        // Days stored before broken rows were caught: no app takes more than ten batteries in a day.
+        if (store.confirmedUnit() != null) store.dropImpossible(10 * (capacity?.takeIf { it in 1.0..50_000.0 } ?: 10_000.0))
         val unplugged = store.meta(BackgroundStore.META_UNPLUGGED)?.toLongOrNull() ?: 0L
         val charged = prev != null && unplugged > prev.timeMillis
         val interval = BackgroundDelta.interval(prev, next, report.packages, charged)

@@ -52,6 +52,18 @@ object BackgroundDelta {
         Snapshot(timeMillis, report.onBatteryMs, startClockMillis, report.byUid, report.system.values.sum())
 
     /**
+     * [next] with what the report could not say taken from [prev]: a broken row keeps its last good
+     * value, so it adds nothing now and later rows grow from there; and the totals do not drop, which
+     * would look like a reset. Nothing to keep after a reset of Android's counters.
+     */
+    fun keepBroken(next: Snapshot, prev: Snapshot?, report: ProParser.BatteryReport): Snapshot {
+        if (report.broken.isEmpty() && report.brokenSystem.isEmpty()) return next
+        val byUid = next.byUid.mapValues { (uid, u) -> if (uid in report.broken) u.copy(mah = prev?.byUid?.get(uid)?.mah ?: 0.0) else u }
+        val hardware = if (report.brokenSystem.isNotEmpty() && prev != null) maxOf(prev.hardwareMah, next.hardwareMah) else next.hardwareMah
+        return next.copy(byUid = byUid, hardwareMah = hardware)
+    }
+
+    /**
      * Whether Android started counting again between [prev] and [next]. The start clock says so
      * directly; without it, less time on battery, a charge in between, or clearly smaller totals do.
      * The start clock wins over a charge: a short top-up does not always reset the counters.

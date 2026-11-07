@@ -2,4 +2,8 @@
 <resources>
     <!-- Akkubericht in einer anderen Einheit als mAh, noch nicht bestätigt (siehe ChargeUnit) -->
     <string name="unit_pending">Der Akkubericht von Android nutzt auf diesem Handy keine mAh. Activity+ ermittelt die Einheit noch (dafür braucht es zwei übereinstimmende Berichte, gelesen alle 3 Stunden und beim Anstecken), deshalb zeigt es vorerst nur den Anteil jeder App.</string>
+    <plurals name="bg_left_out">
+        <item quantity="one">Der Akkubericht von Android nennt auf diesem Handy gerade für %d App einen unmöglichen Wert, mehr als der Akku seit dem letzten Laden insgesamt hergegeben hat. Diese App fehlt hier bis zum nächsten Laden.</item>
+        <item quantity="other">Der Akkubericht von Android nennt auf diesem Handy gerade für %d Apps unmögliche Werte, mehr als der Akku seit dem letzten Laden insgesamt hergegeben hat. Diese Apps fehlen hier bis zum nächsten Laden.</item>
+    </plurals>
 </resources>

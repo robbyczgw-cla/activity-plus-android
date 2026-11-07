@@ -25,17 +25,49 @@ object HealthReader {
         if (packages.isEmpty()) return null
         val uids = packages.keys.toIntArray()
         val manager = context.getSystemService(SystemHealthManager::class.java) ?: return null
-        val stats = manager.takeUidSnapshots(uids)
+        val stats = readInBatches(uids) { manager.takeUidSnapshots(it) }
         val byUid = HashMap<Int, Wakeups.Counters>()
         var batteryMs: Long? = null
-        stats.forEachIndexed { i, s ->
-            if (s == null) return@forEachIndexed
-            byUid[uids[i]] = counters(s)
+        stats.forEach { (uid, s) ->
+            byUid[uid] = counters(s)
             // The same device-wide value in every uid's snapshot.
             if (batteryMs == null) batteryMs = s.measurement(UidHealthStats.MEASUREMENT_REALTIME_BATTERY_MS)
         }
         return Reading(Wakeups.Snapshot(nowMillis, batteryMs, byUid), packages)
     }
+
+    /**
+     * Portions, not all at once: the answer comes back through one binder reply, and hundreds of apps'
+     * counters can outgrow it, which fails the whole call. A portion that fails is halved; an app that
+     * still fails alone is skipped. When several fail alone it is not about size, so the error goes up.
+     * A missing permission never gets better by splitting.
+     */
+    internal fun <T : Any> readInBatches(uids: IntArray, take: (IntArray) -> Array<out T?>): Map<Int, T> {
+        val out = HashMap<Int, T>()
+        var failedAlone = 0
+        fun read(part: IntArray) {
+            try {
+                take(part).forEachIndexed { i, s -> if (s != null) out[part[i]] = s }
+            } catch (e: SecurityException) {
+                throw e
+            } catch (e: RuntimeException) {
+                if (part.size > 1) {
+                    read(part.copyOfRange(0, part.size / 2))
+                    read(part.copyOfRange(part.size / 2, part.size))
+                } else if (++failedAlone >= MAX_FAILED_ALONE) throw e
+            }
+        }
+        var start = 0
+        while (start < uids.size) {
+            val end = minOf(start + BATCH, uids.size)
+            read(uids.copyOfRange(start, end))
+            start = end
+        }
+        return out
+    }
+
+    private const val BATCH = 50
+    private const val MAX_FAILED_ALONE = 3
 
     /**
      * Apps only (uids from 10000 on): the system's own uids are nothing the user can act on.

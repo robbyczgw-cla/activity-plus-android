@@ -10,6 +10,7 @@
     <string name="sc_read_now">Read now</string>
     <string name="sc_read_again">Read again</string>
     <string name="sc_night">Tonight, %1$s</string>
+    <string name="sc_alarms_hidden">This phone does not hand its alarm list to apps, so alarms are missing here and only background jobs are shown.</string>
     <string name="sc_quiet">No app plans to wake the phone tonight.</string>
     <plurals name="sc_tonight_count">
         <item quantity="one">%d wakeup tonight</item>

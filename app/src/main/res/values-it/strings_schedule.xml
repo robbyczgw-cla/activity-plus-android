@@ -9,6 +9,7 @@
     <string name="sc_read_now">Leggi ora</string>
     <string name="sc_read_again">Leggi di nuovo</string>
     <string name="sc_night">Stanotte, %1$s</string>
+    <string name="sc_alarms_hidden">Questo telefono non fornisce alle app il suo elenco di sveglie: qui mancano le sveglie e vengono mostrate solo le attività in background.</string>
     <string name="sc_quiet">Nessuna app prevede di svegliare il telefono stanotte.</string>
     <plurals name="sc_tonight_count">
         <item quantity="one">%d risveglio stanotte</item>

@@ -9,6 +9,7 @@
     <string name="sc_read_now">立即读取</string>
     <string name="sc_read_again">再次读取</string>
     <string name="sc_night">今晚，%1$s</string>
+    <string name="sc_alarms_hidden">这台手机不向应用提供闹钟列表，因此这里缺少闹钟，只显示后台任务。</string>
     <string name="sc_quiet">今晚没有应用计划唤醒手机。</string>
     <plurals name="sc_tonight_count">
         <item quantity="other">今晚唤醒 %d 次</item>

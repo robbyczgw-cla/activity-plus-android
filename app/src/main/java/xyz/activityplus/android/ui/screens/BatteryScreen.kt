@@ -94,6 +94,7 @@ fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}, onOpen: (
     val sessions = rememberLoaded(minute.intValue) { app.history.sessions(12) }
     val context = LocalContext.current
     val background = rememberLoaded(minute.intValue) { loadBackgroundToday(context) }
+    val leftOut = rememberLoaded(minute.intValue) { loadBackgroundLeftOut(context) } ?: 0
     val powerRails = rememberPowerRailsSupport()
     val night = rememberNightCheck(morningOnly = false)
 
@@ -176,7 +177,7 @@ fun BatteryScreen(onPro: () -> Unit = {}, onSelfCost: () -> Unit = {}, onOpen: (
                 Glance.CardId.HABITS -> ChargingHabitsCard(b, settings.fahrenheit)
                 Glance.CardId.SESSIONS -> if (past != null) SessionsCard(past)
                 Glance.CardId.SCHEDULE -> ScheduleCard(onPro)
-                Glance.CardId.BACKGROUND -> if (background != null) BackgroundTodayCard(background, onPro) else BackgroundUnavailableCard(onPro)
+                Glance.CardId.BACKGROUND -> if (background != null) BackgroundTodayCard(background, onPro, leftOut) else BackgroundUnavailableCard(onPro)
                 Glance.CardId.PRO -> ProEntryCard(onPro)
             }
         }

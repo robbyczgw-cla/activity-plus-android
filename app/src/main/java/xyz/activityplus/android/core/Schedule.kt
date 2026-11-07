@@ -113,6 +113,8 @@ object Schedule {
         val runsSpanMs: Long?,
         /** Every app with a wakeup alarm or a job, noisiest first. */
         val apps: List<AppPlan>,
+        /** The phone gave no alarm report at all: [apps] only knows jobs. */
+        val alarmsHidden: Boolean = false,
     )
 
     /** For the Diagnosis finding: an app with the costly pattern. */
@@ -124,6 +126,7 @@ object Schedule {
      */
     fun plan(
         alarms: AlarmParser.Report, jobs: JobParser.Report?, nowMillis: Long, zone: ZoneId, ignore: Set<String> = emptySet(),
+        alarmsHidden: Boolean = false,
     ): Plan {
         val now = alarms.nowMillis ?: nowMillis
         val night = comingNight(now, zone)
@@ -143,6 +146,7 @@ object Schedule {
         return Plan(
             now, night, alarms.sinceBootMs, jobs?.runsSpanMs,
             apps.sortedWith(compareByDescending<AppPlan> { it.score }.thenByDescending { it.wakeupsAhead }.thenBy { it.pkg }),
+            alarmsHidden = alarmsHidden,
         )
     }
 

@@ -9,6 +9,7 @@
     <string name="sc_read_now">Lire maintenant</string>
     <string name="sc_read_again">Relire</string>
     <string name="sc_night">Cette nuit, %1$s</string>
+    <string name="sc_alarms_hidden">Ce téléphone ne transmet pas sa liste d\'alarmes aux applications : les alarmes manquent ici, seules les tâches en arrière-plan sont affichées.</string>
     <string name="sc_quiet">Aucune app ne prévoit de réveiller le téléphone cette nuit.</string>
     <plurals name="sc_tonight_count">
         <item quantity="one">%d réveil cette nuit</item>

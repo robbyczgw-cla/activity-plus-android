@@ -22,6 +22,10 @@ object ProParser {
         val unitScale: Double = 1.0,
         /** Units per mAh this report itself shows clearly, or null (see [ChargeUnit.detect]). */
         val detectedUnit: Double? = null,
+        /** Uids whose charge was impossible (see [BROKEN_FACTOR]); their [UidBattery.mah] is 0 here. */
+        val broken: Set<Int> = emptySet(),
+        /** Hardware rows left out of [system] for the same reason. */
+        val brokenSystem: Set<String> = emptySet(),
     ) {
         /** The biggest single value: tells whether the numbers can be mAh at all. */
         val biggest: Double get() = (byUid.values.map { it.mah } + system.values).maxOrNull() ?: 0.0
@@ -83,15 +87,25 @@ object ProParser {
                 f[3] == "bt" && f.size >= 6 -> onBattery = f[5].toLongOrNull()
             }
         }
+        // No single row can be more than the report's own total, in whatever unit it writes. A vivo X300
+        // wrote 4.4e10 for Wi-Fi (and so for every app using it) next to a total of 5551 and a screen of 793.
+        val limit = summary?.let { s -> listOfNotNull(s[1], s[3]).maxOrNull() }?.takeIf { it > 0 }?.times(BROKEN_FACTOR)
+        val broken = if (limit == null) emptySet() else mah.filterValues { it > limit }.keys.toSet()
+        val brokenSystem = if (limit == null) emptySet() else system.filterValues { it > limit }.keys.toSet()
         val uids = mah.keys + cpu.keys + wake.keys
         return BatteryReport(
-            byUid = uids.associateWith { UidBattery(mah[it] ?: 0.0, cpu[it] ?: 0, wake[it] ?: 0) },
+            byUid = uids.associateWith { UidBattery(if (it in broken) 0.0 else mah[it] ?: 0.0, cpu[it] ?: 0, wake[it] ?: 0) },
             packages = packages,
             onBatteryMs = onBattery,
-            system = system,
+            system = system - brokenSystem,
             detectedUnit = summary?.let { ChargeUnit.detect(it[1], it[2], it[3], it[0], capacityHint) },
+            broken = broken,
+            brokenSystem = brokenSystem,
         )
     }
+
+    /** How far above the report's own total a row may go before it counts as broken: rounding, not more. */
+    internal const val BROKEN_FACTOR = 1.5
 
     private val pssLine = Regex("""^\s*([\d,]+)K: (\S+) \(pid (\d+)""")
 

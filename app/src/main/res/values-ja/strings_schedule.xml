@@ -9,6 +9,7 @@
     <string name="sc_read_now">今すぐ読み取る</string>
     <string name="sc_read_again">もう一度読み取る</string>
     <string name="sc_night">今夜、%1$s</string>
+    <string name="sc_alarms_hidden">この端末はアラームの一覧をアプリに渡しません。そのためここにはアラームがなく、バックグラウンドのジョブだけを表示します。</string>
     <string name="sc_quiet">今夜端末を起こす予定のアプリはありません。</string>
     <plurals name="sc_tonight_count">
         <item quantity="other">今夜 %d 回ウェイクアップ</item>

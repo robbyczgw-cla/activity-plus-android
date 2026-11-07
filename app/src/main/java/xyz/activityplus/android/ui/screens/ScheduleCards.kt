@@ -82,14 +82,15 @@ suspend fun readSchedule(context: Context, viaShizuku: Boolean): Schedule.Plan {
         if (viaShizuku) { c -> ProShell.run(context, c) } else { c -> ProShell.readWithGrant(context, c) }
     val zone = ZoneId.systemDefault()
     val alarmText = read(ShellService.ALARMS)
-    check(AlarmParser.recognised(alarmText)) { "Alarm report not recognised" }
+    // A vivo X300 answers with nothing at all and no error, while the job report works: the jobs still make the card.
+    val alarmsHidden = alarmText.isBlank()
+    check(alarmsHidden || AlarmParser.recognised(alarmText)) { "Alarm report not recognised" }
     val alarms = AlarmParser.parse(alarmText)
-    // The alarms alone still make the card; the job list is a bonus.
     val jobText = read(ShellService.JOBS)
     check(JobParser.recognised(jobText)) { "Job report not recognised" }
     val jobs = JobParser.parse(jobText, zone)
     val now = System.currentTimeMillis()
-    val plan = Schedule.plan(alarms, jobs, now, zone, ignore = setOf("android", context.packageName))
+    val plan = Schedule.plan(alarms, jobs, now, zone, ignore = setOf("android", context.packageName), alarmsHidden = alarmsHidden)
     PlanCache.last = now to plan
     return plan
 }
@@ -182,7 +183,9 @@ private fun PlanBody(plan: Schedule.Plan, onSelect: (String) -> Unit) {
     val night = time(context, plan.night.first) + " – " + time(context, plan.night.last + 1)
     PlanSubTitle(stringResource(R.string.sc_night, night))
     val top = Schedule.noisiest(plan, 5)
-    if (top.isEmpty()) Note(stringResource(R.string.sc_quiet))
+    // Without the alarm list, "no app plans to wake the phone" would be a claim nobody can make.
+    if (plan.alarmsHidden) Note(stringResource(R.string.sc_alarms_hidden))
+    else if (top.isEmpty()) Note(stringResource(R.string.sc_quiet))
     top.forEach { PlanRow(it) { onSelect(it.pkg) } }
     Spacer(Modifier.height(6.dp))
     Note(stringResource(R.string.sc_explain))

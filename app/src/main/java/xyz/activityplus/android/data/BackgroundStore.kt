@@ -250,6 +250,13 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
         meta(META_UNIT_APPLIED)?.toDoubleOrNull() ?: confirmedUnit() ?: 1.0
 
     /** The biggest single charge stored for an app and day: tells whether old rows are in a wrong unit. */
+    /** Sets impossible charge (above [limitMah] for one app) to nothing known, keeping CPU and wakelocks. */
+    fun dropImpossible(limitMah: Double) {
+        val db = writableDatabase
+        db.execSQL("UPDATE days SET mah = 0 WHERE mah > ?", arrayOf(limitMah))
+        db.execSQL("UPDATE interval_apps SET mah = 0 WHERE mah > ?", arrayOf(limitMah))
+    }
+
     fun maxDayMah(): Double =
         readableDatabase.rawQuery("SELECT MAX(mah) FROM days", null).use { c -> if (c.moveToFirst() && !c.isNull(0)) c.getDouble(0) else 0.0 }
 
@@ -267,6 +274,8 @@ class BackgroundStore private constructor(context: Context) : SQLiteOpenHelper(c
         const val META_MORNING_TS = "morning_ts"
         const val META_UNPLUGGED = "unplugged_ts"
         const val META_PRUNED = "pruned_ts"
+        /** Apps the last report gave impossible values for (see ProParser.BROKEN_FACTOR). */
+        const val META_LEFT_OUT = "left_out"
         /** Units per mAh of this phone's battery report, once confirmed (see ChargeUnit, [noteUnit]). */
         const val META_UNIT_SCALE = "unit_scale"
         /** The unit the stored rows are in (see [applyUnit]). */

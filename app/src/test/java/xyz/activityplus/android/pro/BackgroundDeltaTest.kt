@@ -220,4 +220,19 @@ class BackgroundScheduleTest {
             BackgroundSchedule.lastDays(LocalDate.of(2026, 10, 1), 3),
         )
     }
+
+    @Test fun `a broken row keeps its last good value and adds nothing`() {
+        val prev = BackgroundDelta.Snapshot(1000, 10, 5, mapOf(10_001 to ProParser.UidBattery(40.0, 0, 0), 10_002 to ProParser.UidBattery(10.0, 0, 0)), 100.0)
+        val report = ProParser.BatteryReport(
+            byUid = mapOf(10_001 to ProParser.UidBattery(0.0, 0, 0), 10_002 to ProParser.UidBattery(12.0, 0, 0)),
+            packages = mapOf(10_001 to listOf("a.b"), 10_002 to listOf("c.d")), onBatteryMs = 20, system = mapOf("scrn" to 60.0),
+            broken = setOf(10_001), brokenSystem = setOf("wifi"),
+        )
+        val next = BackgroundDelta.keepBroken(BackgroundDelta.snapshot(2000, report, 5), prev, report)
+        assertEquals(40.0, next.byUid.getValue(10_001).mah, 0.0)
+        assertEquals(100.0, next.hardwareMah, 0.0)
+        val interval = BackgroundDelta.interval(prev, next, report.packages, false)!!
+        assertEquals(false, interval.reset)
+        assertEquals(listOf("c.d"), interval.apps.filter { it.mah > 0 }.map { it.pkg })
+    }
 }

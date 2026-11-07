@@ -2,4 +2,8 @@
 <resources>
     <!-- Battery report in another unit than mAh on this phone, not confirmed yet (see ChargeUnit) -->
     <string name="unit_pending">Android\'s battery report on this phone does not use mAh. Activity+ is still working out its unit (it needs two reports that agree, read every 3 hours and when you plug in), so for now it shows each app\'s share only.</string>
+    <plurals name="bg_left_out">
+        <item quantity="one">Android\'s battery report on this phone currently gives %d app an impossible value, more than the battery gave in total since the last charge. That app is left out until the next charge.</item>
+        <item quantity="other">Android\'s battery report on this phone currently gives %d apps impossible values, more than the battery gave in total since the last charge. These apps are left out until the next charge.</item>
+    </plurals>
 </resources>
